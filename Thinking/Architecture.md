@@ -1,4 +1,4 @@
-#Architecture
+# Architecture
 
 #### Dépense
 - On aura un sous-menu en haut de l'écran pour voir les dépenses du jour / mois / année
