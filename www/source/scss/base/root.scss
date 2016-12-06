@@ -1,0 +1,27 @@
+/* EspaceP
+ *
+ * /scss/base/root.scss - ROOT stylesheet
+ *
+ * coded by Dylan Schirino
+ * started at 19/07/2016
+ */
+
+a{
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+body{
+  font-size: 62.5%;
+  //background: url("../images/grid.png")repeat-y center;
+  //opacity: 0.4;
+  width: 375px;
+  margin: auto;
+}
+
+.header{
+  &__status{
+    display: block;
+    margin: 7px auto 0px auto;
+  }
+}

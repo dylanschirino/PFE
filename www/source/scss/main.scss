@@ -1,0 +1,25 @@
+/* PFE In the Pocket
+ *
+ * /sass/styles.scss - Main stylesheet
+ *
+ * coded by Dylan Schirino
+ * started at 06/12/2016
+ */
+
+// 1. Settings - Variables globales
+//@import "settings/paths";
+@import "settings/colors";
+@import "settings/fonts";
+@import "settings/hidden";
+
+// 2. Tools - Mixins globaux, functions & outils
+
+// 3. Generic - Style de remise à zéro (reset, normalize…)
+@import "generic/meyer-reset";
+
+// 4. Base - Éléments bruts
+@import "base/root";
+
+// 5. Objects - Éléments de mise en forme non-cosmétique
+
+// 6. Components - Élements de mise en forme cosmétique
