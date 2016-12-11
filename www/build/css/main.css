@@ -171,7 +171,8 @@ body {
   50% {
     opacity: 0; }
   100% {
-    opacity: 1; } }
+    opacity: 1;
+    fill: #235182; } }
 
 @-moz-keyframes plus {
   0% {
@@ -179,7 +180,8 @@ body {
   50% {
     opacity: 0; }
   100% {
-    opacity: 1; } }
+    opacity: 1;
+    fill: #235182; } }
 
 @keyframes plus {
   0% {
@@ -187,7 +189,8 @@ body {
   50% {
     opacity: 0; }
   100% {
-    opacity: 1; } }
+    opacity: 1;
+    fill: #235182; } }
 
 @-webkit-keyframes dash {
   to {
