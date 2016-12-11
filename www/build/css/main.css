@@ -146,6 +146,63 @@ body {
 
 /* PFE In the Pocket
  *
+ * /sass/components/Animation.scss - Animation components
+ *
+ * coded by Dylan Schirino
+ * started at 11/12/2016
+ */
+.plus-un {
+  animation: 4s infinite plus; }
+
+.plus-deux {
+  animation: 6s infinite plus; }
+
+.plus-trois {
+  animation: 5s infinite plus; }
+
+.line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 30s infinite forwards; }
+
+@-webkit-keyframes plus {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-moz-keyframes plus {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes plus {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes dash {
+  to {
+    stroke-dashoffset: 0; } }
+
+@-moz-keyframes dash {
+  to {
+    stroke-dashoffset: 0; } }
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0; } }
+
+/* PFE In the Pocket
+ *
  * /sass/components/introCards.scss - IntroCards components
  *
  * coded by Dylan Schirino
