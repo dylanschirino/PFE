@@ -97,6 +97,9 @@ gulp.task('svgmin', function () {
 gulp.task('sass', function(){
 
   return gulp.src(css.in)
+  .pipe(sass({
+    includePaths: require('bourbon').includePaths
+  }))
   .pipe(sass(css.sassOpts))
   .pipe(gulp.dest(css.out))
   .pipe(browserSync.reload({stream: true}));
