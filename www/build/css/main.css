@@ -115,3 +115,80 @@ body {
 .header__status {
   display: block;
   margin: 7px auto 0px auto; }
+
+/* PFE In the Pocket
+ *
+ * /sass/object/introCards.scss - IntroCards object
+ *
+ * coded by Dylan Schirino
+ * started at 11/12/2016
+ */
+.introCards {
+  margin: 2em; }
+
+.introCards__svg {
+  margin: 2.6em auto 0 auto;
+  display: block; }
+
+.introCards__title {
+  margin: 1.7em 0 1em 0; }
+
+.introCards__nav {
+  margin: 4.2em auto;
+  width: 18em; }
+
+.introCards__element + .introCards__element {
+  margin-left: 2.7em; }
+
+.introCards__button {
+  width: 17.6875em;
+  margin: 0 auto 1.5625em auto; }
+
+/* PFE In the Pocket
+ *
+ * /sass/components/introCards.scss - IntroCards components
+ *
+ * coded by Dylan Schirino
+ * started at 11/12/2016
+ */
+.introCards {
+  border: 1px solid #235182;
+  border-radius: 8px;
+  color: #235182; }
+
+.introCards__title {
+  font: 2em/1.1em "droid_regular";
+  text-align: center; }
+
+.introCards__subtitle {
+  font: 1.8em/1.5em "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  padding: 0 1.8em; }
+
+.introCards__element {
+  display: inline-block; }
+
+.introCards__link::before {
+  content: "";
+  width: 19.75px;
+  height: 15px;
+  display: block;
+  border: 1px solid #235182;
+  border-radius: 2.5px; }
+
+.introCards__link--active::before {
+  background: #235182; }
+
+.introCards__button {
+  font: 1.6em/3.3em "droid_regular";
+  text-align: center;
+  color: white;
+  background: #235182;
+  border-radius: 8px;
+  transition: .2s ease-in;
+  border: 1px solid white; }
+
+.introCards__button:hover, .introCards__button:focus {
+  background: white;
+  color: #235182;
+  border: 1px solid #235182; }

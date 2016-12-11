@@ -1,0 +1,28 @@
+/* PFE In the Pocket
+ *
+ * /sass/object/introCards.scss - IntroCards object
+ *
+ * coded by Dylan Schirino
+ * started at 11/12/2016
+ */
+.introCards{
+  margin: 2em;
+  &__svg{
+    margin: 2.6em auto 0 auto;
+    display: block;
+  }
+  &__title{
+    margin: 1.7em 0 1em 0;
+  }
+  &__nav{
+    margin: 4.2em auto;
+    width: 18em;
+  }
+  &__element + &__element{
+    margin-left: 2.7em;
+  }
+  &__button{
+    width: 17.6875em;
+    margin: 0 auto 1.5625em auto;
+  }
+}

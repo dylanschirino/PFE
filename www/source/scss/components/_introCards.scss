@@ -1,0 +1,53 @@
+/* PFE In the Pocket
+ *
+ * /sass/components/introCards.scss - IntroCards components
+ *
+ * coded by Dylan Schirino
+ * started at 11/12/2016
+ */
+ .introCards{
+   border: 1px solid $CardsColor;
+   border-radius: 8px;
+   color: $CardsColor;
+   &__title{
+     font: 2em/1.1em $titleFont;
+     text-align: center;
+   }
+   &__subtitle{
+     font: 1.8em/1.5em $texteFont;
+     text-align: center;
+     padding: 0 1.8em ;
+   }
+   &__element{
+     display: inline-block;
+   }
+   &__link{
+     &::before{
+       content: "";
+       width: 19.75px;
+       height: 15px;
+       display: block;
+       border: 1px solid $CardsColor;
+       border-radius: 2.5px;
+     }
+     &--active{
+       &::before{
+         background: $CardsColor;
+       }
+     }
+   }
+   &__button{
+     font: 1.6em/3.3em $titleFont;
+     text-align: center;
+     color: $white;
+     background: $CardsColor;
+     border-radius: 8px;
+     transition: .2s ease-in;
+     border: 1px solid $white;
+     &:hover, &:focus{
+       background: $white;
+       color: $CardsColor;
+       border: 1px solid $CardsColor;
+     }
+   }
+ }
