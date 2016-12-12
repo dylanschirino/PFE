@@ -204,6 +204,21 @@ body {
   to {
     stroke-dashoffset: 0; } }
 
+#swipe {
+  animation: .4s forwards swipe; }
+
+@-webkit-keyframes swipe {
+  from {
+    transform: translateX(375px); } }
+
+@-moz-keyframes swipe {
+  from {
+    transform: translateX(375px); } }
+
+@keyframes swipe {
+  from {
+    transform: translateX(375px); } }
+
 /* PFE In the Pocket
  *
  * /sass/components/introCards.scss - IntroCards components

@@ -38,3 +38,14 @@
      stroke-dashoffset: 0;
    }
  }
+
+
+#swipe{
+  animation: .4s forwards swipe;
+}
+
+@include keyframes (swipe) {
+  from{
+    transform: translateX(375px);
+  }
+}
