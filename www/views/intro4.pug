@@ -1,0 +1,146 @@
+doctype html
+html(lang="fr")
+    head
+      <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+      <![endif]-->
+        meta(charset="utf-8")
+        meta(name="description", content="InThePocket | Application de gestion des dépenses")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
+        title= "InThePocket - Maquette HTML"
+        link(rel='stylesheet', href='css/main.css', type='text/css')
+
+    body#swipe
+      include template/_header.pug
+      div.introCards
+        <svg class="introCards__svg" width="215" height="224" viewBox="0 0 215 224" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(-1)" fill="none" fill-rule="evenodd">
+            <path d="M122 181.8c9 19-2.5 19.8-2.5 19.8-6.2 1.8-7.2-13.5-7.2-13.5-6.2 2-41.5 1.2-41.5 1.2s5.2 17-14 14.5c0 0 6-11.2 1.2-18" stroke="#235182"/>
+            <path d="M18.8 133.8s21.5-13 26.2-18.5c0 0 14.8-17.5 35-14.2V83.5s20.5 5.5 13.8 20.2l14.4-2c3.1-.4 6.1-1 9.1-1.6 37.8-7.7 45.9 17.8 47.4 25.4l1.2 5.7c15 63.8-41.7 56-41.7 56" stroke="#235182"/>
+            <path d="M93.5 106.7c-.6 3.6-2.2 9.4-7.2 12.8 0 0 5.7-21.6-5.3-34.9-.3-.3.1-.8.4-.6 4.1 1.5 15.7 6.7 13.2 17.3-.5 1.8-.8 3.6-1.1 5.4z" stroke="#235182" fill="#8DA6BC"/>
+            <path d="M63.9 102.5v-19S77.2 88.3 80 96.3" stroke="#235182"/>
+            <ellipse stroke="#235182" stroke-width="1.127" cx="16.7" cy="145.4" rx="5.6" ry="12.5"/>
+            <path d="M18.8 157.5s19.8 10 45.2-2.5" stroke="#235182" stroke-width="1.168"/>
+            <path d="M24.3 159.4S27 192.8 59 187.5" stroke="#235182" stroke-width="1.168"/>
+            <path d="M45.9 125s-1.2 4 2.5 5.4c.7.3 1.5.4 2.3.3 2.3-.2 7-1.2 4.5-7" stroke="#235182" stroke-width="1.168"/>
+            <path d="M165 127.2c20.7-5.1 24.6.8 25 4.9.2 2-1.6 3.6-3.6 3.1-7-1.6-6.8-10.2-6.8-10.2 3.4-10.4 19.4-12 19.4-12l-1.7-4.3c-32.5 9.4-24.8 23-19.2 29 2.2 2.4 5.4 3.9 8.6 3.9 8.3-.1 6.6-9.3 6.6-9.3-4-15.8-29.5-10-29.5-10l1.2 4.9z" stroke="#235182"/>
+            <g transform="translate(102 36)">
+              <path stroke="#235182" stroke-width=".984" d="M1.3 0h36.2v59.3H1.3z"/>
+              <path stroke="#235182" stroke-width=".833" d="M4.2 3.6h29.3v52.5H4.2z"/>
+              <ellipse fill="#235182" cx="3.8" cy="1.8" rx="3.1" ry="1.8"/>
+              <ellipse fill="#235182" cx="34.7" cy="1.8" rx="3.1" ry="1.8"/>
+              <ellipse fill="#235182" cx="34.7" cy="57.6" rx="3.1" ry="1.8"/>
+              <ellipse fill="#235182" cx="4" cy="57.6" rx="3.1" ry="1.8"/>
+              <ellipse stroke="#235182" stroke-width="1.057" cx="18.9" cy="28.5" rx="14.7" ry="11.2"/>
+              <text fill="#235182" transform="rotate(-90 18 27.692)" font-family="Helvetica" font-size="20">
+                <tspan x="12" y="34.692">$</tspan>
+              </text>
+            </g>
+            <g stroke="#1D4678" stroke-linecap="square">
+              <path d="M103.5.5v22"/>
+              <path d="M136.9.5v22"/>
+              <path d="M103.5 24.5v5"/>
+              <path d="M136.9 24.5v5"/>
+              <path d="M111.5 1.5v13"/>
+              <path d="M111.5 22.5v9"/>
+              <path d="M120.5.5v16"/>
+              <path d="M120.5 24.5v6"/>
+              <path d="M127.5 14.5v6"/>
+              <path d="M127.5 3.5v6"/>
+              <path d="M127.5 25.1v6"/>
+            </g>
+            <g stroke="#8EA6BC" font-family="Helvetica" stroke-width=".731" fill="#538EB6" font-size="10">
+              <text transform="translate(0 31)">
+                <tspan x="146.959" y="10.939">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="151.5" y="37.606">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="159.963" y="54.273">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="174.63" y="37.606">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="210.297" y="44.667">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="202.963" y="64.372">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="172.63" y="82">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="90.297" y="52.5">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="45.728" y="74.166">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="18.75" y="85.5">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="38.5" y="55.833">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x=".833" y="114.625">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="8.167" y="143">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="29.586" y="159.333">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="85.92" y="177.334">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="133.6" y="184.667">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="165.157" y="152.5">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="184.49" y="161.876">+</tspan>
+              </text>
+              <text transform="translate(0 31)">
+                <tspan x="194.49" y="124">+</tspan>
+              </text>
+            </g>
+            <g stroke-linecap="square">
+              <path d="M5.5 223.5h47" stroke="#1D4678"/>
+              <path d="M58.5 223.5h11" stroke="#1D4678"/>
+              <path d="M5.5 203.5h66" stroke="#1D4678"/>
+              <path d="M68.5 212.5h50" stroke="#1D4678"/>
+              <path d="M102.5 202.5h28" stroke="#193C6E"/>
+              <path d="M137.5 202.5h11" stroke="#1D4678"/>
+              <path d="M152.5 208.5h23" stroke="#1D4678"/>
+              <path d="M153.5 219.5h23" stroke="#1D4678"/>
+              <path d="M133.5 219.5h12" stroke="#193C6E"/>
+            </g>
+            <path d="M103.5 110.5h36" stroke="#819CB5" stroke-linecap="square"/>
+          </g>
+        </svg>
+        h1.introCards__title Épargner pour mieux rebondir
+        p.introCards__subtitle
+          | Dans combien de temps pourrez-vous vous offrir la voiture de vos rêves en mettant
+          span.introCards__bold  10€&nbsp;/&nbsp;mois&nbsp;?
+
+        ul.introCards__nav
+          li.introCards__element
+            a.introCards__link(href="index.html", title="Vers la cards numéro 1")
+              span.hidden Introduction 1
+          li.introCards__element
+            a.introCards__link(href="intro2.html", title="Vers la cards numéro 2")
+              span.hidden Introduction 2
+          li.introCards__element
+            a.introCards__link(href="intro3.html", title="Vers la cards numéro 3")
+              span.hidden Introduction 3
+          li.introCards__element
+            a.introCards__link.introCards__link--active(href="intro4.html", title="Vers la cards numéro 4")
+              span.hidden Introduction 4
+        a.introCards__button(href="inscription.html", title="Vers la page inscription") Passer les introductions !
+      script(src="https://code.jquery.com/jquery-3.1.1.min.js")
+      script(src="script/touchswipe.js")
+      script(type="text/javascript", src="script/script.js")
