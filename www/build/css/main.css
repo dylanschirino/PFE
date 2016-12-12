@@ -219,6 +219,31 @@ body {
   from {
     transform: translateX(375px); } }
 
+.left-sheet {
+  transform: translateX(40px);
+  opacity: 0;
+  animation: 1s forwards appear; }
+
+.right-sheet {
+  transform: translateX(-55px);
+  opacity: 0;
+  animation: 1s forwards appear; }
+
+@-webkit-keyframes appear {
+  to {
+    transform: translateX(0px);
+    opacity: 1; } }
+
+@-moz-keyframes appear {
+  to {
+    transform: translateX(0px);
+    opacity: 1; } }
+
+@keyframes appear {
+  to {
+    transform: translateX(0px);
+    opacity: 1; } }
+
 /* PFE In the Pocket
  *
  * /sass/components/introCards.scss - IntroCards components

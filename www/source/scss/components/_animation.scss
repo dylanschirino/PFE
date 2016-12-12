@@ -5,6 +5,8 @@
  * coded by Dylan Schirino
  * started at 11/12/2016
  */
+
+ //Plus et Line animation
  .plus-un{
    animation: 4s infinite plus;
  }
@@ -31,21 +33,36 @@
     fill:$CardsColor;
   }
  }
-
-
  @include keyframes (dash) {
    to {
      stroke-dashoffset: 0;
    }
  }
 
-
+// Swipe animation
 #swipe{
   animation: .4s forwards swipe;
 }
-
 @include keyframes (swipe) {
   from{
     transform: translateX(375px);
+  }
+}
+//Feuille qui apparaissent
+.left-sheet{
+  transform: translateX(40px);
+  opacity: 0;
+  animation: 1s forwards appear;
+}
+.right-sheet{
+  transform: translateX(-55px);
+  opacity: 0;
+  animation: 1s forwards appear;
+}
+
+@include keyframes (appear) {
+  to{
+    transform: translateX(0px);
+    opacity: 1;
   }
 }
