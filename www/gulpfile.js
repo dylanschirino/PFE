@@ -70,7 +70,7 @@ gulp.task('clean', function(){
 
 gulp.task( "lint", function() {
     return gulp
-        .src( "src/**/*.js" )
+        .src( "build/script/*.js" )
         .pipe( gESLint() )
         .pipe( gESLint.format() );
 } );
