@@ -24,6 +24,9 @@ $(function() {
   else if( currentUrl == 'http://localhost:3000/intro3.html'){
     $(location).attr('href','intro2.html');
   }
+  else if( currentUrl == 'http://localhost:3000/intro4.html'){
+    $(location).attr('href','intro3.html');
+  }
 }
   });
 
