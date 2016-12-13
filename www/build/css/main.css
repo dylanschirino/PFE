@@ -244,6 +244,36 @@ body {
     transform: translateX(0px);
     opacity: 1; } }
 
+.billet {
+  animation: 5s forwards slide; }
+
+@-webkit-keyframes slide {
+  0% {
+    transform: translateY(0px); }
+  50% {
+    transform: translateY(30px);
+    opacity: 0.5; }
+  100% {
+    transform: translateY(15px); } }
+
+@-moz-keyframes slide {
+  0% {
+    transform: translateY(0px); }
+  50% {
+    transform: translateY(30px);
+    opacity: 0.5; }
+  100% {
+    transform: translateY(15px); } }
+
+@keyframes slide {
+  0% {
+    transform: translateY(0px); }
+  50% {
+    transform: translateY(30px);
+    opacity: 0.5; }
+  100% {
+    transform: translateY(15px); } }
+
 /* PFE In the Pocket
  *
  * /sass/components/introCards.scss - IntroCards components
