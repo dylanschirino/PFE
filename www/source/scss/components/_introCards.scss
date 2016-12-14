@@ -6,9 +6,9 @@
  * started at 11/12/2016
  */
  .introCards{
-   border: 1px solid $CardsColor;
+   border: 1px solid $MainColor;
    border-radius: 8px;
-   color: $CardsColor;
+   color: $MainColor;
    &__title{
      font: 2em/1.1em $titleFont;
      text-align: center;
@@ -33,12 +33,12 @@
        width: 19.75px;
        height: 15px;
        display: block;
-       border: 1px solid $CardsColor;
+       border: 1px solid $MainColor;
        border-radius: 2.5px;
      }
      &--active{
        &::before{
-         background: $CardsColor;
+         background: $MainColor;
        }
      }
    }
@@ -46,14 +46,14 @@
      font: 1.6em/3.3em $titleFont;
      text-align: center;
      color: $white;
-     background: $CardsColor;
+     background: $MainColor;
      border-radius: 8px;
      transition: .2s ease-in;
      border: 1px solid $white;
      &:hover, &:focus{
        background: $white;
-       color: $CardsColor;
-       border: 1px solid $CardsColor;
+       color: $MainColor;
+       border: 1px solid $MainColor;
      }
    }
  }
