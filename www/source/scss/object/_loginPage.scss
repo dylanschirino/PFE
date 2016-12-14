@@ -1,0 +1,17 @@
+/* PFE In the Pocket
+ *
+ * /sass/object/LoginPage.scss - LoginPage object
+ *
+ * coded by Dylan Schirino
+ * started at 14/12/2016
+ */
+
+ .loginPage{
+   &__container{
+     width: 30.5em;;
+     margin: auto;
+   }
+   &__facebook{
+     margin: 2.5em auto 1.875em auto;
+   }
+ }

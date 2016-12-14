@@ -5,6 +5,13 @@
  * coded by Dylan Schirino
  * started at 06/12/2016
  */
+/* PFE In the Pocket
+ *
+ * /sass/settings/Colors.scss - Main color of my project
+ *
+ * coded by Dylan Schirino
+ * started at 14/12/2016
+ */
 @font-face {
   font-family: 'droid_bold';
   src: url("../fonts/droid/droidsans-bold-webfont.woff2") format("woff2"), url("../fonts/droid/droidsans-bold-webfont.woff") format("woff"), url("../fonts/droid/droidsans-bold-webfont.svg#droid_sansbold") format("svg");
@@ -109,6 +116,8 @@ a {
 
 body {
   font-size: 62.5%;
+  background: url("../images/grid.png") repeat-y center;
+  opacity: 0.4;
   width: 375px;
   margin: auto; }
 
@@ -146,11 +155,28 @@ body {
 
 /* PFE In the Pocket
  *
+ * /sass/object/LoginPage.scss - LoginPage object
+ *
+ * coded by Dylan Schirino
+ * started at 14/12/2016
+ */
+.loginPage__container {
+  width: 30.5em;
+  margin: auto; }
+
+.loginPage__facebook {
+  margin: 2.5em auto 1.875em auto; }
+
+/* PFE In the Pocket
+ *
  * /sass/components/Animation.scss - Animation components
  *
  * coded by Dylan Schirino
  * started at 11/12/2016
  */
+/*************************************
+      ANIMATION DES + ET DES LIGNES
+  ************************************/
 .plus-un {
   animation: 4s infinite plus; }
 
@@ -204,6 +230,9 @@ body {
   to {
     stroke-dashoffset: 0; } }
 
+/*************************************
+      ANIMATION SWIPE
+  ************************************/
 #swipe {
   animation: .4s forwards swipe; }
 
@@ -219,6 +248,9 @@ body {
   from {
     transform: translateX(375px); } }
 
+/*************************************
+     FEUILLES QUI APPARAISSENT
+ ************************************/
 .left-sheet {
   transform: translateX(40px);
   opacity: 0;
@@ -244,6 +276,9 @@ body {
     transform: translateX(0px);
     opacity: 1; } }
 
+/*************************************
+            ANIMATION BILLET
+ ************************************/
 .billet {
   animation: 5s forwards slide; }
 
@@ -328,3 +363,38 @@ body {
   background: white;
   color: #235182;
   border: 1px solid #235182; }
+
+/* PFE In the Pocket
+ *
+ * /sass/components/LoginPage.scss - LoginPage components
+ *
+ * coded by Dylan Schirino
+ * started at 14/12/2016
+ */
+.loginPage {
+  background-color: #F8FDFF;
+  color: #235182; }
+
+.loginPage__title {
+  font: 3.2em/1.618em "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 1.09375em; }
+
+.loginPage__title::after {
+  content: "";
+  display: block;
+  width: 66%;
+  margin: auto;
+  height: 1px;
+  background-color: #235182; }
+
+.loginPage__facebook {
+  background-color: #235182;
+  color: white;
+  font: 1.6em/1.618em "droid_regular";
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 1.25em 0; }

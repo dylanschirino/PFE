@@ -1,0 +1,18 @@
+doctype html
+html(lang="fr")
+    head
+      <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+      <![endif]-->
+        meta(charset="utf-8")
+        meta(name="description", content="InThePocket | Application de gestion des dépenses")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
+        title= "InThePocket - Maquette HTML"
+        link(rel='stylesheet', href='css/main.css', type='text/css')
+
+    body
+      include template/_header.pug
+      div.loginPage
+        div.loginPage__container
+          h1.loginPage__title Inscription
+          a.loginPage__facebook(href="http://facebook.com", title="Inscription gràce à votre compte facebook") S'inscrire avec facebook
