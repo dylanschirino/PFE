@@ -13,6 +13,9 @@ $(function() {
     else if( currentUrl == 'http://localhost:3000/intro3.html'){
       $(location).attr('href','intro4.html');
     }
+    else if( currentUrl == 'http://localhost:3000/intro4.html'){
+      $(location).attr('href','inscription.html');
+    }
   },
 
   swipeRight:function(event, direction, distance, duration, fingerCount, fingerData) {
