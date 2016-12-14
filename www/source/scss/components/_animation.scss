@@ -6,7 +6,9 @@
  * started at 11/12/2016
  */
 
- //Plus et Line animation
+ /*************************************
+      ANIMATION DES + ET DES LIGNES
+  ************************************/
  .plus-un{
    animation: 4s infinite plus;
  }
@@ -39,7 +41,9 @@
    }
  }
 
-// Swipe animation
+ /*************************************
+      ANIMATION SWIPE
+  ************************************/
 #swipe{
   animation: .4s forwards swipe;
 }
@@ -48,7 +52,9 @@
     transform: translateX(375px);
   }
 }
-//Feuille qui apparaissent
+/*************************************
+     FEUILLES QUI APPARAISSENT
+ ************************************/
 .left-sheet{
   transform: translateX(40px);
   opacity: 0;
@@ -66,8 +72,9 @@
     opacity: 1;
   }
 }
-
-// Animation du billet
+/*************************************
+            ANIMATION BILLET
+ ************************************/
 .billet{
   animation: 5s forwards slide
 }
