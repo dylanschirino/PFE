@@ -284,8 +284,8 @@ body {
   0% {
     transform: translateY(0px); }
   50% {
-    transform: translateY(30px);
-    opacity: 0.5; }
+    transform: translateY(80px);
+    opacity: 0; }
   100% {
     transform: translateY(15px); } }
 
@@ -293,8 +293,8 @@ body {
   0% {
     transform: translateY(0px); }
   50% {
-    transform: translateY(30px);
-    opacity: 0.5; }
+    transform: translateY(80px);
+    opacity: 0; }
   100% {
     transform: translateY(15px); } }
 
@@ -302,8 +302,8 @@ body {
   0% {
     transform: translateY(0px); }
   50% {
-    transform: translateY(30px);
-    opacity: 0.5; }
+    transform: translateY(80px);
+    opacity: 0; }
   100% {
     transform: translateY(15px); } }
 
