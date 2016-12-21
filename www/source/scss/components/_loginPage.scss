@@ -87,8 +87,19 @@
     &:-moz-placeholder {color:#6788AB;}
     &::-moz-placeholder {color:#6788AB;}
     &:-ms-input-placeholder {color:#6788AB;}
+    &--last{
+      margin-bottom: 0;
+      margin-bottom: 0.9375em;
+    }
    }
    &__svg{
      margin-bottom: -3px;
+   }
+   &__link{
+     text-align: center;
+     font: 1.3em/1.618em $texteFontRegular;
+     text-decoration: underline;
+     color: #34586B;
+     padding-bottom: 1.2em;
    }
  }

@@ -473,5 +473,16 @@ body {
 .loginPage__input:-ms-input-placeholder {
   color: #6788AB; }
 
+.loginPage__input--last {
+  margin-bottom: 0;
+  margin-bottom: 0.9375em; }
+
 .loginPage__svg {
   margin-bottom: -3px; }
+
+.loginPage__link {
+  text-align: center;
+  font: 1.3em/1.618em "latoregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: underline;
+  color: #34586B;
+  padding-bottom: 1.2em; }
