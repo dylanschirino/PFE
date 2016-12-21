@@ -39,8 +39,25 @@
     </header>
     <div>
       <div class="loginPage__container">
-        <h1 class="loginPage__title">Inscription</h1><a class="loginPage__facebook" scope="public_profile,email" onclick="FB.login()" onlogin="checkLoginState();">S'inscrire avec facebook</a>
-      </div>
+        <h1 class="loginPage__title">Inscription</h1><a class="loginPage__button" scope="public_profile,email" onclick="FB.login()" onlogin="checkLoginState();">S'inscrire avec facebook</a>
+        <form class="loginPage__form">
+          <label class="loginPage__label loginPage__label--mail" for="mail">Email</label>
+          <input class="loginPage__input" id="mail" type="email" placeholder="dylan.schirino@hotmail.fr">
+          <label class="loginPage__label loginPage__label--password" for="password1">Mot de passe</label>
+          <input class="loginPage__input" id="password1" type="password">
+          <label class="loginPage__label loginPage__label--passwordConfirm" for="password2">Confirmer mot de passe</label>
+          <input class="loginPage__input" id="password2" type="password">
+        </form><a class="loginPage__button loginPage__button--subscribe" href="connexion.html">S'inscrire&nbsp;!</a>
+      </div><svg class="loginPage__svg" width="375px" height="96px" viewBox="0 0 375 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Inscription" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.600000024">
+<g transform="translate(0.000000, -571.000000)" id="Cercle">
+<g transform="translate(-18.000000, 571.000000)">
+<path d="M17.6461169,7.22323547 L17.6461169,99.8395576 L392.933053,95.6500388 C392.933053,95.6500388 197.904488,-31.1154253 17,7.22323547" id="Cercle-Right" fill="#BCDCFF"></path>
+<path d="M393.17409,96.3885389 L0,97.8254533 C0,97.8254533 251.738129,-11.6548796 393.17409,32.8222468" id="Cercle-Left" fill="#B2D9F3"></path>
+</g>
+</g>
+</g>
+</svg>
     </div>
     <script type="text/javascript" src="script/facebookLogin.js"></script>
   </body>

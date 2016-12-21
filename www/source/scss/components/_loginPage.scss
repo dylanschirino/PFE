@@ -22,7 +22,7 @@
        background-color: $MainColor;
      }
    }
-   &__facebook{
+   &__button{
      background-color: $MainColor;
      color: $white;
      font: 1.6em/1.618em $titleFont;
@@ -31,5 +31,59 @@
      text-align: center;
      border-radius: 8px;
      padding: 1.25em 0;
+     &--subscribe{
+       background: none;
+       border: 1px solid $LightBlue;
+       color: $LightBlue;
+       margin: 0;
+       margin-bottom: 2.8em;
+       padding: 0;
+       padding: 1.1875em 0;
+     }
+   }
+   &__label{
+     display: block;
+     font: 1.2em/1.618em $texteFont;
+     text-transform: uppercase;
+     color: $MainColor;
+     font-family: $texteFontRegular;
+     &:before{
+       display:inline-block;
+       font: 2.2em/1.618em $glyphs;
+       vertical-align: middle;
+       padding-right: 5px;
+       margin-left: -4px;
+       color: $MainColor;
+     }
+     &--mail:before{
+       content: "\e90c";
+     }
+     &--password:before{
+       content:"\e912";
+       margin-left: 0px;
+     }
+     &--passwordConfirm:before{
+       content: "\e913";
+       margin-left: 0px;
+     }
+   }
+   &__input{
+     background: none;
+     margin-top: -0.5em;
+     font: 1.6em/1.618em $texteFontRegular;
+     border: none;
+     border-bottom: 1px solid $LightBlue;
+     width: 100%;
+     padding-bottom: 0.625em;
+     outline: none;
+     color: $LightBlue;
+     margin-bottom: 1.5625em;
+     &::-webkit-input-placeholder {color:#6788AB;}
+    &:-moz-placeholder {color:#6788AB;}
+    &::-moz-placeholder {color:#6788AB;}
+    &:-ms-input-placeholder {color:#6788AB;}
+   }
+   &__svg{
+     margin-bottom: -3px;
    }
  }
