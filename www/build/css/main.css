@@ -400,6 +400,10 @@ body {
   height: 1px;
   background-color: #235182; }
 
+.loginPage__logo {
+  margin: 3.3em auto;
+  display: block; }
+
 .loginPage__button {
   background-color: #235182;
   color: white;
