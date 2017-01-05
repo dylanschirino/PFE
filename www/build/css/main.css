@@ -645,9 +645,7 @@ body {
   content: "\e907"; }
 
 .menu__link--epargne::before {
-  content: "\e90d";
-  font-size: 2.4em;
-  padding: 3px 0 0px 0; }
+  content: "\e90d"; }
 
 .menu__link--pret::before {
   content: "\e915"; }
@@ -671,10 +669,11 @@ body {
   color: white;
   font: 1.6em/1.618em "sf_regular"; }
 
-.bigheader__return--svg {
-  position: relative;
-  top: 5px;
-  padding-right: 0.7em; }
+.bigheader__return::before {
+  content: "\e916";
+  display: inline-block;
+  font: 0.75em/1em "glyphs";
+  padding-right: 1em; }
 
 .bigheader__title {
   margin-left: 3.5em; }

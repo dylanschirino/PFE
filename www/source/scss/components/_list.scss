@@ -17,10 +17,11 @@
      font: 1.6em/1.618em $appleFont;
    }
    &__return{
-     &--svg{
-       position: relative;
-       top: 5px;
-       padding-right:0.7em
+     &::before{
+       content: "\e916";
+       display: inline-block;
+       font: 0.75em/1em $glyphs;
+       padding-right: 1em;
      }
    }
    &__title{
