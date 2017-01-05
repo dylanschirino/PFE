@@ -1,0 +1,37 @@
+/* PFE In the Pocket
+ *
+ * /sass/components/List.scss - List components
+ *
+ * coded by Dylan Schirino
+ * started at 05/01/2017
+ */
+ .bigheader{
+   background-color:$bigheader;
+   padding-top:0.1em;
+   &__element{
+     display: flex;
+     width: 88%;
+     margin: auto;
+     padding: 0.75em 0;
+     color: $white;
+     font: 1.6em/1.618em $appleFont;
+   }
+   &__return{
+     &--svg{
+       position: relative;
+       top: 5px;
+       padding-right:0.7em
+     }
+   }
+   &__title{
+     margin-left: 3.5em;
+   }
+   &__add{
+     &::before{
+       content: "\e914";
+       display:block;
+       font: 1.7em/1em $glyphs;
+       margin-left: 3.22em;
+     }
+   }
+ }
