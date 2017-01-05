@@ -38,11 +38,11 @@
        padding-right: 1.5em;
      }
      &::before{
-       font: 1.9em/1em $glyphs;
+       font: 2em/1em $glyphs;
        display: block;
        color: $white;
        text-align: center;
-       padding: 4px 0;
+       padding: 5px 0 2px 0;
      }
      &--home::before{
        content: "\e901";
@@ -52,6 +52,8 @@
      }
      &--epargne::before{
        content: "\e90d";
+       font-size: 2.4em;
+       padding: 3px 0 0px 0;
      }
      &--pret::before{
        content: "\e915";
