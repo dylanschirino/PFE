@@ -1,0 +1,109 @@
+/* PFE In the Pocket
+ *
+ * /sass/components/HomePage.scss - HomePage components
+ *
+ * coded by Dylan Schirino
+ * started at 05/01/2017
+ */
+ .accueil{
+   &__header{
+     background-color: $DarkBlue;
+     color: $white;
+     margin-top: 7px;
+   }
+   &__limit{
+     width: 80%;
+     margin: auto;
+     padding-top: 2em;
+     padding-bottom: 0.1em;
+   }
+ }
+
+.limite{
+  &__depense{
+    display:inline-block;
+    text-align: center;
+    padding-left: 2.8em;
+    margin-bottom: 1.8em;
+    &:first-child {
+      border-right: 1px solid $white;
+      padding-right: 2.8em;
+      padding-left: 0;
+    }
+  }
+  &__title{
+    font: 2.4em/1.618em $titleFont;
+  }
+  &__subtitle{
+    display: block;
+    font: 1.4em/1.618em $titleBold;
+    text-transform: uppercase;
+    color: $GreyBlue;
+  }
+  &__pourcentage{
+    border: 1px solid $white;
+    border-radius: 8px;
+    margin-bottom: 1.8em;
+  }
+  &__used{
+    width: 65%;
+    background-color: $white;
+    display: block;
+    border-radius: 8px;
+    margin: 2px;
+  }
+  &__chiffre{
+    display: block;
+    text-align: right;
+    position: relative;
+    left: 10.1em;
+    font: 0.9em/1.1em $texteFont;
+  }
+}
+
+.latest{
+  &__title{
+    background-color: $Bckg;
+    border-top: 1px solid $LightBlue;
+    border-bottom: 1px solid $LightBlue;
+    position: relative;
+    top: -3px;
+    font: 1.4em/1.618em $titleFont;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0.8em 0;
+    color: $texteColor;
+  }
+  &__list{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.115em 0;
+  }
+  &__spend{
+    border: 1px solid $Bckg;
+    font: 1.6em/1.618em $titleBold;
+    &--second{
+      background-color: $Bckg;
+    }
+  }
+  &__price{
+    color: $priceColor;
+    margin-left: -0.2em;
+    margin-right:0em;
+  }
+  &__name{
+    color: #333333;
+    font-family: $texteFontRegular;
+  }
+  &__time{
+    font-size: 0.8131em;
+    width: 45px;
+    line-height: 1.2em;
+    text-align: center;
+    text-transform: uppercase;
+    color: $priceColor;
+    margin-right: -2em;
+  }
+}

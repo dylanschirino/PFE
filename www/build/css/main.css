@@ -383,7 +383,7 @@ body {
  * started at 14/12/2016
  */
 .loginPage {
-  background-color: #F8FDFF;
+  background-color: #F8FCFF;
   color: #235182; }
 
 .loginPage__title {
@@ -486,3 +486,164 @@ body {
   text-decoration: underline;
   color: #34586B;
   padding-bottom: 1.2em; }
+
+/* PFE In the Pocket
+ *
+ * /sass/components/HomePage.scss - HomePage components
+ *
+ * coded by Dylan Schirino
+ * started at 05/01/2017
+ */
+.accueil__header {
+  background-color: #124C73;
+  color: white;
+  margin-top: 7px; }
+
+.accueil__limit {
+  width: 80%;
+  margin: auto;
+  padding-top: 2em;
+  padding-bottom: 0.1em; }
+
+.limite__depense {
+  display: inline-block;
+  text-align: center;
+  padding-left: 2.8em;
+  margin-bottom: 1.8em; }
+
+.limite__depense:first-child {
+  border-right: 1px solid white;
+  padding-right: 2.8em;
+  padding-left: 0; }
+
+.limite__title {
+  font: 2.4em/1.618em "droid_regular"; }
+
+.limite__subtitle {
+  display: block;
+  font: 1.4em/1.618em "droid_bold";
+  text-transform: uppercase;
+  color: #8AB1DC; }
+
+.limite__pourcentage {
+  border: 1px solid white;
+  border-radius: 8px;
+  margin-bottom: 1.8em; }
+
+.limite__used {
+  width: 65%;
+  background-color: white;
+  display: block;
+  border-radius: 8px;
+  margin: 2px; }
+
+.limite__chiffre {
+  display: block;
+  text-align: right;
+  position: relative;
+  left: 10.1em;
+  font: 0.9em/1.1em "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.latest__title {
+  background-color: #F8FCFF;
+  border-top: 1px solid #538EB6;
+  border-bottom: 1px solid #538EB6;
+  position: relative;
+  top: -3px;
+  font: 1.4em/1.618em "droid_regular";
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.8em 0;
+  color: #002E48; }
+
+.latest__list {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.115em 0; }
+
+.latest__spend {
+  border: 1px solid #F8FCFF;
+  font: 1.6em/1.618em "droid_bold"; }
+
+.latest__spend--second {
+  background-color: #F8FCFF; }
+
+.latest__price {
+  color: #528DB5;
+  margin-left: -0.2em;
+  margin-right: 0em; }
+
+.latest__name {
+  color: #333333;
+  font-family: "latoregular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.latest__time {
+  font-size: 0.8131em;
+  width: 45px;
+  line-height: 1.2em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #528DB5;
+  margin-right: -2em; }
+
+/* PFE In the Pocket
+ *
+ * /sass/components/Menu.scss - Menu components
+ *
+ * coded by Dylan Schirino
+ * started at 05/01/2017
+ */
+.menu {
+  background-color: #538EB6;
+  height: 40px;
+  position: relative; }
+
+.menu__list {
+  display: flex; }
+
+.menu__add {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid #538EB6;
+  position: absolute;
+  top: -25px;
+  left: 44%; }
+
+.menu__add::after {
+  content: "\e902";
+  font: 2.9em/1.75em "glyphs";
+  color: #538EB6;
+  display: block;
+  text-align: center; }
+
+.menu__link {
+  font: 1em/1.2em "sf_regular";
+  color: white;
+  padding-left: 2.4em; }
+
+.menu__link--right {
+  padding-left: 10em;
+  padding-right: 1.5em; }
+
+.menu__link::before {
+  font: 1.9em/1em "glyphs";
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 4px 0; }
+
+.menu__link--home::before {
+  content: "\e901"; }
+
+.menu__link--depense::before {
+  content: "\e907"; }
+
+.menu__link--epargne::before {
+  content: "\e90d"; }
+
+.menu__link--pret::before {
+  content: "\e915"; }

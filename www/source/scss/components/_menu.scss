@@ -1,0 +1,60 @@
+/* PFE In the Pocket
+ *
+ * /sass/components/Menu.scss - Menu components
+ *
+ * coded by Dylan Schirino
+ * started at 05/01/2017
+ */
+ .menu{
+   background-color: $LightBlue;
+   height: 40px;
+   position: relative;
+   &__list{
+     display: flex;
+   }
+   &__add{
+     width: 5em;
+     height: 5em;
+     border-radius: 50%;
+     background-color: $white;
+     border:1px solid $LightBlue;
+     position: absolute;
+     top: -25px;
+     left:44%;
+     &::after{
+       content: "\e902";
+       font: 2.9em/1.75em $glyphs;
+       color: $LightBlue;
+       display: block;
+       text-align: center;
+     }
+   }
+   &__link{
+     font: 1em/1.2em $appleFont;
+     color: $white;
+     padding-left: 2.4em;
+     &--right{
+       padding-left: 10em;
+       padding-right: 1.5em;
+     }
+     &::before{
+       font: 1.9em/1em $glyphs;
+       display: block;
+       color: $white;
+       text-align: center;
+       padding: 4px 0;
+     }
+     &--home::before{
+       content: "\e901";
+     }
+     &--depense::before{
+       content: "\e907";
+     }
+     &--epargne::before{
+       content: "\e90d";
+     }
+     &--pret::before{
+       content: "\e915";
+     }
+   }
+ }
