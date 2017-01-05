@@ -32,6 +32,34 @@ html(lang="fr")
           li.filters__element
             a.filters__link(href="#sante") Santé
           li.filters__element
-            a.filters__link.filters__link--more(href="more") More
+            a.filters__link.filters__link--more(href="more")
         div.filters__search
-          input.search__input(type="search" placeholder="Rechercher")
+          input.search__input(type="search" name="s" value="" placeholder="Rechercher")
+          span.search__icon
+
+      ul.depenseList
+        li.depenseList__element
+          a.depenseList__link(href="viewDepense.html")
+            span.depenseList__price 10 €
+              span.depenseList__name Glace au chocolat de chez.
+            span.depenseList__time Dépensé le
+              span.depenseList__date 19 janvier 2017
+        li.depenseList__element.depenseList__link--color
+          a.depenseList__link(href="viewDepense.html")
+            span.depenseList__price 110.40 €
+              span.depenseList__name Baguette provencale
+            span.depenseList__time Dépensé le
+              span.depenseList__date 19 janvier 2017
+        li.depenseList__element
+          a.depenseList__link(href="viewDepense.html")
+            span.depenseList__price 90.99 €
+              span.depenseList__name Souris d'ordinateur
+            span.depenseList__time Dépensé le
+              span.depenseList__date 19 janvier 2017
+        li.depenseList__element.depenseList__link--color
+          a.depenseList__link(href="viewDepense.html")
+            span.depenseList__price 300 €
+              span.depenseList__name Restaurant en famille
+            span.depenseList__time Dépensé le
+              span.depenseList__date 28 Septembre 2017
+      include template/_menu.pug

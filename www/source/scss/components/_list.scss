@@ -36,3 +36,92 @@
      }
    }
  }
+
+ .filters{
+   &__list{
+     display: flex;
+     font: 1.6em/1.618em $texteFont;
+     margin: 1em 0 1em 2.13em;
+     letter-spacing: -0.3px;
+   }
+   &__link{
+     padding-right: 0.875em;
+     &--more{
+       &::before{
+         content: "\e900";
+         display: inline-block;
+         font: 0.6em/1em $glyphs;
+         position: relative;
+         top: -1px;
+       }
+     }
+   }
+   &__search{
+     background-color: #F3F6FB;
+     padding: 1.5em 0;
+     position: relative;
+   }
+ }
+
+ .search{
+   &__input{
+    background-color: white;
+    -webkit-appearance:none;
+    border: none;
+    border-radius: 5px;
+    font: 1.4em/1.618em $appleFont;
+    width: 97%;
+    height: 28px;
+    display: block;
+    margin:auto;
+    text-align: center;
+    text-indent: 10px;
+   }
+   &__icon{
+     &::before{
+       content: "\e917";
+       display: block;
+       font: 1em/1em $glyphs;
+       color: #A9A9A9;
+       position:absolute;
+       top: 42.5%;
+       left: 35%;
+     }
+   }
+ }
+
+
+ .depenseList{
+    &__link{
+      font: 1.8em/1.618em $texteFontRegular;
+      display: flex;
+      flex-direction: column;
+      width: 82%;
+      margin:auto;
+      padding: 1.5555555556em 0;
+      &--color{
+        background-color: $Bckg;
+      }
+    }
+    &__price{
+      font-family: $texteBold;
+      color: $LightBlue;
+      padding-bottom: 0.3em;
+
+    }
+    &__name{
+      font-family:$texteFontRegular;
+      color: #333333;
+      padding-left: 1.6666666667em;
+    }
+    &__time{
+      font: 0.6111111111em/1.618em $titleFont;
+      text-transform: uppercase;
+      color: #333333;
+    }
+    &__date{
+      font: 1.2727272727em/1.618em $texteFontRegular;
+      color: $LightBlue;
+      padding-left:2.1em;
+    }
+ }
