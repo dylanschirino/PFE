@@ -661,6 +661,7 @@ body {
 
 .bigheader__element {
   display: flex;
+  justify-content: space-between;
   width: 88%;
   margin: auto;
   padding: 0.75em 0;
@@ -675,6 +676,9 @@ body {
 
 .bigheader__title {
   margin-left: 3.5em; }
+
+.bigheader__title--pret {
+  margin-left: 1.9em; }
 
 .bigheader__add::before {
   content: "\e914";
@@ -702,6 +706,34 @@ body {
   background-color: #F3F6FB;
   padding: 1.5em 0;
   position: relative; }
+
+.filters__switch {
+  background-color: #F8FCFF; }
+
+.switch__link {
+  font: 1.2em/1.618em "droid_regular";
+  width: 50%;
+  text-align: center;
+  border: 1px solid #538EB6;
+  padding: 0.21em 0;
+  color: #538EB6;
+  background-color: white; }
+
+.switch__link:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; }
+
+.switch__link--active {
+  background-color: #538EB6;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: white; }
+
+.switch__container {
+  width: 15.8333em;
+  margin: auto;
+  padding: 1.666em 0;
+  display: flex; }
 
 .search__input {
   background-color: white;
@@ -733,6 +765,9 @@ body {
   margin: auto;
   padding: 1.5555555556em 0; }
 
+.depenseList__link--big {
+  padding: 0.8333333333em 0 0.55556em 0; }
+
 .depenseList__link--color {
   background-color: #F8FCFF; }
 
@@ -746,12 +781,48 @@ body {
   color: #333333;
   padding-left: 1.6666666667em; }
 
+.depenseList__name--big {
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 1.333em; }
+
 .depenseList__time {
   font: 0.61111em/1.618em "droid_regular";
   text-transform: uppercase;
   color: #333333; }
 
+.depenseList__time--duree {
+  font-size: 0.78em;
+  padding-top: 1.0714285714em; }
+
 .depenseList__date {
   font: 1.27273em/1.618em "latoregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #538EB6;
   padding-left: 2.1em; }
+
+.depenseList__date--duree {
+  text-transform: lowercase;
+  font-size: 1.14em; }
+
+.depenseList__pourcentage {
+  width: 100%;
+  height: 10px;
+  border: 1px solid #538EB6;
+  border-radius: 8px;
+  font-size: 9px;
+  padding: 2px 0;
+  position: relative;
+  margin-top: 9px; }
+
+.depenseList__used {
+  width: 25%;
+  height: 10px;
+  background-color: #538EB6;
+  border-radius: 8px;
+  margin-left: 2px; }
+
+.depenseList__chiffre {
+  text-align: right;
+  position: absolute;
+  right: 7px;
+  bottom: -7px; }

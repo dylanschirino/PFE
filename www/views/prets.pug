@@ -1,0 +1,62 @@
+doctype html
+html(lang="fr")
+    head
+      <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+      <![endif]-->
+        meta(charset="utf-8")
+        meta(name="description", content="InThePocket | Application de gestion des dépenses")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
+        title= "InThePocket - Maquette HTML"
+        link(rel='stylesheet', href='css/main.css', type='text/css')
+
+    body
+      div.bigheader
+        include template/_header2.pug
+        div.bigheader__element
+          a.bigheader__return(href="accueil.html") Accueil
+          h1.bigheader__title.bigheader__title--pret Liste des prêts
+          a.bigheader__add(href="adddepense.html")
+      div.filters
+        div.filters__search
+          input.search__input(type="search" name="s" value="" placeholder="Rechercher")
+          span.search__icon
+        div.filters__switch
+          div.switch__container
+            a.switch__link.switch__link--active(href="prets.html") Prêt
+            a.switch__link(href="epargne.html") Épargne
+
+      ul.depenseList
+        li.depenseList__element
+          a.depenseList__link.depenseList__link--big(href="viewDepense.html")
+            span.depenseList__name.depenseList__name--big Maison
+            span.depenseList__time.depenseList__time--duree Durée restante&nbsp;:&nbsp;
+              span.depenseList__date.depenseList__date--duree 10 ans et 6 mois
+            div.depenseList__pourcentage
+              div.depenseList__used
+                span.depenseList__chiffre 25%
+        li.depenseList__element.depenseList__link--color
+          a.depenseList__link.depenseList__link--big(href="viewDepense.html")
+            span.depenseList__name.depenseList__name--big Voiture
+            span.depenseList__time.depenseList__time--duree Durée restante&nbsp;:&nbsp;
+              span.depenseList__date.depenseList__date--duree 3 ans et 8 mois
+            div.depenseList__pourcentage
+              div.depenseList__used
+                span.depenseList__chiffre 25%
+        li.depenseList__element
+          a.depenseList__link.depenseList__link--big(href="viewDepense.html")
+            span.depenseList__name.depenseList__name--big Panneaux sol.
+            span.depenseList__time.depenseList__time--duree Durée restante&nbsp;:&nbsp;
+              span.depenseList__date.depenseList__date--duree 10 ans et 1 mois
+            div.depenseList__pourcentage
+              div.depenseList__used
+                span.depenseList__chiffre 25%
+        li.depenseList__element.depenseList__link--color
+          a.depenseList__link.depenseList__link--big(href="viewDepense.html")
+            span.depenseList__name.depenseList__name--big Toitures
+            span.depenseList__time.depenseList__time--duree Durée restante&nbsp;:&nbsp;
+              span.depenseList__date.depenseList__date--duree 10 ans et 12 mois
+            div.depenseList__pourcentage
+              div.depenseList__used
+                span.depenseList__chiffre 25%
+      include template/_menu.pug

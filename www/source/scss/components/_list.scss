@@ -10,6 +10,7 @@
    padding-top:0.1em;
    &__element{
      display: flex;
+     justify-content: space-between;
      width: 88%;
      margin: auto;
      padding: 0.75em 0;
@@ -26,6 +27,9 @@
    }
    &__title{
      margin-left: 3.5em;
+     &--pret{
+       margin-left:1.9em;
+     }
    }
    &__add{
      &::before{
@@ -61,6 +65,38 @@
      padding: 1.5em 0;
      position: relative;
    }
+   &__switch{
+     background-color: $Bckg;
+   }
+ }
+
+ .switch{
+   &__link{
+     font: 1.2em/1.618em $titleFont;
+     width: 50%;
+     text-align: center;
+     border: 1px solid $LightBlue;
+     padding: 0.21em 0;
+     color: $LightBlue;
+     background-color: $white;
+     &:last-child{
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+
+     }
+     &--active{
+       background-color: $LightBlue;
+       border-top-left-radius: 5px;
+       border-bottom-left-radius: 5px;
+       color: $white;
+     }
+   }
+   &__container{
+      width: 15.8333em;
+      margin: auto;
+      padding: 1.666em 0;
+      display: flex;
+   }
  }
 
  .search{
@@ -90,7 +126,6 @@
    }
  }
 
-
  .depenseList{
     &__link{
       font: 1.8em/1.618em $texteFontRegular;
@@ -99,6 +134,9 @@
       width: 82%;
       margin:auto;
       padding: 1.5555555556em 0;
+      &--big{
+        padding: 0.8333333333em 0 0.55556em 0;
+      }
       &--color{
         background-color: $Bckg;
       }
@@ -113,15 +151,51 @@
       font-family:$texteFontRegular;
       color: #333333;
       padding-left: 1.6666666667em;
+      &--big{
+        padding: 0;
+        text-transform: uppercase;
+        font-size: 1.333em;
+      }
     }
     &__time{
       font: 0.6111111111em/1.618em $titleFont;
       text-transform: uppercase;
       color: #333333;
+      &--duree{
+        font-size:0.78em;
+        padding-top: 1.0714285714em;
+      }
     }
     &__date{
       font: 1.2727272727em/1.618em $texteFontRegular;
       color: $LightBlue;
       padding-left:2.1em;
+      &--duree{
+        text-transform: lowercase;
+        font-size: 1.14em;
+      }
+    }
+    &__pourcentage{
+      width: 100%;
+      height: 10px;
+      border: 1px solid $LightBlue;
+      border-radius: 8px;
+      font-size: 9px;
+      padding: 2px 0;
+      position: relative;
+      margin-top: 9px;
+    }
+    &__used{
+      width: 25%;
+      height: 10px;
+      background-color: $LightBlue;
+      border-radius: 8px;
+      margin-left: 2px;
+    }
+    &__chiffre{
+      text-align: right;
+      position: absolute;
+      right: 7px;
+      bottom:-7px;
     }
  }

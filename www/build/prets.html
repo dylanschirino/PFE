@@ -39,28 +39,34 @@
 </svg>
       </header>
       <div class="bigheader__element"><a class="bigheader__return" href="accueil.html">Accueil</a>
-        <h1 class="bigheader__title">Dépenses</h1><a class="bigheader__add" href="adddepense.html"></a>
+        <h1 class="bigheader__title bigheader__title--pret">Liste des prêts</h1><a class="bigheader__add" href="adddepense.html"></a>
       </div>
     </div>
     <div class="filters">
-      <ul class="filters__list">
-        <li class="filters__element"><a class="filters__link" href="#all">All</a></li>
-        <li class="filters__element"><a class="filters__link" href="#loisirs">Loisirs</a></li>
-        <li class="filters__element"><a class="filters__link" href="#aliments">Aliments</a></li>
-        <li class="filters__element"><a class="filters__link" href="#maison">Maison</a></li>
-        <li class="filters__element"><a class="filters__link" href="#eau">Eau</a></li>
-        <li class="filters__element"><a class="filters__link" href="#sante">Santé</a></li>
-        <li class="filters__element"><a class="filters__link filters__link--more" href="more"></a></li>
-      </ul>
       <div class="filters__search">
         <input class="search__input" type="search" name="s" value="" placeholder="Rechercher"><span class="search__icon"></span>
       </div>
+      <div class="filters__switch">
+        <div class="switch__container"><a class="switch__link switch__link--active" href="prets.html">Prêt</a><a class="switch__link" href="epargne.html">Épargne</a></div>
+      </div>
     </div>
     <ul class="depenseList">
-      <li class="depenseList__element"><a class="depenseList__link" href="viewDepense.html"><span class="depenseList__price">10 €<span class="depenseList__name">Glace au chocolat de chez.</span></span><span class="depenseList__time">Dépensé le<span class="depenseList__date">19 janvier 2017</span></span></a></li>
-      <li class="depenseList__element depenseList__link--color"><a class="depenseList__link" href="viewDepense.html"><span class="depenseList__price">110.40 €<span class="depenseList__name">Baguette provencale</span></span><span class="depenseList__time">Dépensé le<span class="depenseList__date">19 janvier 2017</span></span></a></li>
-      <li class="depenseList__element"><a class="depenseList__link" href="viewDepense.html"><span class="depenseList__price">90.99 €<span class="depenseList__name">Souris d'ordinateur</span></span><span class="depenseList__time">Dépensé le<span class="depenseList__date">19 janvier 2017</span></span></a></li>
-      <li class="depenseList__element depenseList__link--color"><a class="depenseList__link" href="viewDepense.html"><span class="depenseList__price">300 €<span class="depenseList__name">Restaurant en famille</span></span><span class="depenseList__time">Dépensé le<span class="depenseList__date">28 Septembre 2017</span></span></a></li>
+      <li class="depenseList__element"><a class="depenseList__link depenseList__link--big" href="viewDepense.html"><span class="depenseList__name depenseList__name--big">Maison</span><span class="depenseList__time depenseList__time--duree">Durée restante&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree">10 ans et 6 mois</span></span>
+          <div class="depenseList__pourcentage">
+            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
+          </div></a></li>
+      <li class="depenseList__element depenseList__link--color"><a class="depenseList__link depenseList__link--big" href="viewDepense.html"><span class="depenseList__name depenseList__name--big">Voiture</span><span class="depenseList__time depenseList__time--duree">Durée restante&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree">3 ans et 8 mois</span></span>
+          <div class="depenseList__pourcentage">
+            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
+          </div></a></li>
+      <li class="depenseList__element"><a class="depenseList__link depenseList__link--big" href="viewDepense.html"><span class="depenseList__name depenseList__name--big">Panneaux sol.</span><span class="depenseList__time depenseList__time--duree">Durée restante&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree">10 ans et 1 mois</span></span>
+          <div class="depenseList__pourcentage">
+            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
+          </div></a></li>
+      <li class="depenseList__element depenseList__link--color"><a class="depenseList__link depenseList__link--big" href="viewDepense.html"><span class="depenseList__name depenseList__name--big">Toitures</span><span class="depenseList__time depenseList__time--duree">Durée restante&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree">10 ans et 12 mois</span></span>
+          <div class="depenseList__pourcentage">
+            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
+          </div></a></li>
     </ul>
     <nav class="menu"><a class="menu__add" href="ajouter.html"><span class="hidden">Plus</span></a>
       <ul class="menu__list">
