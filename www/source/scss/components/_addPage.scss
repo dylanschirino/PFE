@@ -21,6 +21,16 @@
     width: 82.1%;
     margin: auto;
     position: relative;
+    &--content{
+      width: 50%;
+      &--duree{
+        margin-left: 5em;
+      }
+    }
+    &--pret{
+      display: flex;
+      justify-content: space-between;
+    }
   }
   &__label{
     text-align: center;
@@ -60,6 +70,7 @@
     &--date{
       font-family: $texteFont;
        -webkit-appearance: none;
+       text-align: center;
     }
     &--name{
       width: 100%;
@@ -157,6 +168,9 @@
       position: absolute;
       bottom: 13px;
       right: 13px;
+    }
+    &--pret::before{
+      right: 0;
     }
   }
   &__repeat{

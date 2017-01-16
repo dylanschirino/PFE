@@ -38,36 +38,54 @@
 </g>
 </svg>
       </header>
-      <div class="bigheader__element"><a class="bigheader__return" href="accueil.html">Accueil</a>
-        <h1 class="bigheader__title bigheader__title--pret">Liste des prêts</h1><a class="bigheader__add" href="addpret.html"></a>
-      </div>
-    </div>
-    <div class="filters">
-      <div class="filters__search">
-        <input class="search__input" type="search" name="s" value="" placeholder="Rechercher"><span class="search__icon"></span>
+      <div class="bigheader__element"><a class="bigheader__return" href="accueil.html">Épargne</a>
+        <h1 class="bigheader__title">Ajouter</h1>
       </div>
       <div class="filters__switch">
-        <div class="switch__container"><a class="switch__link switch__link--active" href="prets.html">Prêt</a><a class="switch__link" href="epargne.html">Épargne</a></div>
+        <div class="switch__container"><a class="switch__link switch__link--active" href="addpret.html">Prêt</a><a class="switch__link" href="addepargne.html">Épargne</a></div>
       </div>
     </div>
-    <ul class="depenseList">
-      <li class="depenseList__element"><a class="depenseList__link depenseList__link--big" href="viewDepense.html"><span class="depenseList__name depenseList__name--big">Maison</span><span class="depenseList__time depenseList__time--duree">Durée restante&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree">10 ans et 6 mois</span></span>
-          <div class="depenseList__pourcentage">
-            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
-          </div></a></li>
-      <li class="depenseList__element depenseList__link--color"><a class="depenseList__link depenseList__link--big" href="viewDepense.html"><span class="depenseList__name depenseList__name--big">Voiture</span><span class="depenseList__time depenseList__time--duree">Durée restante&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree">3 ans et 8 mois</span></span>
-          <div class="depenseList__pourcentage">
-            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
-          </div></a></li>
-      <li class="depenseList__element"><a class="depenseList__link depenseList__link--big" href="viewDepense.html"><span class="depenseList__name depenseList__name--big">Panneaux sol.</span><span class="depenseList__time depenseList__time--duree">Durée restante&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree">10 ans et 1 mois</span></span>
-          <div class="depenseList__pourcentage">
-            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
-          </div></a></li>
-      <li class="depenseList__element depenseList__link--color"><a class="depenseList__link depenseList__link--big" href="viewDepense.html"><span class="depenseList__name depenseList__name--big">Toitures</span><span class="depenseList__time depenseList__time--duree">Durée restante&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree">10 ans et 12 mois</span></span>
-          <div class="depenseList__pourcentage">
-            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
-          </div></a></li>
-    </ul>
+    <div class="montant--epargne">
+      <div class="montant__container montant__container--epargne">
+        <label class="montant__label montant__label--epargne" for="nomepargne">Nom du prêt</label>
+        <input class="montant__input--name" type="text" value="Prêt hypothécaire"><span class="montant__icon"></span>
+      </div>
+    </div>
+    <div class="montant--depense">
+      <div class="montant__container">
+        <label class="montant__label" for="total">Montant total</label><span class="montant__deco"></span>
+        <input class="montant__input" id="total" type="number" value="240.000" name="total">
+        <div class="montant__controllers"><span class="montant__plusmoins montant__plusmoins--plus">+</span><span class="montant__plusmoins montant__plusmoins--moins">-</span></div>
+      </div>
+    </div>
+    <div class="montant--mensualite">
+      <div class="montant__container">
+        <label class="montant__label" for="total">Mensualité (€ par mois)</label><span class="montant__deco montant__deco--small"></span>
+        <input class="montant__input" id="total" type="number" value="235.00" name="total">
+        <div class="montant__controllers"><span class="montant__plusmoins2 montant__plusmoins2--plus">+</span><span class="montant__plusmoins2 montant__plusmoins2--moins">-</span></div>
+      </div>
+    </div>
+    <div class="montant--debut">
+      <div class="montant__container montant__container--pret">
+        <div class="montant__container montant__container--content">
+          <label class="montant__label montant__label--date" for="taux">Taux d'interêt</label>
+          <select class="form__input" name="taux">
+            <option class="form__input--text" value="5%">5%</option>
+            <option class="form__input--text" value="10%">10%</option>
+          </select><a class="form__icon form__icon--pret"></a>
+        </div>
+        <div class="montant__container montant__container--content montant__container--content--duree">
+          <label class="montant__label montant__label--date" for="duree">durée</label>
+          <select class="form__input" name="duree">
+            <option class="form__input--text" value="15ans">15ans</option>
+            <option class="form__input--text" value="20ans">20ans</option>
+          </select><a class="form__icon form__icon--pret"></a>
+        </div>
+      </div>
+    </div>
+    <div class="button__container"><a class="button button--cancel" href="depense.html" title="Retour vers la page des dépenses"></a>
+      <button class="button button--submit" type="submit" value="Envoyer"></button>
+    </div>
     <nav class="menu"><a class="menu__add" href="ajouter.html"><span class="hidden">Plus</span></a>
       <ul class="menu__list">
         <li class="menu__element"><a class="menu__link menu__link--home" href="accueil.html" title="Aller vers la page sommaire">Sommaire</a></li>

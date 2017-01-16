@@ -865,6 +865,16 @@ body {
   margin: auto;
   position: relative; }
 
+.montant__container--content {
+  width: 50%; }
+
+.montant__container--content--duree {
+  margin-left: 5em; }
+
+.montant__container--pret {
+  display: flex;
+  justify-content: space-between; }
+
 .montant__label {
   text-align: center;
   display: block;
@@ -899,7 +909,8 @@ body {
 
 .montant__input--date {
   font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  -webkit-appearance: none; }
+  -webkit-appearance: none;
+  text-align: center; }
 
 .montant__input--name {
   width: 100%;
@@ -990,6 +1001,9 @@ body {
   position: absolute;
   bottom: 13px;
   right: 13px; }
+
+.form__icon--pret::before {
+  right: 0; }
 
 .form__repeat {
   display: flex;
