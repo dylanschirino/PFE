@@ -1,0 +1,53 @@
+doctype html
+html(lang="fr")
+    head
+      <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+      <![endif]-->
+        meta(charset="utf-8")
+        meta(name="description", content="InThePocket | Application de gestion des dépenses")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
+        title= "InThePocket - Maquette HTML"
+        link(rel='stylesheet', href='css/main.css', type='text/css')
+
+    body
+      div.bigheader
+        include template/_header2.pug
+        div.bigheader__element
+          a.bigheader__return(href="accueil.html") Épargne
+          h1.bigheader__title Ajouter
+        div.filters__switch
+          div.switch__container
+            a.switch__link(href="addpret.html") Prêt
+            a.switch__link.switch__link--active(href="addepargne.html") Épargne
+      div.montant--epargne
+        div.montant__container.montant__container--epargne
+          label.montant__label.montant__label--epargne(for="nomepargne") Nom de l'épargne
+          input.montant__input--name(type="text" value="Économie pour m'acheter un gsm")
+          span.montant__icon
+      div.montant--depense
+        div.montant__container
+          label.montant__label(for="total") Montant total
+          span.montant__deco
+          input.montant__input#total(type="number" value="280" name="total")
+          div.montant__controllers
+            span.montant__plusmoins.montant__plusmoins--plus +
+            span.montant__plusmoins.montant__plusmoins--moins -
+      div.montant--mensualite
+        div.montant__container
+          label.montant__label(for="total") Mensualité (€ par mois)
+          span.montant__deco.montant__deco--small
+          input.montant__input#total(type="number" value="15" name="total")
+          div.montant__controllers
+            span.montant__plusmoins2.montant__plusmoins2--plus +
+            span.montant__plusmoins2.montant__plusmoins2--moins -
+      div.montant--debut
+        div.montant__container
+          label.montant__label.montant__label--date(for="datetime") Date de début de l'épargne
+          input.form__input.form__input--date#datetime(type="date" name="time" min="2016-08-13")
+          a.form__icon
+      div.button__container
+        a.button.button--cancel(href="depense.html" title="Retour vers la page des dépenses")
+        button.button.button--submit(type="submit" value="Envoyer")
+
+      include template/_menu.pug

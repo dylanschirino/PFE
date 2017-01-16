@@ -7,6 +7,16 @@
  */
 .montant{
   background-color: $addColor;
+  &--epargne{
+    background-color: #6FA4C7;
+  }
+  &--depense{
+    background-color: #5D9FCC;
+  }
+  &--mensualite{
+    background-color: #6AACE2;
+    padding-bottom: 0.4em;
+  }
   &__container{
     width: 82.1%;
     margin: auto;
@@ -19,6 +29,10 @@
     text-transform: uppercase;
     color: $white;
     padding-top: 1.3em;
+    &--date{
+      color: $texteColor;
+      font-family: $titleBold;
+    }
   }
   &__deco{
     &::before{
@@ -27,6 +41,11 @@
       font: 4.9em/1.618em $glyphs;
       color: $white;
       vertical-align: middle;
+    }
+    &--small{
+      &::before{
+        font: 4em/1.618em $glyphs;
+      }
     }
   }
   &__input{
@@ -38,6 +57,31 @@
     text-align: center;
     position: relative;
     top: 7px;
+    &--date{
+      font-family: $texteFont;
+       -webkit-appearance: none;
+    }
+    &--name{
+      width: 100%;
+      background: none;
+      border: none;
+      border-bottom: 1px solid $white;
+      font: 1.5em/1.618em $texteFont;
+      margin: 0.5em auto 0.9em auto;
+      color: $white;
+      text-align: center;
+      padding-bottom: 0.5em;
+    }
+  }
+  &__icon{
+    &::before{
+      content: "\e90f";
+      color: $white;
+      font: 1.9em/1.618em $glyphs;
+      display: block;
+      position: absolute;
+      bottom: 20px;
+    }
   }
   &__controllers{
     display: inline-block;
@@ -53,6 +97,22 @@
       border-bottom-left-radius: 8px;
     }
     &--moins{
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+  &__plusmoins2{
+    font: 1.6em/1.618em $titleFont;
+    color: $white;
+    padding: 0.3em 1em;
+    &--plus{
+      border: 1px solid $white;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius:8px;
+    }
+    &--moins{
+      border: 1px solid $white;
+      border-left: none;
       border-top-right-radius: 8px;
       border-bottom-right-radius: 8px;
     }

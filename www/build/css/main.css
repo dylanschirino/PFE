@@ -850,6 +850,16 @@ body {
 .montant {
   background-color: #7AB3E3; }
 
+.montant--epargne {
+  background-color: #6FA4C7; }
+
+.montant--depense {
+  background-color: #5D9FCC; }
+
+.montant--mensualite {
+  background-color: #6AACE2;
+  padding-bottom: 0.4em; }
+
 .montant__container {
   width: 82.1%;
   margin: auto;
@@ -863,12 +873,19 @@ body {
   color: white;
   padding-top: 1.3em; }
 
+.montant__label--date {
+  color: #002E48;
+  font-family: "droid_bold"; }
+
 .montant__deco::before {
   content: "\e90e";
   display: inline-block;
   font: 4.9em/1.618em "glyphs";
   color: white;
   vertical-align: middle; }
+
+.montant__deco--small::before {
+  font: 4em/1.618em "glyphs"; }
 
 .montant__input {
   background: none;
@@ -879,6 +896,29 @@ body {
   text-align: center;
   position: relative;
   top: 7px; }
+
+.montant__input--date {
+  font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-appearance: none; }
+
+.montant__input--name {
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  font: 1.5em/1.618em "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0.5em auto 0.9em auto;
+  color: white;
+  text-align: center;
+  padding-bottom: 0.5em; }
+
+.montant__icon::before {
+  content: "\e90f";
+  color: white;
+  font: 1.9em/1.618em "glyphs";
+  display: block;
+  position: absolute;
+  bottom: 20px; }
 
 .montant__controllers {
   display: inline-block; }
@@ -895,6 +935,22 @@ body {
   border-bottom-left-radius: 8px; }
 
 .montant__plusmoins--moins {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px; }
+
+.montant__plusmoins2 {
+  font: 1.6em/1.618em "droid_regular";
+  color: white;
+  padding: 0.3em 1em; }
+
+.montant__plusmoins2--plus {
+  border: 1px solid white;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px; }
+
+.montant__plusmoins2--moins {
+  border: 1px solid white;
+  border-left: none;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px; }
 
