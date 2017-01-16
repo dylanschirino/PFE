@@ -1,0 +1,147 @@
+/* PFE In the Pocket
+ *
+ * /sass/components/addPage.scss - addPage components
+ *
+ * coded by Dylan Schirino
+ * started at 15/01/2017
+ */
+.montant{
+  background-color: $addColor;
+  &__container{
+    width: 82.1%;
+    margin: auto;
+    position: relative;
+  }
+  &__label{
+    text-align: center;
+    display: block;
+    font: 1.4em/1.618em $titleFont;
+    text-transform: uppercase;
+    color: $white;
+    padding-top: 1.3em;
+  }
+  &__deco{
+    &::before{
+      content: "\e90e";
+      display: inline-block;
+      font: 4.9em/1.618em $glyphs;
+      color: $white;
+      vertical-align: middle;
+    }
+  }
+  &__input{
+    background: none;
+    color: $white;
+    border: none;
+    font: 3.2em/1.618em $titleFont;
+    width: 50%;
+    text-align: center;
+    position: relative;
+    top: 7px;
+  }
+  &__controllers{
+    display: inline-block;
+  }
+  &__plusmoins{
+    font: 2.4em/1.618em $titleFont;
+    color: $addColor;
+    padding: 0.2916666667em 0.75em;
+    background: white;
+    &--plus{
+      border-right: 1px solid $addColor;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+    &--moins{
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+}
+
+.form{
+  &__label{
+    background: $addColor;
+    display: block;
+    margin-top: 2.1428571429em;
+    font: 1.4em/1.618em $titleFont;
+    padding: 0.7142857143em 0;
+    text-align: center;
+    color: $white;
+  }
+  &__input{
+    font: 1.6em/1.618em $texteFontRegular;
+    width: 100%;
+    display: block;
+    padding: 0.8125em 0;
+    -webkit-appearance:none;
+    background: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid $lineColor;
+    text-align: center;
+    &--text{
+      text-align-last:center;
+    }
+    &--repeat{
+      width: 30%;
+    }
+  }
+  &__icon{
+    &::before{
+      content:"\e908";
+      display: block;
+      font: 1.3em/1.618em $glyphs;
+      position: absolute;
+      bottom: 13px;
+      right: 13px;
+    }
+  }
+  &__repeat{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__labelcheck{
+    font: 1.4em/1.618em $texteFont;
+    margin-top: 1.3em;
+  }
+}
+.form__labelcheck::before {
+  content: "\e905";
+  font: 2em/1.618em $glyphs;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 5px;
+  color: $addColor;
+}
+
+.button{
+  &__container{
+    margin-top: 3em;
+    display: flex;
+  }
+  &--submit{
+    background: #D2EDFF;
+    width: 50%;
+    height: 7em;
+    border: none;
+    &::after{
+      content: "\e904";
+      display: block;
+      font: 3em/1.618em $glyphs;
+      color: #02C56E;
+    }
+  }
+  &--cancel{
+    background: #E3F4FF;
+    width: 50%;
+    height: 7.7em;
+    &::after{
+      content: "\e903";
+      display: block;
+      font: 3.5em/2.3em $glyphs;
+      text-align: center;
+      color: #D32323;
+    }
+  }
+}

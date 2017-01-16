@@ -1,0 +1,46 @@
+doctype html
+html(lang="fr")
+    head
+      <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+      <![endif]-->
+        meta(charset="utf-8")
+        meta(name="description", content="InThePocket | Application de gestion des dépenses")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
+        title= "InThePocket - Maquette HTML"
+        link(rel='stylesheet', href='css/main.css', type='text/css')
+
+    body
+      div.bigheader
+        include template/_header2.pug
+        div.bigheader__element
+          a.bigheader__return(href="accueil.html") Dépenses
+          h1.bigheader__title Ajouter
+      div.montant
+        div.montant__container
+          label.montant__label(for="total") Montant total
+          span.montant__deco
+          input.montant__input#total(type="number" value="10.000" name="total")
+          div.montant__controllers
+            span.montant__plusmoins.montant__plusmoins--plus +
+            span.montant__plusmoins.montant__plusmoins--moins -
+      div.montant__container
+        label.form__label(for="categories") Catégories
+        select.form__input#categories(name="categories")
+          option.form__input--text(value="Loisirs") Loisirs
+          option.form__input--text(value="Maison") Maison
+        a.form__icon
+      div.montant__container
+        label.form__label(for="nomdepense") Nom de la dépense
+        input.form__input#nomdepense(type="text" name="nomdepense" value="Call of duty: Modern Warfare PS4")
+      div.montant__container
+        label.form__label(for="nomdepense") Répéter la dépense ?
+        div.form__repeat
+          input.hidden#check(type="checkbox" name="check" checked)
+          label.form__labelcheck(for="check") Répéter chaque mois le
+          input.form__input.form__input--repeat#check(type="number" name="nomdepense" value="14")
+      div.button__container
+        a.button.button--cancel(href="depense.html" title="Retour vers la page des dépenses")
+        button.button.button--submit(type="submit" value="Envoyer")
+
+      include template/_menu.pug
