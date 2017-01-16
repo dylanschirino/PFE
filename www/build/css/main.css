@@ -923,7 +923,9 @@ body {
   text-align-last: center; }
 
 .form__input--repeat {
-  width: 30%; }
+  width: 30%;
+  font: 2.3em/0em "latobold";
+  padding: 0; }
 
 .form__icon::before {
   content: "\e908";
