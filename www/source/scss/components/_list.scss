@@ -72,6 +72,9 @@
    }
    &__switch{
      background-color: $Bckg;
+     &--view{
+       background: none;
+     }
    }
  }
 

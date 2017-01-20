@@ -1,0 +1,49 @@
+doctype html
+html(lang="fr")
+    head
+      <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+      <![endif]-->
+        meta(charset="utf-8")
+        meta(name="description", content="InThePocket | Application de gestion des dépenses")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
+        title= "InThePocket - Maquette HTML"
+        link(rel='stylesheet', href='css/main.css', type='text/css')
+
+    body
+      div.bigheader
+        include template/_header2.pug
+        div.bigheader__element
+          a.bigheader__return(href="accueil.html") Épargne
+          h1.bigheader__title.bigheader__title--pret Macbook Pr...
+          a.bigheader__add(href="adddepense.html")
+      div.filters
+        div.filters__search
+          input.search__input(type="search" name="s" value="" placeholder="Rechercher")
+          span.search__icon
+        div.filters__switch.filters__switch--view
+          div.switch__container
+            a.switch__link(href="prets.html") Prêt
+            a.switch__link.switch__link--active(href="epargne.html") Épargne
+
+      div.viewContent
+        div.viewContent__header
+          a.viewHeader__return(href="epargne.html")
+          h2.viewContent__title Macbook Pro Retina
+        div.viewContent__timer
+          div.viewContent__timer--white
+            p.viewContent__timer--text 15 jours 2 heures 10 min
+        div.viewContent__container.viewContent__container--epargne
+          div.viewContent__row
+            span.viewContent__label.viewContent__label--epargne Montant
+            p.viewContent__text.viewContent__text--epargne 100.59€
+
+            span.viewContent__label.viewContent__label--epargne Début de l'épargne
+            p.viewContent__text.viewContent__text--epargne 31 Juillet 2016
+          div.viewContent__row
+            span.viewContent__label.viewContent__label--epargne Mensualité
+            p.viewContent__text.viewContent__text--epargne 30€
+
+            span.viewContent__label.viewContent__label--epargne Jour de l'achat
+            p.viewContent__text.viewContent__text--epargne 19 Septembre 2016
+      include template/_menu.pug

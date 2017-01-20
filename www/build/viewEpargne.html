@@ -38,36 +38,38 @@
 </g>
 </svg>
       </header>
-      <div class="bigheader__element">
-        <h1 class="bigheader__title bigheader__title--epargne">Liste des épargnes</h1><a class="bigheader__add" href="addepargne.html"></a>
+      <div class="bigheader__element"><a class="bigheader__return" href="accueil.html">Épargne</a>
+        <h1 class="bigheader__title bigheader__title--pret">Macbook Pr...</h1><a class="bigheader__add" href="adddepense.html"></a>
       </div>
     </div>
     <div class="filters">
       <div class="filters__search">
         <input class="search__input" type="search" name="s" value="" placeholder="Rechercher"><span class="search__icon"></span>
       </div>
-      <div class="filters__switch">
+      <div class="filters__switch filters__switch--view">
         <div class="switch__container"><a class="switch__link" href="prets.html">Prêt</a><a class="switch__link switch__link--active" href="epargne.html">Épargne</a></div>
       </div>
     </div>
-    <ul class="depenseList">
-      <li class="depenseList__element"><a class="depenseList__link depenseList__link--big" href="viewEpargne.html"><span class="depenseList__name depenseList__name--big depenseList__name--big--epargne">Playstation 4</span><span class="depenseList__time depenseList__time--duree">Achat dans&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree depenseList__date--duree--epargne">6 mois</span></span>
-          <div class="depenseList__pourcentage">
-            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
-          </div></a></li>
-      <li class="depenseList__element depenseList__link--color"><a class="depenseList__link depenseList__link--big" href="viewEpargne.html"><span class="depenseList__name depenseList__name--big depenseList__name--big--epargne">Iphone 7</span><span class="depenseList__time depenseList__time--duree">Achat dans&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree depenseList__date--duree--epargne">1 ans et 6mois</span></span>
-          <div class="depenseList__pourcentage">
-            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
-          </div></a></li>
-      <li class="depenseList__element"><a class="depenseList__link depenseList__link--big" href="viewEpargne.html"><span class="depenseList__name depenseList__name--big depenseList__name--big--epargne">Macbook pro retina</span><span class="depenseList__time depenseList__time--duree">Achat dans&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree depenseList__date--duree--epargne">2 mois</span></span>
-          <div class="depenseList__pourcentage">
-            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
-          </div></a></li>
-      <li class="depenseList__element depenseList__link--color"><a class="depenseList__link depenseList__link--big" href="viewEpargne.html"><span class="depenseList__name depenseList__name--big depenseList__name--big--epargne">Écran dell 17'</span><span class="depenseList__time depenseList__time--duree">Achat dans&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree depenseList__date--duree--epargne">10 ans et 12 mois</span></span>
-          <div class="depenseList__pourcentage">
-            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
-          </div></a></li>
-    </ul>
+    <div class="viewContent">
+      <div class="viewContent__header"><a class="viewHeader__return" href="epargne.html"></a>
+        <h2 class="viewContent__title">Macbook Pro Retina</h2>
+      </div>
+      <div class="viewContent__timer">
+        <div class="viewContent__timer--white">
+          <p class="viewContent__timer--text">15 jours 2 heures 10 min</p>
+        </div>
+      </div>
+      <div class="viewContent__container viewContent__container--epargne">
+        <div class="viewContent__row"><span class="viewContent__label viewContent__label--epargne">Montant</span>
+          <p class="viewContent__text viewContent__text--epargne">100.59€</p><span class="viewContent__label viewContent__label--epargne">Début de l'épargne</span>
+          <p class="viewContent__text viewContent__text--epargne">31 Juillet 2016</p>
+        </div>
+        <div class="viewContent__row"><span class="viewContent__label viewContent__label--epargne">Mensualité</span>
+          <p class="viewContent__text viewContent__text--epargne">30€</p><span class="viewContent__label viewContent__label--epargne">Jour de l'achat</span>
+          <p class="viewContent__text viewContent__text--epargne">19 Septembre 2016</p>
+        </div>
+      </div>
+    </div>
     <nav class="menu"><a class="menu__add" href="ajouter.html"><span class="hidden">Plus</span></a>
       <ul class="menu__list">
         <li class="menu__element"><a class="menu__link menu__link--home" href="accueil.html" title="Aller vers la page sommaire">Sommaire</a></li>

@@ -715,6 +715,9 @@ body {
 .filters__switch {
   background-color: #F8FCFF; }
 
+.filters__switch--view {
+  background: none; }
+
 .switch__link {
   font: 1.2em/1.618em "droid_regular";
   width: 50%;
@@ -1079,11 +1082,60 @@ body {
   margin-left: 3.25em;
   padding: 2.5em 0 5em 0; }
 
+.viewContent__container--epargne {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 3.25em;
+  padding-bottom: 2.5em; }
+
+.viewContent__header {
+  display: flex;
+  padding-top: 1.5em; }
+
+.viewContent__title {
+  font: 2.4em/1.618em "droid_regular";
+  color: #558FB6;
+  margin-top: 0.6em;
+  margin-left: 0.4167em;
+  letter-spacing: 1px; }
+
 .viewContent__label {
   font: 1.4em/1.618em "droid_regular";
   color: #558FB6;
-  padding-bottom: 0.6428571429em; }
+  padding-bottom: 0.6428571429em;
+  display: block; }
+
+.viewContent__label--epargne {
+  text-align: center; }
 
 .viewContent__text {
   font: 1.6em/1.618em "latoregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding-bottom: 1.25em; }
+
+.viewContent__text--epargne {
+  text-align: center; }
+
+.viewContent__timer {
+  width: 150px;
+  height: 150px;
+  margin: 1.5em auto 0 auto;
+  background-color: #518EB6;
+  border-radius: 50%; }
+
+.viewContent__timer--white {
+  border: 2px solid white;
+  width: 142px;
+  height: 142px;
+  border-radius: 50%;
+  margin-left: 2px;
+  position: relative;
+  top: 2px; }
+
+.viewContent__timer--text {
+  text-align: center;
+  font: 1.8em/1.618em "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  width: 6em;
+  margin: 1.833em auto; }
