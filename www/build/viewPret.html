@@ -38,36 +38,38 @@
 </g>
 </svg>
       </header>
-      <div class="bigheader__element"><a class="bigheader__return" href="accueil.html">Accueil</a>
-        <h1 class="bigheader__title bigheader__title--pret">Liste des prêts</h1><a class="bigheader__add" href="addpret.html"></a>
+      <div class="bigheader__element"><a class="bigheader__return" href="accueil.html">Liste Prêt</a>
+        <h1 class="bigheader__title bigheader__title--pret">Prêt Maison</h1><a class="bigheader__add" href="adddepense.html"></a>
       </div>
     </div>
     <div class="filters">
       <div class="filters__search">
         <input class="search__input" type="search" name="s" value="" placeholder="Rechercher"><span class="search__icon"></span>
       </div>
-      <div class="filters__switch">
+      <div class="filters__switch filters__switch--view">
         <div class="switch__container"><a class="switch__link switch__link--active" href="prets.html">Prêt</a><a class="switch__link" href="epargne.html">Épargne</a></div>
       </div>
     </div>
-    <ul class="depenseList">
-      <li class="depenseList__element"><a class="depenseList__link depenseList__link--big" href="viewPret.html"><span class="depenseList__name depenseList__name--big">Maison</span><span class="depenseList__time depenseList__time--duree">Durée restante&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree">10 ans et 6 mois</span></span>
-          <div class="depenseList__pourcentage">
-            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
-          </div></a></li>
-      <li class="depenseList__element depenseList__link--color"><a class="depenseList__link depenseList__link--big" href="viewPret.html"><span class="depenseList__name depenseList__name--big">Voiture</span><span class="depenseList__time depenseList__time--duree">Durée restante&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree">3 ans et 8 mois</span></span>
-          <div class="depenseList__pourcentage">
-            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
-          </div></a></li>
-      <li class="depenseList__element"><a class="depenseList__link depenseList__link--big" href="viewPret.html"><span class="depenseList__name depenseList__name--big">Panneaux sol.</span><span class="depenseList__time depenseList__time--duree">Durée restante&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree">10 ans et 1 mois</span></span>
-          <div class="depenseList__pourcentage">
-            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
-          </div></a></li>
-      <li class="depenseList__element depenseList__link--color"><a class="depenseList__link depenseList__link--big" href="viewPret.html"><span class="depenseList__name depenseList__name--big">Toitures</span><span class="depenseList__time depenseList__time--duree">Durée restante&nbsp;:&nbsp;<span class="depenseList__date depenseList__date--duree">10 ans et 12 mois</span></span>
-          <div class="depenseList__pourcentage">
-            <div class="depenseList__used"><span class="depenseList__chiffre">25%</span></div>
-          </div></a></li>
-    </ul>
+    <div class="viewContent">
+      <div class="viewContent__header"><a class="viewHeader__return" href="epargne.html"></a>
+        <h2 class="viewContent__title viewContent__title--pret">Maison</h2>
+      </div>
+      <div class="viewContent__timer">
+        <div class="viewContent__timer--white">
+          <p class="viewContent__timer--text"><span>2 ans</span><span>6 mois</span><span>15 Jours</span></p>
+        </div>
+      </div>
+      <div class="viewContent__container viewContent__container--epargne">
+        <div class="viewContent__row"><span class="viewContent__label viewContent__label--epargne">Montant du prêt</span>
+          <p class="viewContent__text viewContent__text--epargne">240.590€</p><span class="viewContent__label viewContent__label--epargne">Début du prêt</span>
+          <p class="viewContent__text viewContent__text--epargne">19 Septembre 2016</p>
+        </div>
+        <div class="viewContent__row"><span class="viewContent__label viewContent__label--epargne">Taux d'interêt</span>
+          <p class="viewContent__text viewContent__text--epargne">15 %</p><span class="viewContent__label viewContent__label--epargne">Durée du prêt</span>
+          <p class="viewContent__text viewContent__text--epargne">10 ans</p>
+        </div>
+      </div>
+    </div>
     <nav class="menu"><a class="menu__add" href="ajouter.html"><span class="hidden">Plus</span></a>
       <ul class="menu__list">
         <li class="menu__element"><a class="menu__link menu__link--home" href="accueil.html" title="Aller vers la page sommaire">Sommaire</a></li>

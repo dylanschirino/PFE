@@ -1099,6 +1099,13 @@ body {
   margin-left: 0.4167em;
   letter-spacing: 1px; }
 
+.viewContent__title--pret {
+  text-transform: uppercase;
+  font-size: 3.2em;
+  margin-top: 0.3em;
+  letter-spacing: 2px;
+  margin-left: 2em; }
+
 .viewContent__label {
   font: 1.4em/1.618em "droid_regular";
   color: #558FB6;
@@ -1139,3 +1146,6 @@ body {
   letter-spacing: 1px;
   width: 6em;
   margin: 1.833em auto; }
+
+.viewContent__timer--text span {
+  display: block; }
