@@ -1,0 +1,55 @@
+doctype html
+html(lang="fr")
+    head
+      <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+      <![endif]-->
+        meta(charset="utf-8")
+        meta(name="description", content="InThePocket | Application de gestion des dépenses")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
+        title= "InThePocket - Maquette HTML"
+        link(rel='stylesheet', href='css/main.css', type='text/css')
+
+    body
+      div.bigheader
+        include template/_header2.pug
+        div.bigheader__element
+          a.bigheader__return(href="accueil.html") Accueil
+          h1.bigheader__title Dépenses
+          a.bigheader__add(href="adddepense.html")
+      div.filters
+        ul.filters__list
+          li.filters__element
+            a.filters__link(href="#all") All
+          li.filters__element
+            a.filters__link(href="#loisirs") Loisirs
+          li.filters__element
+            a.filters__link(href="#aliments") Aliments
+          li.filters__element
+            a.filters__link(href="#maison") Maison
+          li.filters__element
+            a.filters__link(href="#eau") Eau
+          li.filters__element
+            a.filters__link(href="#sante") Santé
+          li.filters__element
+            a.filters__link.filters__link--more(href="more")
+        div.filters__search
+          input.search__input(type="search" name="s" value="" placeholder="Rechercher")
+          span.search__icon
+      div.viewHeader
+        a.viewHeader__return(href="depense.html")
+        h2.viewHeader__title Glace au chocolat de chez le glacier
+      div.viewContent
+        div.viewContent__container
+          span.viewContent__label Montant dépensé
+          p.viewContent__text 100.59€
+
+          span.viewContent__label Jour de la dépenses
+          p.viewContent__text 19 Janvier 2016
+
+          span.viewContent__label La depense est répeté le :
+          p.viewContent__text 14 du mois
+
+          span.viewContent__label Catégories :
+          p.viewContent__text Alimentation, Générale, Voitures, Maison
+      include template/_menu.pug

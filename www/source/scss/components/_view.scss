@@ -1,0 +1,40 @@
+/* PFE In the Pocket
+ *
+ * /sass/components/View.scss - View components
+ *
+ * coded by Dylan Schirino
+ * started at 20/01/2017
+ */
+ .viewHeader{
+   display: flex;
+   &__title{
+     font: 1.8em/1.618em $titleBold;
+     margin: 1.111em 2em 1.111em auto;
+     text-align: center;
+     color: $priceColor;
+   }
+   &__return::before{
+     content: "\e918";
+     font: 2.8em/1em $glyphs;
+     color: $priceColor;
+     display: inline-block;
+     margin: 0.7em 0em 0.6071428571em 1em;
+   }
+ }
+
+ .viewContent{
+   background-color: $Bckg;
+   &__container{
+     margin-left: 3.25em;
+     padding: 2.5em 0 5em 0;
+   }
+   &__label{
+     font: 1.4em/1.618em $titleFont;
+     color: $texteBlueLight;
+     padding-bottom: 0.6428571429em;
+   }
+   &__text{
+     font: 1.6em/1.618em $texteFontRegular;
+     padding-bottom: 1.25em;
+   }
+ }
