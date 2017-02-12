@@ -10,7 +10,7 @@ import bodyParser from "body-parser";
 import responseTime from "response-time";
 import mitanEko from "mitan-eko";
 import zouti from "zouti";
-// import systemRoutes from "../routes/system";
+import systemRoutes from "../routes/system";
 // import quicksRoutes from "../routes/quicks";
 // import pagesRoutes from "../routes/pages";
 
@@ -40,7 +40,7 @@ fInit = function( iAppPort = APP_PORT ) {
     oApp.set( "view engine", "pug" );
 
     // Routes
-    // oApp.use( systemRoutes );
+    oApp.use( systemRoutes );
     // oApp.use( quicksRoutes );
     // oApp.use( pagesRoutes );
 
