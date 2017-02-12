@@ -14,15 +14,15 @@ var gulp = require( "gulp" ),
     gESLint = require( "gulp-eslint" ),
     gBabel = require( "gulp-babel" ),
     gUtil = require( "gulp-util" ),
-    PouchDB = require( "pouchdb" ),
+    Mongo = require( "mongodb" ),
     browserify = require( "browserify"),
     sourceStream = require( "vinyl-source-stream" ),
     buffer = require( "vinyl-buffer" ),
     gRename = require( "gulp-rename" ),
     gUglify = require( "gulp-uglify" ),
     babelify = require( "babelify" ),
-    ObjectID = PouchDB.ObjectID,
-    PouchClient = PouchDB.MongoClient;
+    ObjectID = Mongo.ObjectID,
+    MongoClient = Mongo.MongoClient;
 
 
 // ES LINT
@@ -58,7 +58,7 @@ gulp.task( "reset-db", function( fNext ){
     return fNext();
   }
   // Connect to mongodb
-  PouchClient.connect("pouchdb://127.0.0.1:27017/api", function( oError, oDB ){
+  MongoClient.connect("mongodb://127.0.0.1:27017/pfe", function( oError, oDB ){
 
     var fDataParser;
 
@@ -70,8 +70,8 @@ gulp.task( "reset-db", function( fNext ){
     fDataParser = function( oElt ){
       // Comme il n'y a pas d'id existant on en crée un soit même !
       oElt._id = new ObjectID();
-      if ( oElt.spend && oElt.spend._id ) {
-        oElt.spend = new ObjectID( oElt.spend._id );
+      if ( oElt.pfe && oElt.pfe._id ) {
+        oElt.pfe = new ObjectID( oElt.pfe._id );
       }
 
       oElt.created_at = new Date( oElt.created_at );
