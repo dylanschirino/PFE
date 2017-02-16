@@ -42,14 +42,14 @@
     "imacss": "^1.0.0"
   },
   "dependencies": {
-    "bluebird": "^3.4.6",
+    "bluebird": "^3.4.7",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "express-pouchdb": "^2.2.4",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.1",
-    "pouchdb": "^6.0.7",
+    "mitan-eko": "^0.1.0",
     "reqwest": "^2.0.5",
+    "response-time": "^2.3.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   }
