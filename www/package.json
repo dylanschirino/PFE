@@ -20,10 +20,11 @@
   },
   "homepage": "https://github.com/dylanschirino/espacep#readme",
   "devDependencies": {
-    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babelify": "^7.3.0",
     "bourbon": "^4.2.7",
     "browser-sync": "^2.16.0",
-    "cordova": "^6.4.0",
+    "browserify": "^13.1.1",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
@@ -42,6 +43,14 @@
   },
   "dependencies": {
     "bluebird": "^3.4.6",
-    "pouchdb": "^6.0.7"
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-pouchdb": "^2.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.1",
+    "pouchdb": "^6.0.7",
+    "reqwest": "^2.0.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
