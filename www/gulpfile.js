@@ -1,5 +1,6 @@
 
 // Définition des dépendances dont on a besoin pour executer les taches
+/*eslint-disable */
 var
 gulp = require( 'gulp' ),
 newer = require( 'gulp-newer' ),
@@ -11,11 +12,18 @@ sass = require ( 'gulp-sass' ),
 gESLint = require( 'gulp-eslint' ),
 gBabel = require( 'gulp-babel' ),
 PouchDB = require( 'pouchdb' ),
+browserify = require( "browserify"),
+babelify = require( "babelify" ),
 htmlPreprocess = require ( 'gulp-preprocess' ),
 htmlclean = require ( 'gulp-htmlclean' ),
 browserSync = require ( 'browser-sync' ),
+sourceStream = require( "vinyl-source-stream" ),
+buffer = require( "vinyl-buffer" ),
+gRename = require( "gulp-rename" ),
+gUglify = require( "gulp-uglify" ),
+expressPouchDB = require('express-pouchdb'),
 pkg = require ('./package.json'),
-pug = require ( 'gulp-pug' ); // comme ca on a le scope de l'object package.json du coup on peut recuperer le nom de l'auteur par exemple.
+pug = require ( 'gulp-pug' );
 
 
 // Définition de quelques variables générales
@@ -94,6 +102,34 @@ gulp.task('svgmin', function () {
         .pipe(gulp.dest('./build/images/svg/'));
 });
 
+// Task for build in the server
+gulp.task( "build", function() {
+    return gulp
+        .src( "build/src/**/*.js" )
+        .pipe( gBabel() )
+        .pipe( gulp.dest( "build/bin" ) )
+} );
+
+gulp.task ( "views", function() {
+  return gulp
+      .src( "build/src/views/**" )
+      .pipe( gulp.dest( "build/bin/views" ) )
+} );
+
+gulp.task( "modules", function(){
+    browserify( "build/static/modules/main.js" )
+        .transform( babelify, {
+          "presets": [ "es2015" ],
+        } )
+        .bundle()
+        .pipe( sourceStream( "app.js" ) )
+        .pipe( gulp.dest( "build/static/js/" ) )
+        .pipe( buffer() )
+        .pipe( gRename( "app.min.js" ) )
+        .pipe( gUglify().on( "error", console.log ) )
+        .pipe( gulp.dest( "build/static/js" ));
+} );
+
 gulp.task('sass', function(){
 
   return gulp.src(css.in)
@@ -126,10 +162,13 @@ gulp.task('browserSync', function(){
 
 
 // Tache par défault exécuté lorsqu'on tape gulp dans le terminal
-gulp.task('default',['html','sass','svgmin','browserSync'], function(){
+gulp.task('default',['html','sass','svgmin','browserSync','build','views','modules'], function(){
 
   gulp.watch(html.watch, ['html',browserSync.reload]);
   gulp.watch(svgOpts.watch, ['svgmin']);
   gulp.watch(css.watch, ['sass']);
+  gulp.watch( "build/src/**/*.js", [ "build" ] );
+  gulp.watch( "build/src/views/**", [ "views" ] );
+  gulp.watch( "build/static/modules/**/*.js", [ "modules" ] );
 
 });
