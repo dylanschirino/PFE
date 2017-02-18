@@ -8,9 +8,11 @@ import { Router } from "express";
 
 import create from "../controllers/depense/create";
 import list from "../controllers/depense/list";
+import details from "../controllers/depense/details";
 
 let oRouter = new Router();
 oRouter.get( "/depense", list );
+oRouter.get( "/depense/:id", details );
 oRouter.post( "/depense", create );
 
 export default oRouter;
