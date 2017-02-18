@@ -9,7 +9,7 @@ import bodyParser from "body-parser";
 import responseTime from "response-time";
 import mitanEko from "mitan-eko";
 import zouti from "zouti";
-//import systemRoutes from "../routes/system";
+import systemRoutes from "../routes/system";
 
 let oApp,
     fInit;
@@ -37,7 +37,7 @@ fInit = function( iAppPort = APP_PORT ) {
     oApp.set( "view engine", "pug" );
 
     // Routes
-    //oApp.use( systemRoutes );
+    oApp.use( systemRoutes );
 
     // Listening on port
     oApp.listen( iAppPort, () => {
