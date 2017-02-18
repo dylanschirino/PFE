@@ -51,13 +51,13 @@ export default function( oRequest, oResponse ) {
       .then( fCreateDepense )
       .then( () => {
           send( oRequest, oResponse, {
-            "id": oDepense._id,
-            "name": oDepense.name || null,
-            "slug": oDepense.slug || null,
-            "montant": oDepense.montant,
-            "payment": oDepense.payement,
-            "categorie": oDepense.categorie,
-            "repeater": oDepense.repeater,
+              "id": oDepense._id,
+              "name": oDepense.name || null,
+              "slug": oDepense.slug || null,
+              "montant": oDepense.montant,
+              "payment": oDepense.payement,
+              "categorie": oDepense.categorie,
+              "repeater": oDepense.repeater,
           }, 201 );
       } )
       .catch( ( oError ) => {
