@@ -10,6 +10,7 @@ import responseTime from "response-time";
 import mitanEko from "mitan-eko";
 import zouti from "zouti";
 import systemRoutes from "../routes/system";
+import depenseRoutes from "../routes/depense";
 
 let oApp,
     fInit;
@@ -38,6 +39,7 @@ fInit = function( iAppPort = APP_PORT ) {
 
     // Routes
     oApp.use( systemRoutes );
+    oApp.use( depenseRoutes );
 
     // Listening on port
     oApp.listen( iAppPort, () => {
