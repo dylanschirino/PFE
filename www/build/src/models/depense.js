@@ -32,6 +32,7 @@ fCheckDepense = function( sDepenseID ) {
           if ( oDepenseID ) {
               return Promise.resolve( true );
           }
+          
           return Promise.reject( new Error( "Unknow depense" ) );
       } );
 };
