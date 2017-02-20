@@ -7,10 +7,18 @@
 import { ObjectID } from "mongodb";
 import getDepenses, { checkDepense } from "../../models/depense";
 import { send, error } from "../../core/utils/api";
+import fs from "fs";
+import Mongo from "mongodb";
 
 const PAYEMENT = [ "cash", "carte" ];
 
 export default function( oRequest, oResponse ) {
+  // Petit test d'upload d'une image
+  let path = "test.png";
+    fs.writeFileSync( path );
+  let oData = fs.readFileSync( path ),
+      oImage = new Mongo.Binary( oData );
+      console.log( oImage );
     const POST = oRequest.body;
 
     let sDepenseID = new ObjectID(),
@@ -20,6 +28,7 @@ export default function( oRequest, oResponse ) {
         aCategorie = POST.categorie,
         sPayement = POST.payement,
         bRepeater = POST.repeater,
+        aPicture = oImage,
         oDepense,
         fCreateDepense;
 
@@ -42,6 +51,7 @@ export default function( oRequest, oResponse ) {
     aCategorie && ( oDepense.categorie = aCategorie );
     sPayement && ( oDepense.payement = sPayement );
     bRepeater && ( oDepense.repeater = bRepeater );
+    aPicture = oImage;
 
     fCreateDepense = () => {
         return getDepenses().insertOne( oDepense );
@@ -58,6 +68,7 @@ export default function( oRequest, oResponse ) {
               "payment": oDepense.payement,
               "categorie": oDepense.categorie,
               "repeater": oDepense.repeater,
+              "picture": aPicture,
           }, 201 );
       } )
       .catch( ( oError ) => {
