@@ -38,7 +38,7 @@ fCheckEpargne = function( sEpargneID ) {
 };
 
 export default function() {
-    return db.collection( "depense" );
+    return db.collection( "epargne" );
 }
 export {
   fCheckEpargne as checkEpargne,

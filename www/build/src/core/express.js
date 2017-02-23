@@ -12,7 +12,7 @@ import zouti from "zouti";
 import systemRoutes from "../routes/system";
 import depenseRoutes from "../routes/depense";
 import pretRoutes from "../routes/pret";
-// import epargneRoutes from "../routes/epargne";
+import epargneRoutes from "../routes/epargne";
 
 let oApp,
     fInit;
@@ -43,7 +43,7 @@ fInit = function( iAppPort = APP_PORT ) {
     oApp.use( systemRoutes );
     oApp.use( depenseRoutes );
     oApp.use( pretRoutes );
-    // oApp.use( epargneRoutes );
+    oApp.use( epargneRoutes );
 
     // Listening on port
     oApp.listen( iAppPort, () => {
