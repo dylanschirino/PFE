@@ -15,7 +15,7 @@ const PAYEMENT = [ "cash", "carte" ];
 export default function( oRequest, oResponse ) {
   // Petit test d'upload d'une image
   let path = "test.png";
-    fs.writeFileSync( path );
+      fs.writeFileSync( path );
   let oData = fs.readFileSync( path ),
       oImage = new Mongo.Binary( oData );
       console.log( oImage );
