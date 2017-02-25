@@ -24,7 +24,7 @@ export default function( oRequest, oResponse ) {
         if ( !oUser ) {
             return error( oRequest, oResponse, "Unknow User", 404 );
         }
-
+        console.log( oUser );
         let { _id, email, password } = oUser,
             oCleanUser;
 
