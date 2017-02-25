@@ -1,43 +1,39 @@
 /* Dylan/PFE/Api
 *
-* /src/controllers/depense/details.js Depense details controllers
+* /src/controllers/user/details.js User details controllers
 *
 * At 18/02/17
 */
-import getDepenses from "../../models/depense";
+import getUsers from "../../models/user";
 import { send, error } from "../../core/utils/api";
 import { ObjectID } from "mongodb";
 
 export default function( oRequest, oResponse ) {
-    let sDepenseID = ( oRequest.params.id || "" ).trim();
+    let sUserID = ( oRequest.params.id || "" ).trim();
 
-    if ( !sDepenseID ) {
-        error( oRequest, oResponse, "Invalid depense ID", 400 );
+    if ( !sUserID ) {
+        error( oRequest, oResponse, "Invalid user ID", 400 );
     }
 
-    getDepenses()
+    getUsers()
     .findOne( {
-        "_id": new ObjectID( sDepenseID ),
+        "_id": new ObjectID( sUserID ),
         "deleted_at": null,
     } )
-    .then( ( oDepense ) => {
-        if ( !oDepense ) {
-            return error( oRequest, oResponse, "Unknow Depense", 404 );
+    .then( ( oUser ) => {
+        if ( !oUser ) {
+            return error( oRequest, oResponse, "Unknow User", 404 );
         }
 
-        let { _id, name, montant, repeater, categorie, created_at, payement } = oDepense,
-            oCleanDepense;
+        let { _id, email, password } = oUser,
+            oCleanUser;
 
-        oCleanDepense = {
+        oCleanUser = {
             "id": _id,
-            "name": name,
-            "montant": montant,
-            "categorie": categorie,
-            "payement": payement,
-            "repeater": repeater,
-            "created_at": created_at,
+            "email": email,
+            "password": password,
         };
-        send( oRequest, oResponse, oCleanDepense );
+        send( oRequest, oResponse, oCleanUser );
     } )
     .catch( ( oError ) => {
         error( oRequest, oResponse, oError );

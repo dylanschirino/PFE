@@ -1,25 +1,25 @@
 /* Dylan/PFE/Api
 *
-* /src/controllers/depense/destroy.js Depense destroy controllers
+* /src/controllers/depense/destroy.js User destroy controllers
 *
 * At 18/02/17
 */
 import { ObjectID } from "mongodb";
-import getDepenses from "../../models/depense";
+import getUsers from "../../models/user";
 import { send, error } from "../../core/utils/api";
 
 export default function( oRequest, oResponse ) {
-    let oDepenseID;
+    let oUserID;
 
     try {
-        oDepenseID = new ObjectID( oRequest.params.id );
+        oUserID = new ObjectID( oRequest.params.id );
     } catch ( oError ) {
         return error( oRequest, oResponse, new Error( "Invalid ID!" ), 400 );
     }
 
-    getDepenses()
+    getUsers()
     .deleteOne( {
-        "_id": oDepenseID,
+        "_id": oUserID,
     } )
     .then( ( { deletedCount } ) => {
         if ( deletedCount === 1 ) {
