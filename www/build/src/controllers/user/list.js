@@ -1,6 +1,6 @@
 /* Dylan/PFE/Api
 *
-* /src/controllers/depense/list.js Users list controllers
+* /src/controllers/user/list.js Users list controllers
 *
 * At 18/02/17
 */
