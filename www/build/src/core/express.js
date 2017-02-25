@@ -13,6 +13,7 @@ import systemRoutes from "../routes/system";
 import depenseRoutes from "../routes/depense";
 import pretRoutes from "../routes/pret";
 import epargneRoutes from "../routes/epargne";
+import userRoutes from "../routes/user";
 
 let oApp,
     fInit;
@@ -33,17 +34,21 @@ fInit = function( iAppPort = APP_PORT ) {
         "extended": true,
     } ) );
 
+
     oApp.use( express.static( `${ __dirname }/../../static` ) );
 
     // configure templates
     oApp.set( "views", `${ __dirname }/../views` );
     oApp.set( "view engine", "pug" );
 
+
     // Routes
     oApp.use( systemRoutes );
     oApp.use( depenseRoutes );
     oApp.use( pretRoutes );
     oApp.use( epargneRoutes );
+    oApp.use( userRoutes );
+
 
     // Listening on port
     oApp.listen( iAppPort, () => {
