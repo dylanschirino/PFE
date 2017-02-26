@@ -23,12 +23,10 @@ export default function( oRequest, oResponse ) {
                 return error( oRequest, oResponse, "Wrong password", 404 );
             }
         }
-        let tToken = jwt.sign( { email: oUser.email }, 'shhhhh');
+        // let cert = fs.readFileSync( "private.key" ),
+        let tToken = jwt.sign( { email: oUser.email }, "shhhhh" );
 
-        console.log( tToken );
-
-
-        return send( oRequest, oResponse, tToken, 200 );
+        return send( oRequest, oResponse, { "token": tToken }, 200 );
     } )
     .catch( ( oError ) => {
         error( oRequest, oResponse, oError );
