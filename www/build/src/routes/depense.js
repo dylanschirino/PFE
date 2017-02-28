@@ -5,12 +5,12 @@
 * At 18/02/17
 */
 import { Router } from "express";
-
 import create from "../controllers/depense/create";
 import update from "../controllers/depense/update";
 import destroy from "../controllers/depense/destroy";
 import list from "../controllers/depense/list";
 import details from "../controllers/depense/details";
+import check from "../controllers/home/check";
 
 let oRouter = new Router();
 
@@ -19,5 +19,7 @@ oRouter.get( "/depense/:id", details );
 oRouter.post( "/depense", create );
 oRouter.patch( "/depense/:id", update );
 oRouter.delete( "/depense/:id", destroy );
+oRouter.post( "/home", check );
+
 
 export default oRouter;

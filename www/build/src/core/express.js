@@ -65,8 +65,6 @@ fInit = function( iAppPort = APP_PORT ) {
 
     } );
 
-
-
     // Listening on port
     oApp.listen( iAppPort, () => {
         zouti.success( `Server is listening on the port ${ iAppPort }.`, "API" );

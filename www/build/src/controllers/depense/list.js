@@ -6,8 +6,26 @@
 */
 import getDepenses from "../../models/depense";
 import { send, error } from "../../core/utils/api";
-
+import { db } from "../../core/mongodb";
 export default function( oRequest, oResponse ) {
+
+    getDepenses().aggregate( [ {
+        $group: {
+            _id: "",
+            total: {
+                $sum: "$montant",
+            },
+        },
+    },
+    {
+        $out: "depense_sum",
+    },
+    ] )
+    .toArray()
+    .then( () => {
+        return Promise.resolve( true );
+    } );
+
 
     getDepenses()
     .find()
@@ -16,6 +34,7 @@ export default function( oRequest, oResponse ) {
 
         let aCleanDepense,
             aDepenseToReset = [];
+
 
         aCleanDepense = aDepenses.map( ( { _id, name, montant, repeater, payement } ) => {
             aDepenseToReset.push( _id );
@@ -28,7 +47,9 @@ export default function( oRequest, oResponse ) {
                 "repeater": repeater,
             };
         } );
+
         send( oRequest, oResponse, aCleanDepense );
+
     } )
     .catch( ( oError ) => {
         error( oRequest, oResponse, oError );

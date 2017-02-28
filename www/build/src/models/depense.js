@@ -8,7 +8,7 @@ import { db } from "../core/mongodb";
 import { ObjectID } from "mongodb";
 import Promise from "bluebird";
 
-let fCheckDepense;
+let fCheckDepense, fResults;
 
 // On vérifie qu'on a bien un ID dans les dépenses
 fCheckDepense = function( sDepenseID ) {
@@ -24,22 +24,24 @@ fCheckDepense = function( sDepenseID ) {
         return Promise.reject( new Error( "Invalid Depense ID" ) );
     }
 
-    return db.collection( "depense" )
+    return db.collection( "epargne" )
       .findOne( {
           "_id": oDepenseID,
       } )
-      .then( ( oDepenseID ) => {
-          if ( oDepenseID ) {
+      .then( ( oEpargneID ) => {
+          if ( oEpargneID ) {
               return Promise.resolve( true );
           }
-          
-          return Promise.reject( new Error( "Unknow depense" ) );
+
+          return Promise.reject( new Error( "Unknow epargne" ) );
       } );
 };
+
 
 export default function() {
     return db.collection( "depense" );
 }
 export {
   fCheckDepense as checkDepense,
+  fResults as results,
 };
