@@ -6,10 +6,17 @@
 */
 import getDepenses from "../../models/depense";
 import { send, error } from "../../core/utils/api";
-import { db } from "../../core/mongodb";
 export default function( oRequest, oResponse ) {
+    let sUserID = oRequest.query.user || "" ;
+
+    if ( !sUserID ) {
+        error( oRequest, oResponse, "Mandatory country query params not found!", 400 );
+    }
 
     getDepenses().aggregate( [ {
+        $match: { user: sUserID },
+    },
+    {
         $group: {
             _id: "1",
             total: {
@@ -28,7 +35,9 @@ export default function( oRequest, oResponse ) {
 
 
     getDepenses()
-    .find()
+    .find( {
+        "user": sUserID,
+    } )
     .toArray()
     .then( ( aDepenses = [] ) => {
 

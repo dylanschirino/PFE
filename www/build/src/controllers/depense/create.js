@@ -53,7 +53,7 @@ export default function( oRequest, oResponse ) {
     aCategorie && ( oDepense.categorie = aCategorie );
     sPayement && ( oDepense.payement = sPayement );
     bRepeater && ( oDepense.repeater = bRepeater );
-    sUserID && ( oDepense.user = new ObjectID( sUserID ) );
+    sUserID && ( oDepense.user = sUserID );
     aPicture = oImage;
 
     fCreateDepense = () => {
