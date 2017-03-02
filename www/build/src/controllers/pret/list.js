@@ -8,9 +8,15 @@ import getPret from "../../models/pret";
 import { send, error } from "../../core/utils/api";
 
 export default function( oRequest, oResponse ) {
+    let sUserID = oRequest.query.user || "" ;
 
+    if ( !sUserID ) {
+        error( oRequest, oResponse, "Mandatory country query params not found!", 400 );
+    }
     getPret()
-    .find()
+    .find( {
+        "user": sUserID,
+    } )
     .toArray()
     .then( ( aPret = [] ) => {
 

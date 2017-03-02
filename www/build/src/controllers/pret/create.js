@@ -6,6 +6,7 @@
 */
 import { ObjectID } from "mongodb";
 import getPret, { checkPret } from "../../models/pret";
+import { checkUser } from "../../models/user";
 import { send, error } from "../../core/utils/api";
 
 
@@ -20,6 +21,7 @@ export default function( oRequest, oResponse ) {
         iInteret = +POST.interet / 100,
         dDateDepart = POST.depart,
         dDuree = Math.log( -iMensualite / ( ( ( iInteret / 12 ) * iMontant ) - iMensualite ) ) / Math.log( 1 + ( iInteret / 12 ) ),
+        sUserID = ( POST.user || "" ).trim(),
         oPret,
         fCreatePret;
 
@@ -45,6 +47,7 @@ export default function( oRequest, oResponse ) {
     iMensualite && ( oPret.mensualite = iMensualite );
     iInteret && ( oPret.interet = iInteret );
     dDateDepart && ( oPret.depart = dDateDepart );
+    sUserID && ( oPret.user = sUserID );
     dDuree && ( oPret.duree = dDuree )
 
     fCreatePret = () => {
@@ -62,6 +65,7 @@ export default function( oRequest, oResponse ) {
               "mensualite": oPret.mensualite,
               "interet": oPret.interet,
               "debut": oPret.depart,
+              "user": oPret.user,
               "duree": dDuree,
           }, 201 );
       } )
