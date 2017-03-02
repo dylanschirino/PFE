@@ -6,6 +6,7 @@
 */
 import { ObjectID } from "mongodb";
 import getEpargne, { checkEpargne } from "../../models/epargne";
+import { checkUser } from "../../models/user";
 import { send, error } from "../../core/utils/api";
 
 
@@ -19,6 +20,7 @@ export default function( oRequest, oResponse ) {
         iMensualite = +POST.mensualite,
         dDateDepart = POST.depart,
         dDuree = iMontant / iMensualite,
+        sUserID = ( POST.user || "" ).trim(),
         oEpargne,
         fCreateEpargne;
 
@@ -40,6 +42,7 @@ export default function( oRequest, oResponse ) {
     iMontant && ( oEpargne.montant = iMontant );
     iMensualite && ( oEpargne.mensualite = iMensualite );
     dDateDepart && ( oEpargne.depart = dDateDepart );
+    sUserID && ( oEpargne.user = sUserID );
     dDuree && ( oEpargne.duree = dDuree );
 
     fCreateEpargne = () => {
@@ -57,6 +60,7 @@ export default function( oRequest, oResponse ) {
               "mensualite": oEpargne.mensualite,
               "interet": oEpargne.interet,
               "debut": oEpargne.depart,
+              "user": oEpargne.user,
               "duree": dDuree,
           }, 201 );
       } )
