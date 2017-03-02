@@ -6,6 +6,7 @@
 */
 import { ObjectID } from "mongodb";
 import getDepenses, { checkDepense } from "../../models/depense";
+import { checkUser } from "../../models/user";
 import { send, error } from "../../core/utils/api";
 import fs from "fs";
 import Mongo from "mongodb";
@@ -28,6 +29,7 @@ export default function( oRequest, oResponse ) {
         aCategorie = POST.categorie,
         sPayement = POST.payement,
         bRepeater = POST.repeater,
+        sUserID = ( POST.user || "" ).trim(),
         aPicture = oImage,
         oDepense,
         fCreateDepense;
@@ -51,9 +53,11 @@ export default function( oRequest, oResponse ) {
     aCategorie && ( oDepense.categorie = aCategorie );
     sPayement && ( oDepense.payement = sPayement );
     bRepeater && ( oDepense.repeater = bRepeater );
+    sUserID && ( oDepense.user = new ObjectID( sUserID ) );
     aPicture = oImage;
 
     fCreateDepense = () => {
+
         return getDepenses().insertOne( oDepense );
     };
 
@@ -68,6 +72,7 @@ export default function( oRequest, oResponse ) {
               "payment": oDepense.payement,
               "categorie": oDepense.categorie,
               "repeater": oDepense.repeater,
+              "user": oDepense.user,
               "picture": aPicture,
           }, 201 );
       } )

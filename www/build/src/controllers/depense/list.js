@@ -11,7 +11,7 @@ export default function( oRequest, oResponse ) {
 
     getDepenses().aggregate( [ {
         $group: {
-            _id: "",
+            _id: "1",
             total: {
                 $sum: "$montant",
             },
