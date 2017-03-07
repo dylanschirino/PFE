@@ -7,27 +7,32 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
+  Navigator,
   StyleSheet,
   Text,
   View
 } from 'react-native';
 
+import Introduction from "./Scene/Introduction";
+import Introduction2 from "./Scene/Introduction2";
+
 export default class InTheWallet extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
+      <Navigator
+        initialRoute={{screen: 'Introduction'}}
+        renderScene={(route, nav) => {return this.renderScene(route, nav)}}
+      />
+    )
+  }
+    // Where everything is happening, the renderScene
+    renderScene(route,nav) {
+    switch (route.screen) {
+      case "Introduction":
+        return <Introduction navigator={nav} />
+      case "Introduction2":
+        return <Introduction2 navigator={nav} />
+      }
   }
 }
 
