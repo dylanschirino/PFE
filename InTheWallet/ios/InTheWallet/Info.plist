@@ -52,7 +52,9 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>lato-regular.ttf</string>
-		<string></string>
+		<string>lato-light.ttf</string>
+		<string>lato-bold.ttf</string>
+		<string>droidsans.ttf</string>
 	</array>
 </dict>
 </plist>
