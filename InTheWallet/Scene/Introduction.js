@@ -15,6 +15,30 @@ export default class Introduction extends Component {
         <Text style={styles.introText}>
         In The Wallet vous permets de mieux gérer vos dépenses au quotidien.
         </Text>
+        <View style={styles.switchContainer}>
+        <TouchableHighlight
+        backgroundColor='#235182' style={styles.switcherOne} onPress={this.goIntroduction2.bind(this)}>
+        <View></View>
+        </TouchableHighlight>
+
+        <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction2.bind(this)}>
+        <View></View>
+
+        </TouchableHighlight>
+        <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction2.bind(this)}>
+        <View></View>
+
+        </TouchableHighlight>
+        <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction2.bind(this)}>
+        <View></View>
+        </TouchableHighlight>
+
+        </View>
+        <TouchableHighlight style={styles.button}>
+        <Text style={styles.buttonText}>
+        Passer les introductions !
+        </Text>
+        </TouchableHighlight>
         </View>
     )
   }
@@ -43,5 +67,38 @@ const styles = StyleSheet.create({
     fontWeight:'100',
     lineHeight:24,
     color:'#235182',
+    marginBottom:40,
+  },
+  switchContainer:{
+    flexDirection:'row',
+    marginBottom:60,
+  },
+  switcherOne:{
+    width:19.75,
+    height:15,
+    borderWidth:1,
+    borderColor:'#235182',
+    borderRadius:2.5,
+  },
+  switcher:{
+    width:19.75,
+    height:15,
+    borderWidth:1,
+    borderColor:'#235182',
+    borderRadius:2.5,
+    marginLeft:26.33,
+  },
+  button:{
+    backgroundColor:'#235182',
+    paddingTop:15,
+    paddingBottom:15,
+    borderRadius:8,
+    alignItems:'center',
+    alignSelf:'stretch',
+    marginLeft:26,
+    marginRight:26,
+  },
+  buttonText:{
+    color:'#FFFFFF',
   }
 });
