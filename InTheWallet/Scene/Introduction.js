@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
     fontSize:20,
     color:'#235182',
     marginBottom:20,
+    fontFamily:'droidsans',
   },
   introText:{
     fontSize:18,
@@ -67,7 +68,10 @@ const styles = StyleSheet.create({
     fontWeight:'100',
     lineHeight:24,
     color:'#235182',
-    marginBottom:40,
+    paddingLeft:30,
+    paddingRight:30,
+    paddingBottom:40,
+    fontFamily:'lato-light',
   },
   switchContainer:{
     flexDirection:'row',
