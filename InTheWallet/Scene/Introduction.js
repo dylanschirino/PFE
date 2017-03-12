@@ -1,28 +1,47 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableHighlight, StyleSheet, ScrollView,  StatusBar, Image, Dimensions } from 'react-native';
 
 export default class Introduction extends Component {
   render() {
     return (
-      <ScrollView horizontal={true}>
-      <View style={styles.svg}>
-        <Text style={styles.test}>Introduction1</Text>
-        <TouchableHighlight onPress={this.goIntroduction2.bind(this)}>
-        <Text style={styles.test}>Go to Intro2</Text>
-        </TouchableHighlight>
-      </View>
-      </ScrollView>
+        <View style={styles.container}>
+        <Image
+          style={styles.img}
+          source={ require('../img/Intro1.png')}
+        />
+        <Text style={styles.titleIntro}>
+        Votre nouveau meilleur ami.
+        </Text>
+        <Text style={styles.introText}>
+        In The Wallet vous permets de mieux gérer vos dépenses au quotidien.
+        </Text>
+        </View>
     )
   }
   goIntroduction2() {
     this.props.navigator.push({ screen: 'Introduction2' });
   }
 }
-
 const styles = StyleSheet.create({
-  test: {
-    padding:30,
-    color: 'blue',
-    opacity: 1
+  container: {
+    alignItems:'center',
   },
+  img:{
+    width:257,
+    height:251,
+    marginTop:25,
+    marginBottom:35,
+  },
+  titleIntro:{
+    fontSize:20,
+    color:'#235182',
+    marginBottom:20,
+  },
+  introText:{
+    fontSize:18,
+    textAlign:'center',
+    fontWeight:'100',
+    lineHeight:24,
+    color:'#235182',
+  }
 });
