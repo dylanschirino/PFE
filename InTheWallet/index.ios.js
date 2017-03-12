@@ -9,6 +9,7 @@ import {
   AppRegistry,
   Navigator,
   StyleSheet,
+  StatusBar,
   Text,
   View
 } from 'react-native';
@@ -19,10 +20,14 @@ import Introduction2 from "./Scene/Introduction2";
 export default class InTheWallet extends Component {
   render() {
     return (
+      <View style={styles.svg}>
+      <StatusBar barStyle="dark-content"
+      />
       <Navigator
         initialRoute={{screen: 'Introduction'}}
         renderScene={(route, nav) => {return this.renderScene(route, nav)}}
       />
+      </View>
     )
   }
     // Where everything is happening, the renderScene
@@ -37,21 +42,13 @@ export default class InTheWallet extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  svg: {
+    borderWidth:1,
+    borderColor:'#235182',
+    borderRadius:5,
+    marginTop:35,// 15px on arrive a la StatusBar + 20px de margin
+    margin:20,
+    flex:1,
   },
 });
 
