@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, TouchableHighlight,StyleSheet, Image } from 'react-native';
 
-export default class Introduction2 extends Component {
+export default class Introduction3 extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -31,9 +31,9 @@ export default class Introduction2 extends Component {
 
       <TouchableHighlight style={styles.switcher}>
       <View></View>
-
       </TouchableHighlight>
-      <TouchableHighlight style={styles.switcher}>
+
+      <TouchableHighlight onPress={this.goIntroduction4.bind(this)} style={styles.switcher}>
       <View></View>
       </TouchableHighlight>
 
@@ -52,6 +52,9 @@ export default class Introduction2 extends Component {
   }
   goIntroduction2() {
     this.props.navigator.push({ screen: 'Introduction2' });
+  }
+  goIntroduction4() {
+    this.props.navigator.push({ screen: 'Introduction4' });
   }
 }
 

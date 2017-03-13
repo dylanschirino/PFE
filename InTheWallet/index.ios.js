@@ -17,6 +17,7 @@ import {
 import Introduction from "./Scene/Introduction";
 import Introduction2 from "./Scene/Introduction2";
 import Introduction3 from './Scene/Introduction3';
+import Introduction4 from './Scene/Introduction4';
 
 export default class InTheWallet extends Component {
   render() {
@@ -40,6 +41,8 @@ export default class InTheWallet extends Component {
         return <Introduction2 navigator={nav} />
       case "Introduction3":
         return <Introduction3 navigator={nav} />
+      case "Introduction4":
+        return <Introduction4 navigator={nav} />
       }
   }
 }

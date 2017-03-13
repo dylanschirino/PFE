@@ -32,7 +32,7 @@ export default class Introduction extends Component {
         <View></View>
 
         </TouchableHighlight>
-        <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction2.bind(this)}>
+        <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction4.bind(this)}>
         <View></View>
         </TouchableHighlight>
 
@@ -50,6 +50,9 @@ export default class Introduction extends Component {
   }
   goIntroduction3(){
     this.props.navigator.push({ screen: 'Introduction3' });
+  }
+  goIntroduction4(){
+    this.props.navigator.push({ screen: 'Introduction4' });
   }
 }
 const styles = StyleSheet.create({
