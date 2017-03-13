@@ -24,7 +24,7 @@ export default class Introduction2 extends Component {
       </TouchableHighlight>
 
       <View>
-      <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction.bind(this)}>
+      <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction2.bind(this)}>
       <View></View>
       </TouchableHighlight>
       </View>
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   switchContainer:{
     flexDirection:'row',
-    marginBottom:50,
+    marginBottom:94,
   },
   switcherOne:{
     width:19.75,
