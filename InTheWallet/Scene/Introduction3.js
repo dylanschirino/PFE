@@ -7,13 +7,13 @@ export default class Introduction2 extends Component {
       <View style={styles.container}>
       <Image
         style={styles.img}
-        source={ require('../img/Intro2.png')}
+        source={ require('../img/Intro3.png')}
       />
       <Text style={styles.titleIntro}>
-      Gérer vos dépenses facilement.
+      Vos prêt à porter de mains.
       </Text>
       <Text style={styles.introText}>
-      Vous pouvez ajouter une dépense en un rien de temps ou que vous soyez.
+      Ajouter vos prêts avec vos taux d’intêret et voir le remboursement en temps réels.
       </Text>
 
       <View style={styles.switchContainer}>
@@ -24,7 +24,7 @@ export default class Introduction2 extends Component {
       </TouchableHighlight>
 
       <View>
-      <TouchableHighlight style={styles.switcher}>
+      <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction.bind(this)}>
       <View></View>
       </TouchableHighlight>
       </View>
@@ -50,6 +50,9 @@ export default class Introduction2 extends Component {
   goIntroduction() {
     this.props.navigator.push({ screen: 'Introduction' });
   }
+  goIntroduction2() {
+    this.props.navigator.push({ screen: 'Introduction2' });
+  }
 }
 
 const styles = StyleSheet.create({
@@ -57,8 +60,8 @@ const styles = StyleSheet.create({
     alignItems:'center',
   },
   img:{
-    width:256,
-    height:252,
+    width:308,
+    height:208,
     marginTop:25,
     marginBottom:35,
   },
