@@ -104,6 +104,6 @@ const styles = StyleSheet.create({
   },
   buttonText:{
     color:'#FFFFFF',
-    fontFamily:'droidsans',
+    fontFamily:'droidsans'
   }
 });
