@@ -16,16 +16,19 @@ export default class Introduction extends Component {
         In The Wallet vous permets de mieux gérer vos dépenses au quotidien.
         </Text>
         <View style={styles.switchContainer}>
+
+        <View style={styles.active}>
         <TouchableHighlight
-        backgroundColor='#235182' style={styles.switcherOne} onPress={this.goIntroduction2.bind(this)}>
+        style={styles.switcherOne}>
         <View></View>
         </TouchableHighlight>
+        </View>
 
         <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction2.bind(this)}>
         <View></View>
 
         </TouchableHighlight>
-        <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction2.bind(this)}>
+        <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction3.bind(this)}>
         <View></View>
 
         </TouchableHighlight>
@@ -44,6 +47,9 @@ export default class Introduction extends Component {
   }
   goIntroduction2() {
     this.props.navigator.push({ screen: 'Introduction2' });
+  }
+  goIntroduction3(){
+    this.props.navigator.push({ screen: 'Introduction3' });
   }
 }
 const styles = StyleSheet.create({
@@ -105,5 +111,9 @@ const styles = StyleSheet.create({
   buttonText:{
     color:'#FFFFFF',
     fontFamily:'droidsans'
+  },
+  active:{
+    backgroundColor:'#235182',
+    borderRadius:2.5,
   }
 });
