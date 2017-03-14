@@ -21,7 +21,7 @@ export default class Introduction4 extends Component {
       <View style={styles.switchContainer}>
 
       <TouchableHighlight onPress={this.goIntroduction.bind(this)}
-      style={styles.switcherOne}>
+      style={styles.switcher}>
       <View></View>
       </TouchableHighlight>
 
