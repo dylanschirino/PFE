@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, StyleSheet, ScrollView,  StatusBar, Image, Dimensions } from 'react-native';
 
+let styles = require('../style/IntroStyle');
+
 export default class Introduction extends Component {
   render() {
     return (
@@ -17,12 +19,10 @@ export default class Introduction extends Component {
         </Text>
         <View style={styles.switchContainer}>
 
-        <View style={styles.active}>
         <TouchableHighlight
-        style={styles.switcherOne}>
+        style={styles.active}>
         <View></View>
         </TouchableHighlight>
-        </View>
 
         <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction2.bind(this)}>
         <View></View>
@@ -55,68 +55,3 @@ export default class Introduction extends Component {
     this.props.navigator.push({ screen: 'Introduction4' });
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    alignItems:'center',
-  },
-  img:{
-    width:257,
-    height:251,
-    marginTop:25,
-    marginBottom:35,
-  },
-  titleIntro:{
-    fontSize:20,
-    color:'#235182',
-    marginBottom:20,
-    fontFamily:'droidsans',
-  },
-  introText:{
-    fontSize:18,
-    textAlign:'center',
-    fontWeight:'100',
-    lineHeight:24,
-    color:'#235182',
-    paddingLeft:30,
-    paddingRight:30,
-    paddingBottom:40,
-    fontFamily:'lato-light',
-  },
-  switchContainer:{
-    flexDirection:'row',
-    marginBottom:60,
-  },
-  switcherOne:{
-    width:19.75,
-    height:15,
-    borderWidth:1,
-    borderColor:'#235182',
-    borderRadius:2.5,
-  },
-  switcher:{
-    width:19.75,
-    height:15,
-    borderWidth:1,
-    borderColor:'#235182',
-    borderRadius:2.5,
-    marginLeft:26.33,
-  },
-  button:{
-    backgroundColor:'#235182',
-    paddingTop:15,
-    paddingBottom:15,
-    borderRadius:8,
-    alignItems:'center',
-    alignSelf:'stretch',
-    marginLeft:26,
-    marginRight:26,
-  },
-  buttonText:{
-    color:'#FFFFFF',
-    fontFamily:'droidsans'
-  },
-  active:{
-    backgroundColor:'#235182',
-    borderRadius:2.5,
-  }
-});
