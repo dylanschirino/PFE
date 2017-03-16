@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, TouchableHighlight,StyleSheet, Image } from 'react-native';
+import { View, Text, TouchableOpacity,StyleSheet, Image } from 'react-native';
 
 let styles = require('../style/IntroStyle');
 
@@ -20,32 +20,32 @@ export default class Introduction4 extends Component {
 
       <View style={styles.switchContainer}>
 
-      <TouchableHighlight onPress={this.goIntroduction.bind(this)}
+      <TouchableOpacity onPress={this.goIntroduction.bind(this)}
       style={styles.switcher}>
       <View></View>
-      </TouchableHighlight>
+      </TouchableOpacity>
 
       <View>
-      <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction2.bind(this)}>
+      <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction2.bind(this)}>
       <View></View>
-      </TouchableHighlight>
+      </TouchableOpacity>
       </View>
 
-      <TouchableHighlight onPress={this.goIntroduction3.bind(this)} style={styles.switcher}>
+      <TouchableOpacity onPress={this.goIntroduction3.bind(this)} style={styles.switcher}>
       <View></View>
-      </TouchableHighlight>
+      </TouchableOpacity>
 
-      <TouchableHighlight style={styles.active}>
+      <TouchableOpacity style={styles.active}>
       <View></View>
-      </TouchableHighlight>
+      </TouchableOpacity>
 
 
       </View>
-      <TouchableHighlight style={styles.button}>
+      <TouchableOpacity style={styles.button}>
       <Text style={styles.buttonText}>
       Passer les introductions !
       </Text>
-      </TouchableHighlight>
+    </TouchableOpacity>
       </View>
     )
   }

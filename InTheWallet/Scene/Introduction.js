@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, StyleSheet, ScrollView,  StatusBar, Image, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions } from 'react-native';
 
 let styles = require('../style/IntroStyle');
 
@@ -19,29 +19,29 @@ export default class Introduction extends Component {
         </Text>
         <View style={styles.switchContainer}>
 
-        <TouchableHighlight
+        <TouchableOpacity
         style={styles.active}>
         <View></View>
-        </TouchableHighlight>
+        </TouchableOpacity>
 
-        <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction2.bind(this)}>
+        <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction2.bind(this)}>
         <View></View>
 
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction3.bind(this)}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction3.bind(this)}>
         <View></View>
 
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.switcher} onPress={this.goIntroduction4.bind(this)}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction4.bind(this)}>
         <View></View>
-        </TouchableHighlight>
+        </TouchableOpacity>
 
         </View>
-        <TouchableHighlight style={styles.button}>
+        <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>
         Passer les introductions !
         </Text>
-        </TouchableHighlight>
+      </TouchableOpacity>
         </View>
     )
   }
