@@ -2,6 +2,14 @@ import { StyleSheet } from 'react-native';
 
 
 module.exports = StyleSheet.create({
+  svg: {
+    borderWidth:1,
+    borderColor:'#235182',
+    borderRadius:5,
+    marginTop:35,// 15px on arrive a la StatusBar + 20px de margin
+    margin:20,
+    flex:1,
+  },
   container: {
     alignItems:'center',
   },
@@ -65,4 +73,3 @@ module.exports = StyleSheet.create({
     marginLeft:26.33,
   }
 });
-import React, { Component } from 'react';

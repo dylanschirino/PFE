@@ -18,6 +18,7 @@ import Introduction from "./Scene/Introduction";
 import Introduction2 from "./Scene/Introduction2";
 import Introduction3 from './Scene/Introduction3';
 import Introduction4 from './Scene/Introduction4';
+import Subscription from './Scene/login/Subscription';
 
 export default class InTheWallet extends Component {
   render() {
@@ -43,6 +44,8 @@ export default class InTheWallet extends Component {
         return <Introduction3 navigator={nav} />
       case "Introduction4":
         return <Introduction4 navigator={nav} />
+      case "Subscription":
+        return <Subscription navigator={nav} />
       }
   }
 }

@@ -37,7 +37,7 @@ export default class Introduction extends Component {
         </TouchableOpacity>
 
         </View>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={this.goSubscribe.bind(this)}>
         <Text style={styles.buttonText}>
         Passer les introductions !
         </Text>
@@ -53,5 +53,8 @@ export default class Introduction extends Component {
   }
   goIntroduction4(){
     this.props.navigator.push({ screen: 'Introduction4' });
+  }
+  goSubscribe() {
+    this.props.navigator.push({ screen: 'Subscription' });
   }
 }
