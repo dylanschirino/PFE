@@ -23,14 +23,11 @@ import Subscription from './Scene/login/Subscription';
 export default class InTheWallet extends Component {
   render() {
     return (
-      <View style={styles.svg}>
-      <StatusBar barStyle="dark-content"
-      />
+
       <Navigator
         initialRoute={{screen: 'Introduction'}}
         renderScene={(route, nav) => {return this.renderScene(route, nav)}}
       />
-      </View>
     )
   }
     // Where everything is happening, the renderScene
@@ -49,16 +46,5 @@ export default class InTheWallet extends Component {
       }
   }
 }
-
-const styles = StyleSheet.create({
-  svg: {
-    borderWidth:1,
-    borderColor:'#235182',
-    borderRadius:5,
-    marginTop:35,// 15px on arrive a la StatusBar + 20px de margin
-    margin:20,
-    flex:1,
-  },
-});
 
 AppRegistry.registerComponent('InTheWallet', () => InTheWallet);

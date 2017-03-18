@@ -6,6 +6,9 @@ let styles = require('../style/IntroStyle');
 export default class Introduction extends Component {
   render() {
     return (
+      <View style={styles.introContainer}>
+        <StatusBar barStyle="dark-content"
+        />
         <View style={styles.container}>
         <Image
           style={styles.img}
@@ -43,6 +46,7 @@ export default class Introduction extends Component {
         </Text>
       </TouchableOpacity>
         </View>
+      </View>
     )
   }
   goIntroduction2() {

@@ -1,11 +1,14 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, TouchableOpacity,StyleSheet, Image } from 'react-native';
+import { View, Text, TouchableOpacity,StyleSheet,StatusBar, Image } from 'react-native';
 
 let styles = require('../style/IntroStyle');
 
 export default class Introduction3 extends Component {
   render() {
     return (
+      <View style={styles.introContainer}>
+        <StatusBar barStyle="dark-content"
+        />
       <View style={styles.container}>
       <Image
         style={intro3.img}
@@ -46,6 +49,7 @@ export default class Introduction3 extends Component {
       </Text>
     </TouchableOpacity>
       </View>
+    </View>
     )
   }
 

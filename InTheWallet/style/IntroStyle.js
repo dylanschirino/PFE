@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 
 module.exports = StyleSheet.create({
-  svg: {
+  introContainer: {
     borderWidth:1,
     borderColor:'#235182',
     borderRadius:5,
