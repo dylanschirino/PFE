@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, TouchableOpacity,StyleSheet,StatusBar, Image } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 let styles = require('../style/IntroStyle');
 

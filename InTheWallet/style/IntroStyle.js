@@ -1,10 +1,14 @@
-import { StyleSheet } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
+
+EStyleSheet.build({
+  $Blue: '#235182'
+});
 
 
-module.exports = StyleSheet.create({
+module.exports = EStyleSheet.create({
   introContainer: {
     borderWidth:1,
-    borderColor:'#235182',
+    borderColor:'$Blue',
     borderRadius:5,
     marginTop:35,// 15px on arrive a la StatusBar + 20px de margin
     margin:20,
@@ -21,7 +25,7 @@ module.exports = StyleSheet.create({
   },
   titleIntro:{
     fontSize:20,
-    color:'#235182',
+    color:'$Blue',
     marginBottom:20,
     fontFamily:'droidsans',
   },
@@ -30,7 +34,7 @@ module.exports = StyleSheet.create({
     textAlign:'center',
     fontWeight:'100',
     lineHeight:24,
-    color:'#235182',
+    color:'$Blue',
     paddingLeft:30,
     paddingRight:30,
     paddingBottom:40,
@@ -44,12 +48,12 @@ module.exports = StyleSheet.create({
     width:19.75,
     height:15,
     borderWidth:1,
-    borderColor:'#235182',
+    borderColor:'$Blue',
     borderRadius:2.5,
     marginLeft:26.33,
   },
   button:{
-    backgroundColor:'#235182',
+    backgroundColor:'$Blue',
     paddingTop:15,
     paddingBottom:15,
     borderRadius:8,
@@ -63,12 +67,12 @@ module.exports = StyleSheet.create({
     fontFamily:'droidsans'
   },
   active:{
-    backgroundColor:'#235182',
+    backgroundColor:'$Blue',
     borderRadius:2.5,
     width:19.75,
     height:15,
     borderWidth:1,
-    borderColor:'#235182',
+    borderColor:'$Blue',
     borderRadius:2.5,
     marginLeft:26.33,
   }
