@@ -43,27 +43,11 @@ fInit = function( iAppPort = APP_PORT ) {
     oApp.set( "views", `${ __dirname }/../views` );
     oApp.set( "view engine", "pug" );
 
-    oApp.use( ( oRequest, oResponse, next ) => {
-        let tToken = oRequest.body.tToken || oRequest.headers.authorization,
-            tResultToken = oRequest.headers.authorization.split( " " )[ 1 ];
-
-        if ( tToken ) {
-            jwt.verify( tResultToken, "shhhhh", ( oError, decoded ) => {
-                if ( oError ) {
-                    return error( oRequest, oResponse, "Auth failed", 403 );
-                }
-                oRequest.decoded = decoded;
-                next();
-            } );
-        }
-        // Routes
         oApp.use( systemRoutes );
         oApp.use( depenseRoutes );
         oApp.use( pretRoutes );
         oApp.use( epargneRoutes );
         oApp.use( userRoutes );
-
-    } );
 
     // Listening on port
     oApp.listen( iAppPort, () => {
