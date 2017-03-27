@@ -9,21 +9,27 @@ let styles = require('../../../style/SubscribeStyle');
 let Subscribe = React.createClass ({
 
   _handlePress(event) {
+  let email=this.state.email,
+      password=this.state.password,
+      password2 = this.state.password2;
 
-  let email=this.state.email;
+  // Étape de vérifications
   function validateEmail(email) {
+
   let re = /(.+)@(.+){2,}\.(.+){2,}/;
   return re.test(email);
-    }
-    if (validateEmail(email)) {
-      alert('Email ok');
+
   }
-  else{
-    alert('Invalid email');
+  if (!validateEmail(email)) {
+      alert('Votre adresse email est invalide');
+  }
+  if( password!=password2 ){
+    alert('Vous avez encodez 2 mot de passe différent');
   }
 
     axios.post('http://104.131.74.22:8080/user', {
       email:email,
+      password:password,
     })
     .then(function (response) {
        })
@@ -70,6 +76,9 @@ let Subscribe = React.createClass ({
           <View style={styles.inputBox}>
           <TextInput style={styles.input}
             secureTextEntry={true}
+            onChangeText={(text) => {
+              this.setState( {password:text} );
+            }}
             placeholder='••••••••••••••••'
             placeholderTextColor='#B6CBE1'
           />
@@ -85,6 +94,9 @@ let Subscribe = React.createClass ({
           <View style={styles.inputBox}>
           <TextInput style={styles.input}
             secureTextEntry={true}
+            onChangeText={(text) => {
+              this.setState( {password2:text} );
+            }}
             placeholder='••••••••••••••••'
             placeholderTextColor='#B6CBE1'
           />
