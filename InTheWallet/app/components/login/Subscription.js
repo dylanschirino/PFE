@@ -1,12 +1,39 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput, Image} from 'react-native';
 import Form from 'react-native-form';
+import axios from 'axios';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 let styles = require('../../../style/SubscribeStyle');
 
 let Subscribe = React.createClass ({
+
+  _handlePress(event) {
+
+  let email=this.state.email;
+  function validateEmail(email) {
+  let re = /(.+)@(.+){2,}\.(.+){2,}/;
+  return re.test(email);
+    }
+    if (validateEmail(email)) {
+      alert('Email ok');
+  }
+  else{
+    alert('Invalid email');
+  }
+
+    axios.post('http://104.131.74.22:8080/user', {
+      email:email,
+    })
+    .then(function (response) {
+       })
+       .catch(function (error) {
+         alert('Erreur:'+ error);
+       });
+
+  },
   render() {
+
     return (
         <View style={styles.body}>
           <View style={styles.titleContainer}>
@@ -22,8 +49,13 @@ let Subscribe = React.createClass ({
             />
           { 'Email :'.toUpperCase() }
           </Text>
+
           <View style={styles.inputBox}>
           <TextInput style={styles.input}
+            ref="email"
+            onChangeText={(text) => {
+              this.setState( {email:text} );
+            }}
             placeholder='email@me.be'
             placeholderTextColor='#B6CBE1'
           />
@@ -49,6 +81,7 @@ let Subscribe = React.createClass ({
             />
           { 'Confirmer Mot de passe :'.toUpperCase() }
           </Text>
+
           <View style={styles.inputBox}>
           <TextInput style={styles.input}
             secureTextEntry={true}
@@ -56,12 +89,15 @@ let Subscribe = React.createClass ({
             placeholderTextColor='#B6CBE1'
           />
           </View>
-          <TouchableOpacity style={styles.button}>
+
+          <TouchableOpacity style={styles.button} onPress={this._handlePress}>
           <Text style={styles.buttonText}>
           { `S'inscrire!`.toUpperCase() }
           </Text>
         </TouchableOpacity>
+
         </Form>
+
         <Image style={styles.cercle}
           source={ require('../../../img/cercle.png')}
           />
