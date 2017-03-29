@@ -5,39 +5,50 @@ import axios from 'axios';
 import sha256 from 'sha256';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
+
 let styles = require('../../../style/SubscribeStyle');
+import Login from './Login.js';
 
 let Subscribe = React.createClass ({
 
   _handlePress(event) {
-  let email=this.state.email,
-      password=this.state.password,
+  let email = ( this.state.email || "" ).toLowerCase(),
+      password = this.state.password || "",
       password2 = this.state.password2;
 
-  // Étape de vérifications
-  function validateEmail(email) {
+      if( password =="" || email=="" || password2=="" ){
+        alert("Un ou plusieurs champs est vide");
+      }
+      else {
 
-  let re = /(.+)@(.+){2,}\.(.+){2,}/;
-  return re.test(email);
+        // Étape de vérifications
+        function validateEmail(email) {
+          let re = /(.+)@(.+){2,}\.(.+){2,}/;
+          return re.test(email);
 
-  }
-  if (!validateEmail(email)) {
-      alert('Votre adresse email est invalide');
-  }
-  if( password!=password2 ){
-    alert('Vous avez encodez 2 mot de passe différent');
-  }
+        }
+        if (!validateEmail(email)) {
+            alert('Votre adresse email est invalide');
+        }
+        if( password!=password2 ){
+          alert('Vous avez encodez 2 mot de passe différent');
+        }
 
-    axios.post('http://104.131.74.22:8080/user', {
-      email:email,
-      password:sha256(password),
-    })
-    .then(function (response) {
-       })
-       .catch(function (error) {
-         alert('Erreur:'+ error);
-       });
-
+          axios.post('http://104.131.74.22:8080/user', {
+            email:email,
+            password:sha256(password),
+          })
+          .then(function (response) {
+             })
+             .catch(function (error) {
+               alert('Erreur:'+ error);
+             });
+             this.props.navigator.push({
+               component: Login,
+               title:'Login',
+               navigationBarHidden:true,
+             });
+      }
   },
   render() {
 
