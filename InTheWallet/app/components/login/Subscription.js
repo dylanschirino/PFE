@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput, Image} from 'react-native';
 import Form from 'react-native-form';
 import axios from 'axios';
+import sha256 from 'sha256';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 let styles = require('../../../style/SubscribeStyle');
@@ -29,7 +30,7 @@ let Subscribe = React.createClass ({
 
     axios.post('http://104.131.74.22:8080/user', {
       email:email,
-      password:password,
+      password:sha256(password),
     })
     .then(function (response) {
        })
