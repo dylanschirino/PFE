@@ -18,6 +18,6 @@ oRouter.post( "/user", create );
 oRouter.delete( "/user/:id", destroy );
 oRouter.get( "/user/:id", details );
 oRouter.get( "/user", list );
-oRouter.get( "/login", login );
+oRouter.post( "/login", login );
 
 export default oRouter;
