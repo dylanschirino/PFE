@@ -43,11 +43,11 @@ let Subscribe = React.createClass ({
              .catch(function (error) {
                alert('Erreur:'+ error);
              });
-             this.props.navigator.push({
-               component: Login,
-               title:'Login',
-               navigationBarHidden:true,
-             });
+          this.props.navigator.push({
+          component: Login,
+          title:'Login',
+          navigationBarHidden:true,
+        });
       }
   },
   render() {
