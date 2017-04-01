@@ -17,6 +17,20 @@ module.exports = EStyleSheet.create({
     borderColor:'$titleColor',
     marginBottom:75,
   },
+  titleLoginContainer:{
+    alignSelf:'center',
+    borderBottomWidth:1,
+    borderColor:'$titleColor',
+    marginBottom:33,
+  },
+  logoContainer:{
+    alignSelf:'center',
+    marginBottom:33,
+  },
+  logo:{
+    width:120,
+    height:113,
+  },
   title:{
     fontFamily:'lato-light',
     fontSize:32,
@@ -59,6 +73,16 @@ module.exports = EStyleSheet.create({
     alignSelf:'stretch',
     marginBottom:80,
   },
+  buttonConnexion:{
+    paddingTop:19,
+    paddingBottom:19,
+    borderWidth:1,
+    borderColor:'$input',
+    borderRadius:8,
+    alignItems:'center',
+    alignSelf:'stretch',
+    marginBottom:50,
+  },
   buttonText:{
     color:'$input',
     fontFamily:'lato-regular',
@@ -67,5 +91,17 @@ module.exports = EStyleSheet.create({
   cercle:{
     width:'100%',
     height:100,
+  },
+  linkContainer:{
+    borderBottomWidth:1,
+    borderColor:'#34586B',
+    alignSelf:'center',
+    marginBottom:10,
+  },
+  link:{
+    fontFamily:'lato-regular',
+    fontSize:13,
+    color:'#34586B',
+    alignSelf:'center',
   }
 });

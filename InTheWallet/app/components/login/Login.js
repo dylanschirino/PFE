@@ -7,9 +7,17 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 
 let styles = require('../../../style/SubscribeStyle');
+import Subscribe from './Subscription';
 
 let Login = React.createClass ({
 
+  goSubscription() {
+    this.props.navigator.push({
+      component: Subscribe,
+      title:'Inscription',
+      navigationBarHidden:true,
+    });
+  },
   _handlePress(event) {
   let email=this.state.email.toLowerCase(),
       password=this.state.password;
@@ -34,10 +42,15 @@ let Login = React.createClass ({
 
     return (
         <View style={styles.body}>
-          <View style={styles.titleContainer}>
+          <View style={styles.titleLoginContainer}>
           <Text style={styles.title}>
           { 'Connexion'.toUpperCase() }
           </Text>
+        </View>
+        <View style={styles.logoContainer}>
+          <Image style={styles.logo}
+            source={ require('../../../img/logo.jpg') }
+          />
         </View>
         <Form style={styles.inputContainer} ref="login">
 
@@ -75,9 +88,11 @@ let Login = React.createClass ({
             placeholderTextColor='#B6CBE1'
           />
           </View>
+          <TouchableOpacity style={styles.linkContainer} onPress={this.goSubscription}>
+          <Text style={styles.link}>Pas encore inscrit ? Vers l’inscription !</Text>
+          </TouchableOpacity>
 
-
-          <TouchableOpacity style={styles.button} onPress={this._handlePress}>
+          <TouchableOpacity style={styles.buttonConnexion} onPress={this._handlePress}>
           <Text style={styles.buttonText}>
           { `Connexion`.toUpperCase() }
           </Text>
