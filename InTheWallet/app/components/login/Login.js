@@ -11,39 +11,24 @@ let styles = require('../../../style/SubscribeStyle');
 let Login = React.createClass ({
 
   _handlePress(event) {
-  let email=this.state.email,
-      password=this.state.password,
-      password2 = this.state.password2;
+  let email=this.state.email.toLowerCase(),
+      password=this.state.password;
 
-  // Étape de vérifications
-  function validateEmail(email) {
-
-  let re = /(.+)@(.+){2,}\.(.+){2,}/;
-  return re.test(email);
-
-  }
-  if (!validateEmail(email)) {
-      alert('Votre adresse email est invalide');
-  }
-  if( password!=password2 ){
-    alert('Vous avez encodez 2 mot de passe différent');
-  }
-
-    axios.post('http://104.131.74.22:8080/user', {
-      email:email,
-      password:sha256(password),
-    })
-    .then(function (response) {
-      this.props.navigator.push({
-        component: Login,
-        title:'Login',
-        navigationBarHidden:true,
-      });
-       })
-       .catch(function (error) {
-         alert('Erreur:'+ error);
-       });
-
+      if( password =="" || email==""){
+        alert("Un ou plusieurs champs est vide");
+      }
+      else{
+        axios.post('http://104.131.74.22:8080/login', {
+            email:email,
+            password:sha256(password),
+        })
+        .then(function (response) {
+          alert('Bienvenue dans InTheWallet');
+           })
+           .catch(function (error) {
+             alert('Erreur:'+ error);
+           });
+      }
   },
   render() {
 
@@ -54,7 +39,7 @@ let Login = React.createClass ({
           { 'Connexion'.toUpperCase() }
           </Text>
         </View>
-        <Form style={styles.inputContainer} ref="subscribe">
+        <Form style={styles.inputContainer} ref="login">
 
           <Text style={styles.label}>
             <Image style={styles.icon}
@@ -91,27 +76,10 @@ let Login = React.createClass ({
           />
           </View>
 
-          <Text style={styles.label}>
-            <Image style={{height:17.86, width:30,marginRight:5,}}
-              source={ require('../../../img/checkpwd.png')}
-            />
-          { 'Confirmer Mot de passe :'.toUpperCase() }
-          </Text>
-
-          <View style={styles.inputBox}>
-          <TextInput style={styles.input}
-            secureTextEntry={true}
-            onChangeText={(text) => {
-              this.setState( {password2:text} );
-            }}
-            placeholder='••••••••••••••••'
-            placeholderTextColor='#B6CBE1'
-          />
-          </View>
 
           <TouchableOpacity style={styles.button} onPress={this._handlePress}>
           <Text style={styles.buttonText}>
-          { `S'inscrire!`.toUpperCase() }
+          { `Connexion`.toUpperCase() }
           </Text>
         </TouchableOpacity>
 
