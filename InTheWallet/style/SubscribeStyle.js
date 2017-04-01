@@ -71,7 +71,7 @@ module.exports = EStyleSheet.create({
     borderRadius:8,
     alignItems:'center',
     alignSelf:'stretch',
-    marginBottom:80,
+    marginBottom:60,
   },
   buttonConnexion:{
     paddingTop:19,

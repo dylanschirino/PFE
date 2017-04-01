@@ -11,6 +11,14 @@ import Login from './Login.js';
 
 let Subscribe = React.createClass ({
 
+  goLogin() {
+    this.props.navigator.push({
+      component: Login,
+      title:'Login',
+      navigationBarHidden:true,
+    });
+  },
+
   _handlePress(event) {
   let email = ( this.state.email || "" ).toLowerCase(),
       password = this.state.password || "",
@@ -113,6 +121,9 @@ let Subscribe = React.createClass ({
             placeholderTextColor='#B6CBE1'
           />
           </View>
+          <TouchableOpacity style={styles.linkContainer} onPress={this.goLogin}>
+          <Text style={styles.link}>Déjà inscrit ? Vers la page de connexion!</Text>
+          </TouchableOpacity>
 
           <TouchableOpacity style={styles.button} onPress={this._handlePress}>
           <Text style={styles.buttonText}>
