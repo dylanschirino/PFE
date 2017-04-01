@@ -12,11 +12,7 @@ import Subscribe from './Subscription';
 let Login = React.createClass ({
 
   goSubscription() {
-    this.props.navigator.push({
-      component: Subscribe,
-      title:'Inscription',
-      navigationBarHidden:true,
-    });
+    this.props.navigator.pop();
   },
   _handlePress(event) {
   let email=this.state.email.toLowerCase(),
