@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, TextInput, Image} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, AlertIOS, TextInput, Image} from 'react-native';
 import Form from 'react-native-form';
 import axios from 'axios';
 import sha256 from 'sha256';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 
-let styles = require('../../../style/SubscribeStyle');
+let styles = require('../../style/SubscribeStyle');
 import Subscribe from './Subscription';
+import Home from '../Home';
 
 let Login = React.createClass ({
 
@@ -27,10 +28,18 @@ let Login = React.createClass ({
             password:sha256(password),
         })
         .then(function (response) {
-          alert('Bienvenue dans InTheWallet');
-           })
+          AlertIOS.alert(
+            'InTheWallet',
+            'Bonjour '+email,
+          )
+        })
            .catch(function (error) {
              alert('Erreur:'+ error);
+           });
+           this.props.navigator.push({
+             component: Home,
+             title:'Home',
+             navigationBarHidden:true,
            });
       }
   },
@@ -45,14 +54,14 @@ let Login = React.createClass ({
         </View>
         <View style={styles.logoContainer}>
           <Image style={styles.logo}
-            source={ require('../../../img/logo.jpg') }
+            source={ require('../../img/logo.jpg') }
           />
         </View>
         <Form style={styles.inputContainer} ref="login">
 
           <Text style={styles.label}>
             <Image style={styles.icon}
-              source={ require('../../../img/email.png')}
+              source={ require('../../img/email.png')}
             />
           { 'Email :'.toUpperCase() }
           </Text>
@@ -70,7 +79,7 @@ let Login = React.createClass ({
 
           <Text style={styles.label}>
             <Image style={{height:17.86, width:30,marginRight:5,}}
-              source={ require('../../../img/password.png')}
+              source={ require('../../img/password.png')}
             />
           { 'Mot de passe :'.toUpperCase() }
           </Text>
@@ -97,7 +106,7 @@ let Login = React.createClass ({
         </Form>
 
         <Image style={styles.cercle}
-          source={ require('../../../img/cercle.png')}
+          source={ require('../../img/cercle.png')}
           />
         </View>
     )

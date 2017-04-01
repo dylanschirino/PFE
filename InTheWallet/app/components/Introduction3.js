@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { View, Text, TouchableOpacity,StyleSheet,StatusBar, Image } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-let styles = require('../../style/IntroStyle');
+let styles = require('../style/IntroStyle');
 import Introduction from './Introduction';
 import Introduction2 from './Introduction2';
 import Introduction4 from './Introduction4';
@@ -43,7 +43,7 @@ let Introduction3 = React.createClass( {
       <View style={styles.container}>
       <Image
         style={intro3.img}
-        source={ require('../../img/Intro3.png')}
+        source={ require('../img/Intro3.png')}
       />
       <Text style={styles.titleIntro}>
       Vos prêt à porter de mains.

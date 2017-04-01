@@ -6,7 +6,7 @@ import sha256 from 'sha256';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 
-let styles = require('../../../style/SubscribeStyle');
+let styles = require('../../style/SubscribeStyle');
 import Login from './Login.js';
 
 let Subscribe = React.createClass ({
@@ -71,7 +71,7 @@ let Subscribe = React.createClass ({
 
           <Text style={styles.label}>
             <Image style={styles.icon}
-              source={ require('../../../img/email.png')}
+              source={ require('../../img/email.png')}
             />
           { 'Email :'.toUpperCase() }
           </Text>
@@ -89,7 +89,7 @@ let Subscribe = React.createClass ({
 
           <Text style={styles.label}>
             <Image style={{height:17.86, width:30,marginRight:5,}}
-              source={ require('../../../img/password.png')}
+              source={ require('../../img/password.png')}
             />
           { 'Mot de passe :'.toUpperCase() }
           </Text>
@@ -106,7 +106,7 @@ let Subscribe = React.createClass ({
 
           <Text style={styles.label}>
             <Image style={{height:17.86, width:30,marginRight:5,}}
-              source={ require('../../../img/checkpwd.png')}
+              source={ require('../../img/checkpwd.png')}
             />
           { 'Confirmer Mot de passe :'.toUpperCase() }
           </Text>
@@ -134,7 +134,7 @@ let Subscribe = React.createClass ({
         </Form>
 
         <Image style={styles.cercle}
-          source={ require('../../../img/cercle.png')}
+          source={ require('../../img/cercle.png')}
           />
         </View>
     )

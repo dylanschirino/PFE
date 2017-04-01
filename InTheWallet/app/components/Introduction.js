@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-let styles = require('../../style/IntroStyle');
+let styles = require('../style/IntroStyle');
 
 import Introduction2 from "./Introduction2";
 import Introduction3 from "./Introduction3";
@@ -44,7 +44,7 @@ let Introduction = React.createClass ({
         <View style={styles.container}>
         <Image
           style={styles.img}
-          source={ require('../../img/Intro1.png')}
+          source={ require('../img/Intro1.png')}
         />
         <Text style={styles.titleIntro}>
         Votre nouveau meilleur ami.
