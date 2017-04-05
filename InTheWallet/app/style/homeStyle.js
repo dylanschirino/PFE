@@ -63,5 +63,19 @@ module.exports = EStyleSheet.create({
     fontFamily:'lato-regular',
     color:'#FFFFFF',
     marginRight:10,
-  }
+  },
+  chartContainer:{
+    alignItems:'center',
+    flex:1,
+  },
+  lastDepenseContainer:{
+    alignItems:'center',
+    flex:1.5,
+  },
+  chart:{
+    width:'100%',
+    paddingTop:5,
+    paddingBottom:5,
+    backgroundColor:'rgba(81,142,182,0.3)',
+  },
 });
