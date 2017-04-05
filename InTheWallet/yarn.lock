@@ -2434,7 +2434,7 @@ lodash.templatesettings@^3.0.0:
     lodash._reinterpolate "^3.0.0"
     lodash.escape "^3.0.0"
 
-lodash@^3.5.0:
+lodash@^3.10.1, lodash@^3.5.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
@@ -2815,6 +2815,10 @@ path-type@^1.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
+paths-js@^0.3.4:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/paths-js/-/paths-js-0.3.5.tgz#67f010aca52b9a16d5372b55d751619b93e905be"
+
 pause@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/pause/-/pause-0.1.0.tgz#ebc8a4a8619ff0b8a81ac1513c3434ff469fdb74"
@@ -2944,6 +2948,10 @@ react-native-form:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/react-native-form/-/react-native-form-2.1.2.tgz#f962cfff0f1a6f4192daf48c649954c9b796def4"
 
+react-native-progress-indicator:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-progress-indicator/-/react-native-progress-indicator-1.0.2.tgz#0469b210368be705e540b391d27d2f5dbe9f492d"
+
 react-native@0.42.0:
   version "0.42.0"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.42.0.tgz#59b501603a63232598fff653a36307a26010402e"
@@ -3023,6 +3031,14 @@ react-native@0.42.0:
     xcode "^0.8.9"
     xmldoc "^0.4.0"
     yargs "^6.4.0"
+
+react-pathjs-chart:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/react-pathjs-chart/-/react-pathjs-chart-0.3.5.tgz#d913c86c0df5162cb4dd626090eae75f47710404"
+  dependencies:
+    lodash "^3.10.1"
+    paths-js "^0.3.4"
+    vivus "^0.2.1"
 
 react-proxy@^1.1.7:
   version "1.1.8"
@@ -3696,6 +3712,10 @@ vinyl@^0.5.0:
     clone "^1.0.0"
     clone-stats "^0.0.1"
     replace-ext "0.0.1"
+
+vivus@^0.2.1:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/vivus/-/vivus-0.2.3.tgz#f8e0b9d4b209219c1a56b27ef883af9a3e7cd03e"
 
 walker@~1.0.5:
   version "1.0.7"
