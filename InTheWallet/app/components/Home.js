@@ -59,9 +59,44 @@ let Home = React.createClass ({
         </View>
       </View>
       <View style={styles.lastDepenseContainer}>
-        <View>
-
+        <View style={styles.depenseHeader}>
+          <Text style={styles.depenseHeaderTitle}>DERNIÈRES DÉPENSES</Text>
         </View>
+        <View style={styles.depenseContainer}>
+          <View style={styles.depenseContent}>
+            <Text style={styles.price}>10€</Text>
+            <Text style={styles.title}>Glace au chocolat de …</Text>
+            <View>
+              <Text style={styles.date}>{'24 Fev 2017'.toUpperCase() }</Text>
+            </View>
+          </View>
+        </View>
+        <View style={styles.depenseContainerCustom}>
+          <View style={styles.depenseContent}>
+            <Text style={styles.price}>41.5€</Text>
+            <Text style={styles.title}>Plein d’essence à 1.1 …</Text>
+            <View>
+              <Text style={styles.date}>{'24 Fev 2017'.toUpperCase() }</Text>
+            </View>
+          </View>
+        </View>
+        <View style={styles.depenseContainer}>
+          <View style={styles.depenseContent}>
+            <Text style={styles.price}>340€</Text>
+            <Text style={styles.title}>Glace au chocolat de …</Text>
+            <View>
+              <Text style={styles.date}>{'24 Fev 2017'.toUpperCase() }</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View style={styles.menu}>
+        <TouchableOpacity>
+          <Image
+            style={styles.icone}
+            source={ require('../img/home.png')}
+          />
+        </TouchableOpacity>
       </View>
       </View>
 
