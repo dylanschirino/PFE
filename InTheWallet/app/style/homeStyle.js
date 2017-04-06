@@ -13,7 +13,7 @@ module.exports = EStyleSheet.create({
     flex:1,
     alignItems:'center',
     width:'50%',
-    marginTop:47,
+    marginTop:37,
     borderRightWidth:2,
     borderColor:"#FFFFFF",
     marginBottom:15,
@@ -22,7 +22,7 @@ module.exports = EStyleSheet.create({
     flex:1,
     alignItems:'center',
     width:'50%',
-    marginTop:47,
+    marginTop:37,
     marginBottom:15,
   },
   amount:{
@@ -177,6 +177,7 @@ module.exports = EStyleSheet.create({
   menuLinkAdd:{
     position:'relative',
     bottom:20,
+    right:5,
   },
   add:{
     backgroundColor:'#FFFFFF',
