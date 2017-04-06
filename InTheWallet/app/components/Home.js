@@ -91,12 +91,42 @@ let Home = React.createClass ({
         </View>
       </View>
       <View style={styles.menu}>
-        <TouchableOpacity>
-          <Image
-            style={styles.icone}
-            source={ require('../img/home.png')}
-          />
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.menuLink}>
+            <Image
+              style={styles.icone}
+              source={ require('../img/home.png')}
+            />
+          <Text style={styles.menuLabel}>Accueil</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.menuLink}>
+            <Image
+              style={styles.icone}
+              source={ require('../img/depense.png')}
+            />
+          <Text style={styles.menuLabel}>Dépenses</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.menuLinkAdd}>
+            <View style={styles.add}>
+              <Image
+                style={styles.iconeAdd}
+                source={ require('../img/add.png')}
+              />
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.menuLink}>
+            <Image
+              style={styles.iconeEpargne}
+              source={ require('../img/epargne.png')}
+            />
+          <Text style={styles.menuLabel}>Épargne</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.menuLink}>
+            <Image
+              style={styles.iconePret}
+              source={ require('../img/pret.png')}
+            />
+          <Text style={styles.menuLabel}>Prêt</Text>
+          </TouchableOpacity>
       </View>
       </View>
 

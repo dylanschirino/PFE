@@ -80,8 +80,8 @@ module.exports = EStyleSheet.create({
   },
   depenseHeader:{
     backgroundColor:'#F8FCFF',
-    paddingTop:12,
-    paddingBottom:12,
+    paddingTop:15,
+    paddingBottom:15,
     width:'100%',
     borderTopWidth:1,
     borderBottomWidth:1,
@@ -137,10 +137,56 @@ module.exports = EStyleSheet.create({
   menu:{
     width:'100%',
     backgroundColor:'#538EB6',
-    height:40,
+    flexDirection:'row',
+    justifyContent:'space-around',
+    height:42,
+  },
+  menuContent:{
+    height:42,
+    width:'95%',
+    alignSelf:'center',
+    flexDirection:'row',
+    justifyContent:'space-around'
+  },
+  menuLink:{
+    alignItems:'center',
+    paddingTop:5,
+    paddingBottom:5,
   },
   icone:{
     width:20,
     height:20,
+  },
+  iconeEpargne:{
+    width:26,
+    height:20,
+  },
+  iconePret:{
+    width:16,
+    height:20,
+  },
+  iconeAdd:{
+    width:30,
+    height:30
+  },
+  menuLabel:{
+    fontSize:10,
+    color:'#FFFFFF',
+    paddingTop:2,
+  },
+  menuLinkAdd:{
+    position:'relative',
+    bottom:20,
+  },
+  add:{
+    backgroundColor:'#FFFFFF',
+    paddingTop:9,
+    paddingBottom:38,
+    width:50,
+    height:50,
+    alignItems:'center',
+    borderRadius:50,
+    borderWidth:1,
+    borderColor:'#538EB6'
   }
 });
