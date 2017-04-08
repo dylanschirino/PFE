@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image,ProgressViewIOS} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image,ProgressViewIOS, TextInput} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import Form from 'react-native-form';
+import axios from 'axios';
 import Chart from 'react-native-chart';
 let styles = require('../style/homeStyle');
 
@@ -30,10 +32,16 @@ let Home = React.createClass ({
             <Text style={styles.amount}>1.500€</Text>
             <Text style={styles.label}> {'Dépenses du mois'.toUpperCase() } </Text>
           </View>
-          <View style={styles.limitSecond}>
-            <Text style={styles.amount}>2.200€</Text>
+          <Form style={styles.limitSecond} ref="limite">
+            <TextInput style={styles.amountLimit}
+              ref="limit"
+              onChangeText={(text) => {
+                this.setState( {limit:number} );
+              }}
+              placeholder='2200€'
+              placeholderTextColor='#B6CBE1'/>
             <Text style={styles.label}>{'Limite du mois'.toUpperCase() } </Text>
-          </View>
+          </Form>
       </View>
       <View style={styles.progressContainer}>
         <View style={styles.progressView}>

@@ -22,13 +22,20 @@ module.exports = EStyleSheet.create({
     flex:1,
     alignItems:'center',
     width:'50%',
-    marginTop:37,
-    marginBottom:15,
   },
   amount:{
     fontSize:24,
     color:'#FFFFFF',
     fontFamily:'droidsans',
+    textAlign:'center',
+  },
+  amountLimit:{
+    fontSize:24,
+    color:'#FFFFFF',
+    fontFamily:'droidsans',
+    textAlign:'center',
+    marginTop:50,
+    paddingBottom:15,
   },
   label:{
     marginTop:10,
