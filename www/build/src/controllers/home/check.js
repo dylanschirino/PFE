@@ -16,7 +16,7 @@ export default function( oRequest, oResponse ) {
     let sHomeID = new ObjectID(),
         sDate = new Date(),
         sMonth = sDate.getMonth() + 1,
-        sMaxDepense = +POST.maxdepense,
+        sMaxDepense = +POST.maxdepense || 2002,
         oHome,
         fCreateHome;
 

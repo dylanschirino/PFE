@@ -34,8 +34,13 @@ module.exports = EStyleSheet.create({
     color:'#FFFFFF',
     fontFamily:'droidsans',
     textAlign:'center',
-    marginTop:50,
-    paddingBottom:15,
+    height:20,
+    width:'26%'
+  },
+  limitContainer:{
+    marginTop:45,
+    height:20,
+    flexDirection:'row',
   },
   label:{
     marginTop:10,
@@ -43,7 +48,10 @@ module.exports = EStyleSheet.create({
     fontFamily:'droidsans',
     color:'#89B0DB',
   },
-
+  buttonImg:{
+    width:5,
+    height:16,
+  },
   progressBar:{
     width:'70%',
     alignSelf:'center',

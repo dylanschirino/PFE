@@ -28,10 +28,6 @@ let Login = React.createClass ({
             password:sha256(password),
         })
         .then(function (response) {
-          AlertIOS.alert(
-            'InTheWallet',
-            'Bonjour '+email,
-          )
         })
            .catch(function (error) {
              alert('Erreur:'+ error);

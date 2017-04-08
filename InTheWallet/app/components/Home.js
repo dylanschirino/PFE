@@ -22,6 +22,25 @@ const data = [
 ];
 
 let Home = React.createClass ({
+  _handlePress(event) {
+  let limit=this.state.limit;
+
+  if( limit ==""){
+    alert("La limite ne peut pas être vide");
+  }
+  else {
+    return axios.post('http://104.131.74.22:8080/home', {
+        maxdepense:limit,
+    })
+    .then(function (response) {
+      const limitdepense = response.data['data']['maxdepense'];
+      return limitdepense;
+    })
+       .catch(function (error) {
+         alert('Erreur:'+ error);
+       });
+  }
+},
   render() {
     return (
       <View style={{flex:1,}}>
@@ -33,15 +52,25 @@ let Home = React.createClass ({
             <Text style={styles.label}> {'Dépenses du mois'.toUpperCase() } </Text>
           </View>
           <Form style={styles.limitSecond} ref="limite">
-            <TextInput style={styles.amountLimit}
-              ref="limit"
-              onChangeText={(text) => {
-                this.setState( {limit:number} );
-              }}
-              placeholder='2200€'
-              placeholderTextColor='#B6CBE1'/>
+            <View style={styles.limitContainer}>
+              <TextInput style={styles.amountLimit}
+                ref="limit"
+                onChangeText={(text) => {
+                  this.setState( {limit:text} );
+                }}
+                placeholder='2'
+                color='#FFFFFF'
+                placeholderTextColor='#FFFFFF'/>
+                <TouchableOpacity style={styles.button} onPress={this._handlePress}>
+                <Image style={styles.buttonImg} source={ require('../img/edit.png')}
+                  />
+              </TouchableOpacity>
+            </View>
             <Text style={styles.label}>{'Limite du mois'.toUpperCase() } </Text>
           </Form>
+          <Text>
+            {limit}
+          </Text>
       </View>
       <View style={styles.progressContainer}>
         <View style={styles.progressView}>
