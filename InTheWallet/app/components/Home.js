@@ -22,6 +22,11 @@ const data = [
 ];
 
 let Home = React.createClass ({
+  getInitialState: function() {
+    return {
+      limit:2004,
+    }
+  },
   _handlePress(event) {
   let limit=this.state.limit;
 
@@ -29,12 +34,12 @@ let Home = React.createClass ({
     alert("La limite ne peut pas être vide");
   }
   else {
-    return axios.post('http://104.131.74.22:8080/home', {
+    axios.post('http://104.131.74.22:8080/home', {
         maxdepense:limit,
     })
     .then(function (response) {
-      const limitdepense = response.data['data']['maxdepense'];
-      return limitdepense;
+      limit = response.data['data']['maxdepense'];
+      alert(limit);
     })
        .catch(function (error) {
          alert('Erreur:'+ error);
@@ -58,7 +63,7 @@ let Home = React.createClass ({
                 onChangeText={(text) => {
                   this.setState( {limit:text} );
                 }}
-                placeholder='2'
+                value={this.state.limit.toString()}
                 color='#FFFFFF'
                 placeholderTextColor='#FFFFFF'/>
                 <TouchableOpacity style={styles.button} onPress={this._handlePress}>
@@ -68,9 +73,6 @@ let Home = React.createClass ({
             </View>
             <Text style={styles.label}>{'Limite du mois'.toUpperCase() } </Text>
           </Form>
-          <Text>
-            {limit}
-          </Text>
       </View>
       <View style={styles.progressContainer}>
         <View style={styles.progressView}>
