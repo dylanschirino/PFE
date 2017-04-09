@@ -23,9 +23,10 @@ const data = [
 
 let Home = React.createClass ({
   componentDidMount() {
-  axios.get('http://104.131.74.22:8080/sys/ping')
+  axios.get('http://104.131.74.22:8080/home?user=dylan@schirino.be')
     .then(response => {
-      const limit = response.data['timestamp'];
+      let dataTab = response.data['data'];
+      const limit = dataTab[dataTab.length-1]['maxdepense'];
       this.setState({ limit });
     });
 },
@@ -43,6 +44,7 @@ let Home = React.createClass ({
   else {
     axios.post('http://104.131.74.22:8080/home', {
         maxdepense:limit,
+        user:'dylan@schirino.be'
     })
     .then(function (response) {
       limit = response.data['data']['maxdepense'];
