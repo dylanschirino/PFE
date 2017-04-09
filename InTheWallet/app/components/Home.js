@@ -22,9 +22,16 @@ const data = [
 ];
 
 let Home = React.createClass ({
+  componentDidMount() {
+  axios.get('http://104.131.74.22:8080/sys/ping')
+    .then(response => {
+      const limit = response.data['timestamp'];
+      this.setState({ limit });
+    });
+},
   getInitialState: function() {
     return {
-      limit:2004,
+      limit:'',
     }
   },
   _handlePress(event) {
