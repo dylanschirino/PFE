@@ -18,7 +18,7 @@ export default function( oRequest, oResponse ) {
     },
     {
         $group: {
-            _id: "1",
+            _id: sUserID,
             total: {
                 $sum: "$montant",
             },
