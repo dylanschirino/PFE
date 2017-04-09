@@ -24,7 +24,7 @@ fCheckDepense = function( sDepenseID ) {
         return Promise.reject( new Error( "Invalid Depense ID" ) );
     }
 
-    return db.collection( "epargne" )
+    return db.collection( "depense" )
       .findOne( {
           "_id": oDepenseID,
       } )

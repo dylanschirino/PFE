@@ -18,6 +18,7 @@ export default function( oRequest, oResponse ) {
         sMonth = sDate.getMonth() + 1,
         sMaxDepense = +POST.maxdepense || 2002,
         oHome,
+        sUser = POST.user,
         fCreateHome;
 
     oHome = {
@@ -28,6 +29,7 @@ export default function( oRequest, oResponse ) {
     // On assigne les données ici
     sMonth = sDate.getMonth() + 1;
     sMaxDepense && ( oHome.maxdepense = sMaxDepense );
+    sUser && ( oHome.user = sUser );
 
 
     fCreateHome = () => {
@@ -41,6 +43,7 @@ export default function( oRequest, oResponse ) {
           send( oRequest, oResponse, {
               "id": oHome._id,
               "month": sMonth,
+              "user": oHome.user,
               "maxdepense": oHome.maxdepense,
           }, 201 );
       } )

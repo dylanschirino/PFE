@@ -11,6 +11,7 @@ import destroy from "../controllers/depense/destroy";
 import list from "../controllers/depense/list";
 import details from "../controllers/depense/details";
 import check from "../controllers/home/check";
+import listHome from "../controllers/home/list";
 
 let oRouter = new Router();
 
@@ -20,6 +21,7 @@ oRouter.post( "/depense", create );
 oRouter.patch( "/depense/:id", update );
 oRouter.delete( "/depense/:id", destroy );
 oRouter.post( "/home", check );
+oRouter.get( "/home/", listHome)
 
 
 export default oRouter;
