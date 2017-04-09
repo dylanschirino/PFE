@@ -57,7 +57,7 @@ module.exports = EStyleSheet.create({
     alignSelf:'center',
     marginBottom:5,
     marginTop:5,
-    marginRight:10,
+    marginRight:5,
   },
   progressView:{
     flexDirection:'row',

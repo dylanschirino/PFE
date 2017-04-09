@@ -29,10 +29,23 @@ let Home = React.createClass ({
       const limit = dataTab[dataTab.length-1]['maxdepense'];
       this.setState({ limit });
     });
+  axios.get('http://104.131.74.22:8080/depense?user=dylan@schirino.be')
+  .then( response => {
+    const name = response.data['data'][0]['name'];
+    this.setState({ name });
+  })
+  axios.get('http://104.131.74.22:8080/depense_sum/dylan@schirino.be')
+  .then( response => {
+    const total = response.data['data']['total'];
+    alert(total);
+    this.setState({ total });
+  })
 },
   getInitialState: function() {
     return {
       limit:'',
+      name:'',
+      total:'',
     }
   },
   _handlePress(event) {
@@ -62,7 +75,7 @@ let Home = React.createClass ({
         <StatusBar barStyle="light-content"
         />
         <View style={styles.limitFirst}>
-            <Text style={styles.amount}>1.500€</Text>
+            <Text style={styles.amount}>{this.state.total}€</Text>
             <Text style={styles.label}> {'Dépenses du mois'.toUpperCase() } </Text>
           </View>
           <Form style={styles.limitSecond} ref="limite">
@@ -85,8 +98,8 @@ let Home = React.createClass ({
       </View>
       <View style={styles.progressContainer}>
         <View style={styles.progressView}>
-          <ProgressViewIOS style={styles.progressBar} trackTintColor={'#124D73'} progressTintColor='white' progress={1}/>
-          <Text style={styles.percent}>50%</Text>
+          <ProgressViewIOS style={styles.progressBar} trackTintColor={'#124D73'} progressTintColor='white' progress={this.state.total/this.state.limit}/>
+          <Text style={styles.percent}>{(Math.floor(this.state.total)/Math.floor(this.state.limit))*100}%</Text>
         </View>
       </View>
       <View style={styles.chartContainer}>
@@ -113,7 +126,7 @@ let Home = React.createClass ({
         <View style={styles.depenseContainer}>
           <View style={styles.depenseContent}>
             <Text style={styles.price}>10€</Text>
-            <Text style={styles.title}>Glace au chocolat de …</Text>
+            <Text style={styles.title}>{this.state.name}</Text>
             <View>
               <Text style={styles.date}>{'24 Fev 2017'.toUpperCase() }</Text>
             </View>
