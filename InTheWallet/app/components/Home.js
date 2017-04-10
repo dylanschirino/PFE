@@ -31,21 +31,30 @@ let Home = React.createClass ({
     });
   axios.get('http://104.131.74.22:8080/depense?user=dylan@schirino.be')
   .then( response => {
-    const name = response.data['data'][0]['name'];
-    this.setState({ name });
+    const depenseObject = response.data['data'];
+    const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);
+    console.log('Myarray:'+depenseArray[0]['name']);
+    this.setState({ depenseArray });
   })
+  .catch(function (error) {
+    alert('Erreur:'+ error);
+  });
+
   axios.get('http://104.131.74.22:8080/depense_sum/dylan@schirino.be')
   .then( response => {
     const total = response.data['data']['total'];
-    alert(total);
     this.setState({ total });
   })
+  .catch(function (error) {
+    alert('Erreur:'+ error);
+  });
 },
   getInitialState: function() {
     return {
       limit:'',
       name:'',
       total:'',
+      depenseArray:[[],[]],
     }
   },
   _handlePress(event) {
@@ -61,12 +70,28 @@ let Home = React.createClass ({
     })
     .then(function (response) {
       limit = response.data['data']['maxdepense'];
-      alert(limit);
     })
        .catch(function (error) {
          alert('Erreur:'+ error);
        });
   }
+},
+_renderDepense(){
+  let length = this.state.depenseArray.length;
+  let threeLast = this.state.depenseArray.slice(Math.max(length - 3, 0));
+  return threeLast.map( ( oDepense, i ) => {
+      return (
+        <View style={styles.depenseContainer}>
+          <View style={styles.depenseContent}>
+            <Text style={styles.price} key={oDepense.montant}>{oDepense.montant}€</Text>
+            <Text style={styles.title} key={oDepense.name}>{oDepense.name}</Text>
+            <View>
+              <Text style={styles.date}>{'24 Fev 2017'.toUpperCase() }</Text>
+            </View>
+          </View>
+        </View>
+      )
+  } );
 },
   render() {
     return (
@@ -123,32 +148,8 @@ let Home = React.createClass ({
         <View style={styles.depenseHeader}>
           <Text style={styles.depenseHeaderTitle}>DERNIÈRES DÉPENSES</Text>
         </View>
-        <View style={styles.depenseContainer}>
-          <View style={styles.depenseContent}>
-            <Text style={styles.price}>10€</Text>
-            <Text style={styles.title}>{this.state.name}</Text>
-            <View>
-              <Text style={styles.date}>{'24 Fev 2017'.toUpperCase() }</Text>
-            </View>
-          </View>
-        </View>
         <View style={styles.depenseContainerCustom}>
-          <View style={styles.depenseContent}>
-            <Text style={styles.price}>41.5€</Text>
-            <Text style={styles.title}>Plein d’essence à 1.1 …</Text>
-            <View>
-              <Text style={styles.date}>{'24 Fev 2017'.toUpperCase() }</Text>
-            </View>
-          </View>
-        </View>
-        <View style={styles.depenseContainer}>
-          <View style={styles.depenseContent}>
-            <Text style={styles.price}>340€</Text>
-            <Text style={styles.title}>Glace au chocolat de …</Text>
-            <View>
-              <Text style={styles.date}>{'24 Fev 2017'.toUpperCase() }</Text>
-            </View>
-          </View>
+          {this._renderDepense()}
         </View>
       </View>
       <View style={styles.menu}>
