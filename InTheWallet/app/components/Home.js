@@ -83,8 +83,8 @@ _renderDepense(){
       return (
         <View style={styles.depenseContainer}>
           <View style={styles.depenseContent}>
-            <Text style={styles.price} key={oDepense.montant}>{oDepense.montant}€</Text>
-            <Text style={styles.title} key={oDepense.name}>{oDepense.name}</Text>
+            <Text style={styles.price}>{oDepense.montant}€</Text>
+            <Text style={styles.title}>{oDepense.name}</Text>
             <View>
               <Text style={styles.date}>{'24 Fev 2017'.toUpperCase() }</Text>
             </View>
