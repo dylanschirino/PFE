@@ -2,11 +2,67 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions } from 'react-native';
 import SearchBar from 'react-native-search-bar';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import axios from 'axios';
 
 let nav = require('../../style/navStyle'),
     styles = require('../../style/listStyle');
 
 let Depense = React.createClass ({
+  componentDidMount(){
+    axios.get('http://104.131.74.22:8080/depense?user=dylan@schirino.be')
+    .then( response => {
+      const depenseObject = response.data['data'];
+      const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);
+      this.setState({ depenseArray });
+    })
+    .catch(function (error) {
+      alert('Erreur:'+ error);
+    });
+  },
+  getInitialState: function() {
+    return {
+      depenseArray:[[],[]],
+    }
+  },
+  _renderDepense(){
+  let spendArray = this.state.depenseArray;
+
+  return spendArray.map( ( oDepense ) => {
+    {
+      var generateImage = function(){
+      if( oDepense.payement == 'carte'){
+        return (require('../../img/carte.png'));
+      }
+      else if ( oDepense.payement == 'cash'){
+        return (require('../../img/cash.png'));
+      }
+    }}
+      return (
+        <View style={styles.depenseContainer}>
+          <View style={styles.smallInfo}>
+            <Image style={styles.imgRepeat} source={ require('../../img/repeat.png')}
+              />
+            <Image style={styles.imgPayement} source={generateImage()}
+                />
+          </View>
+          <View style={styles.thumb}>
+            <Image style={styles.img} source={ require('../../img/photo.jpg')}
+              />
+          </View>
+          <View style={styles.containerInfo}>
+            <View style={styles.mainInfo}>
+              <Text style={styles.price}>{oDepense.montant}€</Text>
+              <Text style={styles.name}>{oDepense.name}</Text>
+            </View>
+            <View style={styles.secondInfo}>
+              <Text style={styles.label}>DÉPENSÉ LE</Text>
+              <Text style={styles.date}>19 Janvier 2016</Text>
+            </View>
+          </View>
+        </View>
+      )
+  } );
+},
   render() {
     return (
       <View style={{flex:1,}}>
@@ -40,28 +96,7 @@ let Depense = React.createClass ({
           />
       <View style={styles.list}>
         <ScrollView scrollEnabled={true} snapToAlignment='center' contentContainerStyle={styles.list}>
-          <View style={styles.depenseContainer}>
-            <View style={styles.smallInfo}>
-              <Image style={styles.imgRepeat} source={ require('../../img/repeat.png')}
-                />
-              <Image style={styles.imgPayement} source={ require('../../img/cards.png')}
-                  />
-            </View>
-            <View style={styles.thumb}>
-              <Image style={styles.img} source={ require('../../img/photo.jpg')}
-                />
-            </View>
-            <View style={styles.containerInfo}>
-              <View style={styles.mainInfo}>
-                <Text style={styles.price}>10€</Text>
-                <Text style={styles.name}>Glace au chocolat</Text>
-              </View>
-              <View style={styles.secondInfo}>
-                <Text style={styles.label}>DÉPENSÉ LE</Text>
-                <Text style={styles.date}>19 Janvier 2016</Text>
-              </View>
-            </View>
-          </View>
+          {this._renderDepense()}
         </ScrollView>
       </View>
       </View>
