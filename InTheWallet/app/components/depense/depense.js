@@ -26,7 +26,7 @@ let Depense = React.createClass ({
           </TouchableOpacity>
         </View>
       </View>
-      <View>
+      <View style={styles.container}>
         <ScrollView horizontal={true} scrollEnabled={true} snapToAlignment='center' contentContainerStyle={styles.categorie}>
           <Text style={styles.catText}>Général</Text>
           <Text style={styles.catText}>Loisirs</Text>
@@ -34,11 +34,37 @@ let Depense = React.createClass ({
           <Text style={styles.catText}>Maison</Text>
           <Text style={styles.catText}>Santé</Text>
         </ScrollView>
+        <SearchBar
+          ref='searchBar'
+          placeholder='Recherche'
+          />
+      <View style={styles.list}>
+        <ScrollView scrollEnabled={true} snapToAlignment='center' contentContainerStyle={styles.list}>
+          <View style={styles.depenseContainer}>
+            <View style={styles.smallInfo}>
+              <Image style={styles.imgRepeat} source={ require('../../img/repeat.png')}
+                />
+              <Image style={styles.imgPayement} source={ require('../../img/cards.png')}
+                  />
+            </View>
+            <View style={styles.thumb}>
+              <Image style={styles.img} source={ require('../../img/photo.jpg')}
+                />
+            </View>
+            <View style={styles.containerInfo}>
+              <View style={styles.mainInfo}>
+                <Text style={styles.price}>10€</Text>
+                <Text style={styles.name}>Glace au chocolat</Text>
+              </View>
+              <View style={styles.secondInfo}>
+                <Text style={styles.label}>DÉPENSÉ LE</Text>
+                <Text style={styles.date}>19 Janvier 2016</Text>
+              </View>
+            </View>
+          </View>
+        </ScrollView>
       </View>
-      <SearchBar
-      	ref='searchBar'
-      	placeholder='Recherche'
-      	/>
+      </View>
       </View>
     )}
   });
