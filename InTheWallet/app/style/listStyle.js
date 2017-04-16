@@ -6,8 +6,10 @@ EStyleSheet.build({
 
 module.exports = EStyleSheet.create({
   categorie:{
-    height:30,
-    justifyContent:'space-around'
+    height:50,
+    justifyContent:'space-around',
+    paddingTop:10,
+    paddingBottom:10,
   },
   catText:{
     borderWidth:1,

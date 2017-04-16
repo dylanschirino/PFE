@@ -13,7 +13,7 @@ module.exports = EStyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     paddingBottom:10,
-    alignItems:'center'
+    alignItems:'center',
   },
   backLink:{
     flexDirection:'row',

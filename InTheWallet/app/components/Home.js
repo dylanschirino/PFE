@@ -21,6 +21,8 @@ const data = [
   ['Déc', 900],
 ];
 
+import Depense from "./depense/depense";
+
 let Home = React.createClass ({
   componentDidMount() {
   axios.get('http://104.131.74.22:8080/home?user=dylan@schirino.be')
@@ -56,6 +58,13 @@ let Home = React.createClass ({
       total:'',
       depenseArray:[[],[]],
     }
+  },
+  goDepense(){
+    this.props.navigator.push({
+      component: Depense,
+      title:'Dépense',
+      navigationBarHidden:true,
+    });
   },
   _handlePress(event) {
   let limit=this.state.limit;
@@ -160,7 +169,7 @@ _renderDepense(){
             />
           <Text style={styles.menuLabel}>Accueil</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuLink}>
+          <TouchableOpacity style={styles.menuLink} onPress={this.goDepense}>
             <Image
               style={styles.icone}
               source={ require('../img/depense.png')}

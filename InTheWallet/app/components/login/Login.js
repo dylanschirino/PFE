@@ -29,14 +29,15 @@ let Login = React.createClass ({
         })
         .then(function (response) {
         })
-           .catch(function (error) {
-             alert('Erreur:'+ error);
-           });
-           this.props.navigator.push({
-             component: Home,
-             title:'Home',
-             navigationBarHidden:true,
-           });
+        .catch(function (error) {
+           alert('Erreur:'+ error);
+        });
+
+        this.props.navigator.push({
+        component: Home,
+        title:'Home',
+        navigationBarHidden:true,
+        });
       }
   },
   render() {

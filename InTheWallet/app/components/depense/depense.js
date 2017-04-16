@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions } from 'react-native';
+import SearchBar from 'react-native-search-bar';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 let nav = require('../../style/navStyle'),
@@ -25,13 +26,19 @@ let Depense = React.createClass ({
           </TouchableOpacity>
         </View>
       </View>
-      <ScrollView horizontal={true} scrollEnabled={true} snapToAlignment='center' contentContainerStyle={styles.categorie}>
-        <Text style={styles.catText}>Général</Text>
-        <Text style={styles.catText}>Loisirs</Text>
-        <Text style={styles.catText}>Alimentation</Text>
-        <Text style={styles.catText}>Maison</Text>
-        <Text style={styles.catText}>Santé</Text>
-      </ScrollView>
+      <View>
+        <ScrollView horizontal={true} scrollEnabled={true} snapToAlignment='center' contentContainerStyle={styles.categorie}>
+          <Text style={styles.catText}>Général</Text>
+          <Text style={styles.catText}>Loisirs</Text>
+          <Text style={styles.catText}>Alimentation</Text>
+          <Text style={styles.catText}>Maison</Text>
+          <Text style={styles.catText}>Santé</Text>
+        </ScrollView>
+      </View>
+      <SearchBar
+      	ref='searchBar'
+      	placeholder='Recherche'
+      	/>
       </View>
     )}
   });
