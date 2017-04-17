@@ -7,6 +7,8 @@ import axios from 'axios';
 let nav = require('../../style/navStyle'),
     styles = require('../../style/listStyle');
 
+    import Details from "./details";
+
 let Depense = React.createClass ({
   componentDidMount(){
     axios.get('http://104.131.74.22:8080/depense?user=dylan@schirino.be')
@@ -24,10 +26,21 @@ let Depense = React.createClass ({
       depenseArray:[[],[]],
     }
   },
+  goDetails(){
+    let spendArray = this.state.depenseArray;
+
+    return spendArray.map( ( oDepense, i ) => {
+        this.props.navigator.push({
+          component: Details,
+          title:oDepense.id,
+          passProps:{id:oDepense.id},
+        });
+    } );
+  },
   _renderDepense(){
   let spendArray = this.state.depenseArray;
 
-  return spendArray.map( ( oDepense ) => {
+  return spendArray.map( ( oDepense, i ) => {
     {
       var generateImage = function(){
       if( oDepense.payement == 'carte'){
@@ -36,8 +49,10 @@ let Depense = React.createClass ({
       else if ( oDepense.payement == 'cash'){
         return (require('../../img/cash.png'));
       }
-    }}
+    }
+    }
       return (
+        <TouchableOpacity key={i} onPress={this.goDetails}>
         <View style={styles.depenseContainer}>
           <View style={styles.smallInfo}>
             <Image style={styles.imgRepeat} source={ require('../../img/repeat.png')}
@@ -60,6 +75,7 @@ let Depense = React.createClass ({
             </View>
           </View>
         </View>
+        </TouchableOpacity>
       )
   } );
 },
