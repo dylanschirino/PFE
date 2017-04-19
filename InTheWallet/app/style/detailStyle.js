@@ -15,10 +15,12 @@ module.exports = EStyleSheet.create({
     height:151,
     position:'absolute',
   },
+  link:{
+    zIndex:1,
+  },
   arrow:{
     width:25.5,
     height:18,
-    zIndex:1,
     marginTop:25,
     marginLeft:20,
   },

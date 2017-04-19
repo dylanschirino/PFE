@@ -15,9 +15,8 @@ let Details = React.createClass ({
   componentDidMount(){
     axios.get('http://104.131.74.22:8080/depense/'+this.props.depense_id)
     .then( response => {
-      const depenseObject = response.data['data'];
-      const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);
-      this.setState({ depenseArray });
+      const depenseDetails = response.data['data'];
+      this.setState({ depenseDetails });
     })
     .catch(function (error) {
       alert('Erreur:'+ error);
@@ -25,8 +24,25 @@ let Details = React.createClass ({
   },
   getInitialState: function() {
     return {
-      depenseArray:[[],[]],
+      depenseDetails:'',
     }
+  },
+  _renderDetails(){
+
+        return (
+          <View style={styles.contentInfo}>
+            <Text style={styles.label}>Montant dépensé</Text>
+            <Text style={styles.info}>{this.state.depenseDetails.montant}€</Text>
+            <Text style={styles.label}>Jour de la dépense</Text>
+            <Text style={styles.info}>{this.state.depenseDetails.created_at}</Text>
+            <Text style={styles.label}>La dépense est répété le </Text>
+            <Text style={styles.info}>14 du mois</Text>
+            <Text style={styles.label}>Catégories</Text>
+            <Text style={styles.info}>{this.state.depenseDetails.categorie}</Text>
+            <Text style={styles.label}>Mode de payement</Text>
+            <Text style={styles.info}>{this.state.depenseDetails.payement}</Text>
+          </View>
+        )
   },
   render() {
     return (
@@ -52,25 +68,16 @@ let Details = React.createClass ({
           placeholder='Recherche'
           />
         <View style={styles.headContent}>
+          <TouchableOpacity onPress={this.goDepenseList} style={styles.link}>
           <Image source={require('../../img/arrow-back.png')} style={styles.arrow}
           />
+          </TouchableOpacity>
         <Image source={require('../../img/details-photo.png')} style={styles.photo}
           />
-        <Text style={styles.title}>Glace au chocolat de chez le glacier</Text>
+        <Text style={styles.title}>{this.props.name}</Text>
         </View>
         <View style={styles.content}>
-          <View style={styles.contentInfo}>
-            <Text style={styles.label}>Montant dépensé</Text>
-            <Text style={styles.info}>100.59€</Text>
-            <Text style={styles.label}>Jour de la dépense</Text>
-            <Text style={styles.info}>19 Janvier 2017</Text>
-            <Text style={styles.label}>La dépense est répété le </Text>
-            <Text style={styles.info}>14 du mois</Text>
-            <Text style={styles.label}>Catégories</Text>
-            <Text style={styles.info}>Alimentation, Générale, Voitures, Maison </Text>
-            <Text style={styles.label}>Mode de payement</Text>
-            <Text style={styles.info}>Carte bancaire</Text>
-          </View>
+          {this._renderDetails()}
         </View>
         <View style={menu.menu}>
             <TouchableOpacity style={menu.menuLink}>
