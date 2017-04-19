@@ -26,16 +26,14 @@ let Depense = React.createClass ({
       depenseArray:[[],[]],
     }
   },
-  goDetails(){
+  goDetails(id){
     let spendArray = this.state.depenseArray;
 
-    return spendArray.map( ( oDepense, i ) => {
         this.props.navigator.push({
           component: Details,
-          title:oDepense.id,
-          passProps:{id:oDepense.id},
+          title:id,
+          passProps:{_id:id},
         });
-    } );
   },
   _renderDepense(){
   let spendArray = this.state.depenseArray;
@@ -52,7 +50,7 @@ let Depense = React.createClass ({
     }
     }
       return (
-        <TouchableOpacity key={i} onPress={this.goDetails}>
+        <TouchableOpacity key={i} onPress={ ()=>{this.goDetails(oDepense.id)}}>
         <View style={styles.depenseContainer}>
           <View style={styles.smallInfo}>
             <Image style={styles.imgRepeat} source={ require('../../img/repeat.png')}
