@@ -4,7 +4,8 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import Form from 'react-native-form';
 import axios from 'axios';
 import Chart from 'react-native-chart';
-let styles = require('../style/homeStyle');
+let styles = require('../style/homeStyle'),
+    menu = require('../style/menuStyle');
 
 const data = [
   ['Janv', 330],
@@ -161,42 +162,42 @@ _renderDepense(){
           {this._renderDepense()}
         </View>
       </View>
-      <View style={styles.menu}>
-          <TouchableOpacity style={styles.menuLink}>
+      <View style={menu.menu}>
+          <TouchableOpacity style={menu.menuLink}>
             <Image
-              style={styles.icone}
+              style={menu.icone}
               source={ require('../img/home.png')}
             />
-          <Text style={styles.menuLabel}>Accueil</Text>
+          <Text style={menu.menuLabel}>Accueil</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuLink} onPress={this.goDepense}>
+          <TouchableOpacity style={menu.menuLink} onPress={this.goDepense}>
             <Image
-              style={styles.icone}
+              style={menu.icone}
               source={ require('../img/depense.png')}
             />
-          <Text style={styles.menuLabel}>Dépenses</Text>
+          <Text style={menu.menuLabel}>Dépenses</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuLinkAdd}>
-            <View style={styles.add}>
+          <TouchableOpacity style={menu.menuLinkAdd}>
+            <View style={menu.add}>
               <Image
-                style={styles.iconeAdd}
+                style={menu.iconeAdd}
                 source={ require('../img/add.png')}
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuLink}>
+          <TouchableOpacity style={menu.menuLink}>
             <Image
-              style={styles.iconeEpargne}
+              style={menu.iconeEpargne}
               source={ require('../img/epargne.png')}
             />
-          <Text style={styles.menuLabel}>Épargne</Text>
+          <Text style={menu.menuLabel}>Épargne</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuLink}>
+          <TouchableOpacity style={menu.menuLink}>
             <Image
-              style={styles.iconePret}
+              style={menu.iconePret}
               source={ require('../img/pret.png')}
             />
-          <Text style={styles.menuLabel}>Prêt</Text>
+          <Text style={menu.menuLabel}>Prêt</Text>
           </TouchableOpacity>
       </View>
       </View>

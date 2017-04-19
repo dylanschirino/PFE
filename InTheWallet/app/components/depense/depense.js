@@ -5,6 +5,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import axios from 'axios';
 
 let nav = require('../../style/navStyle'),
+    menu = require('../../style/menuStyle'),
     styles = require('../../style/listStyle');
 
     import Details from "./details";
@@ -114,6 +115,44 @@ let Depense = React.createClass ({
           {this._renderDepense()}
         </ScrollView>
       </View>
+      </View>
+      <View style={menu.menu}>
+          <TouchableOpacity style={menu.menuLink}>
+            <Image
+              style={menu.icone}
+              source={ require('../../img/home.png')}
+            />
+          <Text style={menu.menuLabel}>Accueil</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={menu.menuLink} onPress={this.goDepense}>
+            <Image
+              style={menu.icone}
+              source={ require('../../img/depense.png')}
+            />
+          <Text style={menu.menuLabel}>Dépenses</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={menu.menuLinkAdd}>
+            <View style={menu.add}>
+              <Image
+                style={menu.iconeAdd}
+                source={ require('../../img/add.png')}
+              />
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={menu.menuLink}>
+            <Image
+              style={menu.iconeEpargne}
+              source={ require('../../img/epargne.png')}
+            />
+          <Text style={menu.menuLabel}>Épargne</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={menu.menuLink}>
+            <Image
+              style={menu.iconePret}
+              source={ require('../../img/pret.png')}
+            />
+          <Text style={menu.menuLabel}>Prêt</Text>
+          </TouchableOpacity>
       </View>
       </View>
     )}
