@@ -27,15 +27,18 @@ let Depense = React.createClass ({
       depenseArray:[[],[]],
     }
   },
-  goDetails(id){
+  goDetails(id,name){
     let spendArray = this.state.depenseArray;
 
         this.props.navigator.push({
           component: Details,
-          title:id,
-          passProps:{depense_id:id},
+          title:name,
+          passProps:{depense_id:id,name:name},
           navigationBarHidden:true,
         });
+  },
+  goHome(){
+    this.props.navigator.pop();
   },
   _renderDepense(){
   let spendArray = this.state.depenseArray;
@@ -52,7 +55,7 @@ let Depense = React.createClass ({
     }
     }
       return (
-        <TouchableOpacity key={i} onPress={ ()=>{this.goDetails(oDepense.id)}}>
+        <TouchableOpacity key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
         <View style={styles.depenseContainer}>
           <View style={styles.smallInfo}>
             <Image style={styles.imgRepeat} source={ require('../../img/repeat.png')}
@@ -86,7 +89,7 @@ let Depense = React.createClass ({
         <StatusBar barStyle="light-content"
           />
         <View style={nav.navBar}>
-          <TouchableOpacity style={nav.backLink}>
+          <TouchableOpacity style={nav.backLink} onPress={this.goHome}>
             <Image style={nav.backIcone} source={ require('../../img/back.png')}
               />
             <Text style={nav.backText}>Accueil</Text>
