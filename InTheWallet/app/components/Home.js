@@ -90,7 +90,7 @@ _renderDepense(){
   let threeLast = this.state.depenseArray.slice(Math.max(length - 3, 0));
   return threeLast.map( ( oDepense, i ) => {
       return (
-        <View style={styles.depenseContainer}>
+        <View style={styles.depenseContainer} key={i}>
           <View style={styles.depenseContent}>
             <Text style={styles.price}>{oDepense.montant}€</Text>
             <Text style={styles.title}>{oDepense.name}</Text>
