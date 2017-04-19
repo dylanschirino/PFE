@@ -4,7 +4,8 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import SearchBar from 'react-native-search-bar';
 import axios from 'axios';
 
-let nav = require('../../style/navStyle');
+let nav = require('../../style/navStyle'),
+    styles = require('../../style/detailStyle');
 
 let Details = React.createClass ({
   goDepenseList(){
@@ -49,11 +50,12 @@ let Details = React.createClass ({
           ref='searchBar'
           placeholder='Recherche'
           />
-        <View>
-          <Image source={require('../../img/arrow-back.png')}
+        <View style={styles.headContent}>
+          <Image source={require('../../img/arrow-back.png')} style={styles.arrow}
           />
-        <Image source={require('../../img/details-photo.png')}
+        <Image source={require('../../img/details-photo.png')} style={styles.photo}
           />
+        <Text style={styles.title}>Glace au chocolat de chez le glacier</Text>
         </View>
       </View>
     )}
