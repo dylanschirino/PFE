@@ -5,7 +5,8 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 let Details = React.createClass ({
   render() {
     return (
-      <View>
+      <View style={{flex:1,}}>
+        <Text>{this.props.depense_id}</Text>
       </View>
     )}
   });

@@ -32,7 +32,8 @@ let Depense = React.createClass ({
         this.props.navigator.push({
           component: Details,
           title:id,
-          passProps:{_id:id},
+          passProps:{depense_id:id},
+          navigationBarHidden:true,
         });
   },
   _renderDepense(){
