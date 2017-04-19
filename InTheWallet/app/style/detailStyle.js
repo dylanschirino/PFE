@@ -1,12 +1,13 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 EStyleSheet.build({
-  $headerColor: '#124D73',
+  $contentBckg: '#F8FCFF',
 });
 
 module.exports = EStyleSheet.create({
   headContent:{
-    position:'relative'
+    position:'relative',
+    height:151,
   },
   photo:{
     width:'100%',
@@ -35,5 +36,9 @@ module.exports = EStyleSheet.create({
     textShadowColor:'rgba(0,0,0,0.5)',
     textShadowRadius:4,
     textShadowOffset:{height:2},
+  },
+  content:{
+    backgroundColor:'$contentBckg',
+    flex:1,
   }
 });

@@ -57,6 +57,9 @@ let Details = React.createClass ({
           />
         <Text style={styles.title}>Glace au chocolat de chez le glacier</Text>
         </View>
+        <View style={styles.content}>
+          <Text style={styles.label}>Montant dépensé</Text>
+        </View>
       </View>
     )}
   });
