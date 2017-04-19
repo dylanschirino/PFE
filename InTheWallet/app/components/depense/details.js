@@ -58,7 +58,18 @@ let Details = React.createClass ({
         <Text style={styles.title}>Glace au chocolat de chez le glacier</Text>
         </View>
         <View style={styles.content}>
-          <Text style={styles.label}>Montant dépensé</Text>
+          <View style={styles.contentInfo}>
+            <Text style={styles.label}>Montant dépensé</Text>
+            <Text style={styles.info}>100.59€</Text>
+            <Text style={styles.label}>Jour de la dépense</Text>
+            <Text style={styles.info}>19 Janvier 2017</Text>
+            <Text style={styles.label}>La dépense est répété le </Text>
+            <Text style={styles.info}>14 du mois</Text>
+            <Text style={styles.label}>Catégories</Text>
+            <Text style={styles.info}>Alimentation, Générale, Voitures, Maison </Text>
+            <Text style={styles.label}>Mode de payement</Text>
+            <Text style={styles.info}>Carte bancaire</Text>
+          </View>
         </View>
       </View>
     )}

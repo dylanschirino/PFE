@@ -2,6 +2,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 EStyleSheet.build({
   $contentBckg: '#F8FCFF',
+  $label:'#558FB6',
 });
 
 module.exports = EStyleSheet.create({
@@ -12,7 +13,7 @@ module.exports = EStyleSheet.create({
   photo:{
     width:'100%',
     height:151,
-    position:'absolute'
+    position:'absolute',
   },
   arrow:{
     width:25.5,
@@ -29,7 +30,7 @@ module.exports = EStyleSheet.create({
     fontSize:20,
     lineHeight:28,
     letterSpacing:0.8,
-    width:'50%',
+    width:'60%',
     alignSelf:'center',
     textAlign:'center',
     marginTop:20,
@@ -40,5 +41,24 @@ module.exports = EStyleSheet.create({
   content:{
     backgroundColor:'$contentBckg',
     flex:1,
+  },
+  contentInfo:{
+    marginLeft:32,
+    marginTop:15,
+  },
+  label:{
+    fontSize:14,
+    fontFamily:'droidsans',
+    color:'$label',
+    marginBottom:5,
+  },
+  info:{
+    fontSize:16,
+    color:'#333333',
+    letterSpacing:0.67,
+    fontFamily:'lato-regular',
+    marginBottom:15,
+    width:'70%',
+    lineHeight:26,
   }
 });
