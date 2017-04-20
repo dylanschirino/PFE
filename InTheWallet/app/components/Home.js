@@ -98,7 +98,7 @@ _renderDepense(){
             <Text style={styles.price}>{oDepense.montant}€</Text>
             <Text style={styles.title}>{oDepense.name}</Text>
             <View>
-              <Text style={styles.date}>{'24 Fev 2017'.toUpperCase() }</Text>
+              <Text style={styles.date}>{oDepense.created_at}</Text>
             </View>
           </View>
         </View>
