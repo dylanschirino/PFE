@@ -26,13 +26,13 @@ import Depense from "./depense/depense";
 
 let Home = React.createClass ({
   componentDidMount() {
-  axios.get('http://104.131.74.22:8080/home?user=dylan@schirino.be')
+  axios.get('http://104.131.74.22:8080/home?user='+this.props.username)
     .then(response => {
       let dataTab = response.data['data'];
       const limit = dataTab[dataTab.length-1]['maxdepense'];
       this.setState({ limit });
     });
-  axios.get('http://104.131.74.22:8080/depense?user=dylan@schirino.be')
+  axios.get('http://104.131.74.22:8080/depense?user='+this.props.username)
   .then( response => {
     const depenseObject = response.data['data'];
     const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);
@@ -43,7 +43,7 @@ let Home = React.createClass ({
     alert('Erreur:'+ error);
   });
 
-  axios.get('http://104.131.74.22:8080/depense_sum/dylan@schirino.be')
+  axios.get('http://104.131.74.22:8080/depense_sum/'+this.props.username)
   .then( response => {
     const total = response.data['data']['total'];
     this.setState({ total });

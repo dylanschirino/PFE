@@ -37,6 +37,7 @@ let Login = React.createClass ({
         component: Home,
         title:'Home',
         navigationBarHidden:true,
+        passProps:{username:email},
         });
       }
   },
