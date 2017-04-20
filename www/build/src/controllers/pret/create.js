@@ -23,10 +23,16 @@ export default function( oRequest, oResponse ) {
         dDuree = Math.log( -iMensualite / ( ( ( iInteret / 12 ) * iMontant ) - iMensualite ) ) / Math.log( 1 + ( iInteret / 12 ) ),
         sUserID = ( POST.user || "" ).trim(),
         oPret,
-        fCreatePret;
+        fCreatePret,
+        monthArray = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+    let datecreated = new Date(),
+        days = datecreated.getDay(),
+        month = monthArray[datecreated.getMonth()],
+        year = datecreated.getFullYear();
 
     oPret = {
-        "created_at": new Date(),
+        "created_at": days +' '+month+' '+year,
         "updated_at": new Date(),
     };
 
@@ -67,6 +73,7 @@ export default function( oRequest, oResponse ) {
               "debut": oPret.depart,
               "user": oPret.user,
               "duree": dDuree,
+              "created_at":days +' '+month+' '+year,
           }, 201 );
       } )
       .catch( ( oError ) => {
