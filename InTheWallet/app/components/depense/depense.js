@@ -7,7 +7,8 @@ import axios from 'axios';
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
     styles = require('../../style/listStyle');
-import Details from "./details";
+
+    import Details from "./details";
 
 let Depense = React.createClass ({
   componentDidMount(){

@@ -143,10 +143,10 @@ module.exports = EStyleSheet.create({
   },
   date:{
     fontFamily:'droidsans',
-    fontSize:12,
+    fontSize:11,
     color:'#528DB5',
     lineHeight:15,
-    width:40,
+    width:50,
     textAlign:'center'
   },
 });

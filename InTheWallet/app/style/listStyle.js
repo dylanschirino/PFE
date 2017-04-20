@@ -14,8 +14,9 @@ module.exports = EStyleSheet.create({
     justifyContent:'space-around',
   },
   container:{
-    flex:1,
-    flexDirection:'column'
+    flexDirection:'column',
+    height:50,
+    flexGrow:1,
   },
   catText:{
     borderWidth:1,
@@ -37,6 +38,11 @@ module.exports = EStyleSheet.create({
     flex:0,
   },
   list:{
+    height:800,
+    flex:14,
+  },
+  listScroll:{
+    height:800,
     flex:14,
   },
   depenseContainer:{
