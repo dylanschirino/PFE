@@ -22,10 +22,16 @@ export default function( oRequest, oResponse ) {
         dDuree = iMontant / iMensualite,
         sUserID = ( POST.user || "" ).trim(),
         oEpargne,
-        fCreateEpargne;
+        fCreateEpargne,
+        monthArray = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+    let datecreated = new Date(),
+        days = datecreated.getDay(),
+        month = monthArray[datecreated.getMonth()],
+        year = datecreated.getFullYear();
 
     oEpargne = {
-        "created_at": new Date(),
+        "created_at": days +' '+month+' '+year,
         "updated_at": new Date(),
     };
 
