@@ -7,12 +7,11 @@ import axios from 'axios';
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
     styles = require('../../style/listStyle');
-
-    import Details from "./details";
+import Details from "./details";
 
 let Depense = React.createClass ({
   componentDidMount(){
-    axios.get('http://104.131.74.22:8080/depense?user=dylan@schirino.be')
+    axios.get('http://104.131.74.22:8080/depense?user='+this.props.username)
     .then( response => {
       const depenseObject = response.data['data'];
       const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);

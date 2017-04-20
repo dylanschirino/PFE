@@ -58,6 +58,7 @@ let Home = React.createClass ({
       name:'',
       total:'',
       depenseArray:[[],[]],
+      user:this.props.username,
     }
   },
   goDepense(){
@@ -65,6 +66,7 @@ let Home = React.createClass ({
       component: Depense,
       title:'Dépense',
       navigationBarHidden:true,
+      passProps:{username:this.state.user}
     });
   },
   _handlePress(event) {
