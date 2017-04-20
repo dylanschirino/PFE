@@ -32,10 +32,17 @@ export default function( oRequest, oResponse ) {
         sUserID = ( POST.user || "" ).trim(),
         aPicture = oImage,
         oDepense,
-        fCreateDepense;
+        fCreateDepense,
+        monthArray = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+    let datecreated = new Date(),
+        days = datecreated.getDay(),
+        month = monthArray[datecreated.getMonth()],
+        year = datecreated.getFullYear();
+
 
     oDepense = {
-        "created_at": new Date(),
+        "created_at": days +' '+month+' '+year,
         "updated_at": new Date(),
     };
 
@@ -74,6 +81,7 @@ export default function( oRequest, oResponse ) {
               "repeater": oDepense.repeater,
               "user": oDepense.user,
               "picture": aPicture,
+              "created_at":days +' '+month+' '+year,
           }, 201 );
       } )
       .catch( ( oError ) => {
