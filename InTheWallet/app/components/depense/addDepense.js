@@ -108,7 +108,7 @@ let addDepense = React.createClass ({
         </View>
         <View style={styles.pictureContainerTwo}>
           <Text style={styles.labelChoose}>{ 'Photo de la dépense'.toUpperCase() }</Text>
-          <View style={styles.chooseContainer}>
+          <View style={styles.chooseContainerPhoto}>
             <View style={styles.pictureChoose}>
               <Image
                 style={styles.iconPhoto}
@@ -117,6 +117,16 @@ let addDepense = React.createClass ({
           </View>
           </View>
         </View>
+      </View>
+      <View style={styles.actionContainer}>
+        <TouchableOpacity style={styles.cancelContainer}>
+          <Image source={require('../../img/cancel.png')} style={styles.cancelIcon}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.checkContainer}>
+          <Image source={require('../../img/check.png')} style={styles.checkIcon}
+          />
+        </TouchableOpacity>
       </View>
     </Form>
       </View>

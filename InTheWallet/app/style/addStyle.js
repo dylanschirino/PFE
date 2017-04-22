@@ -128,7 +128,7 @@ module.exports = EStyleSheet.create({
   },
   pictureContainer:{
     alignItems:'center',
-    width:'50%'
+    width:'50%',
   },
   pictureContainerTwo:{
     paddingTop:15,
@@ -146,7 +146,13 @@ module.exports = EStyleSheet.create({
   },
   chooseContainer:{
     flexDirection:'row',
-    marginBottom:34,
+    marginBottom:14,
+    paddingTop:5,
+  },
+  chooseContainerPhoto:{
+    flexDirection:'row',
+    marginBottom:14,
+    paddingTop:5,
   },
   buttonChoose:{
     width:71,
@@ -178,5 +184,32 @@ module.exports = EStyleSheet.create({
   iconPhoto:{
     width:48,
     height:40,
+  },
+  actionContainer:{
+    flexDirection:'row',
+  },
+  cancelContainer:{
+    backgroundColor:'#E3F4FF',
+    width:'50%',
+    alignItems:'center',
+    justifyContent:'center',
+    paddingTop:20,
+    paddingBottom:20,
+  },
+  checkContainer:{
+    backgroundColor:'#D2EDFF',
+    width:'50%',
+    alignItems:'center',
+    justifyContent:'center',
+    paddingTop:20,
+    paddingBottom:20,
+  },
+  cancelIcon:{
+    width:30,
+    height:30,
+  },
+  checkIcon:{
+    width:30,
+    height:21,
   }
 });
