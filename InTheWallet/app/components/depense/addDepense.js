@@ -3,7 +3,8 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image
 
 import Form from 'react-native-form';
 
-let styles = require('../../style/addStyle');
+let styles = require('../../style/addStyle'),
+    menu = require('../../style/menuStyle');
 
 let addDepense = React.createClass ({
   render() {
@@ -129,6 +130,36 @@ let addDepense = React.createClass ({
         </TouchableOpacity>
       </View>
     </Form>
+    <View style={menu.menu}>
+        <TouchableOpacity style={menu.menuLink}>
+          <Image
+            style={menu.icone}
+            source={ require('../../img/home.png')}
+          />
+        <Text style={menu.menuLabel}>Accueil</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goDepense}>
+          <Image
+            style={menu.icone}
+            source={ require('../../img/depense.png')}
+          />
+        <Text style={menu.menuLabel}>Dépenses</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={menu.menuLink}>
+          <Image
+            style={menu.iconeEpargne}
+            source={ require('../../img/epargne.png')}
+          />
+        <Text style={menu.menuLabel}>Épargne</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={menu.menuLink}>
+          <Image
+            style={menu.iconePret}
+            source={ require('../../img/pret.png')}
+          />
+        <Text style={menu.menuLabel}>Prêt</Text>
+        </TouchableOpacity>
+    </View>
       </View>
     )}
   });
