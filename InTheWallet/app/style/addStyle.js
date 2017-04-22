@@ -24,10 +24,23 @@ module.exports = EStyleSheet.create({
     alignItems:'center',
     backgroundColor:'$montantBckg',
   },
+  optionContainer:{
+    alignItems:'center',
+    paddingTop:20,
+    paddingBottom:20,
+    borderBottomWidth:1,
+    borderBottomColor:'$nameBckg',
+  },
   label:{
     fontFamily:'droidsans',
     fontSize:14,
     color:'#FFFFFF',
+    paddingBottom:10,
+  },
+  labelOptions:{
+    fontFamily:'droidsans',
+    fontSize:14,
+    color:'$nameBckg',
     paddingBottom:10,
   },
   inputBox:{
@@ -37,20 +50,34 @@ module.exports = EStyleSheet.create({
     borderBottomColor:'#FFFFFF',
     position:'relative'
   },
+  inputOptionBox:{
+    width:'80%',
+    alignSelf:'center',
+    position:'relative'
+  },
   input:{
     height:20,
     textAlign:'center',
     marginBottom:5,
-    color:'#FFFFFFdd'
+    color:'#FFFFFF',
+    fontFamily:'lato-regular',
+    fontSize:16,
   },
   icone:{
     width:15,
     height:15,
     position:'absolute',
+    bottom:8,
   },
   euroIcone:{
     width:50,
     height:50,
+  },
+  refreshIcone:{
+    width:18,
+    height:21,
+    position:'absolute',
+    bottom:5,
   },
   inputMontantBox:{
     width:'85%',

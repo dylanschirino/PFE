@@ -37,9 +37,9 @@ let addDepense = React.createClass ({
               source={ require('../../img/euro.png')}
             />
           <TextInput style={styles.inputMontant}
-              ref="name"
+              ref="montant"
               onChangeText={(text) => {
-                this.setState( {name:text} );
+                this.setState( {montant:text} );
               }}
               placeholder='10.000'
               placeholderTextColor='#FFFFFF'
@@ -52,6 +52,40 @@ let addDepense = React.createClass ({
               <Text style={styles.buttonLabelLess}>¯</Text>
             </TouchableOpacity>
           </View>
+          </View>
+      </View>
+      <View style={styles.optionContainer}>
+        <Text style={styles.labelOptions}>{ 'Catégories'.toUpperCase() }</Text>
+          <View style={styles.inputOptionBox}>
+            <Image
+              style={styles.icone}
+              source={ require('../../img/add-edit-blue.png')}
+            />
+            <TextInput style={styles.input}
+              ref="categorie"
+              onChangeText={(text) => {
+                this.setState( {categorie:text} );
+              }}
+              placeholder='Ex : Alimentation'
+              placeholderTextColor='#B6CBE1'
+            />
+          </View>
+      </View>
+      <View style={styles.optionContainer}>
+        <Text style={styles.labelOptions}>{ 'Répéter la dépense'.toUpperCase() }</Text>
+          <View style={styles.inputOptionBox}>
+            <Image
+              style={styles.refreshIcone}
+              source={ require('../../img/refresh.png')}
+            />
+            <TextInput style={styles.input}
+              ref="categorie"
+              onChangeText={(text) => {
+                this.setState( {categorie:text} );
+              }}
+              placeholder='Jamais'
+              placeholderTextColor='#B6CBE1'
+            />
           </View>
       </View>
     </Form>
