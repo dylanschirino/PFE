@@ -121,5 +121,62 @@ module.exports = EStyleSheet.create({
     paddingRight:17,
     borderRightWidth:1,
     borderRightColor:'#5999CE'
+  },
+  bigContainer:{
+    flexDirection:'row',
+    alignItems:'center',
+  },
+  pictureContainer:{
+    alignItems:'center',
+    width:'50%'
+  },
+  pictureContainerTwo:{
+    paddingTop:15,
+    alignItems:'center',
+    width:'50%',
+    borderLeftWidth:1,
+    borderLeftColor:'$nameBckg'
+  },
+  labelChoose:{
+    fontFamily:'droidsans',
+    fontSize:14,
+    color:'$nameBckg',
+    textAlign:'center',
+    paddingBottom:10,
+  },
+  chooseContainer:{
+    flexDirection:'row',
+    marginBottom:34,
+  },
+  buttonChoose:{
+    width:71,
+    height:71,
+    borderRadius:71,
+    backgroundColor:'#F2F2E8',
+    alignItems:'center',
+    justifyContent:'center',
+    marginRight:12,
+    marginLeft:12,
+  },
+  pictureChoose:{
+    width:85,
+    height:85,
+    borderRadius:85,
+    borderWidth:2,
+    borderColor:'#538EB6',
+    alignItems:'center',
+    justifyContent:'center',
+  },
+  iconCredit:{
+    width:48,
+    height:34,
+  },
+  iconCash:{
+    width:52,
+    height:30,
+  },
+  iconPhoto:{
+    width:48,
+    height:40,
   }
 });

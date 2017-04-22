@@ -88,6 +88,36 @@ let addDepense = React.createClass ({
             />
           </View>
       </View>
+      <View style={styles.bigContainer}>
+        <View style={styles.pictureContainer}>
+          <Text style={styles.labelChoose}>{ 'Mode de payement'.toUpperCase() }</Text>
+          <View style={styles.chooseContainer}>
+            <TouchableOpacity style={styles.buttonChoose}>
+              <Image
+                style={styles.iconCredit}
+                source={ require('../../img/credit-card.png')}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonChoose}>
+              <Image
+                style={styles.iconCash}
+                source={ require('../../img/cash-choose.png')}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.pictureContainerTwo}>
+          <Text style={styles.labelChoose}>{ 'Photo de la dépense'.toUpperCase() }</Text>
+          <View style={styles.chooseContainer}>
+            <View style={styles.pictureChoose}>
+              <Image
+                style={styles.iconPhoto}
+                source={ require('../../img/photo-camera.png')}
+              />
+          </View>
+          </View>
+        </View>
+      </View>
     </Form>
       </View>
     )}
