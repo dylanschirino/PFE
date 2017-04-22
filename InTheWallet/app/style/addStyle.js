@@ -3,6 +3,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 EStyleSheet.build({
   $mainBckg: '#F8FCFF',
   $nameBckg:'#6FA4C7',
+  $montantBckg:'#7AB3E3',
 });
 
 module.exports = EStyleSheet.create({
@@ -14,8 +15,14 @@ module.exports = EStyleSheet.create({
     marginTop:22,
     backgroundColor:'$nameBckg',
     paddingTop:20,
-    paddingBottom:15,
+    paddingBottom:20,
     alignItems:'center',
+  },
+  montantContainer:{
+    paddingTop:20,
+    paddingBottom:20,
+    alignItems:'center',
+    backgroundColor:'$montantBckg',
   },
   label:{
     fontFamily:'droidsans',
@@ -34,10 +41,58 @@ module.exports = EStyleSheet.create({
     height:20,
     textAlign:'center',
     marginBottom:5,
+    color:'#FFFFFFdd'
   },
   icone:{
     width:15,
     height:15,
     position:'absolute',
+  },
+  euroIcone:{
+    width:50,
+    height:50,
+  },
+  inputMontantBox:{
+    width:'85%',
+    alignSelf:'center',
+    flexDirection:'row',
+  },
+  inputMontant:{
+    flex:1,
+    color:'#FFFFFF',
+    textAlign:'center',
+    marginLeft:30,
+    fontFamily:'droidsans',
+    fontSize:32,
+  },
+  buttonMontant:{
+    backgroundColor:'#FFFFFF',
+    flexDirection:'row',
+    alignItems:'center',
+    borderRadius:8,
+  },
+  buttonLabel:{
+    fontFamily:'droidsans',
+    fontSize:24,
+    color:'#5999CE',
+  },
+  buttonLabelLess:{
+    fontFamily:'droidsans',
+    fontSize:24,
+    color:'#5999CE',
+    paddingTop:21,
+    paddingBottom:0,
+  },
+  buttonMoreLess:{
+    paddingLeft:17,
+    paddingRight:17,
+  },
+  buttonMoreLessOne:{
+    paddingTop:11,
+    paddingBottom:11,
+    paddingLeft:17,
+    paddingRight:17,
+    borderRightWidth:1,
+    borderRightColor:'#5999CE'
   }
 });

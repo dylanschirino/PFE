@@ -29,6 +29,31 @@ let addDepense = React.createClass ({
             />
           </View>
       </View>
+      <View style={styles.montantContainer}>
+        <Text style={styles.label}>{ 'Montant total'.toUpperCase() }</Text>
+          <View style={styles.inputMontantBox}>
+            <Image
+              style={styles.euroIcone}
+              source={ require('../../img/euro.png')}
+            />
+          <TextInput style={styles.inputMontant}
+              ref="name"
+              onChangeText={(text) => {
+                this.setState( {name:text} );
+              }}
+              placeholder='10.000'
+              placeholderTextColor='#FFFFFF'
+            />
+          <View style={styles.buttonMontant}>
+            <TouchableOpacity style={styles.buttonMoreLessOne}>
+              <Text style={styles.buttonLabel}>+</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonMoreLess}>
+              <Text style={styles.buttonLabelLess}>¯</Text>
+            </TouchableOpacity>
+          </View>
+          </View>
+      </View>
     </Form>
       </View>
     )}
