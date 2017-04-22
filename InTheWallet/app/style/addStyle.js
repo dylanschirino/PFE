@@ -27,7 +27,7 @@ module.exports = EStyleSheet.create({
   optionContainer:{
     alignItems:'center',
     paddingTop:20,
-    paddingBottom:20,
+    paddingBottom:17,
     borderBottomWidth:1,
     borderBottomColor:'$nameBckg',
   },
