@@ -9,6 +9,7 @@ let nav = require('../../style/navStyle'),
     styles = require('../../style/listStyle');
 
     import Details from "./details";
+    import addDepense from "./addDepense";
 
 let Depense = React.createClass ({
   componentDidMount(){
@@ -25,6 +26,7 @@ let Depense = React.createClass ({
   getInitialState: function() {
     return {
       depenseArray:[[],[]],
+      user:this.props.username,
     }
   },
   goDetails(id,name){
@@ -39,6 +41,14 @@ let Depense = React.createClass ({
   },
   goHome(){
     this.props.navigator.pop();
+  },
+  addDepense(){
+    this.props.navigator.push({
+      component: addDepense,
+      title:'Ajouter dépense',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
   },
   _renderDepense(){
   let spendArray = this.state.depenseArray;
@@ -95,7 +105,7 @@ let Depense = React.createClass ({
             <Text style={nav.backText}>Accueil</Text>
           </TouchableOpacity>
           <Text style={nav.navTitle}>Dépenses</Text>
-          <TouchableOpacity style={nav.add}>
+          <TouchableOpacity style={nav.add} onPress={this.addDepense}>
             <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
               />
           </TouchableOpacity>

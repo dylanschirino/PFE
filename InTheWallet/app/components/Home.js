@@ -78,7 +78,7 @@ let Home = React.createClass ({
   else {
     axios.post('http://104.131.74.22:8080/home', {
         maxdepense:limit,
-        user:'dylan@schirino.be'
+        user:this.props.username,
     })
     .then(function (response) {
       limit = response.data['data']['maxdepense'];
