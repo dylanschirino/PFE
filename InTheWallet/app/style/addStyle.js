@@ -63,6 +63,14 @@ module.exports = EStyleSheet.create({
     fontFamily:'lato-regular',
     fontSize:16,
   },
+  inputCategorie:{
+    height:20,
+    textAlign:'center',
+    marginBottom:5,
+    color:'$nameBckg',
+    fontFamily:'lato-regular',
+    fontSize:16,
+  },
   icone:{
     width:15,
     height:15,
