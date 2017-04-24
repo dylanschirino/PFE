@@ -172,6 +172,16 @@ module.exports = EStyleSheet.create({
     marginRight:12,
     marginLeft:12,
   },
+  buttonChooseActived:{
+    width:71,
+    height:71,
+    borderRadius:71,
+    backgroundColor:'$nameBckg',
+    alignItems:'center',
+    justifyContent:'center',
+    marginRight:12,
+    marginLeft:12,
+  },
   pictureChoose:{
     width:85,
     height:85,
