@@ -1,12 +1,38 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput } from 'react-native';
-
+import axios from 'axios';
 import Form from 'react-native-form';
 
 let styles = require('../../style/addStyle'),
     menu = require('../../style/menuStyle');
 
 let addDepense = React.createClass ({
+  goBack(){
+    this.props.navigator.pop()
+  },
+  _handlePress() {
+  let name = ( this.state.name || "" ),
+      montant = ( this.state.montant || "" ),
+      categorieString = this.state.categorie,
+      categorieArray = [],
+      payement = 'carte'
+      repeater = this.state.repeater;
+      categorieArray = categorieString.split(',');
+
+  axios.post('http://104.131.74.22:8080/depense', {
+    name:name,
+    montant:montant,
+    user:this.props.username,
+    categorie:categorieArray,
+    payement:'carte',
+  })
+  .then(function (response) {
+    response.data['data']['name'];
+  })
+  .catch(function (error) {
+    alert('Erreur:'+ error);
+  });
+  },
   render() {
     return (
       <View style={styles.mainContent}>
@@ -62,7 +88,7 @@ let addDepense = React.createClass ({
               style={styles.icone}
               source={ require('../../img/add-edit-blue.png')}
             />
-            <TextInput style={styles.input}
+          <TextInput style={styles.inputCategorie}
               ref="categorie"
               onChangeText={(text) => {
                 this.setState( {categorie:text} );
@@ -82,7 +108,7 @@ let addDepense = React.createClass ({
             <TextInput style={styles.input}
               ref="categorie"
               onChangeText={(text) => {
-                this.setState( {categorie:text} );
+                this.setState( {repeater:text} );
               }}
               placeholder='Jamais'
               placeholderTextColor='#B6CBE1'
@@ -120,11 +146,11 @@ let addDepense = React.createClass ({
         </View>
       </View>
       <View style={styles.actionContainer}>
-        <TouchableOpacity style={styles.cancelContainer}>
+        <TouchableOpacity style={styles.cancelContainer} onPress={this.goBack}>
           <Image source={require('../../img/cancel.png')} style={styles.cancelIcon}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.checkContainer}>
+        <TouchableOpacity style={styles.checkContainer} onPress={this._handlePress}>
           <Image source={require('../../img/check.png')} style={styles.checkIcon}
           />
         </TouchableOpacity>
