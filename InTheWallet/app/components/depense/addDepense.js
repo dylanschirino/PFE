@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,Picker } from 'react-native';
 import axios from 'axios';
 import Form from 'react-native-form';
 
@@ -111,14 +111,12 @@ let addDepense = React.createClass ({
               style={styles.refreshIcone}
               source={ require('../../img/refresh.png')}
             />
-            <TextInput style={styles.input}
-              ref="categorie"
-              onChangeText={(text) => {
-                this.setState( {repeater:text} );
-              }}
-              placeholder='Jamais'
-              placeholderTextColor='#B6CBE1'
-            />
+          <View style={styles.picker}>
+            <Picker selectedValue={'Jamais'} style={styles.inputPicker}>
+              <Picker.Item label="Java" value="java" />
+              <Picker.Item label="JavaScript" value="js" />
+              </Picker>
+          </View>
           </View>
       </View>
       <View style={styles.bigContainer}>

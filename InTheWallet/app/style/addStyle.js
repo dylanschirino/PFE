@@ -63,6 +63,13 @@ module.exports = EStyleSheet.create({
     fontFamily:'lato-regular',
     fontSize:16,
   },
+  inputPicker:{
+    height:20,
+  },
+  picker:{
+    height:20,
+    backgroundColor:'red'
+  },
   inputCategorie:{
     height:20,
     textAlign:'center',
