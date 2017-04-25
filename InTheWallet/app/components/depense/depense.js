@@ -54,7 +54,7 @@ let Depense = React.createClass ({
   _handleEdit(id){
   },
   _renderDepense(){
-  let spendArray = this.state.depenseArray;
+  let spendArray = (this.state.depenseArray).reverse();
 
   return spendArray.map( ( oDepense, i ) => {
     {

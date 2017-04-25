@@ -9,6 +9,8 @@ let styles = require('../../style/addStyle'),
 
     const options = ['Jamais', '1', '2'];
 
+    import Depense from './depense';
+
 let addDepense = React.createClass ({
   goBack(){
     this.props.navigator.pop()
