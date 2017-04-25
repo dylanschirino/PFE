@@ -53,7 +53,13 @@ module.exports = EStyleSheet.create({
   inputOptionBox:{
     width:'80%',
     alignSelf:'center',
-    position:'relative'
+    flexDirection:'column'
+  },
+  pickerButton:{
+    textAlign:'center',
+    fontFamily:'lato-regular',
+    fontSize:14,
+    color:'$nameBckg',
   },
   input:{
     height:20,
@@ -68,7 +74,7 @@ module.exports = EStyleSheet.create({
   },
   picker:{
     height:20,
-    backgroundColor:'red'
+    flexGrow:1,
   },
   inputCategorie:{
     height:20,
@@ -92,7 +98,8 @@ module.exports = EStyleSheet.create({
     width:18,
     height:21,
     position:'absolute',
-    bottom:5,
+    bottom:2,
+    zIndex:11,
   },
   inputMontantBox:{
     width:'85%',

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,Picker } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput } from 'react-native';
 import axios from 'axios';
 import Form from 'react-native-form';
+import SimplePicker from 'react-native-simple-picker';
 
 let styles = require('../../style/addStyle'),
     menu = require('../../style/menuStyle');
+
+    const options = ['Jamais', '1', '2'];
 
 let addDepense = React.createClass ({
   goBack(){
@@ -25,9 +28,10 @@ let addDepense = React.createClass ({
     user:this.props.username,
     categorie:categorieArray,
     payement:this.state.payement,
+    repeater:this.state.selectedOption,
   })
   .then(function (response) {
-    response.data['data']['name'];
+    response.data['data']['categorie'];
   })
   .catch(function (error) {
     alert('Erreur:'+ error);
@@ -37,6 +41,7 @@ let addDepense = React.createClass ({
     return {
       payement:'',
       clicked:0,
+      selectedOption:'',
     }
   },
   render() {
@@ -112,10 +117,18 @@ let addDepense = React.createClass ({
               source={ require('../../img/refresh.png')}
             />
           <View style={styles.picker}>
-            <Picker selectedValue={'Jamais'} style={styles.inputPicker}>
-              <Picker.Item label="Java" value="java" />
-              <Picker.Item label="JavaScript" value="js" />
-              </Picker>
+            <Text style={styles.pickerButton} onPress={() => {this.refs.picker.show();}}>
+            La dépense est repeté  : {this.state.selectedOption}
+            </Text>
+            <SimplePicker
+          ref={'picker'}
+          options={options}
+          onSubmit={(option) => {
+            this.setState({
+              selectedOption: option,
+            });
+          }}
+        />
           </View>
           </View>
       </View>
