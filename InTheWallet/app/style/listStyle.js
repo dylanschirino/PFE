@@ -118,6 +118,18 @@ module.exports = EStyleSheet.create({
     letterSpacing:0.58,
     color:'$mainColor',
     marginLeft:17,
+  },
+  swipeContainer:{
+    alignItems:'center',
+    justifyContent:'center',
+    flex:1,
+  },
+  delete:{
+    width:27.44,
+    height:35,
+  },
+  edit:{
+    width:11,
+    height:35
   }
-
 });

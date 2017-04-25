@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image
 import SearchBar from 'react-native-search-bar';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import axios from 'axios';
+import Swipeout from 'react-native-swipeout';
 
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
@@ -50,6 +51,8 @@ let Depense = React.createClass ({
       passProps:{username:this.state.user},
     })
   },
+  _handleEdit(id){
+  },
   _renderDepense(){
   let spendArray = this.state.depenseArray;
 
@@ -66,6 +69,18 @@ let Depense = React.createClass ({
     }
       return (
         <TouchableOpacity key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
+        <Swipeout autoClose={true} right={[
+          {
+          component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oDepense.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
+            /></TouchableOpacity>,
+          backgroundColor:'#FF9500'
+        },
+          {
+          component:<View style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
+            /></View>,
+          backgroundColor:'#FE3F35'
+        }
+      ]} backgroundColor={'#FFFFFF'}>
         <View style={styles.depenseContainer}>
           <View style={styles.smallInfo}>
             <Image style={styles.imgRepeat} source={ require('../../img/repeat.png')}
@@ -78,6 +93,7 @@ let Depense = React.createClass ({
               />
           </View>
           <View style={styles.containerInfo}>
+
             <View style={styles.mainInfo}>
               <Text style={styles.price}>{oDepense.montant}€</Text>
               <Text style={styles.name}>{oDepense.name}</Text>
@@ -88,6 +104,7 @@ let Depense = React.createClass ({
             </View>
           </View>
         </View>
+        </Swipeout>
         </TouchableOpacity>
       )
   } );
