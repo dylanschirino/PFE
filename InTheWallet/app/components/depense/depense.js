@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,Alert } from 'react-native';
 import SearchBar from 'react-native-search-bar';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import axios from 'axios';
@@ -51,7 +51,15 @@ let Depense = React.createClass ({
       passProps:{username:this.state.user},
     })
   },
-  _handleEdit(id){
+
+  _handleDelete(id){
+    axios.delete('http://104.131.74.22:8080/depense/'+id)
+    .then( response => {
+      alert('La dépense à bien été supprimée');
+    })
+    .catch(function (error) {
+      alert('Erreur:'+ error);
+    });
   },
   _renderDepense(){
   let spendArray = (this.state.depenseArray).reverse();
@@ -76,8 +84,17 @@ let Depense = React.createClass ({
           backgroundColor:'#FF9500'
         },
           {
-          component:<View style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
-            /></View>,
+          component:<TouchableOpacity onPress={
+            () => Alert.alert(
+            oDepense.name,
+            'Voulez-vous vraiment le supprimer?',
+            [
+              {text: 'Annuler', onPress: () => null},
+              {text: 'Supprimer', onPress: () => {this._handleDelete(oDepense.id)}},
+            ]
+          )
+          } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
+            /></TouchableOpacity>,
           backgroundColor:'#FE3F35'
         }
       ]} backgroundColor={'#FFFFFF'}>
