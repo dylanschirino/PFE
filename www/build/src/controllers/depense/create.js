@@ -33,7 +33,7 @@ export default function( oRequest, oResponse ) {
         aPicture = oImage,
         oDepense,
         fCreateDepense,
-        monthArray = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+        monthArray = ['JAN','FÉV','MARS','AVRIL','MAI','JUIN','JUIL','AOÛT','SEP','OCT','NOV','DÉC'];
 
     let datecreated = new Date(),
         days = datecreated.getDay(),
