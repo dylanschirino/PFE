@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,ImagePickerIOS } from 'react-native';
 import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
-import SimpleStepper from 'react-native-simple-stepper'
+import SimpleStepper from 'react-native-simple-stepper';
 
 let styles = require('../../style/addStyle'),
     menu = require('../../style/menuStyle');
@@ -46,6 +46,7 @@ let addDepense = React.createClass ({
       clicked:0,
       selectedOption:'',
       montant:0,
+      imageSource:null,
     }
   },
   valueChanged(montant){
@@ -53,6 +54,8 @@ let addDepense = React.createClass ({
     this.setState({
       montant:montant,
     })
+  },
+  pickImage() {
   },
   render() {
     return (
@@ -168,12 +171,13 @@ let addDepense = React.createClass ({
         <View style={styles.pictureContainerTwo}>
           <Text style={styles.labelChoose}>{ 'Photo de la dépense'.toUpperCase() }</Text>
           <View style={styles.chooseContainerPhoto}>
-            <View style={styles.pictureChoose}>
+            <TouchableOpacity style={styles.pictureChoose} onPress={this.pickImage()}>
               <Image
                 style={styles.iconPhoto}
                 source={ require('../../img/photo-camera.png')}
               />
-          </View>
+            <Image style={styles.avatar} source={this.state.imageSource} />
+          </TouchableOpacity>
           </View>
         </View>
       </View>

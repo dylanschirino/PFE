@@ -13,6 +13,7 @@
     "react-native-chart": "^1.0.8-beta",
     "react-native-extended-stylesheet": "^0.3.2",
     "react-native-form": "^2.1.2",
+    "react-native-image-picker": "^0.26.3",
     "react-native-search-bar": "^3.0.0",
     "react-native-simple-picker": "^1.2.1",
     "react-native-simple-stepper": "^1.10.0",
