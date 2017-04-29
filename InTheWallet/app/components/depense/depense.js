@@ -164,7 +164,7 @@ let Depense = React.createClass ({
       </View>
       </View>
       <View style={menu.menu}>
-          <TouchableOpacity style={menu.menuLink}>
+          <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
             <Image
               style={menu.icone}
               source={ require('../../img/home.png')}
