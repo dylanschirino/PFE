@@ -3249,6 +3249,10 @@ react-native-simple-picker:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-native-simple-picker/-/react-native-simple-picker-1.2.1.tgz#f8f14d6b7499940afa99cedcef2a0eb8b6c97f20"
 
+react-native-simple-stepper:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/react-native-simple-stepper/-/react-native-simple-stepper-1.10.0.tgz#5582eafb13362cb7718182ba2df91ea1def2e19b"
+
 react-native-swipeout:
   version "2.0.13"
   resolved "https://registry.yarnpkg.com/react-native-swipeout/-/react-native-swipeout-2.0.13.tgz#b6877cdd70d362b242faafdee57ee6ed891b8443"

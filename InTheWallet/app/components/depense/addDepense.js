@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image
 import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
+import SimpleStepper from 'react-native-simple-stepper'
 
 let styles = require('../../style/addStyle'),
     menu = require('../../style/menuStyle');
@@ -44,7 +45,14 @@ let addDepense = React.createClass ({
       payement:'',
       clicked:0,
       selectedOption:'',
+      montant:0,
     }
+  },
+  valueChanged(montant){
+    montant = Math.round(montant * 100) / 100;
+    this.setState({
+      montant:montant,
+    })
   },
   render() {
     return (
@@ -81,16 +89,17 @@ let addDepense = React.createClass ({
               onChangeText={(text) => {
                 this.setState( {montant:text} );
               }}
-              placeholder='10.000'
-              placeholderTextColor='#FFFFFF'
+              value={this.state.montant.toString()}
             />
           <View style={styles.buttonMontant}>
-            <TouchableOpacity style={styles.buttonMoreLessOne}>
-              <Text style={styles.buttonLabel}>+</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonMoreLess}>
-              <Text style={styles.buttonLabelLess}>¯</Text>
-            </TouchableOpacity>
+            <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={this.state.montant}
+            minimumValue={0}
+            maximumValue={100.000}
+            stepValue={1}
+            tintColor={'#5999CE'}
+            padding={9}
+            backgroundColor={'#FFFFFF'}
+            />
           </View>
           </View>
       </View>

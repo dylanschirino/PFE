@@ -115,34 +115,9 @@ module.exports = EStyleSheet.create({
     fontSize:32,
   },
   buttonMontant:{
-    backgroundColor:'#FFFFFF',
     flexDirection:'row',
     alignItems:'center',
     borderRadius:8,
-  },
-  buttonLabel:{
-    fontFamily:'droidsans',
-    fontSize:24,
-    color:'#5999CE',
-  },
-  buttonLabelLess:{
-    fontFamily:'droidsans',
-    fontSize:24,
-    color:'#5999CE',
-    paddingTop:21,
-    paddingBottom:0,
-  },
-  buttonMoreLess:{
-    paddingLeft:17,
-    paddingRight:17,
-  },
-  buttonMoreLessOne:{
-    paddingTop:11,
-    paddingBottom:11,
-    paddingLeft:17,
-    paddingRight:17,
-    borderRightWidth:1,
-    borderRightColor:'#5999CE'
   },
   bigContainer:{
     flexDirection:'row',
@@ -173,7 +148,7 @@ module.exports = EStyleSheet.create({
   },
   chooseContainerPhoto:{
     flexDirection:'row',
-    marginBottom:14,
+    marginBottom:18.4,
     paddingTop:5,
   },
   buttonChoose:{
