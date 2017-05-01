@@ -14,7 +14,7 @@ let styles = require('../../style/addStyle'),
 
     import Depense from '../depense/depense';
 
-let addEpargne = React.createClass ({
+let updateEpargne = React.createClass ({
   goBack(){
     this.props.navigator.pop()
   },
@@ -34,13 +34,27 @@ let addEpargne = React.createClass ({
       passProps:{username:this.props.username},
     })
   },
+  componentDidMount(){
+    axios.get('http://104.131.74.22:8080/epargne/'+this.props.epargne_id)
+    .then( response => {
+      const epargneDetails = response.data['data'];
+      this.setState({ name:epargneDetails.name,
+                      montant:epargneDetails.montant,
+                      mensualite:epargneDetails.mensualite,
+                      debut:epargneDetails.debut,
+       });
+    })
+    .catch(function (error) {
+      alert('Erreur:'+ error);
+    });
+  },
   _handlePress() {
   let name = ( this.state.name || "" ),
       montant = ( this.state.montant || "" ),
       mensualite = (this.state.mensualite || "" ),
       debut = (this.state.debut || "" );
 
-  axios.post('http://104.131.74.22:8080/epargne', {
+  axios.patch('http://104.131.74.22:8080/epargne/'+this.props.epargne_id,{
     name:name,
     montant:montant,
     mensualite:mensualite,
@@ -60,6 +74,8 @@ let addEpargne = React.createClass ({
     return {
       montant:0,
       mensualite:0,
+      name:'',
+      debut:'',
     }
   },
   valueChanged(montant){
@@ -81,12 +97,12 @@ let addEpargne = React.createClass ({
       <StatusBar barStyle="light-content"
       />
       <View style={nav.navBar}>
-        <TouchableOpacity style={nav.backLink} onPress={this.goHome}>
+        <TouchableOpacity style={nav.backLink} onPress={this.goBack}>
           <Image style={nav.backIcone} source={ require('../../img/back.png')}
             />
           <Text style={nav.backText}>Épargne</Text>
         </TouchableOpacity>
-        <Text style={nav.navTitle}>Ajouter une épargne</Text>
+        <Text style={nav.navTitle}>Modifier une épargne</Text>
         <TouchableOpacity style={nav.add} onPress={this.addEpargne}>
           <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
             />
@@ -118,6 +134,7 @@ let addEpargne = React.createClass ({
               onChangeText={(text) => {
                 this.setState( {name:text} );
               }}
+              value={this.state.name}
               placeholder='Ex : Économie pour un iphone'
               placeholderTextColor='#B6CBE1'
             />
@@ -182,6 +199,7 @@ let addEpargne = React.createClass ({
               onChangeText={(text) => {
                 this.setState( {debut:text} );
               }}
+              value={this.state.debut}
               placeholder='21 Septembre 2017'
               placeholderTextColor='#B6CBE1'
             />
@@ -232,4 +250,4 @@ let addEpargne = React.createClass ({
     )}
   });
 
-  module.exports = addEpargne;
+  module.exports = updateEpargne;

@@ -12,6 +12,7 @@ let nav = require('../../style/navStyle'),
 import Depense from '../depense/depense';
 import Home from '../Home';
 import addEpargne from './addEpargne';
+import updateEpargne from './updateEpargne';
 
 let Epargne = React.createClass ({
   goHome(){
@@ -44,8 +45,13 @@ let Epargne = React.createClass ({
       alert('Erreur:'+ error);
     });
   },
-  _handleEdit(){
-
+  _handleEdit(id){
+    this.props.navigator.push({
+      component: updateEpargne,
+      title:'Modifier une dépense',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user,epargne_id:id},
+    })
   },
   _handleDelete(id){
     axios.delete('http://104.131.74.22:8080/epargne/'+id)
