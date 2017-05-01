@@ -34,15 +34,10 @@ module.exports = EStyleSheet.create({
     height:62,
     borderRadius:31,
   },
-  search:{
-    flex:0,
-  },
   list:{
-    height:800,
     flex:14,
   },
-  listScroll:{
-    height:800,
+  listCustom:{
     flex:14,
   },
   depenseContainer:{
@@ -108,6 +103,12 @@ module.exports = EStyleSheet.create({
     color:'$textColor',
     marginLeft:6,
   },
+  nameCustom:{
+    fontSize:22,
+    fontFamily:'lato-regular',
+    letterSpacing:0.75,
+    color:'$textColor',
+  },
   label:{
     fontSize:12,
     fontFamily:'droidsans',
@@ -134,7 +135,6 @@ module.exports = EStyleSheet.create({
   },
   quickLinkContainer:{
     backgroundColor:'#F8FCFF',
-    height:60,
     flex:1.9,
     alignItems:'center',
     justifyContent:'center',
@@ -176,5 +176,29 @@ module.exports = EStyleSheet.create({
     borderColor:'$mainColor',
     backgroundColor:'$mainColor',
   },
-
+  progressBar:{
+    width:'70%',
+    alignSelf:'center',
+    marginBottom:5,
+    marginTop:5,
+    marginRight:5,
+  },
+  progressView:{
+    flexDirection:'row',
+    alignItems:'center',
+    borderWidth:1,
+    borderRadius:8,
+    borderColor:'$mainColor',
+  },
+  progressContainer:{
+    flexDirection:'column',
+    alignItems:'center',
+    paddingTop:10,
+  },
+  percent:{
+    fontSize:9,
+    fontFamily:'lato-regular',
+    color:'$mainColor',
+    marginRight:10,
+  },
 });

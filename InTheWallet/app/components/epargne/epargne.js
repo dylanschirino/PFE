@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,Alert } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,Alert,ProgressViewIOS } from 'react-native';
 import SearchBar from 'react-native-search-bar';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import axios from 'axios';
@@ -72,13 +72,20 @@ let Epargne = React.createClass ({
       ]} backgroundColor={'#FFFFFF'}>
         <TouchableOpacity onPress={ ()=>{this.goDetails(oEpargne.id, oEpargne.name)}}>
         <View style={styles.depenseContainer}>
-          <View style={styles.containerInfo}>
-            <View style={styles.mainInfo}>
-              <Text style={styles.name}>{oEpargne.name}</Text>
+          <View style={styles.containerInfoCustom}>
+            <View>
+              <Text style={styles.nameCustom}>{oEpargne.name}</Text>
             </View>
             <View style={styles.secondInfo}>
               <Text style={styles.label}>ACHAT DANS</Text>
               <Text style={styles.date}>{oEpargne.duree}</Text>
+            </View>
+            <View style={styles.progressContainer}>
+              <View style={styles.progressView}>
+                <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
+                progress={Number(oEpargne.duree)/100}/>
+              <Text style={styles.percent}>{oEpargne.duree}%</Text>
+              </View>
             </View>
           </View>
         </View>
@@ -111,7 +118,7 @@ let Epargne = React.createClass ({
           ref='searchBar'
           placeholder='Recherche'
           />
-        <View style={styles.quickLinkContainer}>
+      <View style={styles.quickLinkContainer}>
           <TouchableOpacity style={styles.quickLink}>
             <View style={styles.quickLinkContent}>
               <Text style={styles.quickLinkText}>Prêt</Text>
@@ -123,8 +130,8 @@ let Epargne = React.createClass ({
             </View>
           </TouchableOpacity>
         </View>
-      <View style={styles.list}>
-        <ScrollView scrollEnabled={true} snapToAlignment='center' contentContainerStyle={styles.list}>
+      <View style={styles.listCustom}>
+        <ScrollView scrollEnabled={true} contentContainerStyle={styles.listCustom}>
           {this._renderEpargne()}
         </ScrollView>
       </View>
