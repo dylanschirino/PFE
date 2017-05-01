@@ -38,6 +38,9 @@ let addDepense = React.createClass ({
   .catch(function (error) {
     alert('Erreur:'+ error);
   });
+  if(!navigator.props){
+    this.props.navigator.pop();
+  }
   },
   getInitialState: function() {
     return {
