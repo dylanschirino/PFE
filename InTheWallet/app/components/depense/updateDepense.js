@@ -20,7 +20,12 @@ let updateDepense = React.createClass ({
     axios.get('http://104.131.74.22:8080/depense/'+this.props.depense_id)
     .then( response => {
       const depenseDetails = response.data['data'];
-      this.setState({ name:depenseDetails.name });
+      this.setState({ name:depenseDetails.name,
+                      montant:depenseDetails.montant,
+                      categorie:depenseDetails.categorie,
+                      selectedOption:depenseDetails.repeater,
+                      payement:depenseDetails.payement,
+       });
     })
     .catch(function (error) {
       alert('Erreur:'+ error);
@@ -33,7 +38,9 @@ let updateDepense = React.createClass ({
       categorieArray = [],
       payement,
       repeater = this.state.repeater;
-      categorieArray = categorieString.split(',');
+      if(!!this.state.categorie){
+        categorieArray = this.state.categorie;
+      }
 
   axios.patch('http://104.131.74.22:8080/depense/'+this.props.depense_id, {
     name:name,
@@ -54,10 +61,11 @@ let updateDepense = React.createClass ({
       payement:'',
       clicked:0,
       selectedOption:'',
-      montant:0,
+      montant:'',
       imageSource:null,
       depenseDetails:'',
       name:'',
+      categorie:'',
     }
   },
   valueChanged(montant){
@@ -104,7 +112,7 @@ let updateDepense = React.createClass ({
               value={this.state.montant.toString()}
             />
           <View style={styles.buttonMontant}>
-            <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={this.state.montant}
+            <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={Number(this.state.montant)}
             minimumValue={0}
             maximumValue={100.000}
             stepValue={1}
@@ -127,6 +135,7 @@ let updateDepense = React.createClass ({
               onChangeText={(text) => {
                 this.setState( {categorie:text} );
               }}
+              value={this.state.categorie.toString()}
               placeholder='Ex : Alimentation'
               placeholderTextColor='#B6CBE1'
             />
@@ -159,21 +168,17 @@ let updateDepense = React.createClass ({
         <View style={styles.pictureContainer}>
           <Text style={styles.labelChoose}>{ 'Mode de payement'.toUpperCase() }</Text>
           <View style={styles.chooseContainer}>
-            <TouchableOpacity style={(this.state.clicked == 0 || this.state.clicked == 2)?styles.buttonChoose:styles.buttonChooseActived} onPress={() => this.setState({payement:'carte'})}>
-              <TouchableOpacity onPress={() => this.setState({clicked:1})}>
+            <TouchableOpacity style={(this.state.clicked == 0 || this.state.clicked == 2)?styles.buttonChoose:styles.buttonChooseActived} onPress={() => this.setState({payement:'carte',clicked:1})}>
                 <Image
                   style={styles.iconCredit}
                   source={ require('../../img/credit-card.png')}
                 />
-              </TouchableOpacity>
             </TouchableOpacity>
-            <TouchableOpacity style={(this.state.clicked == 0 || this.state.clicked == 1)?styles.buttonChoose:styles.buttonChooseActived} onPress={() => this.setState({payement:'cash'})}>
-              <TouchableOpacity onPress={() => this.setState({clicked:2})}>
+            <TouchableOpacity style={(this.state.clicked == 0 || this.state.clicked == 1)?styles.buttonChoose:styles.buttonChooseActived} onPress={() => this.setState({payement:'cash',clicked:2})}>
               <Image
                 style={styles.iconCash}
                 source={ require('../../img/cash-choose.png')}
               />
-              </TouchableOpacity>
             </TouchableOpacity>
           </View>
         </View>
