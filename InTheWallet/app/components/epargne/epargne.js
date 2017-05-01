@@ -11,6 +11,7 @@ let nav = require('../../style/navStyle'),
 
 import Depense from '../depense/depense';
 import Home from '../Home';
+import addEpargne from './addEpargne';
 
 let Epargne = React.createClass ({
   goHome(){
@@ -22,6 +23,14 @@ let Epargne = React.createClass ({
       title:'Dépense',
       navigationBarHidden:true,
       passProps:{username:this.props.username},
+    })
+  },
+  addEpargne(){
+    this.props.navigator.push({
+      component: addEpargne,
+      title:'Ajouter épargne',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
     })
   },
   componentDidMount(){
@@ -103,7 +112,7 @@ let Epargne = React.createClass ({
             <Text style={nav.backText}>Accueil</Text>
           </TouchableOpacity>
           <Text style={nav.navTitle}>Épargne</Text>
-          <TouchableOpacity style={nav.add} onPress={this.addDepense}>
+          <TouchableOpacity style={nav.add} onPress={this.addEpargne}>
             <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
               />
           </TouchableOpacity>

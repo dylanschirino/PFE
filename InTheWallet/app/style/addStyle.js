@@ -4,6 +4,7 @@ EStyleSheet.build({
   $mainBckg: '#F8FCFF',
   $nameBckg:'#6FA4C7',
   $montantBckg:'#7AB3E3',
+  $mensualiteBckg:'#6AACE2',
 });
 
 module.exports = EStyleSheet.create({
@@ -18,11 +19,23 @@ module.exports = EStyleSheet.create({
     paddingBottom:20,
     alignItems:'center',
   },
+  nameContainerCustom:{
+    backgroundColor:'$nameBckg',
+    paddingTop:20,
+    paddingBottom:20,
+    alignItems:'center',
+  },
   montantContainer:{
     paddingTop:20,
     paddingBottom:20,
     alignItems:'center',
     backgroundColor:'$montantBckg',
+  },
+  mensualiteContainer:{
+    paddingTop:15,
+    paddingBottom:15,
+    backgroundColor:'$mensualiteBckg',
+    alignItems:'center',
   },
   optionContainer:{
     alignItems:'center',
