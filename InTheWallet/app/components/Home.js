@@ -23,6 +23,7 @@ const data = [
 ];
 
 import Depense from "./depense/depense";
+import Epargne from "./epargne/epargne";
 
 let Home = React.createClass ({
   componentDidMount() {
@@ -65,6 +66,14 @@ let Home = React.createClass ({
     this.props.navigator.push({
       component: Depense,
       title:'Dépense',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user}
+    });
+  },
+  goEpargne(){
+    this.props.navigator.push({
+      component: Epargne,
+      title:'Épargne',
       navigationBarHidden:true,
       passProps:{username:this.state.user}
     });
@@ -187,7 +196,7 @@ _renderDepense(){
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLink}>
+          <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
             <Image
               style={menu.iconeEpargne}
               source={ require('../img/epargne.png')}
