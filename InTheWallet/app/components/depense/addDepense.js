@@ -152,21 +152,17 @@ let addDepense = React.createClass ({
         <View style={styles.pictureContainer}>
           <Text style={styles.labelChoose}>{ 'Mode de payement'.toUpperCase() }</Text>
           <View style={styles.chooseContainer}>
-            <TouchableOpacity style={(this.state.clicked == 0 || this.state.clicked == 2)?styles.buttonChoose:styles.buttonChooseActived} onPress={() => this.setState({payement:'carte'})}>
-              <TouchableOpacity onPress={() => this.setState({clicked:1})}>
+            <TouchableOpacity style={(this.state.clicked == 0 || this.state.clicked == 2)?styles.buttonChoose:styles.buttonChooseActived} onPress={() => this.setState({payement:'carte',clicked:1})}>
                 <Image
                   style={styles.iconCredit}
                   source={ require('../../img/credit-card.png')}
                 />
-              </TouchableOpacity>
             </TouchableOpacity>
-            <TouchableOpacity style={(this.state.clicked == 0 || this.state.clicked == 1)?styles.buttonChoose:styles.buttonChooseActived} onPress={() => this.setState({payement:'cash'})}>
-              <TouchableOpacity onPress={() => this.setState({clicked:2})}>
+            <TouchableOpacity style={(this.state.clicked == 0 || this.state.clicked == 1)?styles.buttonChoose:styles.buttonChooseActived} onPress={() => this.setState({payement:'cash',clicked:2})}>
               <Image
                 style={styles.iconCash}
                 source={ require('../../img/cash-choose.png')}
               />
-              </TouchableOpacity>
             </TouchableOpacity>
           </View>
         </View>
