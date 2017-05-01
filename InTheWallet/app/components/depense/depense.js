@@ -84,8 +84,7 @@ let Depense = React.createClass ({
     }
     }
       return (
-        <TouchableOpacity key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
-        <Swipeout autoClose={true} right={[
+        <Swipeout key={i} autoClose={true} right={[
           {
           component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oDepense.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
             /></TouchableOpacity>,
@@ -106,6 +105,7 @@ let Depense = React.createClass ({
           backgroundColor:'#FE3F35'
         }
       ]} backgroundColor={'#FFFFFF'}>
+        <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
         <View style={styles.depenseContainer}>
           <View style={styles.smallInfo}>
             <Image style={styles.imgRepeat} source={ require('../../img/repeat.png')}
@@ -129,8 +129,8 @@ let Depense = React.createClass ({
             </View>
           </View>
         </View>
-        </Swipeout>
         </TouchableOpacity>
+        </Swipeout>
       )
   } );
 },
