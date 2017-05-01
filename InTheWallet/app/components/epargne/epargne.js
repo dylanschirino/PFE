@@ -14,11 +14,7 @@ import Home from '../Home';
 
 let Epargne = React.createClass ({
   goHome(){
-    this.props.navigator.push({
-      component: Home,
-      passProps:{username:this.props.username},
-      navigationBarHidden:true,
-    });
+    this.props.navigator.pop();
   },
   goDepense(){
     this.props.navigator.push({

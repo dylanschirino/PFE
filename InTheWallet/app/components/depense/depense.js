@@ -43,11 +43,7 @@ let Depense = React.createClass ({
         });
   },
   goHome(){
-    this.props.navigator.push({
-      component: Home,
-      passProps:{username:this.props.username},
-      navigationBarHidden:true,
-    });
+    this.props.navigator.pop();
   },
   goEpargne(){
     this.props.navigator.push({
