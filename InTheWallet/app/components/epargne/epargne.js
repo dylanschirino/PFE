@@ -28,6 +28,65 @@ let Epargne = React.createClass ({
       passProps:{username:this.props.username},
     })
   },
+  componentDidMount(){
+    axios.get('http://104.131.74.22:8080/epargne?user='+this.props.username)
+    .then( response => {
+      const epargneObject = response.data['data'];
+      const epargneArray = Object.keys(epargneObject).map(key => epargneObject[key]);
+      this.setState({ epargneArray });
+    })
+    .catch(function (error) {
+      alert('Erreur:'+ error);
+    });
+  },
+  getInitialState: function() {
+    return {
+      epargneArray:[[],[]],
+      user:this.props.username,
+    }
+  },
+  _renderEpargne(){
+  let epargneArray = (this.state.epargneArray).reverse();
+  return epargneArray.map( ( oEpargne, i ) => {
+      return (
+        <Swipeout key={i} autoClose={true} right={[
+          {
+          component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oEpargne.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
+            /></TouchableOpacity>,
+          backgroundColor:'#FF9500'
+        },
+          {
+          component:<TouchableOpacity onPress={
+            () => Alert.alert(
+            oEpargne.name,
+            'Voulez-vous vraiment le supprimer?',
+            [
+              {text: 'Annuler', onPress: () => null},
+              {text: 'Supprimer', onPress: () => {this._handleDelete(oEpargne.id)}},
+            ]
+          )
+          } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
+            /></TouchableOpacity>,
+          backgroundColor:'#FE3F35'
+        }
+      ]} backgroundColor={'#FFFFFF'}>
+        <TouchableOpacity onPress={ ()=>{this.goDetails(oEpargne.id, oEpargne.name)}}>
+        <View style={styles.depenseContainer}>
+          <View style={styles.containerInfo}>
+            <View style={styles.mainInfo}>
+              <Text style={styles.name}>{oEpargne.name}</Text>
+            </View>
+            <View style={styles.secondInfo}>
+              <Text style={styles.label}>ACHAT DANS</Text>
+              <Text style={styles.date}>{oEpargne.duree}</Text>
+            </View>
+          </View>
+        </View>
+        </TouchableOpacity>
+        </Swipeout>
+      )
+  } );
+},
   render() {
     return (
       <View style={{flex:1,}}>
@@ -52,8 +111,21 @@ let Epargne = React.createClass ({
           ref='searchBar'
           placeholder='Recherche'
           />
+        <View style={styles.quickLinkContainer}>
+          <TouchableOpacity style={styles.quickLink}>
+            <View style={styles.quickLinkContent}>
+              <Text style={styles.quickLinkText}>Prêt</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.quickLink}>
+            <View style={styles.quickLinkContentActive}>
+              <Text style={styles.quickLinkTextActive}>Épargne</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       <View style={styles.list}>
         <ScrollView scrollEnabled={true} snapToAlignment='center' contentContainerStyle={styles.list}>
+          {this._renderEpargne()}
         </ScrollView>
       </View>
       </View>
