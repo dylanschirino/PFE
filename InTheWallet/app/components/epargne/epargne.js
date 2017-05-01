@@ -44,6 +44,18 @@ let Epargne = React.createClass ({
       alert('Erreur:'+ error);
     });
   },
+  _handleEdit(){
+
+  },
+  _handleDelete(id){
+    axios.delete('http://104.131.74.22:8080/epargne/'+id)
+    .then( response => {
+      alert('La dépense à bien été supprimée');
+    })
+    .catch(function (error) {
+      alert('Erreur:'+ error);
+    });
+  },
   getInitialState: function() {
     return {
       epargneArray:[[],[]],
