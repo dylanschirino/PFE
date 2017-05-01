@@ -9,8 +9,25 @@ let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
     styles = require('../../style/listStyle');
 
+import Depense from '../depense/depense';
+import Home from '../Home';
 
 let Epargne = React.createClass ({
+  goHome(){
+    this.props.navigator.push({
+      component: Home,
+      passProps:{username:this.props.username},
+      navigationBarHidden:true,
+    });
+  },
+  goDepense(){
+    this.props.navigator.push({
+      component: Depense,
+      title:'Dépense',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    })
+  },
   render() {
     return (
       <View style={{flex:1,}}>

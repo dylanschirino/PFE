@@ -8,8 +8,9 @@ import Swipeout from 'react-native-swipeout';
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
     styles = require('../../style/listStyle');
-
+    import Home from '../Home';
     import Details from "./details";
+    import Epargne from "../epargne/epargne";
     import addDepense from "./addDepense";
     import updateDepense from "./updateDepense";
 
@@ -42,7 +43,19 @@ let Depense = React.createClass ({
         });
   },
   goHome(){
-    this.props.navigator.pop();
+    this.props.navigator.push({
+      component: Home,
+      passProps:{username:this.props.username},
+      navigationBarHidden:true,
+    });
+  },
+  goEpargne(){
+    this.props.navigator.push({
+      component: Epargne,
+      title:'Épargne',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
   },
   addDepense(){
     this.props.navigator.push({
@@ -194,7 +207,7 @@ let Depense = React.createClass ({
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLink}>
+          <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
             <Image
               style={menu.iconeEpargne}
               source={ require('../../img/epargne.png')}
