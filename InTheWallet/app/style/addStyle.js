@@ -19,6 +19,11 @@ module.exports = EStyleSheet.create({
     paddingBottom:20,
     alignItems:'center',
   },
+  dateContainer:{
+    paddingTop:25,
+    paddingBottom:25,
+    alignItems:'center',
+  },
   nameContainerCustom:{
     backgroundColor:'$nameBckg',
     paddingTop:20,
@@ -26,14 +31,14 @@ module.exports = EStyleSheet.create({
     alignItems:'center',
   },
   montantContainer:{
-    paddingTop:20,
-    paddingBottom:20,
+    paddingTop:25,
+    paddingBottom:25,
     alignItems:'center',
     backgroundColor:'$montantBckg',
   },
   mensualiteContainer:{
     paddingTop:15,
-    paddingBottom:15,
+    paddingBottom:25,
     backgroundColor:'$mensualiteBckg',
     alignItems:'center',
   },
@@ -63,6 +68,14 @@ module.exports = EStyleSheet.create({
     borderBottomColor:'#FFFFFF',
     position:'relative'
   },
+  inputBoxEpargne:{
+    width:'80%',
+    alignSelf:'center',
+    borderBottomWidth:1,
+    borderBottomColor:'#295174',
+    position:'relative',
+    paddingBottom:2,
+  },
   inputOptionBox:{
     width:'80%',
     alignSelf:'center',
@@ -79,6 +92,14 @@ module.exports = EStyleSheet.create({
     textAlign:'center',
     marginBottom:5,
     color:'#FFFFFF',
+    fontFamily:'lato-regular',
+    fontSize:16,
+  },
+  inputDate:{
+    height:20,
+    textAlign:'center',
+    marginBottom:5,
+    color:'#333333',
     fontFamily:'lato-regular',
     fontSize:16,
   },
@@ -196,6 +217,10 @@ module.exports = EStyleSheet.create({
   iconCredit:{
     width:48,
     height:34,
+  },
+  calendarIcone:{
+    width:37,
+    height:37
   },
   iconCash:{
     width:52,

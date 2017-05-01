@@ -8,7 +8,7 @@ import SimpleStepper from 'react-native-simple-stepper';
 let styles = require('../../style/addStyle'),
     nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle')
-    custom = require('../../style/listStyle');
+    custom = require('../../style/addEpargne');
 
     const options = ['Jamais', '1', '2'];
 
@@ -38,20 +38,14 @@ let addEpargne = React.createClass ({
   let name = ( this.state.name || "" ),
       montant = ( this.state.montant || "" ),
       mensualite = (this.state.mensualite || "" ),
-      categorieString = this.state.categorie,
-      categorieArray = [],
-      payement,
-      repeater = this.state.repeater;
-      categorieArray = categorieString.split(',');
+      debut = (this.state.debut || "" );
 
-  axios.post('http://104.131.74.22:8080/depense', {
+  axios.post('http://104.131.74.22:8080/epargne', {
     name:name,
     montant:montant,
     mensualite:mensualite,
+    debut:debut,
     user:this.props.username,
-    categorie:categorieArray,
-    payement:this.state.payement,
-    repeater:this.state.selectedOption,
   })
   .then(function (response) {
   })
@@ -64,12 +58,8 @@ let addEpargne = React.createClass ({
   },
   getInitialState: function() {
     return {
-      payement:'',
-      clicked:0,
-      selectedOption:'',
       montant:0,
       mensualite:0,
-      imageSource:null,
     }
   },
   valueChanged(montant){
@@ -128,7 +118,7 @@ let addEpargne = React.createClass ({
               onChangeText={(text) => {
                 this.setState( {name:text} );
               }}
-              placeholder='Ex : Glace au chocolat'
+              placeholder='Ex : Économie pour un iphone'
               placeholderTextColor='#B6CBE1'
             />
           </View>
@@ -163,8 +153,8 @@ let addEpargne = React.createClass ({
         <Text style={styles.label}>{ 'Mensualité (€ par mois)'.toUpperCase() }</Text>
           <View style={styles.inputMontantBox}>
             <Image
-              style={styles.euroIcone}
-              source={ require('../../img/euro.png')}
+              style={styles.calendarIcone}
+              source={ require('../../img/calendar.png')}
             />
           <TextInput style={styles.inputMontant}
               ref="mensualite"
@@ -182,6 +172,19 @@ let addEpargne = React.createClass ({
             padding={4}
             />
           </View>
+          </View>
+      </View>
+      <View style={styles.dateContainer}>
+        <Text style={custom.labelBlue}>{ `Date de début de l'épargne`.toUpperCase() }</Text>
+          <View style={styles.inputBoxEpargne}>
+            <TextInput style={styles.inputDate}
+              ref="debut"
+              onChangeText={(text) => {
+                this.setState( {debut:text} );
+              }}
+              placeholder='21 Septembre 2017'
+              placeholderTextColor='#B6CBE1'
+            />
           </View>
       </View>
       <View style={styles.actionContainer}>

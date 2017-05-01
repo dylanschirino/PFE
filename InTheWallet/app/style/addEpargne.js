@@ -4,6 +4,7 @@ EStyleSheet.build({
   $mainBckg: '#F8FCFF',
   $nameBckg:'#6FA4C7',
   $montantBckg:'#7AB3E3',
+  $mainColor:'#538EB6'
 });
 
 module.exports = EStyleSheet.create({
@@ -50,4 +51,10 @@ module.exports = EStyleSheet.create({
     borderColor:'$mainColor',
     backgroundColor:'$mainColor',
   },
+  labelBlue:{
+      fontFamily:'droidsans',
+      fontSize:14,
+      color:'#275174',
+      paddingBottom:10,
+  }
 });
