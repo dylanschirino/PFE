@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,CameraRoll } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput} from 'react-native';
 import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
@@ -12,9 +12,19 @@ let styles = require('../../style/addStyle'),
 
     import Depense from './depense';
 
-let addDepense = React.createClass ({
+let updateDepense = React.createClass ({
   goBack(){
     this.props.navigator.pop()
+  },
+  componentDidMount(){
+    axios.get('http://104.131.74.22:8080/depense/'+this.props.depense_id)
+    .then( response => {
+      const depenseDetails = response.data['data'];
+      this.setState({ name:depenseDetails.name });
+    })
+    .catch(function (error) {
+      alert('Erreur:'+ error);
+    });
   },
   _handlePress() {
   let name = ( this.state.name || "" ),
@@ -25,7 +35,7 @@ let addDepense = React.createClass ({
       repeater = this.state.repeater;
       categorieArray = categorieString.split(',');
 
-  axios.post('http://104.131.74.22:8080/depense', {
+  axios.patch('http://104.131.74.22:8080/depense/'+this.props.depense_id, {
     name:name,
     montant:montant,
     user:this.props.username,
@@ -46,6 +56,8 @@ let addDepense = React.createClass ({
       selectedOption:'',
       montant:0,
       imageSource:null,
+      depenseDetails:'',
+      name:'',
     }
   },
   valueChanged(montant){
@@ -56,14 +68,12 @@ let addDepense = React.createClass ({
   },
   pickImage() {
   },
-  render() {
-    return (
-      <View style={styles.mainContent}>
-      <StatusBar barStyle="dark-content"
-      />
-    <Form ref="addDepense">
+  _renderUpdate(){
+    let depenseResult = this.state.depenseArray;
+      return(
+      <Form ref="updateDepense">
       <View style={styles.nameContainer}>
-        <Text style={styles.label}>{ 'Nom de la dépense'.toUpperCase() }</Text>
+        <Text style={styles.label}>{'Nom de la dépense'.toUpperCase() }</Text>
           <View style={styles.inputBox}>
             <Image
               style={styles.icone}
@@ -74,7 +84,7 @@ let addDepense = React.createClass ({
               onChangeText={(text) => {
                 this.setState( {name:text} );
               }}
-              placeholder='Ex : Glace au chocolat'
+              value={this.state.name}
               placeholderTextColor='#B6CBE1'
             />
           </View>
@@ -190,7 +200,15 @@ let addDepense = React.createClass ({
           />
         </TouchableOpacity>
       </View>
-    </Form>
+      </Form>
+      )
+  },
+  render() {
+    return (
+      <View style={styles.mainContent}>
+      <StatusBar barStyle="dark-content"
+      />
+      {this._renderUpdate()}
     <View style={menu.menu}>
         <TouchableOpacity style={menu.menuLink}>
           <Image
@@ -225,4 +243,4 @@ let addDepense = React.createClass ({
     )}
   });
 
-  module.exports = addDepense;
+  module.exports = updateDepense;

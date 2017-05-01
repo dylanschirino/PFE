@@ -11,6 +11,7 @@ let nav = require('../../style/navStyle'),
 
     import Details from "./details";
     import addDepense from "./addDepense";
+    import updateDepense from "./updateDepense";
 
 let Depense = React.createClass ({
   componentDidMount(){
@@ -51,6 +52,14 @@ let Depense = React.createClass ({
       passProps:{username:this.state.user},
     })
   },
+  _handleEdit(id){
+    this.props.navigator.push({
+      component: updateDepense,
+      title:'Modifier une dépense',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user,depense_id:id},
+    })
+  },
 
   _handleDelete(id){
     axios.delete('http://104.131.74.22:8080/depense/'+id)
@@ -63,7 +72,6 @@ let Depense = React.createClass ({
   },
   _renderDepense(){
   let spendArray = (this.state.depenseArray).reverse();
-
   return spendArray.map( ( oDepense, i ) => {
     {
       var generateImage = function(){
