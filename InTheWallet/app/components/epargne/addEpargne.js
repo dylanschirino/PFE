@@ -81,7 +81,7 @@ let addEpargne = React.createClass ({
       <StatusBar barStyle="light-content"
       />
       <View style={nav.navBar}>
-        <TouchableOpacity style={nav.backLink} onPress={this.goHome}>
+        <TouchableOpacity style={nav.backLink} onPress={this.goBack}>
           <Image style={nav.backIcone} source={ require('../../img/back.png')}
             />
           <Text style={nav.backText}>Épargne</Text>

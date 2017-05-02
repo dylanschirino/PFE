@@ -67,7 +67,7 @@ let Epargne = React.createClass ({
     this.props.navigator.push({
       component: Details,
       title:name,
-      passProps:{epargne_id:id,name:name},
+      passProps:{epargne_id:id,name:name,username:this.state.user},
       navigationBarHidden:true,
     });
   },

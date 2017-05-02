@@ -10,19 +10,9 @@ let nav = require('../../style/navStyle'),
     details = require('../../style/detailCustom');
 
 import addEpargne from './addEpargne';
+import Depense from '../depense/depense';
 
 let Details = React.createClass ({
-  goHome(){
-    this.props.navigator.pop();
-  },
-  addEpargne(){
-    this.props.navigator.push({
-      component: addEpargne,
-      title:'Ajouter épargne',
-      navigationBarHidden:true,
-      passProps:{username:this.props.username},
-    })
-  },
   componentDidMount(){
     axios.get('http://104.131.74.22:8080/epargne/'+this.props.epargne_id)
     .then( response => {
@@ -36,7 +26,27 @@ let Details = React.createClass ({
   getInitialState: function() {
     return {
       epargneDetails:'',
+      user:this.props.username,
     }
+  },
+  goHome(){
+    this.props.navigator.pop();
+  },
+  goDepense(){
+    this.props.navigator.push({
+      component: Depense,
+      title:'Dépense',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
+  },
+  addEpargne(){
+    this.props.navigator.push({
+      component: addEpargne,
+      title:'Ajouter épargne',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
   },
   _renderDetails(){
 
@@ -140,7 +150,7 @@ let Details = React.createClass ({
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLink}>
+          <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
             <Image
               style={menu.iconeEpargne}
               source={ require('../../img/epargne.png')}
