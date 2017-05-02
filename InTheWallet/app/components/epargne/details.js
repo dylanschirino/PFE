@@ -55,6 +55,26 @@ let Details = React.createClass ({
                     <Text style={details.timer}>15 JOURS 2 HEURES 10 MIN</Text>
                 </View>
               </View>
+                <View style={details.row}>
+                  <View style={details.content}>
+                    <Text style={details.label}>Montant</Text>
+                    <Text style={details.response}>10.000€</Text>
+                  </View>
+                  <View style={details.content}>
+                    <Text style={details.label}>Mensualité</Text>
+                    <Text style={details.response}>20€</Text>
+                  </View>
+                </View>
+                <View style={details.row}>
+                  <View style={details.content}>
+                    <Text style={details.label}>Début de l'épargne</Text>
+                    <Text style={details.response}>31 Juillet 2017</Text>
+                  </View>
+                  <View style={details.content}>
+                    <Text style={details.label}>Jour de l'achat</Text>
+                    <Text style={details.response}>15 Novembre 2017</Text>
+                  </View>
+                </View>
             </View>
           </View>
         )

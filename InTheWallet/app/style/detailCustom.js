@@ -44,8 +44,8 @@ module.exports = EStyleSheet.create({
     height:150,
     alignSelf:'center',
     backgroundColor:'$mainColor',
-    marginTop:35,
-    marginBottom:30,
+    marginTop:45,
+    marginBottom:40,
     borderRadius:150,
     justifyContent:'center',
     alignItems:'center',
@@ -66,5 +66,26 @@ module.exports = EStyleSheet.create({
     fontSize:18,
     fontFamily:'lato-light',
     lineHeight:28,
+  },
+  row:{
+    justifyContent:'space-between',
+    flexDirection:'row',
+    marginBottom:20,
+  },
+  content:{
+    alignItems:'flex-start',
+    width:'45%',
+  },
+  label:{
+    fontSize:14,
+    fontFamily:'droidsans',
+    letterSpacing:0.5,
+    lineHeight:24,
+    color:'$mainColor',
+  },
+  response:{
+    fontSize:16,
+    fontFamily:'lato-regular',
+    lineHeight:26,
   }
 });
