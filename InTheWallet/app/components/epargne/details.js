@@ -58,17 +58,17 @@ let Details = React.createClass ({
                 <View style={details.row}>
                   <View style={details.content}>
                     <Text style={details.label}>Montant</Text>
-                    <Text style={details.response}>10.000€</Text>
+                    <Text style={details.response}>{this.state.epargneDetails.montant} €</Text>
                   </View>
                   <View style={details.content}>
                     <Text style={details.label}>Mensualité</Text>
-                    <Text style={details.response}>20€</Text>
+                    <Text style={details.response}>{this.state.epargneDetails.mensualite} €</Text>
                   </View>
                 </View>
                 <View style={details.row}>
                   <View style={details.content}>
                     <Text style={details.label}>Début de l'épargne</Text>
-                    <Text style={details.response}>31 Juillet 2017</Text>
+                    <Text style={details.response}>{this.state.epargneDetails.depart}</Text>
                   </View>
                   <View style={details.content}>
                     <Text style={details.label}>Jour de l'achat</Text>
