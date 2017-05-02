@@ -41,7 +41,7 @@ let updateEpargne = React.createClass ({
       this.setState({ name:epargneDetails.name,
                       montant:epargneDetails.montant,
                       mensualite:epargneDetails.mensualite,
-                      debut:epargneDetails.debut,
+                      depart:epargneDetails.depart,
        });
     })
     .catch(function (error) {
@@ -52,13 +52,13 @@ let updateEpargne = React.createClass ({
   let name = ( this.state.name || "" ),
       montant = ( this.state.montant || "" ),
       mensualite = (this.state.mensualite || "" ),
-      debut = (this.state.debut || "" );
+      depart = (this.state.depart || "" );
 
   axios.patch('http://104.131.74.22:8080/epargne/'+this.props.epargne_id,{
     name:name,
     montant:montant,
     mensualite:mensualite,
-    depart:debut,
+    depart:depart,
     user:this.props.username,
   })
   .then(function (response) {
@@ -75,7 +75,7 @@ let updateEpargne = React.createClass ({
       montant:0,
       mensualite:0,
       name:'',
-      debut:'',
+      depart:'',
     }
   },
   valueChanged(montant){
@@ -195,11 +195,11 @@ let updateEpargne = React.createClass ({
         <Text style={custom.labelBlue}>{ `Date de début de l'épargne`.toUpperCase() }</Text>
           <View style={styles.inputBoxEpargne}>
             <TextInput style={styles.inputDate}
-              ref="debut"
+              ref="depart"
               onChangeText={(text) => {
-                this.setState( {debut:text} );
+                this.setState( {depart:text} );
               }}
-              value={this.state.debut}
+              value={this.state.depart}
               placeholder='21 Septembre 2017'
               placeholderTextColor='#B6CBE1'
             />
