@@ -10,9 +10,9 @@ let styles = require('../../style/addStyle'),
     menu = require('../../style/menuStyle')
     custom = require('../../style/addEpargne');
 
-    import Depense from '../depense/depense';
+import Depense from '../depense/depense';
 
-let addEpargne = React.createClass ({
+let addPret = React.createClass ({
   goBack(){
     this.props.navigator.pop()
   },
@@ -36,9 +36,10 @@ let addEpargne = React.createClass ({
   let name = ( this.state.name || "" ),
       montant = ( this.state.montant || "" ),
       mensualite = (this.state.mensualite || "" ),
+      interet = (this.state.interet || "" ),
       debut = (this.state.debut || "" );
 
-  axios.post('http://104.131.74.22:8080/epargne', {
+  axios.post('http://104.131.74.22:8080/pret', {
     name:name,
     montant:montant,
     mensualite:mensualite,
@@ -84,7 +85,7 @@ let addEpargne = React.createClass ({
             />
           <Text style={nav.backText}>Épargne</Text>
         </TouchableOpacity>
-        <Text style={nav.navTitle}>Ajouter une épargne</Text>
+        <Text style={nav.navTitle}>Ajouter un prêt</Text>
         <TouchableOpacity style={nav.add} onPress={this.addEpargne}>
           <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
             />
@@ -93,19 +94,19 @@ let addEpargne = React.createClass ({
        </View>
     <View style={custom.quickLinkContainer}>
        <TouchableOpacity style={custom.quickLink}>
-         <View style={custom.quickLinkContent}>
-           <Text style={custom.quickLinkText}>Prêt</Text>
+         <View style={custom.quickLinkContentActiveLeft}>
+           <Text style={custom.quickLinkTextActive}>Prêt</Text>
          </View>
        </TouchableOpacity>
        <TouchableOpacity style={custom.quickLink}>
-         <View style={custom.quickLinkContentActive}>
-           <Text style={custom.quickLinkTextActive}>Épargne</Text>
+         <View style={custom.quickLinkContentRight}>
+           <Text style={custom.quickLinkText}>Épargne</Text>
          </View>
        </TouchableOpacity>
      </View>
     <Form ref="addEpargne">
       <View style={styles.nameContainerCustom}>
-        <Text style={styles.label}>{ `Nom de l'épargne`.toUpperCase() }</Text>
+        <Text style={styles.label}>{ 'Nom du prêt'.toUpperCase() }</Text>
           <View style={styles.inputBox}>
             <Image
               style={styles.icone}
@@ -116,7 +117,7 @@ let addEpargne = React.createClass ({
               onChangeText={(text) => {
                 this.setState( {name:text} );
               }}
-              placeholder='Ex : Économie pour un iphone'
+              placeholder='Ex : Prêt Hypothécaire'
               placeholderTextColor='#B6CBE1'
             />
           </View>
@@ -172,18 +173,33 @@ let addEpargne = React.createClass ({
           </View>
           </View>
       </View>
-      <View style={styles.dateContainer}>
-        <Text style={custom.labelBlue}>{ `Date de début de l'épargne`.toUpperCase() }</Text>
-          <View style={styles.inputBoxEpargne}>
-            <TextInput style={styles.inputDate}
-              ref="debut"
-              onChangeText={(text) => {
-                this.setState( {debut:text} );
-              }}
-              placeholder='21 Septembre 2017'
-              placeholderTextColor='#B6CBE1'
-            />
-          </View>
+      <View style={custom.pretContainer}>
+        <View style={custom.pretOption}>
+          <Text style={custom.labelBlue}>{ `Taux d'interêt`.toUpperCase() }</Text>
+            <View style={custom.inputBoxPret}>
+              <TextInput style={custom.inputOption}
+                ref="interet"
+                onChangeText={(text) => {
+                  this.setState( {interet:text} );
+                }}
+                placeholder='15%'
+                placeholderTextColor='#B6CBE1'
+              />
+            </View>
+        </View>
+        <View style={custom.pretOption}>
+          <Text style={custom.labelBlue}>{ `Durée`.toUpperCase() }</Text>
+            <View style={custom.inputBoxPret}>
+              <TextInput style={custom.inputOption}
+                ref="interet"
+                onChangeText={(text) => {
+                  this.setState( {duree:text} );
+                }}
+                placeholder='10 ans'
+                placeholderTextColor='#B6CBE1'
+              />
+            </View>
+        </View>
       </View>
       <View style={styles.actionContainer}>
         <TouchableOpacity style={styles.cancelContainer} onPress={this.goBack}>
@@ -230,4 +246,4 @@ let addEpargne = React.createClass ({
     )}
   });
 
-  module.exports = addEpargne;
+  module.exports = addPret;

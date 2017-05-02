@@ -51,10 +51,48 @@ module.exports = EStyleSheet.create({
     borderColor:'$mainColor',
     backgroundColor:'$mainColor',
   },
+  quickLinkContentRight:{
+    borderRadius:8,
+    borderTopLeftRadius:0,
+    borderBottomLeftRadius:0,
+    borderWidth:1,
+    borderColor:'$mainColor',
+  },
+  quickLinkContentActiveLeft:{
+    borderRadius:8,
+    borderTopRightRadius:0,
+    borderBottomRightRadius:0,
+    borderWidth:1,
+    borderColor:'$mainColor',
+    backgroundColor:'$mainColor',
+  },
   labelBlue:{
       fontFamily:'droidsans',
       fontSize:14,
       color:'#275174',
       paddingBottom:10,
+  },
+  pretContainer:{
+    alignItems:'center',
+    paddingTop:20,
+    paddingBottom:20,
+    flexDirection:'row',
+  },
+  pretOption:{
+    width:'50%',
+    alignItems:'center',
+  },
+  inputBoxPret:{
+    borderBottomColor:'#295174',
+    borderBottomWidth:1,
+    width:'40%',
+    paddingBottom:10,
+  },
+  inputOption:{
+    textAlign:'center',
+    color:'#333333',
+    fontSize:18,
+    fontFamily:'lato-light',
+    height:20,
   }
 });
