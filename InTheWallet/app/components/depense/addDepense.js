@@ -82,7 +82,7 @@ let addDepense = React.createClass ({
             />
           </View>
       </View>
-      <View style={styles.montantContainer}>
+      <View style={styles.montantContainerDepense}>
         <Text style={styles.label}>{ 'Montant total'.toUpperCase() }</Text>
           <View style={styles.inputMontantBox}>
             <Image

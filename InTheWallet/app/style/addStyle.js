@@ -36,6 +36,12 @@ module.exports = EStyleSheet.create({
     alignItems:'center',
     backgroundColor:'$montantBckg',
   },
+  montantContainerDepense:{
+    paddingTop:20,
+    paddingBottom:20,
+    alignItems:'center',
+    backgroundColor:'$montantBckg',
+  },
   mensualiteContainer:{
     paddingTop:15,
     paddingBottom:25,
