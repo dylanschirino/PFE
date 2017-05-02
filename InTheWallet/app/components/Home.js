@@ -86,6 +86,9 @@ let Home = React.createClass ({
       passProps:{username:this.state.user}
     });
   },
+  _reset(){
+    this.setState({ limit:'0' });
+  },
   _handlePress(event) {
   let limit=this.state.limit;
 
@@ -142,10 +145,14 @@ _renderDepense(){
                 value={this.state.limit.toString()}
                 color='#FFFFFF'
                 placeholderTextColor='#FFFFFF'/>
-                <TouchableOpacity style={styles.button} onPress={this._handlePress}>
+              <TouchableOpacity style={styles.button} onPress={this._reset}>
                 <Image style={styles.buttonImg} source={ require('../img/edit.png')}
                   />
               </TouchableOpacity>
+              <TouchableOpacity style={styles.button} onPress={this._handlePress}>
+              <Image style={styles.buttonImgCheck} source={ require('../img/validation.png')}
+                />
+            </TouchableOpacity>
             </View>
             <Text style={styles.label}>{'Limite du mois'.toUpperCase() } </Text>
           </Form>

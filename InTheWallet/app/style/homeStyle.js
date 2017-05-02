@@ -52,6 +52,11 @@ module.exports = EStyleSheet.create({
     width:5,
     height:16,
   },
+  buttonImgCheck:{
+    width:15,
+    height:15,
+    marginLeft:10,
+  },
   progressBar:{
     width:'70%',
     alignSelf:'center',
