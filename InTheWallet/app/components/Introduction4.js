@@ -65,7 +65,7 @@ let Introduction4 = React.createClass( {
 
 
       </View>
-      <TouchableOpacity style={styles.button} onPress={this.goSubscribe}>
+      <TouchableOpacity style={styles.buttonCustom2} onPress={this.goSubscribe}>
       <Text style={styles.buttonText}>
       Passer les introductions !
       </Text>

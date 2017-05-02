@@ -43,6 +43,7 @@ module.exports = EStyleSheet.create({
   switchContainer:{
     flexDirection:'row',
     marginBottom:60,
+    marginRight:21,
   },
   switcher:{
     width:19.75,
@@ -60,6 +61,28 @@ module.exports = EStyleSheet.create({
     alignItems:'center',
     alignSelf:'stretch',
     marginLeft:26,
+    marginRight:26,
+  },
+  buttonCustom:{
+    backgroundColor:'$Blue',
+    paddingTop:15,
+    paddingBottom:15,
+    borderRadius:8,
+    alignItems:'center',
+    alignSelf:'stretch',
+    marginLeft:26,
+    marginTop:45,
+    marginRight:26,
+  },
+  buttonCustom2:{
+    backgroundColor:'$Blue',
+    paddingTop:15,
+    paddingBottom:15,
+    borderRadius:8,
+    alignItems:'center',
+    alignSelf:'stretch',
+    marginLeft:26,
+    marginTop:27,
     marginRight:26,
   },
   buttonText:{
