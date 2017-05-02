@@ -176,6 +176,21 @@ module.exports = EStyleSheet.create({
     borderColor:'$mainColor',
     backgroundColor:'$mainColor',
   },
+  quickLinkContentRight:{
+    borderRadius:8,
+    borderTopLeftRadius:0,
+    borderBottomLeftRadius:0,
+    borderWidth:1,
+    borderColor:'$mainColor',
+  },
+  quickLinkContentActiveLeft:{
+    borderRadius:8,
+    borderTopRightRadius:0,
+    borderBottomRightRadius:0,
+    borderWidth:1,
+    borderColor:'$mainColor',
+    backgroundColor:'$mainColor',
+  },
   progressBar:{
     width:'70%',
     alignSelf:'center',
