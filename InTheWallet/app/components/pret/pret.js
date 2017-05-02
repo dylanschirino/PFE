@@ -10,6 +10,7 @@ let nav = require('../../style/navStyle'),
     styles = require('../../style/listStyle');
 
 import Depense from '../depense/depense';
+import Epargne from '../epargne/epargne';
 import Home from '../Home';
 
 let Pret = React.createClass ({
@@ -20,6 +21,14 @@ let Pret = React.createClass ({
     this.props.navigator.push({
       component: Depense,
       title:'Dépense',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    })
+  },
+  goEpargne(){
+    this.props.navigator.push({
+      component: Epargne,
+      title:'Épargne',
       navigationBarHidden:true,
       passProps:{username:this.props.username},
     })
@@ -52,9 +61,9 @@ let Pret = React.createClass ({
     })
   },
   _handleDelete(id){
-    axios.delete('http://104.131.74.22:8080/epargne/'+id)
+    axios.delete('http://104.131.74.22:8080/pret/'+id)
     .then( response => {
-      alert('La dépense à bien été supprimée');
+      alert('Le prêt à bien été supprimé');
     })
     .catch(function (error) {
       alert('Erreur:'+ error);
@@ -106,7 +115,7 @@ let Pret = React.createClass ({
               <Text style={styles.nameCustom}>{oPret.name}</Text>
             </View>
             <View style={styles.secondInfo}>
-              <Text style={styles.label}>ACHAT DANS</Text>
+              <Text style={styles.label}>{'Durée restante'.toUpperCase()}</Text>
               <Text style={styles.date}>{oPret.duree}</Text>
             </View>
             <View style={styles.progressContainer}>
@@ -153,7 +162,7 @@ let Pret = React.createClass ({
               <Text style={styles.quickLinkTextActive}>Prêt</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.quickLink}>
+          <TouchableOpacity style={styles.quickLink} onPress={this.goEpargne}>
             <View style={styles.quickLinkContentRight}>
               <Text style={styles.quickLinkText}>Épargne</Text>
             </View>

@@ -10,6 +10,7 @@ let nav = require('../../style/navStyle'),
     styles = require('../../style/listStyle');
 
 import Depense from '../depense/depense';
+import Pret from '../pret/pret';
 import Home from '../Home';
 import addEpargne from './addEpargne';
 import updateEpargne from './updateEpargne';
@@ -25,6 +26,14 @@ let Epargne = React.createClass ({
       title:'Dépense',
       navigationBarHidden:true,
       passProps:{username:this.props.username},
+    })
+  },
+  goPret(){
+    this.props.navigator.push({
+      component: Pret,
+      title:'Prêt',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
     })
   },
   addEpargne(){
@@ -151,7 +160,7 @@ let Epargne = React.createClass ({
           placeholder='Recherche'
           />
       <View style={styles.quickLinkContainer}>
-          <TouchableOpacity style={styles.quickLink}>
+          <TouchableOpacity style={styles.quickLink} onPress={this.goPret}>
             <View style={styles.quickLinkContent}>
               <Text style={styles.quickLinkText}>Prêt</Text>
             </View>
