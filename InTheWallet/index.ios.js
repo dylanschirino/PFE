@@ -31,6 +31,17 @@ export default class InTheWallet extends Component {
   render() {
        if(this.state.firstLaunch == true){
          return (
+           <NavigatorIOS
+           initialRoute = {{
+             component: Login,
+             title:'Login',
+             navigationBarHidden:true,
+           }}
+          style={{ flex:1,}}/>
+         )
+      }
+      else{
+        return (
           <NavigatorIOS
           initialRoute = {{
             component: Introduction,
@@ -38,17 +49,6 @@ export default class InTheWallet extends Component {
             navigationBarHidden:true,
           }}
          style={{ flex:1,}}/>
-         )
-      }
-      else{
-        return (
-         <NavigatorIOS
-         initialRoute = {{
-           component: Login,
-           title:'Login',
-           navigationBarHidden:true,
-         }}
-        style={{ flex:1,}}/>
         )
       }
   }

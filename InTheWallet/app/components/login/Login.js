@@ -15,6 +15,12 @@ let Login = React.createClass ({
   goSubscription() {
     this.props.navigator.pop();
   },
+  getInitialState: function() {
+    return {
+      email:'',
+      password:'',
+    }
+  },
   _handlePress(event) {
   let email=this.state.email.toLowerCase(),
       password=this.state.password;

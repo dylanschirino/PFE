@@ -18,7 +18,13 @@ let Subscribe = React.createClass ({
       navigationBarHidden:true,
     });
   },
-
+  getInitialState: function() {
+    return {
+      email:'',
+      password:'',
+      password2:'',
+    }
+  },
   _handlePress(event) {
   let email = ( this.state.email || "" ).toLowerCase(),
       password = this.state.password || "",
