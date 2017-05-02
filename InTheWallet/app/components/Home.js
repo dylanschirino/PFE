@@ -38,7 +38,6 @@ let Home = React.createClass ({
   .then( response => {
     const depenseObject = response.data['data'];
     const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);
-    console.log('Myarray:'+depenseArray[0]['name']);
     this.setState({ depenseArray });
   })
   .catch(function (error) {
@@ -154,7 +153,7 @@ _renderDepense(){
       <View style={styles.progressContainer}>
         <View style={styles.progressView}>
           <ProgressViewIOS style={styles.progressBar} trackTintColor={'#124D73'} progressTintColor='white' progress={this.state.total/this.state.limit}/>
-          <Text style={styles.percent}>{(Math.floor(this.state.total)/Math.floor(this.state.limit))*100}%</Text>
+          <Text style={styles.percent}>{((Math.floor(this.state.total)/Math.floor(this.state.limit))*100) | 0}%</Text>
         </View>
       </View>
       <View style={styles.chartContainer}>
