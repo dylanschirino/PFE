@@ -37,6 +37,7 @@ let addPret = React.createClass ({
       montant = ( this.state.montant || "" ),
       mensualite = (this.state.mensualite || "" ),
       interet = (this.state.interet || "" ),
+      duree = (this.state.duree || "" ),
       debut = (this.state.debut || "" );
 
   axios.post('http://104.131.74.22:8080/pret', {
@@ -44,6 +45,8 @@ let addPret = React.createClass ({
     montant:montant,
     mensualite:mensualite,
     depart:debut,
+    interet:interet,
+    duree:duree,
     user:this.props.username,
   })
   .then(function (response) {
