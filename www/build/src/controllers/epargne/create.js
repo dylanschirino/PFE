@@ -68,6 +68,7 @@ export default function( oRequest, oResponse ) {
               "debut": oEpargne.depart,
               "user": oEpargne.user,
               "duree": dDuree,
+              "created_at":days +' '+month+' '+year,
           }, 201 );
       } )
       .catch( ( oError ) => {
