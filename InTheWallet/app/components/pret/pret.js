@@ -12,6 +12,9 @@ let nav = require('../../style/navStyle'),
 import Depense from '../depense/depense';
 import Epargne from '../epargne/epargne';
 import Home from '../Home';
+import addPret from './addPret';
+import updatePret from './updatePret';
+import Details from './details';
 
 let Pret = React.createClass ({
   goHome(){
@@ -36,7 +39,7 @@ let Pret = React.createClass ({
   addPret(){
     this.props.navigator.push({
       component: addPret,
-      title:'Ajouter épargne',
+      title:'Ajouter prêt',
       navigationBarHidden:true,
       passProps:{username:this.state.user},
     })
@@ -54,10 +57,10 @@ let Pret = React.createClass ({
   },
   _handleEdit(id){
     this.props.navigator.push({
-      component: updateEpargne,
-      title:'Modifier une dépense',
+      component: updatePret,
+      title:'Modifier un prêt',
       navigationBarHidden:true,
-      passProps:{username:this.state.user,epargne_id:id},
+      passProps:{username:this.state.user,pret_id:id},
     })
   },
   _handleDelete(id){
@@ -73,7 +76,7 @@ let Pret = React.createClass ({
     this.props.navigator.push({
       component: Details,
       title:name,
-      passProps:{epargne_id:id,name:name,username:this.state.user},
+      passProps:{pret_id:id,name:name,username:this.state.user},
       navigationBarHidden:true,
     });
   },
