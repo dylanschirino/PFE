@@ -136,9 +136,9 @@ let Epargne = React.createClass ({
           <TouchableOpacity style={nav.backLink} onPress={this.goHome}>
             <Image style={nav.backIcone} source={ require('../../img/back.png')}
               />
-            <Text style={nav.backText}>Accueil</Text>
+            <Text style={nav.backText}>Retour</Text>
           </TouchableOpacity>
-          <Text style={nav.navTitle}>Épargne</Text>
+          <Text style={nav.navTitle}>Liste des épargnes</Text>
           <TouchableOpacity style={nav.add} onPress={this.addEpargne}>
             <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
               />
