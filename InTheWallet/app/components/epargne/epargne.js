@@ -13,6 +13,7 @@ import Depense from '../depense/depense';
 import Home from '../Home';
 import addEpargne from './addEpargne';
 import updateEpargne from './updateEpargne';
+import Details from './details';
 
 let Epargne = React.createClass ({
   goHome(){
@@ -60,6 +61,14 @@ let Epargne = React.createClass ({
     })
     .catch(function (error) {
       alert('Erreur:'+ error);
+    });
+  },
+  goDetails(id,name){
+    this.props.navigator.push({
+      component: Details,
+      title:name,
+      passProps:{epargne_id:id,name:name},
+      navigationBarHidden:true,
     });
   },
   getInitialState: function() {
