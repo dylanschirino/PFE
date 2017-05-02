@@ -10,9 +10,9 @@ let styles = require('../../style/addStyle'),
     menu = require('../../style/menuStyle')
     custom = require('../../style/addEpargne');
 
-import Depense from '../depense/depense';
+    import Depense from '../depense/depense';
 
-let addPret = React.createClass ({
+let updatePret = React.createClass ({
   goBack(){
     this.props.navigator.pop()
   },
@@ -32,21 +32,35 @@ let addPret = React.createClass ({
       passProps:{username:this.props.username},
     })
   },
+  componentDidMount(){
+    axios.get('http://104.131.74.22:8080/pret/'+this.props.pret_id)
+    .then( response => {
+      const pretDetails = response.data['data'];
+      this.setState({ name:pretDetails.name,
+                      montant:pretDetails.montant,
+                      mensualite:pretDetails.mensualite,
+                      interet:pretDetails.interet,
+                      duree:pretDetails.duree,
+                      depart:pretDetails.depart,
+       });
+    })
+    .catch(function (error) {
+      alert('Erreur:'+ error);
+    });
+  },
   _handlePress() {
   let name = ( this.state.name || "" ),
       montant = ( this.state.montant || "" ),
       mensualite = (this.state.mensualite || "" ),
       interet = (this.state.interet || "" ),
-      duree = (this.state.duree || "" ),
-      debut = (this.state.debut || "" );
+      depart = (this.state.depart || "" );
 
-  axios.post('http://104.131.74.22:8080/pret', {
+  axios.patch('http://104.131.74.22:8080/pret/'+this.props.pret_id,{
     name:name,
     montant:montant,
     mensualite:mensualite,
-    depart:debut,
     interet:interet,
-    duree:duree,
+    depart:depart,
     user:this.props.username,
   })
   .then(function (response) {
@@ -62,6 +76,9 @@ let addPret = React.createClass ({
     return {
       montant:0,
       mensualite:0,
+      name:'',
+      interet:'',
+      depart:'',
     }
   },
   valueChanged(montant){
@@ -86,10 +103,10 @@ let addPret = React.createClass ({
         <TouchableOpacity style={nav.backLink} onPress={this.goBack}>
           <Image style={nav.backIcone} source={ require('../../img/back.png')}
             />
-          <Text style={nav.backText}>Épargne</Text>
+          <Text style={nav.backText}>Prêt</Text>
         </TouchableOpacity>
-        <Text style={nav.navTitle}>Ajouter un prêt</Text>
-        <TouchableOpacity style={nav.add} onPress={this.addEpargne}>
+        <Text style={nav.navTitle}>Modifier un prêt</Text>
+        <TouchableOpacity style={nav.add} onPress={this.addPret}>
           <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
             />
         </TouchableOpacity>
@@ -109,7 +126,7 @@ let addPret = React.createClass ({
      </View>
     <Form ref="addEpargne">
       <View style={styles.nameContainerCustom}>
-        <Text style={styles.label}>{ 'Nom du prêt'.toUpperCase() }</Text>
+        <Text style={styles.label}>{ `Nom de l'épargne`.toUpperCase() }</Text>
           <View style={styles.inputBox}>
             <Image
               style={styles.icone}
@@ -120,7 +137,8 @@ let addPret = React.createClass ({
               onChangeText={(text) => {
                 this.setState( {name:text} );
               }}
-              placeholder='Ex : Prêt Hypothécaire'
+              value={this.state.name}
+              placeholder='Ex : Économie pour un iphone'
               placeholderTextColor='#B6CBE1'
             />
           </View>
@@ -186,6 +204,7 @@ let addPret = React.createClass ({
                   this.setState( {interet:text} );
                 }}
                 placeholder='15%'
+                value={(this.state.interet).toString()}
                 placeholderTextColor='#B6CBE1'
               />
             </View>
@@ -196,9 +215,10 @@ let addPret = React.createClass ({
               <TextInput style={custom.inputOption}
                 ref="interet"
                 onChangeText={(text) => {
-                  this.setState( {debut:text} );
+                  this.setState( {depart:text} );
                 }}
-                placeholder='22 Mars 2016'
+                value={this.state.depart}
+                placeholder='21 Juillet 2017'
                 placeholderTextColor='#B6CBE1'
               />
             </View>
@@ -249,4 +269,4 @@ let addPret = React.createClass ({
     )}
   });
 
-  module.exports = addPret;
+  module.exports = updatePret;
