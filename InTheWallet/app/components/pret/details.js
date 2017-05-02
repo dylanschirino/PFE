@@ -11,6 +11,7 @@ let nav = require('../../style/navStyle'),
 
 import addEpargne from './addPret';
 import Depense from '../depense/depense';
+import Epargne from '../epargne/epargne';
 
 let Details = React.createClass ({
   componentDidMount(){
@@ -36,6 +37,14 @@ let Details = React.createClass ({
     this.props.navigator.push({
       component: Depense,
       title:'Dépense',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
+  },
+  goEpargne(){
+    this.props.navigator.push({
+      component: Epargne,
+      title:'Épargne',
       navigationBarHidden:true,
       passProps:{username:this.state.user},
     })
@@ -115,13 +124,13 @@ let Details = React.createClass ({
           />
         <View style={details.quickLinkContainerCustom}>
           <TouchableOpacity style={styles.quickLink}>
-            <View style={styles.quickLinkContent}>
-              <Text style={styles.quickLinkText}>Prêt</Text>
+            <View style={styles.quickLinkContentActiveLeft}>
+              <Text style={styles.quickLinkTextActive}>Prêt</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.quickLink}>
-            <View style={styles.quickLinkContentActive}>
-              <Text style={styles.quickLinkTextActive}>Épargne</Text>
+          <TouchableOpacity style={styles.quickLink} onPress={this.goEpargne}>
+            <View style={styles.quickLinkContentRight}>
+              <Text style={styles.quickLinkText}>Épargne</Text>
             </View>
           </TouchableOpacity>
         </View>
