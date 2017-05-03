@@ -11,12 +11,11 @@ EStyleSheet.build({
 module.exports = EStyleSheet.create({
   categorie:{
     height:27,
-    justifyContent:'space-around',
   },
   container:{
     flexDirection:'column',
-    height:50,
-    flexGrow:1,
+    height:57,
+    flexGrow:0.1,
   },
   catText:{
     borderWidth:1,
@@ -34,11 +33,8 @@ module.exports = EStyleSheet.create({
     height:62,
     borderRadius:31,
   },
-  list:{
-    flex:14,
-  },
   listCustom:{
-    flex:14,
+    flexGrow:1,
   },
   depenseContainer:{
     position:'relative',

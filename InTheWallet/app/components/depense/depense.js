@@ -30,6 +30,7 @@ let Depense = React.createClass ({
     return {
       depenseArray:[[],[]],
       user:this.props.username,
+      name:'',
     }
   },
   goDetails(id,name){
@@ -83,6 +84,7 @@ let Depense = React.createClass ({
   let spendArray = (this.state.depenseArray).reverse();
   return spendArray.map( ( oDepense, i ) => {
     {
+      this.state.name = oDepense.name;
       var generateImage = function(){
       if( oDepense.payement == 'carte'){
         return (require('../../img/carte.png'));
@@ -171,7 +173,7 @@ let Depense = React.createClass ({
         </View>
       </View>
       <View style={styles.container}>
-        <ScrollView horizontal={true} scrollEnabled={true} snapToAlignment='center' contentContainerStyle={styles.categorie}>
+        <ScrollView horizontal={true} scrollEnabled={true} contentContainerStyle={styles.categorie}>
           <Text style={styles.catText}>Général</Text>
           <Text style={styles.catText}>Loisirs</Text>
           <Text style={styles.catText}>Alimentation</Text>
@@ -182,12 +184,10 @@ let Depense = React.createClass ({
           ref='searchBar'
           placeholder='Recherche'
           />
-      <View style={styles.list}>
-        <ScrollView scrollEnabled={true} snapToAlignment='center' contentContainerStyle={styles.list}>
-          {this._renderDepense()}
-        </ScrollView>
       </View>
-      </View>
+      <ScrollView scrollEnabled={true} contentContainerStyle={styles.listCustom}>
+        {this._renderDepense()}
+      </ScrollView>
       <View style={menu.menu}>
           <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
             <Image
