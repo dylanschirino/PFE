@@ -5,6 +5,16 @@ EStyleSheet.build({
 });
 
 module.exports = EStyleSheet.create({
+  containerBase:{
+    flex:1,
+  },
+  containerOpacity:{
+    flex:1,
+  },
+  container:{
+    flex:1,
+    backgroundColor:'rgba(248,252,255,0.7)',
+  },
   menu:{
     width:'100%',
     backgroundColor:'#538EB6',
@@ -60,5 +70,24 @@ module.exports = EStyleSheet.create({
     borderRadius:50,
     borderWidth:1,
     borderColor:'#538EB6'
+  },
+  buttonContainer:{
+    position:'absolute',
+    bottom:60,
+    left:'41%',
+    width:80,
+    height:80,
+    backgroundColor:'#538EB6',
+    borderRadius:80,
+    alignItems:'center',
+    justifyContent:'center',
+    borderColor:'$headerColor',
+    borderWidth:1,
+  },
+  buttonLabel:{
+    color:'#FFFFFF',
+    paddingTop:5,
+    fontSize:13,
+    fontFamily:'lato-regular',
   }
 });

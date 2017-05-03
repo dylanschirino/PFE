@@ -137,14 +137,14 @@ let addDepense = React.createClass ({
             La dépense est repeté  : {this.state.selectedOption}
             </Text>
             <SimplePicker
-          ref={'picker'}
-          options={options}
-          onSubmit={(option) => {
-            this.setState({
-              selectedOption: option,
-            });
-          }}
-        />
+              ref={'picker'}
+              options={options}
+              onSubmit={(option) => {
+                this.setState({
+                  selectedOption: option,
+                });
+              }}
+            />
           </View>
           </View>
       </View>

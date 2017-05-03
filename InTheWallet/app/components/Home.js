@@ -62,7 +62,12 @@ let Home = React.createClass ({
       total:'',
       depenseArray:[[],[]],
       user:this.props.username,
+      enable:false,
     }
+  },
+  toggleDisplay() {
+  let toggle = !this.state.enable;
+  this.setState({enable: toggle});
   },
   goDepense(){
     this.props.navigator.push({
@@ -139,7 +144,7 @@ _renderDepense(){
 },
   render() {
     return (
-      <View style={{flex:1,}}>
+      <View style={(this.state.enable == false)?menu.containerBase:menu.containerOpacity}>
       <View style={styles.header}>
         <StatusBar barStyle="light-content"
         />
@@ -200,6 +205,15 @@ _renderDepense(){
           {this._renderDepense()}
         </View>
       </View>
+      <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOut" enter="fadeIn" style={menu.container}>
+          <TouchableOpacity style={menu.buttonContainer}>
+            <Image
+              style={menu.icone}
+              source={ require('../img/depense.png')}
+            />
+            <Text style={menu.buttonLabel}>Dépense</Text>
+          </TouchableOpacity>
+      </Display>
       <View style={menu.menu}>
           <TouchableOpacity style={menu.menuLink}>
             <Image
@@ -215,7 +229,7 @@ _renderDepense(){
             />
           <Text style={menu.menuLabel}>Dépenses</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLinkAdd}>
+          <TouchableOpacity style={menu.menuLinkAdd} onPress={() => {this.toggleDisplay()}}>
             <View style={menu.add}>
               <Image
                 style={menu.iconeAdd}
