@@ -23,6 +23,7 @@ const data = [
 ];
 
 import Depense from "./depense/depense";
+import Details from './depense/details';
 import Epargne from "./epargne/epargne";
 import Pret from './pret/pret';
 
@@ -86,6 +87,16 @@ let Home = React.createClass ({
       passProps:{username:this.state.user}
     });
   },
+  goDetails(id,name){
+    let spendArray = this.state.depenseArray;
+
+        this.props.navigator.push({
+          component: Details,
+          title:name,
+          passProps:{depense_id:id,name:name},
+          navigationBarHidden:true,
+        });
+  },
   _reset(){
     this.setState({ limit:'0' });
   },
@@ -113,7 +124,7 @@ _renderDepense(){
   let threeLast = this.state.depenseArray.slice(Math.max(length - 3, 0));
   return threeLast.map( ( oDepense, i ) => {
       return (
-        <View style={styles.depenseContainer} key={i}>
+        <TouchableOpacity style={styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
           <View style={styles.depenseContent}>
             <Text style={styles.price}>{oDepense.montant}€</Text>
             <Text style={styles.title}>{oDepense.name}</Text>
@@ -121,7 +132,7 @@ _renderDepense(){
               <Text style={styles.date}>{oDepense.created_at}</Text>
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
       )
   } );
 },
