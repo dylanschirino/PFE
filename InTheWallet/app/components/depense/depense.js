@@ -91,6 +91,14 @@ let Depense = React.createClass ({
         return (require('../../img/cash.png'));
       }
     }
+      var generateRepeat = function(){
+        if ( oDepense.repeater == 'Jamais' || oDepense.repeater == false ){
+          return null;
+        }
+        else{
+          return (require('../../img/repeat.png'));
+        }
+      }
     }
       return (
         <Swipeout key={i} autoClose={true} right={[
@@ -117,7 +125,7 @@ let Depense = React.createClass ({
         <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
         <View style={styles.depenseContainer}>
           <View style={styles.smallInfo}>
-            <Image style={styles.imgRepeat} source={ require('../../img/repeat.png')}
+            <Image style={styles.imgRepeat} source={generateRepeat()}
               />
             <Image style={styles.imgPayement} source={generateImage()}
                 />
