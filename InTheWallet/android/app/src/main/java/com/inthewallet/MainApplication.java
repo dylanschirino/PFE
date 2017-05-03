@@ -3,6 +3,7 @@ package com.inthewallet;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.remobile.imagePicker.RCTImagePickerPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.beefe.picker.PickerViewPackage;
 import com.facebook.react.ReactNativeHost;
@@ -25,6 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RCTImagePickerPackage(),
             new ImagePickerPackage(),
             new PickerViewPackage()
       );

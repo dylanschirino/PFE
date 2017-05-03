@@ -4,6 +4,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import Form from 'react-native-form';
 import axios from 'axios';
 import Chart from 'react-native-chart';
+import Display from 'react-native-display';
 let styles = require('../style/homeStyle'),
     menu = require('../style/menuStyle');
 

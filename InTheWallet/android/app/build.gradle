@@ -126,6 +126,7 @@ android {
 }
 
 dependencies {
+    compile project(':@remobile/react-native-image-picker')
     compile project(':react-native-image-picker')
     compile project(':react-native-picker')
     compile fileTree(dir: "libs", include: ["*.jar"])

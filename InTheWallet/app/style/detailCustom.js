@@ -19,7 +19,7 @@ module.exports = EStyleSheet.create({
     height:25,
   },
   contentInfo:{
-    flex:8,
+    flex:1,
     backgroundColor:'$contentBckg',
   },
   container:{
