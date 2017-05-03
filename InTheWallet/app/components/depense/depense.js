@@ -144,7 +144,7 @@ let Depense = React.createClass ({
             </View>
             <View style={styles.secondInfo}>
               <Text style={styles.label}>DÉPENSÉ LE</Text>
-              <Text style={styles.date}>19 Janvier 2016</Text>
+              <Text style={styles.date}>{oDepense.created_at}</Text>
             </View>
           </View>
         </View>
