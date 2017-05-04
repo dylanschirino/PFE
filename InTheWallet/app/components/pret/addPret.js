@@ -113,11 +113,7 @@ let addPret = React.createClass ({
             />
           <Text style={nav.backText}>Prêt</Text>
         </TouchableOpacity>
-        <Text style={nav.navTitle}>Ajouter un prêt</Text>
-        <TouchableOpacity style={nav.add} onPress={this.addEpargne}>
-          <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
-            />
-        </TouchableOpacity>
+        <Text style={nav.navTitleCustomPret}>Ajouter un prêt</Text>
       </View>
        </View>
     <View style={custom.quickLinkContainer}>

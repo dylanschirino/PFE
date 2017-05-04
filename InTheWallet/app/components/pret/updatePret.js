@@ -15,6 +15,7 @@ let styles = require('../../style/addStyle'),
     import Pret from './pret';
     import Home from '../Home';
     import addEpargne from '../epargne/addEpargne';
+    import addPret from './addPret';
 
 let updatePret = React.createClass ({
   goHome(){
@@ -53,6 +54,14 @@ let updatePret = React.createClass ({
     this.props.navigator.push({
       component: addEpargne,
       title:'addEpargne',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
+  },
+  addPret(){
+    this.props.navigator.push({
+      component: addPret,
+      title:'addPret',
       navigationBarHidden:true,
       passProps:{username:this.props.username},
     });
