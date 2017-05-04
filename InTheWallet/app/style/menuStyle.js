@@ -14,7 +14,7 @@ module.exports = EStyleSheet.create({
     bottom:0,
     width:'100%',
     height:'100%',
-    backgroundColor:'rgba(248,252,255,0.8)',
+    backgroundColor:'rgba(248,252,255,0.85)',
   },
   menu:{
     width:'100%',
@@ -50,6 +50,10 @@ module.exports = EStyleSheet.create({
   iconeAdd:{
     width:30,
     height:30
+  },
+  imgAnnuler:{
+    width:30,
+    height:30,
   },
   menuLabel:{
     fontSize:10,
@@ -116,5 +120,10 @@ module.exports = EStyleSheet.create({
     paddingTop:7,
     fontSize:11.5,
     fontFamily:'lato-light',
+  },
+  buttonBack:{
+    position:'absolute',
+    top:30,
+    right:30,
   }
 });

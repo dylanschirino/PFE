@@ -233,6 +233,10 @@ _renderDepense(){
         </View>
       </View>
       <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={menu.container}>
+        <TouchableOpacity style={menu.buttonBack} onPress={() => {this.toggleDisplay()}}>
+          <Image style={menu.imgAnnuler} source={ require('../img/annuler.png')}
+            />
+        </TouchableOpacity>
           <TouchableOpacity style={menu.buttonContainerDepense} onPress={this.addDepense}>
             <Image
               style={menu.icone}

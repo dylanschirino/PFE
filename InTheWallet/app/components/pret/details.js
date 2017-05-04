@@ -78,7 +78,7 @@ let Details = React.createClass ({
           <View style={details.contentInfo}>
             <View style={details.container}>
               <View style={details.head}>
-                <TouchableOpacity onPress={this.goHome}>
+                <TouchableOpacity onPress={this.goPret}>
                   <Image style={details.imgAnnuler} source={ require('../../img/annuler.png')}
                     />
                 </TouchableOpacity>
