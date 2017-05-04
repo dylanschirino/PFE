@@ -27,6 +27,9 @@ import Depense from "./depense/depense";
 import Details from './depense/details';
 import Epargne from "./epargne/epargne";
 import Pret from './pret/pret';
+import addDepense from './depense/addDepense';
+import addPret from './pret/addPret';
+import addEpargne from './epargne/addEpargne';
 
 let Home = React.createClass ({
   componentDidMount() {
@@ -92,6 +95,30 @@ let Home = React.createClass ({
       navigationBarHidden:true,
       passProps:{username:this.state.user}
     });
+  },
+  addDepense(){
+    this.props.navigator.push({
+      component: addDepense,
+      title:'Ajouter dépense',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
+  },
+  addPret(){
+    this.props.navigator.push({
+      component: addPret,
+      title:'Ajouter prêt',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
+  },
+  addEpargne(){
+    this.props.navigator.push({
+      component: addEpargne,
+      title:'Ajouter épargne',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
   },
   goDetails(id,name){
     let spendArray = this.state.depenseArray;
@@ -205,13 +232,27 @@ _renderDepense(){
           {this._renderDepense()}
         </View>
       </View>
-      <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOut" enter="fadeIn" style={menu.container}>
-          <TouchableOpacity style={menu.buttonContainer}>
+      <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={menu.container}>
+          <TouchableOpacity style={menu.buttonContainerDepense} onPress={this.addDepense}>
             <Image
               style={menu.icone}
-              source={ require('../img/depense.png')}
+              source={ require('../img/depenseB.png')}
             />
-            <Text style={menu.buttonLabel}>Dépense</Text>
+          <Text style={menu.buttonLabel}>{'Dépense'.toUpperCase()}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={menu.buttonContainerPret} onPress={this.addPret}>
+            <Image
+              style={menu.iconePret}
+              source={ require('../img/pretB.png')}
+            />
+          <Text style={menu.buttonLabel}>{'Prêt'.toUpperCase()}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={menu.buttonContainerEpargne} onPress={this.addEpargne}>
+            <Image
+              style={menu.iconeEpargne}
+              source={ require('../img/epargneB.png')}
+            />
+          <Text style={menu.buttonLabel}>{'Épargne'.toUpperCase()}</Text>
           </TouchableOpacity>
       </Display>
       <View style={menu.menu}>

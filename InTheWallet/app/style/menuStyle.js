@@ -13,6 +13,10 @@ module.exports = EStyleSheet.create({
   },
   container:{
     flex:1,
+    position:'absolute',
+    bottom:0,
+    width:'100%',
+    height:'100%',
     backgroundColor:'rgba(248,252,255,0.7)',
   },
   menu:{
@@ -71,13 +75,39 @@ module.exports = EStyleSheet.create({
     borderWidth:1,
     borderColor:'#538EB6'
   },
-  buttonContainer:{
+  buttonContainerDepense:{
     position:'absolute',
-    bottom:60,
+    bottom:80,
     left:'41%',
     width:80,
     height:80,
-    backgroundColor:'#538EB6',
+    backgroundColor:'#FFFFFF',
+    borderRadius:80,
+    alignItems:'center',
+    justifyContent:'center',
+    borderColor:'$headerColor',
+    borderWidth:1,
+  },
+  buttonContainerPret:{
+    position:'absolute',
+    bottom:140,
+    left:'15%',
+    width:80,
+    height:80,
+    backgroundColor:'#FFFFFF',
+    borderRadius:80,
+    alignItems:'center',
+    justifyContent:'center',
+    borderColor:'$headerColor',
+    borderWidth:1,
+  },
+  buttonContainerEpargne:{
+    position:'absolute',
+    bottom:140,
+    right:'13%',
+    width:80,
+    height:80,
+    backgroundColor:'#FFFFFF',
     borderRadius:80,
     alignItems:'center',
     justifyContent:'center',
@@ -85,9 +115,9 @@ module.exports = EStyleSheet.create({
     borderWidth:1,
   },
   buttonLabel:{
-    color:'#FFFFFF',
-    paddingTop:5,
-    fontSize:13,
-    fontFamily:'lato-regular',
+    color:'$headerColor',
+    paddingTop:7,
+    fontSize:11.5,
+    fontFamily:'lato-light',
   }
 });
