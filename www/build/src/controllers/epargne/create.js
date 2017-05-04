@@ -8,7 +8,8 @@ import { ObjectID } from "mongodb";
 import getEpargne, { checkEpargne } from "../../models/epargne";
 import { checkUser } from "../../models/user";
 import { send, error } from "../../core/utils/api";
-
+import moment from "moment";
+import duration from "moment-duration-format";
 
 export default function( oRequest, oResponse ) {
     const POST = oRequest.body;
@@ -29,6 +30,17 @@ export default function( oRequest, oResponse ) {
         days = datecreated.getDay(),
         month = monthArray[datecreated.getMonth()],
         year = datecreated.getFullYear();
+    var timeStamp = + new Date();
+    var timeStampFinal = datecreated.setDate(datecreated.getDate()+dDuree);
+    var finalDate = new Date(timeStampFinal);
+    var dd = finalDate.getDate();
+    var mm = finalDate.getMonth()+1;
+    var y = finalDate.getFullYear();
+    var end = dd + '/'+ mm + '/'+ y;
+    var a = moment(timeStamp);
+    var b = moment(timeStampFinal);
+    var timer = b.diff(a,'days');
+    var time = moment.duration(timer,'days').format('Y [Ans] et M [Mois] et D[Jours]');
 
     oEpargne = {
         "created_at": days +' '+month+' '+year,
@@ -49,7 +61,8 @@ export default function( oRequest, oResponse ) {
     iMensualite && ( oEpargne.mensualite = iMensualite );
     dDateDepart && ( oEpargne.depart = dDateDepart );
     sUserID && ( oEpargne.user = sUserID );
-    dDuree && ( oEpargne.duree = dDuree );
+    dDuree && ( oEpargne.duree = time );
+    end && ( oEpargne.end = end );
 
     fCreateEpargne = () => {
         return getEpargne().insertOne( oEpargne );
@@ -67,7 +80,8 @@ export default function( oRequest, oResponse ) {
               "interet": oEpargne.interet,
               "debut": oEpargne.depart,
               "user": oEpargne.user,
-              "duree": dDuree,
+              "end": oEpargne.end,
+              "duree": oEpargne.duree,
               "created_at":days +' '+month+' '+year,
           }, 201 );
       } )

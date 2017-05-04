@@ -25,7 +25,7 @@ export default function( oRequest, oResponse ) {
         let aCleanEpargne,
             aEpargneToReset = [];
 
-        aCleanEpargne = aEpargne.map( ( { _id, name, montant, mensualite, duree, depart } ) => {
+        aCleanEpargne = aEpargne.map( ( { _id, name, montant, mensualite, duree, depart, end } ) => {
             aEpargneToReset.push( _id );
 
             return {
@@ -35,6 +35,7 @@ export default function( oRequest, oResponse ) {
                 "mensualite": mensualite,
                 "duree": duree,
                 "depart": depart,
+                "end":end,
             };
         } );
         send( oRequest, oResponse, aCleanEpargne );

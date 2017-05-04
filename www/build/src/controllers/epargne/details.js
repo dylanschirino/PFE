@@ -25,7 +25,7 @@ export default function( oRequest, oResponse ) {
             return error( oRequest, oResponse, "Unknow Epargne", 404 );
         }
 
-        let { _id, name, montant, mensualite, duree, depart, created_at } = oEpargne,
+        let { _id, name, montant, mensualite, duree, depart, created_at, end } = oEpargne,
             oCleanEpargne;
 
         oCleanEpargne = {
@@ -35,6 +35,7 @@ export default function( oRequest, oResponse ) {
             "mensualite": mensualite,
             "duree": duree,
             "depart": depart,
+            "end":end,
             "created_at": created_at,
         };
         send( oRequest, oResponse, oCleanEpargne );
