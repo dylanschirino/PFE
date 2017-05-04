@@ -7,6 +7,8 @@
 import { ObjectID } from "mongodb";
 import getEpargne, { checkEpargne } from "../../models/epargne";
 import { send, error } from "../../core/utils/api";
+import moment from "moment";
+import duration from "moment-duration-format";
 
 
 export default function( oRequest, oResponse ) {
@@ -20,6 +22,23 @@ export default function( oRequest, oResponse ) {
         dDateDepart = POST.depart,
         dDuree = iMontant / iMensualite,
         aModification = [];
+
+        let datecreated = new Date(),
+            days = datecreated.getDay(),
+            month = monthArray[datecreated.getMonth()],
+            year = datecreated.getFullYear();
+
+        var timeStamp = + new Date();
+        var timeStampFinal = datecreated.setDate(datecreated.getDate()+dDuree);
+        var finalDate = new Date(timeStampFinal);
+        var dd = finalDate.getDate();
+        var mm = finalDate.getMonth()+1;
+        var y = finalDate.getFullYear();
+        var end = dd + '/'+ mm + '/'+ y;
+        var a = moment(timeStamp);
+        var b = moment(timeStampFinal);
+        var timer = b.diff(a,'days');
+        var time = moment.duration(timer,'days').format('Y [Ans] et M [Mois] et D[Jours]');
 
     try {
         sEpargneID = new ObjectID( oRequest.params.id );
@@ -54,7 +73,7 @@ export default function( oRequest, oResponse ) {
             aModification.push( "depart" );
         }
         if ( dDuree ) {
-            oEpargne.duree = dDuree;
+            oEpargne.duree = time;
             aModification.push( "duree" );
         }
 
