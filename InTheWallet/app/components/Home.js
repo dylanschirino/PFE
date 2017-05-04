@@ -171,7 +171,7 @@ _renderDepense(){
 },
   render() {
     return (
-      <View style={(this.state.enable == false)?menu.containerBase:menu.containerOpacity}>
+      <View style={menu.containerBase}>
       <View style={styles.header}>
         <StatusBar barStyle="light-content"
         />

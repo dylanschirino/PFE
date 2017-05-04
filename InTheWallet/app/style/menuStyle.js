@@ -8,16 +8,13 @@ module.exports = EStyleSheet.create({
   containerBase:{
     flex:1,
   },
-  containerOpacity:{
-    flex:1,
-  },
   container:{
     flex:1,
     position:'absolute',
     bottom:0,
     width:'100%',
     height:'100%',
-    backgroundColor:'rgba(248,252,255,0.7)',
+    backgroundColor:'rgba(248,252,255,0.8)',
   },
   menu:{
     width:'100%',
