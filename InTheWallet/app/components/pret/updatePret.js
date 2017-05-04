@@ -11,26 +11,51 @@ let styles = require('../../style/addStyle'),
     custom = require('../../style/addEpargne');
 
     import Depense from '../depense/depense';
+    import Epargne from '../epargne/epargne';
+    import Pret from './pret';
+    import Home from '../Home';
+    import addEpargne from '../epargne/addEpargne';
 
 let updatePret = React.createClass ({
-  goBack(){
-    this.props.navigator.pop()
+  goHome(){
+    this.props.navigator.push({
+      component: Home,
+      title:'Home',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
   },
   goDepense(){
     this.props.navigator.push({
       component: Depense,
-      title:'Dépense',
+      title:'Depense',
       navigationBarHidden:true,
       passProps:{username:this.props.username},
-    })
+    });
   },
   goEpargne(){
     this.props.navigator.push({
       component: Epargne,
-      title:'Épargne',
+      title:'Epargne',
       navigationBarHidden:true,
       passProps:{username:this.props.username},
-    })
+    });
+  },
+  goPret(){
+    this.props.navigator.push({
+      component: Pret,
+      title:'Pret',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
+  },
+  addEpargne(){
+    this.props.navigator.push({
+      component: addEpargne,
+      title:'addEpargne',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
   },
   componentDidMount(){
     axios.get('http://104.131.74.22:8080/pret/'+this.props.pret_id)
@@ -100,7 +125,7 @@ let updatePret = React.createClass ({
       <StatusBar barStyle="light-content"
       />
       <View style={nav.navBar}>
-        <TouchableOpacity style={nav.backLink} onPress={this.goBack}>
+        <TouchableOpacity style={nav.backLink} onPress={this.goPret}>
           <Image style={nav.backIcone} source={ require('../../img/back.png')}
             />
           <Text style={nav.backText}>Prêt</Text>
@@ -118,7 +143,7 @@ let updatePret = React.createClass ({
            <Text style={custom.quickLinkTextActive}>Prêt</Text>
          </View>
        </TouchableOpacity>
-       <TouchableOpacity style={custom.quickLink}>
+       <TouchableOpacity style={custom.quickLink} onPress={this.addEpargne}>
          <View style={custom.quickLinkContentRight}>
            <Text style={custom.quickLinkText}>Épargne</Text>
          </View>
@@ -225,7 +250,7 @@ let updatePret = React.createClass ({
         </View>
       </View>
       <View style={styles.actionContainer}>
-        <TouchableOpacity style={styles.cancelContainer} onPress={this.goBack}>
+        <TouchableOpacity style={styles.cancelContainer} onPress={this.goPret}>
           <Image source={require('../../img/cancel.png')} style={styles.cancelIcon}
           />
         </TouchableOpacity>
@@ -250,14 +275,14 @@ let updatePret = React.createClass ({
           />
         <Text style={menu.menuLabel}>Dépenses</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={menu.menuLink}>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
           <Image
             style={menu.iconeEpargne}
             source={ require('../../img/epargne.png')}
           />
         <Text style={menu.menuLabel}>Épargne</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
           <Image
             style={menu.iconePret}
             source={ require('../../img/pret.png')}
@@ -269,4 +294,4 @@ let updatePret = React.createClass ({
     )}
   });
 
-  module.exports = updatePret;
+  export default updatePret;

@@ -11,6 +11,8 @@ let nav = require('../../style/navStyle'),
 
 import addEpargne from './addPret';
 import Depense from '../depense/depense';
+import Pret from '../pret/pret';
+import Home from '../Home';
 import Epargne from '../epargne/epargne';
 
 let Details = React.createClass ({
@@ -31,7 +33,12 @@ let Details = React.createClass ({
     }
   },
   goHome(){
-    this.props.navigator.pop();
+    this.props.navigator.push({
+      component: Home,
+      title:'Home',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
   },
   goDepense(){
     this.props.navigator.push({
@@ -45,6 +52,14 @@ let Details = React.createClass ({
     this.props.navigator.push({
       component: Epargne,
       title:'Épargne',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
+  },
+  goPret(){
+    this.props.navigator.push({
+      component: Pret,
+      title:'Prêt',
       navigationBarHidden:true,
       passProps:{username:this.state.user},
     })
@@ -105,10 +120,10 @@ let Details = React.createClass ({
         <StatusBar barStyle="light-content"
           />
         <View style={nav.navBar}>
-          <TouchableOpacity style={nav.backLink} onPress={this.goHome}>
+          <TouchableOpacity style={nav.backLink} onPress={this.goPret}>
             <Image style={nav.backIcone} source={ require('../../img/back.png')}
               />
-            <Text style={nav.backText}>Épargne</Text>
+            <Text style={nav.backText}>Prêt</Text>
           </TouchableOpacity>
           <Text style={nav.navTitle}>{this.props.name}</Text>
           <TouchableOpacity style={nav.add} onPress={this.addEpargne}>
@@ -159,14 +174,14 @@ let Details = React.createClass ({
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
+          <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
             <Image
               style={menu.iconeEpargne}
               source={ require('../../img/epargne.png')}
             />
           <Text style={menu.menuLabel}>Épargne</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLink}>
+          <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
             <Image
               style={menu.iconePret}
               source={ require('../../img/pret.png')}
@@ -178,4 +193,4 @@ let Details = React.createClass ({
     )}
   });
 
-  module.exports = Details;
+  export default Details;

@@ -9,24 +9,29 @@ let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
     styles = require('../../style/listStyle');
 
+import Home from '../Home';
 import Depense from '../depense/depense';
 import Pret from '../pret/pret';
-import Home from '../Home';
 import addEpargne from './addEpargne';
 import updateEpargne from './updateEpargne';
 import Details from './details';
 
 let Epargne = React.createClass ({
   goHome(){
-    this.props.navigator.pop();
+    this.props.navigator.push({
+      component:Home,
+      title:'Home',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    });
   },
   goDepense(){
     this.props.navigator.push({
-      component: Depense,
-      title:'Dépense',
+      component:Depense,
+      title:'Depense',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
-    })
+      passProps:{username:this.state.user},
+    });
   },
   goPret(){
     this.props.navigator.push({
@@ -145,7 +150,7 @@ let Epargne = React.createClass ({
           <TouchableOpacity style={nav.backLink} onPress={this.goHome}>
             <Image style={nav.backIcone} source={ require('../../img/back.png')}
               />
-            <Text style={nav.backText}>Retour</Text>
+            <Text style={nav.backText}>Accueil</Text>
           </TouchableOpacity>
           <Text style={nav.navTitle}>Liste des épargnes</Text>
           <TouchableOpacity style={nav.add} onPress={this.addEpargne}>
@@ -207,7 +212,7 @@ let Epargne = React.createClass ({
             />
           <Text style={menu.menuLabel}>Épargne</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLink}>
+          <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
             <Image
               style={menu.iconePret}
               source={ require('../../img/pret.png')}
@@ -219,4 +224,4 @@ let Epargne = React.createClass ({
     )}
   });
 
-  module.exports = Epargne;
+  export default Epargne;

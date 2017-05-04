@@ -18,7 +18,12 @@ import Details from './details';
 
 let Pret = React.createClass ({
   goHome(){
-    this.props.navigator.pop();
+    this.props.navigator.push({
+      component: Home,
+      title:'Home',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    })
   },
   goDepense(){
     this.props.navigator.push({
@@ -145,7 +150,7 @@ let Pret = React.createClass ({
           <TouchableOpacity style={nav.backLink} onPress={this.goHome}>
             <Image style={nav.backIcone} source={ require('../../img/back.png')}
               />
-            <Text style={nav.backText}>Retour</Text>
+            <Text style={nav.backText}>Accueil</Text>
           </TouchableOpacity>
           <Text style={nav.navTitle}>Liste des prêts</Text>
           <TouchableOpacity style={nav.add} onPress={this.addPret}>
@@ -200,14 +205,14 @@ let Pret = React.createClass ({
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLink}>
+          <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
             <Image
               style={menu.iconeEpargne}
               source={ require('../../img/epargne.png')}
             />
           <Text style={menu.menuLabel}>Épargne</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLink}>
+          <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
             <Image
               style={menu.iconePret}
               source={ require('../../img/pret.png')}
@@ -219,4 +224,4 @@ let Pret = React.createClass ({
     )}
   });
 
-  module.exports = Pret;
+  export default Pret;

@@ -8,9 +8,11 @@ import Swipeout from 'react-native-swipeout';
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
     styles = require('../../style/listStyle');
+
     import Home from '../Home';
     import Details from "./details";
     import Epargne from "../epargne/epargne";
+    import Pret from '../pret/pret';
     import addDepense from "./addDepense";
     import updateDepense from "./updateDepense";
 
@@ -39,17 +41,30 @@ let Depense = React.createClass ({
         this.props.navigator.push({
           component: Details,
           title:name,
-          passProps:{depense_id:id,name:name},
+          passProps:{depense_id:id,name:name,username:this.state.user},
           navigationBarHidden:true,
         });
   },
   goHome(){
-    this.props.navigator.pop();
+    this.props.navigator.push({
+      component: Home,
+      title:'Home',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    });
   },
   goEpargne(){
     this.props.navigator.push({
       component: Epargne,
       title:'Épargne',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
+  },
+  goPret(){
+    this.props.navigator.push({
+      component: Pret,
+      title:'Prêt',
       navigationBarHidden:true,
       passProps:{username:this.state.user},
     })
@@ -102,6 +117,7 @@ let Depense = React.createClass ({
         }
       }
     }
+    let currentStyle = i % 2 ? styles.odd : styles.even;
       return (
         <Swipeout key={i} autoClose={true} right={[
           {
@@ -218,7 +234,7 @@ let Depense = React.createClass ({
             />
           <Text style={menu.menuLabel}>Épargne</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLink}>
+          <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
             <Image
               style={menu.iconePret}
               source={ require('../../img/pret.png')}
@@ -230,4 +246,4 @@ let Depense = React.createClass ({
     )}
   });
 
-  module.exports = Depense;
+  export default Depense;

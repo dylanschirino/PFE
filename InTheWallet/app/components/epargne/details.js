@@ -11,6 +11,9 @@ let nav = require('../../style/navStyle'),
 
 import addEpargne from './addEpargne';
 import Depense from '../depense/depense';
+import Pret from '../pret/pret';
+import Home from '../Home';
+import Epargne from '../epargne/epargne';
 
 let Details = React.createClass ({
   componentDidMount(){
@@ -29,13 +32,26 @@ let Details = React.createClass ({
       user:this.props.username,
     }
   },
-  goHome(){
-    this.props.navigator.pop();
+  goEpargne(){
+    this.props.navigator.push({
+      component: Epargne,
+      title:'Epargne',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
   },
   goDepense(){
     this.props.navigator.push({
       component: Depense,
       title:'Dépense',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
+  },
+  goPret(){
+    this.props.navigator.push({
+      component: Pret,
+      title:'Prêt',
       navigationBarHidden:true,
       passProps:{username:this.state.user},
     })
@@ -54,7 +70,7 @@ let Details = React.createClass ({
           <View style={details.contentInfo}>
             <View style={details.container}>
               <View style={details.head}>
-                <TouchableOpacity onPress={this.goHome}>
+                <TouchableOpacity onPress={this.goEpargne}>
                   <Image style={details.imgAnnuler} source={ require('../../img/annuler.png')}
                     />
                 </TouchableOpacity>
@@ -96,7 +112,7 @@ let Details = React.createClass ({
         <StatusBar barStyle="light-content"
           />
         <View style={nav.navBar}>
-          <TouchableOpacity style={nav.backLink} onPress={this.goHome}>
+          <TouchableOpacity style={nav.backLink} onPress={this.goEpargne}>
             <Image style={nav.backIcone} source={ require('../../img/back.png')}
               />
             <Text style={nav.backText}>Épargne</Text>
@@ -114,12 +130,12 @@ let Details = React.createClass ({
           placeholder='Recherche'
           />
         <View style={details.quickLinkContainerCustom}>
-          <TouchableOpacity style={styles.quickLink}>
+          <TouchableOpacity style={styles.quickLink} onPress={this.goPret}>
             <View style={styles.quickLinkContent}>
               <Text style={styles.quickLinkText}>Prêt</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.quickLink}>
+          <TouchableOpacity style={styles.quickLink} onPress={this.goEpargne}>
             <View style={styles.quickLinkContentActive}>
               <Text style={styles.quickLinkTextActive}>Épargne</Text>
             </View>
@@ -157,7 +173,7 @@ let Details = React.createClass ({
             />
           <Text style={menu.menuLabel}>Épargne</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLink}>
+          <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
             <Image
               style={menu.iconePret}
               source={ require('../../img/pret.png')}
@@ -169,4 +185,4 @@ let Details = React.createClass ({
     )}
   });
 
-  module.exports = Details;
+  export default Details;

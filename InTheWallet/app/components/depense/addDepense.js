@@ -11,10 +11,42 @@ let styles = require('../../style/addStyle'),
     const options = ['Jamais', '1', '2'];
 
     import Depense from './depense';
+    import Epargne from '../epargne/epargne';
+    import Pret from '../pret/pret';
+    import Home from '../Home';
 
 let addDepense = React.createClass ({
-  goBack(){
-    this.props.navigator.pop()
+  goHome(){
+    this.props.navigator.push({
+      component: Home,
+      title:'Home',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
+  },
+  goDepense(){
+    this.props.navigator.push({
+      component: Depense,
+      title:'Depense',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
+  },
+  goEpargne(){
+    this.props.navigator.push({
+      component: Epargne,
+      title:'Epargne',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
+  },
+  goPret(){
+    this.props.navigator.push({
+      component: Pret,
+      title:'Pret',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
   },
   _handlePress() {
   let name = ( this.state.name || "" ),
@@ -180,7 +212,7 @@ let addDepense = React.createClass ({
         </View>
       </View>
       <View style={styles.actionContainer}>
-        <TouchableOpacity style={styles.cancelContainer} onPress={this.goBack}>
+        <TouchableOpacity style={styles.cancelContainer} onPress={this.goDepense}>
           <Image source={require('../../img/cancel.png')} style={styles.cancelIcon}
           />
         </TouchableOpacity>
@@ -191,7 +223,7 @@ let addDepense = React.createClass ({
       </View>
     </Form>
     <View style={menu.menu}>
-        <TouchableOpacity style={menu.menuLink}>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
           <Image
             style={menu.icone}
             source={ require('../../img/home.png')}
@@ -205,14 +237,14 @@ let addDepense = React.createClass ({
           />
         <Text style={menu.menuLabel}>Dépenses</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={menu.menuLink}>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
           <Image
             style={menu.iconeEpargne}
             source={ require('../../img/epargne.png')}
           />
         <Text style={menu.menuLabel}>Épargne</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={menu.menuLink}>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
           <Image
             style={menu.iconePret}
             source={ require('../../img/pret.png')}
@@ -224,4 +256,4 @@ let addDepense = React.createClass ({
     )}
   });
 
-  module.exports = addDepense;
+  export default addDepense;

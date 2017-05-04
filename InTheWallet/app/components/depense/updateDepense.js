@@ -11,10 +11,42 @@ let styles = require('../../style/addStyle'),
     const options = ['Jamais', '1', '2'];
 
     import Depense from './depense';
+    import Epargne from '../epargne/epargne';
+    import Pret from '../pret/pret';
+    import Home from '../Home';
 
 let updateDepense = React.createClass ({
-  goBack(){
-    this.props.navigator.pop()
+  goHome(){
+    this.props.navigator.push({
+      component: Home,
+      title:'Home',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
+  },
+  goDepense(){
+    this.props.navigator.push({
+      component: Depense,
+      title:'Depense',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
+  },
+  goEpargne(){
+    this.props.navigator.push({
+      component: Epargne,
+      title:'Epargne',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
+  },
+  goPret(){
+    this.props.navigator.push({
+      component: Pret,
+      title:'Pret',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
   },
   componentDidMount(){
     axios.get('http://104.131.74.22:8080/depense/'+this.props.depense_id)
@@ -100,7 +132,7 @@ let updateDepense = React.createClass ({
             />
           </View>
       </View>
-      <View style={styles.montantContainer}>
+      <View style={styles.montantContainerDepense}>
         <Text style={styles.label}>{ 'Montant total'.toUpperCase() }</Text>
           <View style={styles.inputMontantBox}>
             <Image
@@ -199,7 +231,7 @@ let updateDepense = React.createClass ({
         </View>
       </View>
       <View style={styles.actionContainer}>
-        <TouchableOpacity style={styles.cancelContainer} onPress={this.goBack}>
+        <TouchableOpacity style={styles.cancelContainer} onPress={this.goDepense}>
           <Image source={require('../../img/cancel.png')} style={styles.cancelIcon}
           />
         </TouchableOpacity>
@@ -218,7 +250,7 @@ let updateDepense = React.createClass ({
       />
       {this._renderUpdate()}
     <View style={menu.menu}>
-        <TouchableOpacity style={menu.menuLink}>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
           <Image
             style={menu.icone}
             source={ require('../../img/home.png')}
@@ -232,14 +264,14 @@ let updateDepense = React.createClass ({
           />
         <Text style={menu.menuLabel}>Dépenses</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={menu.menuLink}>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
           <Image
             style={menu.iconeEpargne}
             source={ require('../../img/epargne.png')}
           />
         <Text style={menu.menuLabel}>Épargne</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={menu.menuLink}>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
           <Image
             style={menu.iconePret}
             source={ require('../../img/pret.png')}
@@ -251,4 +283,4 @@ let updateDepense = React.createClass ({
     )}
   });
 
-  module.exports = updateDepense;
+  export default updateDepense;

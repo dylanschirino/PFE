@@ -99,7 +99,7 @@ let Home = React.createClass ({
         this.props.navigator.push({
           component: Details,
           title:name,
-          passProps:{depense_id:id,name:name},
+          passProps:{depense_id:id,name:name,username:this.state.user},
           navigationBarHidden:true,
         });
   },
@@ -257,4 +257,4 @@ _renderDepense(){
     )}
   });
 
-  module.exports = Home;
+  export default Home;

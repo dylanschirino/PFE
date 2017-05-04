@@ -8,9 +8,52 @@ let nav = require('../../style/navStyle'),
     styles = require('../../style/detailStyle'),
     menu = require('../../style/menuStyle');
 
+    import Depense from '../depense/depense';
+    import Pret from '../pret/pret';
+    import Home from '../Home';
+    import Epargne from '../epargne/epargne';
+    import addDepense from './addDepense';
+
 let Details = React.createClass ({
-  goDepenseList(){
-    this.props.navigator.pop();
+  goHome(){
+    this.props.navigator.push({
+      component: Home,
+      title:'Home',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    })
+  },
+  goEpargne(){
+    this.props.navigator.push({
+      component: Epargne,
+      title:'Epargne',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    })
+  },
+  goDepense(){
+    this.props.navigator.push({
+      component: Depense,
+      title:'Dépense',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    })
+  },
+  goPret(){
+    this.props.navigator.push({
+      component: Pret,
+      title:'Prêt',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    })
+  },
+  addDepense(){
+    this.props.navigator.push({
+      component: addDepense,
+      title:'addDepense',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    })
   },
   componentDidMount(){
     axios.get('http://104.131.74.22:8080/depense/'+this.props.depense_id)
@@ -25,6 +68,7 @@ let Details = React.createClass ({
   getInitialState: function() {
     return {
       depenseDetails:'',
+      user:this.props.username,
     }
   },
   _renderDetails(){
@@ -51,13 +95,13 @@ let Details = React.createClass ({
           <StatusBar barStyle="light-content"
             />
           <View style={nav.navBar}>
-            <TouchableOpacity style={nav.backLink} onPress={this.goDepenseList}>
+            <TouchableOpacity style={nav.backLink} onPress={this.goDepense}>
               <Image style={nav.backIcone} source={ require('../../img/back.png')}
                 />
               <Text style={nav.backText}>Dépenses</Text>
             </TouchableOpacity>
             <Text style={nav.navTitle}>{this.props.name}</Text>
-            <TouchableOpacity style={nav.add}>
+            <TouchableOpacity style={nav.add} onPress={this.addDepense}>
               <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
                 />
             </TouchableOpacity>
@@ -80,7 +124,7 @@ let Details = React.createClass ({
           {this._renderDetails()}
         </View>
         <View style={menu.menu}>
-            <TouchableOpacity style={menu.menuLink}>
+            <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
               <Image
                 style={menu.icone}
                 source={ require('../../img/home.png')}
@@ -102,14 +146,14 @@ let Details = React.createClass ({
                 />
               </View>
             </TouchableOpacity>
-            <TouchableOpacity style={menu.menuLink}>
+            <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
               <Image
                 style={menu.iconeEpargne}
                 source={ require('../../img/epargne.png')}
               />
             <Text style={menu.menuLabel}>Épargne</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={menu.menuLink}>
+            <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
               <Image
                 style={menu.iconePret}
                 source={ require('../../img/pret.png')}
@@ -121,4 +165,4 @@ let Details = React.createClass ({
     )}
   });
 
-  module.exports = Details;
+  export default Details;

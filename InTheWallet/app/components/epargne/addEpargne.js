@@ -10,27 +10,52 @@ let styles = require('../../style/addStyle'),
     menu = require('../../style/menuStyle')
     custom = require('../../style/addEpargne');
 
-    import Depense from '../depense/depense';
+import Depense from '../depense/depense';
+import Epargne from './epargne';
+import Pret from '../pret/pret';
+import Home from '../Home';
+import addPret from '../pret/addPret';
 
 let addEpargne = React.createClass ({
-  goBack(){
-    this.props.navigator.pop()
+  goHome(){
+    this.props.navigator.push({
+      component: Home,
+      title:'Home',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
   },
   goDepense(){
     this.props.navigator.push({
       component: Depense,
-      title:'Dépense',
+      title:'Depense',
       navigationBarHidden:true,
       passProps:{username:this.props.username},
-    })
+    });
   },
   goEpargne(){
     this.props.navigator.push({
       component: Epargne,
-      title:'Épargne',
+      title:'Epargne',
       navigationBarHidden:true,
       passProps:{username:this.props.username},
-    })
+    });
+  },
+  goPret(){
+    this.props.navigator.push({
+      component: Pret,
+      title:'Pret',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
+  },
+  addPret(){
+    this.props.navigator.push({
+      component: addPret,
+      title:'addPret',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
   },
   _handlePress() {
   let name = ( this.state.name || "" ),
@@ -79,7 +104,7 @@ let addEpargne = React.createClass ({
       <StatusBar barStyle="light-content"
       />
       <View style={nav.navBar}>
-        <TouchableOpacity style={nav.backLink} onPress={this.goBack}>
+        <TouchableOpacity style={nav.backLink} onPress={this.goEpargne}>
           <Image style={nav.backIcone} source={ require('../../img/back.png')}
             />
           <Text style={nav.backText}>Épargne</Text>
@@ -92,12 +117,12 @@ let addEpargne = React.createClass ({
       </View>
        </View>
     <View style={custom.quickLinkContainer}>
-       <TouchableOpacity style={custom.quickLink}>
+       <TouchableOpacity style={custom.quickLink} onPress={this.addPret}>
          <View style={custom.quickLinkContent}>
            <Text style={custom.quickLinkText}>Prêt</Text>
          </View>
        </TouchableOpacity>
-       <TouchableOpacity style={custom.quickLink}>
+       <TouchableOpacity style={custom.quickLink} onPress={this.goEpargne}>
          <View style={custom.quickLinkContentActive}>
            <Text style={custom.quickLinkTextActive}>Épargne</Text>
          </View>
@@ -186,7 +211,7 @@ let addEpargne = React.createClass ({
           </View>
       </View>
       <View style={styles.actionContainer}>
-        <TouchableOpacity style={styles.cancelContainer} onPress={this.goBack}>
+        <TouchableOpacity style={styles.cancelContainer} onPress={this.goEpargne}>
           <Image source={require('../../img/cancel.png')} style={styles.cancelIcon}
           />
         </TouchableOpacity>
@@ -211,14 +236,14 @@ let addEpargne = React.createClass ({
           />
         <Text style={menu.menuLabel}>Dépenses</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={menu.menuLink}>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
           <Image
             style={menu.iconeEpargne}
             source={ require('../../img/epargne.png')}
           />
         <Text style={menu.menuLabel}>Épargne</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
           <Image
             style={menu.iconePret}
             source={ require('../../img/pret.png')}
@@ -230,4 +255,4 @@ let addEpargne = React.createClass ({
     )}
   });
 
-  module.exports = addEpargne;
+  export default addEpargne;
