@@ -15,7 +15,7 @@ module.exports = EStyleSheet.create({
   container:{
     flexDirection:'column',
     height:57,
-    flexGrow:0.1,
+    flex:0.25,
   },
   catText:{
     borderWidth:1,
@@ -34,7 +34,8 @@ module.exports = EStyleSheet.create({
     borderRadius:31,
   },
   listCustom:{
-    flexGrow:1,
+    flex:1,
+    width:'100%',
   },
   depenseContainer:{
     position:'relative',

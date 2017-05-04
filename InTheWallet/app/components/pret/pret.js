@@ -200,7 +200,7 @@ let Pret = React.createClass ({
             </View>
           </TouchableOpacity>
         </View>
-        <ScrollView scrollEnabled={true} contentContainerStyle={styles.listCustom}>
+        <ScrollView scrollEnabled={true} automaticallyAdjustContentInsets={false} contentContainerStyle={styles.listCustom}>
           {this._renderEpargne()}
         </ScrollView>
       </View>
