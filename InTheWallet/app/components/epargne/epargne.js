@@ -202,11 +202,9 @@ let Epargne = React.createClass ({
             </View>
           </TouchableOpacity>
         </View>
-      <View style={styles.listCustom}>
         <ScrollView scrollEnabled={true} contentContainerStyle={styles.listCustom}>
           {this._renderEpargne()}
         </ScrollView>
-      </View>
       </View>
       <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={menu.container}>
         <TouchableOpacity style={menu.buttonBack} onPress={() => {this.toggleDisplay()}}>

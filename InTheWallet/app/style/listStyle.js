@@ -132,7 +132,7 @@ module.exports = EStyleSheet.create({
   quickLinkContainer:{
     backgroundColor:'#F8FCFF',
     flexGrow:0.1,
-    height:40,
+    height:20,
     alignItems:'center',
     justifyContent:'center',
     flexDirection:'row',
