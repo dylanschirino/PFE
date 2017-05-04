@@ -4,6 +4,7 @@ import SearchBar from 'react-native-search-bar';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import axios from 'axios';
 import Swipeout from 'react-native-swipeout';
+import Display from 'react-native-display';
 
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
@@ -13,6 +14,8 @@ import Depense from '../depense/depense';
 import Epargne from '../epargne/epargne';
 import Home from '../Home';
 import addPret from './addPret';
+import addDepense from '../depense/addDepense';
+import addEpargne from '../epargne/addEpargne';
 import updatePret from './updatePret';
 import Details from './details';
 
@@ -41,10 +44,26 @@ let Pret = React.createClass ({
       passProps:{username:this.props.username},
     })
   },
+  addEpargne(){
+    this.props.navigator.push({
+      component: addEpargne,
+      title:'Ajouter épargne',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
+  },
   addPret(){
     this.props.navigator.push({
       component: addPret,
       title:'Ajouter prêt',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
+  },
+  addDepense(){
+    this.props.navigator.push({
+      component: addDepense,
+      title:'Ajouter dépense',
       navigationBarHidden:true,
       passProps:{username:this.state.user},
     })
@@ -89,7 +108,12 @@ let Pret = React.createClass ({
     return {
       pretArray:[[],[]],
       user:this.props.username,
+      enable:false,
     }
+  },
+  toggleDisplay() {
+  let toggle = !this.state.enable;
+  this.setState({enable: toggle});
   },
   _renderEpargne(){
   let pretArray = (this.state.pretArray).reverse();
@@ -182,6 +206,29 @@ let Pret = React.createClass ({
         </ScrollView>
       </View>
       </View>
+      <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={menu.container}>
+          <TouchableOpacity style={menu.buttonContainerDepense} onPress={this.addDepense}>
+            <Image
+              style={menu.icone}
+              source={ require('../../img/depenseB.png')}
+            />
+          <Text style={menu.buttonLabel}>{'Dépense'.toUpperCase()}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={menu.buttonContainerPret} onPress={this.addPret}>
+            <Image
+              style={menu.iconePret}
+              source={ require('../../img/pretB.png')}
+            />
+          <Text style={menu.buttonLabel}>{'Prêt'.toUpperCase()}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={menu.buttonContainerEpargne} onPress={this.addEpargne}>
+            <Image
+              style={menu.iconeEpargne}
+              source={ require('../../img/epargneB.png')}
+            />
+          <Text style={menu.buttonLabel}>{'Épargne'.toUpperCase()}</Text>
+          </TouchableOpacity>
+      </Display>
       <View style={menu.menu}>
           <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
             <Image
@@ -197,7 +244,7 @@ let Pret = React.createClass ({
             />
           <Text style={menu.menuLabel}>Dépenses</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLinkAdd}>
+          <TouchableOpacity style={menu.menuLinkAdd} onPress={() => {this.toggleDisplay()}}>
             <View style={menu.add}>
               <Image
                 style={menu.iconeAdd}

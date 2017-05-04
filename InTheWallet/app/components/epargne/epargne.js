@@ -60,10 +60,10 @@ let Epargne = React.createClass ({
       passProps:{username:this.state.user},
     })
   },
-  addEpargne(){
+  addDepense(){
     this.props.navigator.push({
-      component: addEpargne,
-      title:'Ajouter épargne',
+      component: addDepense,
+      title:'Ajouter dépense',
       navigationBarHidden:true,
       passProps:{username:this.state.user},
     })
