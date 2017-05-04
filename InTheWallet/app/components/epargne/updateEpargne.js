@@ -15,6 +15,7 @@ let styles = require('../../style/addStyle'),
     import Depense from '../depense/depense';
     import Epargne from './epargne';
     import Pret from '../pret/pret';
+    import addEpargne from './addEpargne';
     import Home from '../Home';
 
 let updateEpargne = React.createClass ({
@@ -49,6 +50,14 @@ let updateEpargne = React.createClass ({
       navigationBarHidden:true,
       passProps:{username:this.props.username},
     });
+  },
+  addEpargne(){
+    this.props.navigator.push({
+      component: addEpargne,
+      title:'Ajouter épargne',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    })
   },
   componentDidMount(){
     axios.get('http://104.131.74.22:8080/epargne/'+this.props.epargne_id)

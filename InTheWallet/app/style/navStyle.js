@@ -38,6 +38,15 @@ module.exports = EStyleSheet.create({
     position:'relative',
     bottom:2,
   },
+  navTitleCustom:{
+    color:'#FFFFFF',
+    fontWeight:'500',
+    fontSize:16,
+    marginRight:105,
+    textAlign:'center',
+    position:'relative',
+    bottom:2,
+  },
   add:{
     marginRight:31,
   },
