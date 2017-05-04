@@ -9,6 +9,7 @@
   "dependencies": {
     "@remobile/react-native-image-picker": "^1.0.5",
     "axios": "^0.15.3",
+    "moment": "^2.18.1",
     "react": "15.4.2",
     "react-native": "0.42.0",
     "react-native-camera-roll-picker": "^1.1.9",

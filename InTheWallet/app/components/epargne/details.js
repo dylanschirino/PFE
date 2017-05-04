@@ -78,7 +78,7 @@ let Details = React.createClass ({
               </View>
               <View style={details.clockContainer}>
                 <View style={details.clockBorder}>
-                    <Text style={details.timer}>15 JOURS 2 HEURES 10 MIN</Text>
+                    <Text style={details.timer}>{this.state.epargneDetails.duree}</Text>
                 </View>
               </View>
                 <View style={details.row}>
@@ -98,7 +98,7 @@ let Details = React.createClass ({
                   </View>
                   <View style={details.content}>
                     <Text style={details.label}>Jour de l'achat</Text>
-                    <Text style={details.response}>15 Novembre 2017</Text>
+                    <Text style={details.response}>{this.state.epargneDetails.end}</Text>
                   </View>
                 </View>
             </View>

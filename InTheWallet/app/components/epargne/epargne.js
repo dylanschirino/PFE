@@ -5,6 +5,8 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import axios from 'axios';
 import Swipeout from 'react-native-swipeout';
 import Display from 'react-native-display';
+import moment from 'moment';
+let duration = require("moment-duration-format");
 
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
