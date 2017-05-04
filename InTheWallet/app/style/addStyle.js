@@ -229,8 +229,8 @@ module.exports = EStyleSheet.create({
     height:37
   },
   iconCash:{
-    width:52,
-    height:30,
+    width:41,
+    height:41,
   },
   iconPhoto:{
     width:48,

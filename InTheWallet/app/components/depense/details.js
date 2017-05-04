@@ -112,7 +112,7 @@ let Details = React.createClass ({
           placeholder='Recherche'
           />
         <View style={styles.headContent}>
-          <TouchableOpacity onPress={this.goDepenseList} style={styles.link}>
+          <TouchableOpacity onPress={this.goDepense} style={styles.link}>
           <Image source={require('../../img/arrow-back.png')} style={styles.arrow}
           />
           </TouchableOpacity>
