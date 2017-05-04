@@ -18,7 +18,11 @@ let Introduction3 = React.createClass( {
     });
   },
   goIntroduction2() {
-    this.props.navigator.pop();
+    this.props.navigator.push({
+      component: Introduction2,
+      title:'Introduction2',
+      navigationBarHidden:true,
+    });
   },
   goIntroduction4() {
     this.props.navigator.push({
@@ -94,4 +98,4 @@ const intro3 = StyleSheet.create({
   },
 });
 
-module.exports = Introduction3;
+export default Introduction3;

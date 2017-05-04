@@ -147,4 +147,4 @@ let Subscribe = React.createClass ({
   }
 })
 
-module.exports = Subscribe;
+export default Subscribe;

@@ -83,4 +83,4 @@ let Introduction = React.createClass ({
   }
 });
 
-module.exports = Introduction;
+export default Introduction;

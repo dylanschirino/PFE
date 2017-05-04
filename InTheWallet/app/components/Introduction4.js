@@ -10,13 +10,25 @@ import Subscribe from './login/Subscription';
 let Introduction4 = React.createClass( {
 
   goIntroduction() {
-    this.props.navigator.pop();
+    this.props.navigator.push({
+      component: Introduction,
+      title:'Introduction',
+      navigationBarHidden:true,
+    });
   },
   goIntroduction2() {
-    this.props.navigator.pop();
+    this.props.navigator.push({
+      component: Introduction2,
+      title:'Introduction2',
+      navigationBarHidden:true,
+    });
   },
   goIntroduction3() {
-    this.props.navigator.pop();
+    this.props.navigator.push({
+      component: Introduction3,
+      title:'Introduction3',
+      navigationBarHidden:true,
+    });
   },
   goSubscribe() {
     this.props.navigator.push({
@@ -86,4 +98,4 @@ const intro4 = StyleSheet.create({
   },
 });
 
-module.exports = Introduction4;
+export default Introduction4;

@@ -13,7 +13,11 @@ import Home from '../Home';
 let Login = React.createClass ({
 
   goSubscription() {
-    this.props.navigator.pop();
+    this.props.navigator.push({
+      component: Subscribe,
+      title:'Subscribe',
+      navigationBarHidden:true,
+    });
   },
   getInitialState: function() {
     return {
@@ -117,4 +121,4 @@ let Login = React.createClass ({
   }
 })
 
-module.exports = Login;
+export default Login;
