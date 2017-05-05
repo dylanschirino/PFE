@@ -30,13 +30,13 @@ let Details = React.createClass ({
     this.setInterval( () => {  var datecreated = new Date();
       var timeStamp = + new Date();
       var timeStampFinal = datecreated.setDate(datecreated.getDate()+this.props.duree);
-      var distance = timeStampFinal - timeStamp;
-      var month = Math.floor( distance / (1000 * 60 * 60 * 24 -3 * 28));
+      var distance = (timeStampFinal - timeStamp);
+      var month = Math.floor( distance / (1000 * 60 * 60 * 24 * 31));
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      var timeS = days + ' JOURS';
+      var timeS = month + ' MOIS' + days + ' JOURS';
       this.setState({time:timeS});} ,1000);
 
   },
