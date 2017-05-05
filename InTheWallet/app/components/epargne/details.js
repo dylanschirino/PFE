@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image
 import EStyleSheet from 'react-native-extended-stylesheet';
 import SearchBar from 'react-native-search-bar';
 import axios from 'axios';
+import TimerMixin from 'react-timer-mixin';
 
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
@@ -16,6 +17,7 @@ import Home from '../Home';
 import Epargne from '../epargne/epargne';
 
 let Details = React.createClass ({
+  mixins: [TimerMixin],
   componentDidMount(){
     axios.get('http://104.131.74.22:8080/epargne/'+this.props.epargne_id)
     .then( response => {
@@ -25,12 +27,33 @@ let Details = React.createClass ({
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
+    this.setInterval( () => {  var datecreated = new Date();
+      var timeStamp = + new Date();
+      var timeStampFinal = datecreated.setDate(datecreated.getDate()+this.props.duree);
+      var distance = timeStampFinal - timeStamp;
+      var month = Math.floor( distance / (1000 * 60 * 60 * 24 -3 * 28));
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      var timeS = days + ' JOURS';
+      this.setState({time:timeS});} ,1000);
+
   },
   getInitialState: function() {
     return {
       epargneDetails:'',
       user:this.props.username,
+      time:'',
     }
+  },
+  goHome(){
+    this.props.navigator.push({
+      component: Home,
+      title:'Home',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
   },
   goEpargne(){
     this.props.navigator.push({
@@ -78,7 +101,7 @@ let Details = React.createClass ({
               </View>
               <View style={details.clockContainer}>
                 <View style={details.clockBorder}>
-                    <Text style={details.timer}>{this.state.epargneDetails.duree}</Text>
+                    <Text style={details.timer}>{this.state.time}</Text>
                 </View>
               </View>
                 <View style={details.row}>

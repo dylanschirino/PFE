@@ -70,6 +70,13 @@ let Epargne = React.createClass ({
       passProps:{username:this.state.user},
     })
   },
+  getInitialState: function() {
+    return {
+      epargneArray:[[],[]],
+      user:this.props.username,
+      enable:false,
+    }
+  },
   componentDidMount(){
     axios.get('http://104.131.74.22:8080/epargne?user='+this.props.username)
     .then( response => {
@@ -98,28 +105,22 @@ let Epargne = React.createClass ({
       alert('Erreur:'+ error);
     });
   },
-  goDetails(id,name){
+  goDetails(id,name,duree){
     this.props.navigator.push({
       component: Details,
       title:name,
-      passProps:{epargne_id:id,name:name,username:this.state.user},
+      passProps:{epargne_id:id,name:name,username:this.state.user,duree:duree},
       navigationBarHidden:true,
     });
-  },
-  getInitialState: function() {
-    return {
-      epargneArray:[[],[]],
-      user:this.props.username,
-      enable:false,
-    }
   },
   toggleDisplay() {
   let toggle = !this.state.enable;
   this.setState({enable: toggle});
   },
   _renderEpargne(){
-  let epargneArray = (this.state.epargneArray).reverse();
+  let epargneArray = (this.state.epargneArray);
   return epargneArray.map( ( oEpargne, i ) => {
+
       return (
         <Swipeout key={i} autoClose={true} right={[
           {
@@ -142,20 +143,20 @@ let Epargne = React.createClass ({
           backgroundColor:'#FE3F35'
         }
       ]} backgroundColor={'#FFFFFF'}>
-        <TouchableOpacity onPress={ ()=>{this.goDetails(oEpargne.id, oEpargne.name)}}>
+        <TouchableOpacity onPress={ ()=>{this.goDetails(oEpargne.id, oEpargne.name,oEpargne.duree)}}>
         <View style={styles.depenseContainer}>
           <View style={styles.containerInfoCustom}>
             <View>
               <Text style={styles.nameCustom}>{oEpargne.name}</Text>
             </View>
             <View style={styles.secondInfo}>
-              <Text style={styles.label}>ACHAT DANS</Text>
-              <Text style={styles.date}>{oEpargne.duree}</Text>
+              <Text style={styles.label}>DURÉE TOTAL</Text>
+              <Text style={styles.date}>{oEpargne.time}</Text>
             </View>
             <View style={styles.progressContainer}>
               <View style={styles.progressView}>
                 <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
-                progress={Number(oEpargne.duree)/100}/>
+                progress={oEpargne.duree/100}/>
               <Text style={styles.percent}>{oEpargne.duree | 0}%</Text>
               </View>
             </View>
