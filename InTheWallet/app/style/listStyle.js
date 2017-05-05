@@ -34,7 +34,7 @@ module.exports = EStyleSheet.create({
     borderRadius:31,
   },
   listCustom:{
-    flex:1,
+    flexGrow:1,
     width:'100%',
   },
   depenseContainer:{
