@@ -141,7 +141,6 @@ let Depense = React.createClass ({
         }
       }
     }
-    let currentStyle = i % 2 ? styles.odd : styles.even;
       return (
         <Swipeout key={i} autoClose={true} right={[
           {
@@ -165,7 +164,7 @@ let Depense = React.createClass ({
         }
       ]} backgroundColor={'#FFFFFF'}>
         <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
-        <View style={styles.depenseContainer}>
+        <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
           <View style={styles.smallInfo}>
             <Image style={styles.imgRepeat} source={generateRepeat()}
               />

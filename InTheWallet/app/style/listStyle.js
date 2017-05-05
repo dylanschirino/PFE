@@ -47,6 +47,17 @@ module.exports = EStyleSheet.create({
     borderBottomWidth:1,
     borderColor:'$lightBlue',
   },
+  depenseContainerOdd:{
+    position:'relative',
+    flexDirection:'row',
+    paddingLeft:30,
+    paddingTop:23,
+    paddingBottom:23,
+    alignItems:'center',
+    borderBottomWidth:1,
+    borderColor:'$lightBlue',
+    backgroundColor:'#F8FCFF',
+  },
   smallInfo:{
     position:'absolute',
     top:0,
