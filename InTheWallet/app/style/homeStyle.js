@@ -116,9 +116,10 @@ module.exports = EStyleSheet.create({
   depenseContainer:{
     width:'100%',
     borderBottomWidth:1,
-    borderColor:'#F3F8FB'
+    borderColor:'#F8FCFF',
+    borderColor:'#F3F8FB',
   },
-  depenseContainerCustom:{
+  depenseContainerOdd:{
     width:'100%',
     borderBottomWidth:1,
     borderColor:'#F3F8FB',

@@ -157,7 +157,7 @@ _renderDepense(){
   let threeLast = this.state.depenseArray.slice(Math.max(length - 3, 0));
   return threeLast.map( ( oDepense, i ) => {
       return (
-        <TouchableOpacity style={styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
+        <TouchableOpacity style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
           <View style={styles.depenseContent}>
             <Text style={styles.price}>{oDepense.montant}€</Text>
             <Text style={styles.title}>{oDepense.name}</Text>
