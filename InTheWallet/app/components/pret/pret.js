@@ -141,7 +141,7 @@ let Pret = React.createClass ({
         }
       ]} backgroundColor={'#FFFFFF'}>
         <TouchableOpacity onPress={ ()=>{this.goDetails(oPret.id, oPret.name)}}>
-        <View style={styles.depenseContainer}>
+        <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
           <View style={styles.containerInfoCustom}>
             <View>
               <Text style={styles.nameCustom}>{oPret.name}</Text>

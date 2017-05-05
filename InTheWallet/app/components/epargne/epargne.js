@@ -144,7 +144,7 @@ let Epargne = React.createClass ({
         }
       ]} backgroundColor={'#FFFFFF'}>
         <TouchableOpacity onPress={ ()=>{this.goDetails(oEpargne.id, oEpargne.name,oEpargne.duree)}}>
-        <View style={styles.depenseContainer}>
+        <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
           <View style={styles.containerInfoCustom}>
             <View>
               <Text style={styles.nameCustom}>{oEpargne.name}</Text>
