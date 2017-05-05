@@ -77,6 +77,7 @@ module.exports = EStyleSheet.create({
     flexDirection:'column',
     alignItems:'center',
     paddingBottom:15,
+    position:'relative',
   },
   percent:{
     fontSize:9,
@@ -87,6 +88,7 @@ module.exports = EStyleSheet.create({
   chartContainer:{
     alignItems:'center',
     flex:1,
+    position:'relative',
   },
   lastDepenseContainer:{
     alignItems:'center',
@@ -155,4 +157,31 @@ module.exports = EStyleSheet.create({
     width:50,
     textAlign:'center'
   },
+  infoContainer:{
+    position:'absolute',
+    top:20,
+    borderRadius:8,
+    width:276,
+    paddingTop:10,
+    paddingBottom:10,
+    borderWidth:1,
+    borderColor:'#E5A23F',
+    borderRadius:8,
+    flex:1,
+    backgroundColor:'#FFFDF4',
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'center',
+  },
+  infoTitle:{
+    textAlign:'center',
+    fontSize:15,
+    fontFamily:'droidsans',
+    color:'#E5A23F',
+    marginLeft:10,
+  },
+  infoIcone:{
+    width:30,
+    height:30,
+  }
 });

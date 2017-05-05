@@ -133,6 +133,17 @@ let Home = React.createClass ({
   _reset(){
     this.setState({ limit:'0' });
   },
+  renderInfo(){
+    if( this.state.total >= 50 ){
+      return(
+        <View style={styles.infoContainer}>
+          <Image source={require('../img/sun.png')} style={styles.infoIcone}
+           />
+          <Text style={styles.infoTitle}>Les vacances au soleil arrive!</Text>
+        </View>
+      )
+    }
+  },
   _handlePress(event) {
   let limit=this.state.limit;
 
@@ -223,6 +234,7 @@ _renderDepense(){
             cornerRadius={8}
   				 />
         </View>
+        {this.renderInfo()}
       </View>
       <View style={styles.lastDepenseContainer}>
         <View style={styles.depenseHeader}>
