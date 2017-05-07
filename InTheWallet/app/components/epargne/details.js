@@ -29,8 +29,8 @@ let Details = React.createClass ({
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
-    this.setInterval( () => {  var datecreated = new Date();
-      var timeStamp = + new Date();
+    this.setInterval( () => {
+      var timeStamp = moment(this.props.start,'DD-MM-YYYY');
       var myDate = this.props.end;
       myDate = myDate.split("/");
       var newDate = myDate[1] + '/' + myDate[0] + "/" + myDate[2];
