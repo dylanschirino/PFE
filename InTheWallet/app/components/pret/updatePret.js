@@ -73,7 +73,7 @@ let updatePret = React.createClass ({
       this.setState({ name:pretDetails.name,
                       montant:pretDetails.montant,
                       mensualite:pretDetails.mensualite,
-                      interet:pretDetails.interet,
+                      interet:pretDetails.interet*100,
                       duree:pretDetails.duree,
                       depart:pretDetails.depart,
        });
