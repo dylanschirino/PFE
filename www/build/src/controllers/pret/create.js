@@ -8,6 +8,8 @@ import { ObjectID } from "mongodb";
 import getPret, { checkPret } from "../../models/pret";
 import { checkUser } from "../../models/user";
 import { send, error } from "../../core/utils/api";
+import moment from "moment";
+import duration from "moment-duration-format";
 
 
 export default function( oRequest, oResponse ) {
@@ -26,13 +28,22 @@ export default function( oRequest, oResponse ) {
         fCreatePret,
         monthArray = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
 
-    let datecreated = new Date(),
-        days = datecreated.getDay(),
-        month = monthArray[datecreated.getMonth()],
-        year = datecreated.getFullYear();
+        var timeStamp = moment(dDateDepart,'DD-MM-YYYY');
+        var datecreated = new Date(timeStamp);
+        var timeStampFinal = datecreated.setDate(datecreated.getDate()+dDuree);
+        var finalDate = new Date(timeStampFinal);
+        var dd = finalDate.getDate();
+        var mm = finalDate.getMonth()+1;
+        var y = finalDate.getFullYear();
+        var end = dd + '/'+ mm + '/'+ y;
+        var a = moment(timeStamp);
+        var b = moment(timeStampFinal);
+        var timer = b.diff(a,'days');
+        var time = moment.duration(timer,'days').format('Y [Ans] et M [Mois] et D[Jours]');
+
 
     oPret = {
-        "created_at": days +' '+month+' '+year,
+        "created_at": new Date(),
         "updated_at": new Date(),
     };
 
@@ -54,7 +65,8 @@ export default function( oRequest, oResponse ) {
     iInteret && ( oPret.interet = iInteret );
     dDateDepart && ( oPret.depart = dDateDepart );
     sUserID && ( oPret.user = sUserID );
-    dDuree && ( oPret.duree = dDuree )
+    dDuree && ( oPret.duree = dDuree );
+    end && ( oPret.end = end );
 
     fCreatePret = () => {
         return getPret().insertOne( oPret );
@@ -70,10 +82,10 @@ export default function( oRequest, oResponse ) {
               "montant": oPret.montant,
               "mensualite": oPret.mensualite,
               "interet": oPret.interet,
-              "debut": oPret.depart,
+              "depart": oPret.depart,
               "user": oPret.user,
-              "duree": dDuree,
-              "created_at":days +' '+month+' '+year,
+              "duree": oPret.duree,
+              "end": oPret.end
           }, 201 );
       } )
       .catch( ( oError ) => {

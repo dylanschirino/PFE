@@ -23,22 +23,19 @@ export default function( oRequest, oResponse ) {
         dDuree = iMontant / iMensualite,
         aModification = [];
 
-        let datecreated = new Date(),
-            days = datecreated.getDay(),
-            month = monthArray[datecreated.getMonth()],
-            year = datecreated.getFullYear();
 
-        var timeStamp = + new Date();
-        var timeStampFinal = datecreated.setDate(datecreated.getDate()+dDuree);
-        var finalDate = new Date(timeStampFinal);
-        var dd = finalDate.getDate();
-        var mm = finalDate.getMonth()+1;
-        var y = finalDate.getFullYear();
-        var end = dd + '/'+ mm + '/'+ y;
-        var a = moment(timeStamp);
-        var b = moment(timeStampFinal);
-        var timer = b.diff(a,'days');
-        var time = moment.duration(timer,'days').format('Y [Ans] et M [Mois] et D[Jours]');
+            var timeStamp = moment(dDateDepart,'DD-MM-YYYY');
+            var datecreated = new Date(timeStamp);
+            var timeStampFinal = datecreated.setDate(datecreated.getDate()+dDuree);
+            var finalDate = new Date(timeStampFinal);
+            var dd = finalDate.getDate();
+            var mm = finalDate.getMonth()+1;
+            var y = finalDate.getFullYear();
+            var end = dd + '/'+ mm + '/'+ y;
+            var a = moment(timeStamp);
+            var b = moment(timeStampFinal);
+            var timer = b.diff(a,'days');
+            var time = moment.duration(timer,'days').format('Y [Ans] et M [Mois] et D[Jours]');
 
     try {
         sEpargneID = new ObjectID( oRequest.params.id );

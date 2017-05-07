@@ -7,6 +7,8 @@
 import { ObjectID } from "mongodb";
 import getPret, { checkPret } from "../../models/pret";
 import { send, error } from "../../core/utils/api";
+import moment from "moment";
+import duration from "moment-duration-format";
 
 
 export default function( oRequest, oResponse ) {
@@ -21,6 +23,19 @@ export default function( oRequest, oResponse ) {
         dDateDepart = POST.depart,
         dDuree = Math.log( -iMensualite / ( ( ( iInteret / 12 ) * iMontant ) - iMensualite ) ) / Math.log( 1 + ( iInteret / 12 ) ),
         aModification = [];
+
+        var timeStamp = moment(dDateDepart,'DD-MM-YYYY');
+            var datecreated = new Date(timeStamp);
+            var timeStampFinal = datecreated.setDate(datecreated.getDate()+dDuree);
+            var finalDate = new Date(timeStampFinal);
+            var dd = finalDate.getDate();
+            var mm = finalDate.getMonth()+1;
+            var y = finalDate.getFullYear();
+            var end = dd + '/'+ mm + '/'+ y;
+            var a = moment(timeStamp);
+            var b = moment(timeStampFinal);
+            var timer = b.diff(a,'days');
+            var time = moment.duration(timer,'days').format('Y [Ans] et M [Mois] et D[Jours]');
 
     try {
         sPretID = new ObjectID( oRequest.params.id );

@@ -23,7 +23,7 @@ export default function( oRequest, oResponse ) {
         let aCleanPret,
             aPretToReset = [];
 
-        aCleanPret = aPret.map( ( { _id, name, montant, interet, mensualite, duree, debut } ) => {
+        aCleanPret = aPret.map( ( { _id, name, montant, interet, mensualite, duree, depart,end } ) => {
             aPretToReset.push( _id );
 
             return {
@@ -33,7 +33,8 @@ export default function( oRequest, oResponse ) {
                 "interet": interet,
                 "mensualite": mensualite,
                 "duree": duree,
-                "debut": debut,
+                "depart": depart,
+                "end":end,
             };
         } );
         send( oRequest, oResponse, aCleanPret );
