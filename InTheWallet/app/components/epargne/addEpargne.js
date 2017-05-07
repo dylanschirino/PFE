@@ -201,7 +201,7 @@ let addEpargne = React.createClass ({
               onChangeText={(text) => {
                 this.setState( {debut:text} );
               }}
-              placeholder='21 Septembre 2017'
+              placeholder='Format : 21/07/2017'
               placeholderTextColor='#B6CBE1'
             />
           </View>

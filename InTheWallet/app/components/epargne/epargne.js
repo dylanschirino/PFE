@@ -121,8 +121,10 @@ let Epargne = React.createClass ({
   let epargneArray = (this.state.epargneArray);
   return epargneArray.map( ( oEpargne, i ) => {
       {
-        var start = oEpargne.debut;
+        var start = oEpargne.depart;
         var myDate = oEpargne.end;
+        var test = moment(oEpargne.depart);
+
 
       }
       return (
