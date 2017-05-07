@@ -24,7 +24,7 @@ export default function( oRequest, oResponse ) {
         dDuree = Math.log( -iMensualite / ( ( ( iInteret / 12 ) * iMontant ) - iMensualite ) ) / Math.log( 1 + ( iInteret / 12 ) ),
         aModification = [];
 
-        var timeStamp = moment(dDateDepart,'DD-MM-YYYY');
+            var timeStamp = moment(dDateDepart,'DD-MM-YYYY');
             var datecreated = new Date(timeStamp);
             var timeStampFinal = datecreated.setDate(datecreated.getDate()+dDuree);
             var finalDate = new Date(timeStampFinal);
@@ -76,6 +76,10 @@ export default function( oRequest, oResponse ) {
         if ( dDuree ) {
             oPret.duree = dDuree;
             aModification.push( "duree" );
+        }
+        if ( end ) {
+            oPret.end = end;
+            aModification.push( "end" );
         }
 
         return checkPret( sPretID ).then( () => {

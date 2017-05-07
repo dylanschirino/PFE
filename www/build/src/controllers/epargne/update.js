@@ -70,8 +70,12 @@ export default function( oRequest, oResponse ) {
             aModification.push( "depart" );
         }
         if ( dDuree ) {
-            oEpargne.duree = time;
+            oEpargne.duree = dDuree;
             aModification.push( "duree" );
+        }
+        if ( end ) {
+            oEpargne.end = end;
+            aModification.push( "end" );
         }
 
         return checkEpargne( sEpargneID ).then( () => {
