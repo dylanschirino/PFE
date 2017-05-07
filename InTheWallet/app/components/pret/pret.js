@@ -95,6 +95,15 @@ let Pret = React.createClass ({
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
+    axios.get('http://104.131.74.22:8080/pret?user='+this.props.username)
+    .then( response => {
+      const pretObject = response.data['data'];
+      const pretArray = Object.keys(pretObject).map(key => pretObject[key]);
+      this.setState({ pretArray });
+    })
+    .catch(function (error) {
+      alert('Erreur:'+ error);
+    });
   },
   goDetails(id,name){
     this.props.navigator.push({
