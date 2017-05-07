@@ -152,6 +152,15 @@ let Home = React.createClass ({
         </Display>
       )
     }
+    else if( this.state.total <= 50 ){
+      return(
+        <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainerStorm}>
+          <Image source={require('../img/storm.png')} style={styles.infoIconeStorm}
+           />
+         <Text style={styles.infoTitleStorm}>Ressaisissez vous!</Text>
+        </Display>
+      )
+    }
   },
   _handlePress(event) {
   let limit=this.state.limit;

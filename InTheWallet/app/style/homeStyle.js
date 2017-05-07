@@ -183,5 +183,32 @@ module.exports = EStyleSheet.create({
   infoIcone:{
     width:30,
     height:30,
-  }
+  },
+  infoIconeStorm:{
+    width:30,
+    height:29,
+  },
+  infoContainerStorm:{
+    position:'absolute',
+    top:20,
+    borderRadius:8,
+    width:276,
+    paddingTop:10,
+    paddingBottom:10,
+    borderWidth:1,
+    borderColor:'#949DA8',
+    borderRadius:8,
+    flex:1,
+    backgroundColor:'#ECEFF4',
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'center',
+  },
+  infoTitleStorm:{
+    textAlign:'center',
+    fontSize:15,
+    fontFamily:'droidsans',
+    color:'#949DA8',
+    marginLeft:10,
+  },
 });
