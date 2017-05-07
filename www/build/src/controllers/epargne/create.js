@@ -57,7 +57,7 @@ export default function( oRequest, oResponse ) {
     iMensualite && ( oEpargne.mensualite = iMensualite );
     dDateDepart && ( oEpargne.depart = dDateDepart );
     sUserID && ( oEpargne.user = sUserID );
-    dDuree && ( oEpargne.duree = time );
+    dDuree && ( oEpargne.duree = dDuree );
     end && ( oEpargne.end = end );
 
     fCreateEpargne = () => {
