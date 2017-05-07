@@ -118,6 +118,15 @@ let Depense = React.createClass ({
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
+    axios.get('http://104.131.74.22:8080/depense?user='+this.props.username)
+    .then( response => {
+      const depenseObject = response.data['data'];
+      const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);
+      this.setState({ depenseArray });
+    })
+    .catch(function (error) {
+      alert('Erreur:'+ error);
+    });
   },
   _renderDepense(){
   let spendArray = (this.state.depenseArray).reverse();
