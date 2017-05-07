@@ -105,11 +105,11 @@ let Epargne = React.createClass ({
       alert('Erreur:'+ error);
     });
   },
-  goDetails(id,name,duree){
+  goDetails(id,name,end){
     this.props.navigator.push({
       component: Details,
       title:name,
-      passProps:{epargne_id:id,name:name,username:this.state.user,duree:duree},
+      passProps:{epargne_id:id,name:name,username:this.state.user,end:end},
       navigationBarHidden:true,
     });
   },
@@ -143,15 +143,15 @@ let Epargne = React.createClass ({
           backgroundColor:'#FE3F35'
         }
       ]} backgroundColor={'#FFFFFF'}>
-        <TouchableOpacity onPress={ ()=>{this.goDetails(oEpargne.id, oEpargne.name,oEpargne.duree)}}>
+        <TouchableOpacity onPress={ ()=>{this.goDetails(oEpargne.id, oEpargne.name,oEpargne.end,)}}>
         <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
           <View style={styles.containerInfoCustom}>
             <View>
               <Text style={styles.nameCustom}>{oEpargne.name}</Text>
             </View>
             <View style={styles.secondInfo}>
-              <Text style={styles.label}>DURÉE TOTAL</Text>
-              <Text style={styles.date}>{oEpargne.time}</Text>
+              <Text style={styles.label}>DATE DE FIN</Text>
+              <Text style={styles.date}>{oEpargne.end}</Text>
             </View>
             <View style={styles.progressContainer}>
               <View style={styles.progressView}>

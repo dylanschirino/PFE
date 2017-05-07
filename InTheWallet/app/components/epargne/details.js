@@ -4,6 +4,8 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import SearchBar from 'react-native-search-bar';
 import axios from 'axios';
 import TimerMixin from 'react-timer-mixin';
+import moment from 'moment';
+let duration = require("moment-duration-format");
 
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
@@ -29,14 +31,14 @@ let Details = React.createClass ({
     });
     this.setInterval( () => {  var datecreated = new Date();
       var timeStamp = + new Date();
-      var timeStampFinal = datecreated.setDate(datecreated.getDate()+this.props.duree);
+      var myDate = this.props.end;
+      myDate = myDate.split("/");
+      var newDate = myDate[1] + '/' + myDate[0] + "/" + myDate[2];
+      var timeStampFinal = new Date(newDate).getTime();
       var distance = (timeStampFinal - timeStamp);
       var month = Math.floor( distance / (1000 * 60 * 60 * 24 * 31));
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      var timeS = month + ' MOIS' + days + ' JOURS';
+      var days = Math.floor((distance / (1000 * 60 * 60 * 24)));
+      var timeS = moment.duration(days, "days").format("Y [ANS] M [MOIS] D [JOURS]");
       this.setState({time:timeS});} ,1000);
 
   },
