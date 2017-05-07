@@ -114,11 +114,11 @@ let Epargne = React.createClass ({
       alert('Erreur:'+ error);
     });
   },
-  goDetails(id,name,end,start){
+  goDetails(id,name,end){
     this.props.navigator.push({
       component: Details,
       title:name,
-      passProps:{epargne_id:id,name:name,username:this.state.user,end:end,start:start},
+      passProps:{epargne_id:id,name:name,username:this.state.user,end:end},
       navigationBarHidden:true,
     });
   },
@@ -151,7 +151,7 @@ let Epargne = React.createClass ({
           backgroundColor:'#FE3F35'
         }
       ]} backgroundColor={'#FFFFFF'}>
-        <TouchableOpacity onPress={ ()=>{this.goDetails(oEpargne.id, oEpargne.name,oEpargne.end,oEpargne.depart)}}>
+        <TouchableOpacity onPress={ ()=>{this.goDetails(oEpargne.id, oEpargne.name,oEpargne.end)}}>
         <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
           <View style={styles.containerInfoCustom}>
             <View>
