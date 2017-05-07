@@ -104,6 +104,15 @@ let Epargne = React.createClass ({
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
+    axios.get('http://104.131.74.22:8080/epargne?user='+this.props.username)
+    .then( response => {
+      const epargneObject = response.data['data'];
+      const epargneArray = Object.keys(epargneObject).map(key => epargneObject[key]);
+      this.setState({ epargneArray });
+    })
+    .catch(function (error) {
+      alert('Erreur:'+ error);
+    });
   },
   goDetails(id,name,end){
     this.props.navigator.push({
