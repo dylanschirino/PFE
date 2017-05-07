@@ -92,7 +92,12 @@ let updateEpargne = React.createClass ({
     alert('Erreur:'+ error);
   });
   if(!navigator.props){
-    this.props.navigator.pop();
+    this.props.navigator.push({
+      component: Epargne,
+      title:'Epargne',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
   }
   },
   getInitialState: function() {
