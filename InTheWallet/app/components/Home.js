@@ -5,6 +5,8 @@ import Form from 'react-native-form';
 import axios from 'axios';
 import Chart from 'react-native-chart';
 import Display from 'react-native-display';
+import TimerMixin from 'react-timer-mixin';
+
 let styles = require('../style/homeStyle'),
     menu = require('../style/menuStyle');
 
@@ -32,6 +34,7 @@ import addPret from './pret/addPret';
 import addEpargne from './epargne/addEpargne';
 
 let Home = React.createClass ({
+    mixins: [TimerMixin],
   componentDidMount() {
   axios.get('http://104.131.74.22:8080/home?user='+this.props.username)
     .then(response => {
@@ -57,6 +60,8 @@ let Home = React.createClass ({
   .catch(function (error) {
     alert('Erreur:'+ error);
   });
+
+  this.setTimeout( () => { this.toggleDisplayInfo()} ,7000);
 },
   getInitialState: function() {
     return {
@@ -66,11 +71,15 @@ let Home = React.createClass ({
       depenseArray:[[],[]],
       user:this.props.username,
       enable:false,
+      enableInfo:true,
     }
   },
   toggleDisplay() {
   let toggle = !this.state.enable;
   this.setState({enable: toggle});
+  },
+  toggleDisplayInfo(){
+    this.setState({enableInfo:false});
   },
   goDepense(){
     this.props.navigator.push({
@@ -136,11 +145,11 @@ let Home = React.createClass ({
   renderInfo(){
     if( this.state.total >= 50 ){
       return(
-        <View style={styles.infoContainer}>
+        <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainer}>
           <Image source={require('../img/sun.png')} style={styles.infoIcone}
            />
           <Text style={styles.infoTitle}>Les vacances au soleil arrive!</Text>
-        </View>
+        </Display>
       )
     }
   },
