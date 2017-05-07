@@ -88,7 +88,12 @@ let updateDepense = React.createClass ({
     alert('Erreur:'+ error);
   });
   if(!navigator.props){
-    this.props.navigator.pop();
+    this.props.navigator.push({
+      component: Depense,
+      title:'Depense',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
   }
   },
   getInitialState: function() {
