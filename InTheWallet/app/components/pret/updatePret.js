@@ -103,7 +103,12 @@ let updatePret = React.createClass ({
     alert('Erreur:'+ error);
   });
   if(!navigator.props){
-    this.props.navigator.pop();
+    this.props.navigator.push({
+      component: Pret,
+      title:'Pret',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    });
   }
   },
   getInitialState: function() {
