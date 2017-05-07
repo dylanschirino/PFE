@@ -3,6 +3,9 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image
 import EStyleSheet from 'react-native-extended-stylesheet';
 import SearchBar from 'react-native-search-bar';
 import axios from 'axios';
+import TimerMixin from 'react-timer-mixin';
+import moment from 'moment';
+let duration = require("moment-duration-format");
 
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
@@ -16,6 +19,7 @@ import Home from '../Home';
 import Epargne from '../epargne/epargne';
 
 let Details = React.createClass ({
+  mixins: [TimerMixin],
   componentDidMount(){
     axios.get('http://104.131.74.22:8080/pret/'+this.props.pret_id)
     .then( response => {
@@ -25,11 +29,23 @@ let Details = React.createClass ({
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
+    this.setInterval( () => {  var datecreated = new Date();
+      var timeStamp = + new Date();
+      var myDate = this.props.end;
+      myDate = myDate.split("/");
+      var newDate = myDate[1] + '/' + myDate[0] + "/" + myDate[2];
+      var timeStampFinal = new Date(newDate).getTime();
+      var distance = (timeStampFinal - timeStamp);
+      var month = Math.floor( distance / (1000 * 60 * 60 * 24 * 31));
+      var days = Math.floor((distance / (1000 * 60 * 60 * 24)));
+      var timeS = moment.duration(days, "days").format("Y [ANS] M [MOIS] D [JOURS]");
+      this.setState({time:timeS});} ,1000);
   },
   getInitialState: function() {
     return {
       pretDetails:'',
       user:this.props.username,
+      time:'',
     }
   },
   goHome(){
@@ -86,7 +102,7 @@ let Details = React.createClass ({
               </View>
               <View style={details.clockContainer}>
                 <View style={details.clockBorder}>
-                    <Text style={details.timer}>15 JOURS 2 HEURES 10 MIN</Text>
+                    <Text style={details.timer}>{this.state.time}</Text>
                 </View>
               </View>
                 <View style={details.row}>
@@ -106,7 +122,7 @@ let Details = React.createClass ({
                   </View>
                   <View style={details.content}>
                     <Text style={details.label}>Durée du prêt</Text>
-                    <Text style={details.response}>{this.state.pretDetails.duree}</Text>
+                    <Text style={details.response}>{this.state.pretDetails.end}</Text>
                   </View>
                 </View>
             </View>

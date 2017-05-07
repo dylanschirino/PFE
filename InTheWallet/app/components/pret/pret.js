@@ -105,11 +105,11 @@ let Pret = React.createClass ({
       alert('Erreur:'+ error);
     });
   },
-  goDetails(id,name){
+  goDetails(id,name,end){
     this.props.navigator.push({
       component: Details,
       title:name,
-      passProps:{pret_id:id,name:name,username:this.state.user},
+      passProps:{pret_id:id,name:name,username:this.state.user,end:end},
       navigationBarHidden:true,
     });
   },
@@ -149,15 +149,15 @@ let Pret = React.createClass ({
           backgroundColor:'#FE3F35'
         }
       ]} backgroundColor={'#FFFFFF'}>
-        <TouchableOpacity onPress={ ()=>{this.goDetails(oPret.id, oPret.name)}}>
+        <TouchableOpacity onPress={ ()=>{this.goDetails(oPret.id, oPret.name,oPret.end)}}>
         <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
           <View style={styles.containerInfoCustom}>
             <View>
               <Text style={styles.nameCustom}>{oPret.name}</Text>
             </View>
             <View style={styles.secondInfo}>
-              <Text style={styles.label}>{'Durée restante'.toUpperCase()}</Text>
-              <Text style={styles.date}>{oPret.duree}</Text>
+              <Text style={styles.label}>{'Date de fin'.toUpperCase()}</Text>
+              <Text style={styles.date}>{oPret.end}</Text>
             </View>
             <View style={styles.progressContainer}>
               <View style={styles.progressView}>
