@@ -120,7 +120,11 @@ let Epargne = React.createClass ({
   _renderEpargne(){
   let epargneArray = (this.state.epargneArray);
   return epargneArray.map( ( oEpargne, i ) => {
+      {
+        var start = oEpargne.debut;
+        var myDate = oEpargne.end;
 
+      }
       return (
         <Swipeout key={i} autoClose={true} right={[
           {

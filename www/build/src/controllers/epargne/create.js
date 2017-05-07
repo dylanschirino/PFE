@@ -25,12 +25,8 @@ export default function( oRequest, oResponse ) {
         oEpargne,
         fCreateEpargne,
         monthArray = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
-
-    let datecreated = new Date(),
-        days = datecreated.getDay(),
-        month = monthArray[datecreated.getMonth()],
-        year = datecreated.getFullYear();
-    var timeStamp = + new Date();
+    var timeStamp = moment(dDateDepart,'DD-MM-YYYY');
+    var datecreated = new Date(timeStamp);
     var timeStampFinal = datecreated.setDate(datecreated.getDate()+dDuree);
     var finalDate = new Date(timeStampFinal);
     var dd = finalDate.getDate();
@@ -43,7 +39,7 @@ export default function( oRequest, oResponse ) {
     var time = moment.duration(timer,'days').format('Y [Ans] et M [Mois] et D[Jours]');
 
     oEpargne = {
-        "created_at": days +' '+month+' '+year,
+        "created_at": new Date(),
         "updated_at": new Date(),
     };
 
@@ -82,7 +78,6 @@ export default function( oRequest, oResponse ) {
               "user": oEpargne.user,
               "end": oEpargne.end,
               "duree": oEpargne.duree,
-              "created_at":days +' '+month+' '+year,
           }, 201 );
       } )
       .catch( ( oError ) => {
