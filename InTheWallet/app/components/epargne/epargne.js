@@ -5,6 +5,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import axios from 'axios';
 import Swipeout from 'react-native-swipeout';
 import Display from 'react-native-display';
+import moment from 'moment';
 
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
@@ -127,6 +128,12 @@ let Epargne = React.createClass ({
   _renderEpargne(){
   let epargneArray = (this.state.epargneArray);
   return epargneArray.map( ( oEpargne, i ) => {
+    {
+      var start = moment(oEpargne.start)*1000;
+      var end = moment(oEpargne.end,'DD-MM-YYYY')*1000;
+      var now = + new Date();
+      var percent = Math.round(( ( now - start ) / ( end - start ) ) * 100)/10000;
+    }
       return (
         <Swipeout key={i} autoClose={true} right={[
           {
@@ -162,8 +169,8 @@ let Epargne = React.createClass ({
             <View style={styles.progressContainer}>
               <View style={styles.progressView}>
                 <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
-                progress={oEpargne.duree/100}/>
-              <Text style={styles.percent}>{oEpargne.duree | 0}%</Text>
+                progress={Math.abs(percent)/100}/>
+              <Text style={styles.percent}>{Math.abs(percent).toFixed(2)}%</Text>
               </View>
             </View>
           </View>
