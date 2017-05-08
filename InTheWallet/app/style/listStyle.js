@@ -28,11 +28,6 @@ module.exports = EStyleSheet.create({
     fontFamily:'lato-regular',
     fontSize:14,
   },
-  img:{
-    width:62,
-    height:62,
-    borderRadius:31,
-  },
   listCustom:{
     flexGrow:1,
     width:'100%',
@@ -84,6 +79,19 @@ module.exports = EStyleSheet.create({
     borderWidth:3,
     borderColor:'$mainColor',
     borderRadius:50,
+    width:66,
+    height:66,
+    alignItems:'center',
+    justifyContent:'center',
+  },
+  img:{
+    width:61,
+    height:61,
+    borderRadius:31,
+  },
+  imgThumb:{
+    width:36,
+    height:30,
   },
   containerInfo:{
     alignSelf:'flex-start',

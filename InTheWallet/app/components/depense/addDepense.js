@@ -115,7 +115,7 @@ let addDepense = React.createClass ({
       return(
         <Image
           style={styles.iconPhoto}
-          source={ require('../../img/photo-camera.png')}
+          source={ require('../../img/photoThumb.png')}
         />
       )
     }
