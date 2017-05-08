@@ -134,72 +134,75 @@ let Depense = React.createClass ({
   _renderDepense(){
   let spendArray = (this.state.depenseArray).reverse();
   if(this.state.search){
-    var payement = this.state.search.payement;
-    var repeater = this.state.search.repeater;
-      var generateImageSearch =function(){
-      if( payement == 'carte'){
-        return require('../../img/carte.png');
-      }
-      else if ( payement == 'cash'){
-        return require('../../img/cash.png');
-      }
-    }
-    var generateRepeatSearch = function(){
-        if ( repeater == 'Jamais' || repeater == false ){
-          return null;
+    let searchArray = this.state.search;
+    return searchArray.map( ( oDepense, i ) => {
+      var payement = oDepense.payement;
+      var repeater = oDepense.repeater;
+        var generateImageSearch =function(){
+        if( payement == 'carte'){
+          return require('../../img/carte.png');
         }
-        else{
-          return require('../../img/repeat.png');
+        else if ( payement == 'cash'){
+          return require('../../img/cash.png');
         }
       }
-        return (
-          <Swipeout autoClose={true} right={[
-            {
-            component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(this.state.search.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
-              /></TouchableOpacity>,
-            backgroundColor:'#FF9500'
-          },
-            {
-            component:<TouchableOpacity onPress={
-              () => Alert.alert(
-              this.state.search.name,
-              'Voulez-vous vraiment le supprimer?',
-              [
-                {text: 'Annuler', onPress: () => null},
-                {text: 'Supprimer', onPress: () => {this._handleDelete(this.state.search.id)}},
-              ]
-            )
-            } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
-              /></TouchableOpacity>,
-            backgroundColor:'#FE3F35'
+      var generateRepeatSearch = function(){
+          if ( repeater == 'Jamais' || repeater == false ){
+            return null;
           }
-        ]} backgroundColor={'#FFFFFF'}>
-          <TouchableOpacity onPress={ ()=>{this.goDetails(this.state.search.id, this.state.search.name)}}>
-          <View style={styles.depenseContainer}>
-            <View style={styles.smallInfo}>
-              <Image style={styles.imgRepeat} source={generateRepeatSearch()}
-                />
-              <Image style={styles.imgPayement} source={generateImageSearch()}
+          else{
+            return require('../../img/repeat.png');
+          }
+        }
+          return (
+            <Swipeout key={i} autoClose={true} right={[
+              {
+              component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oDepense.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
+                /></TouchableOpacity>,
+              backgroundColor:'#FF9500'
+            },
+              {
+              component:<TouchableOpacity onPress={
+                () => Alert.alert(
+                oDepense.name,
+                'Voulez-vous vraiment le supprimer?',
+                [
+                  {text: 'Annuler', onPress: () => null},
+                  {text: 'Supprimer', onPress: () => {this._handleDelete(oDepense.id)}},
+                ]
+              )
+              } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
+                /></TouchableOpacity>,
+              backgroundColor:'#FE3F35'
+            }
+          ]} backgroundColor={'#FFFFFF'}>
+            <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
+            <View style={styles.depenseContainer}>
+              <View style={styles.smallInfo}>
+                <Image style={styles.imgRepeat} source={generateRepeatSearch()}
                   />
-            </View>
-            <View style={styles.thumb}>
-              <Image style={styles.img} source={ require('../../img/photo.jpg')}
-                />
-            </View>
-            <View style={styles.containerInfo}>
-              <View style={styles.mainInfo}>
-                <Text style={styles.price}>{this.state.search.montant}€</Text>
-                <Text style={styles.name}>{this.state.search.name}</Text>
+                <Image style={styles.imgPayement} source={generateImageSearch()}
+                    />
               </View>
-              <View style={styles.secondInfo}>
-                <Text style={styles.label}>DÉPENSÉ LE</Text>
-                <Text style={styles.date}>{this.state.search.created_at}</Text>
+              <View style={styles.thumb}>
+                <Image style={styles.img} source={ require('../../img/photo.jpg')}
+                  />
+              </View>
+              <View style={styles.containerInfo}>
+                <View style={styles.mainInfo}>
+                  <Text style={styles.price}>{oDepense.montant}€</Text>
+                  <Text style={styles.name}>{oDepense.name}</Text>
+                </View>
+                <View style={styles.secondInfo}>
+                  <Text style={styles.label}>DÉPENSÉ LE</Text>
+                  <Text style={styles.date}>{oDepense.created_at}</Text>
+                </View>
               </View>
             </View>
-          </View>
-          </TouchableOpacity>
-          </Swipeout>
-        )
+            </TouchableOpacity>
+            </Swipeout>
+          )
+    });
   }
   if(this.state.search == null ){
     return spendArray.map( ( oDepense, i ) => {
@@ -285,12 +288,11 @@ _renderCategorie(){
            return inputArray.indexOf(item) == index;
          });
       }
-      return unique.map( ( Categorie ) => {
-        {
-
-        }
+      return unique.map( ( Categorie, i ) => {
         return(
-          <Text style={styles.catText}>{Categorie}</Text>
+          <TouchableOpacity key={i} onPress={() => {this._renderSearchCategorie(Categorie)}}>
+            <Text style={styles.catText}>{Categorie}</Text>
+            </TouchableOpacity>
         )
       });
 },
@@ -300,9 +302,23 @@ _renderSearch(text){
   var match = function(depense){
     return depense.name == stringSearch;
   }
-  var result = spendArray.find(match);
+  var result = spendArray.filter(match);
   this.setState({search: result});
 
+},
+_renderSearchCategorie(categorie){
+  let spendArray = (this.state.depenseArray);
+  var stringSearch = categorie;
+  var match = function(categorieArray){
+    for( var i = 0; i<=categorieArray.categorie.length; i++ ){
+        if( categorieArray.categorie[i] == stringSearch ){
+          return true;
+        }
+    }
+    }
+  var result = spendArray.filter(match);
+  console.log(result);
+  this.setState({search: result});
 },
   render() {
     return (
