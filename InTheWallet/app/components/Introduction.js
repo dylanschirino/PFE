@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 let styles = require('../style/IntroStyle');
 
@@ -38,47 +39,61 @@ let Introduction = React.createClass ({
       navigationBarHidden:true,
     });
   },
+  onSwipeLeft() {
+    this.props.navigator.push({
+      component: Introduction2,
+      title:'Introduction2',
+      navigationBarHidden:true,
+    });
+  },
   render() {
+    const config = {
+      velocityThreshold: 0.3,
+      directionalOffsetThreshold: 80
+    };
     return (
-      <View style={styles.introContainer}>
+      <GestureRecognizer
+        onSwipeLeft={() => {this.onSwipeLeft()}}
+        config={config}
+        style={styles.introContainer}>
         <View style={styles.container}>
-        <Image
-          style={styles.img}
-          source={ require('../img/Intro1.png')}
-        />
-        <Text style={styles.titleIntro}>
-        Votre nouveau meilleur ami.
-        </Text>
-        <Text style={styles.introText}>
-        In The Wallet vous permets de mieux gérer vos dépenses au quotidien.
-        </Text>
-        <View style={styles.switchContainer}>
+          <Image
+            style={styles.img}
+            source={ require('../img/Intro1.png')}
+          />
+          <Text style={styles.titleIntro}>
+          Votre nouveau meilleur ami.
+          </Text>
+          <Text style={styles.introText}>
+          In The Wallet vous permets de mieux gérer vos dépenses au quotidien.
+          </Text>
+          <View style={styles.switchContainer}>
 
-        <TouchableOpacity
-        style={styles.active}>
-        <View></View>
+          <TouchableOpacity
+          style={styles.active}>
+          <View></View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction2}>
+          <View></View>
+
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction3}>
+          <View></View>
+
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction4}>
+          <View></View>
+          </TouchableOpacity>
+
+          </View>
+          <TouchableOpacity style={styles.button} onPress={this.goSubscribe}>
+          <Text style={styles.buttonText}>
+          Passer les introductions !
+          </Text>
         </TouchableOpacity>
-
-        <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction2}>
-        <View></View>
-
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction3}>
-        <View></View>
-
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction4}>
-        <View></View>
-        </TouchableOpacity>
-
-        </View>
-        <TouchableOpacity style={styles.button} onPress={this.goSubscribe}>
-        <Text style={styles.buttonText}>
-        Passer les introductions !
-        </Text>
-      </TouchableOpacity>
-        </View>
       </View>
+      </GestureRecognizer>
     )
   }
 });

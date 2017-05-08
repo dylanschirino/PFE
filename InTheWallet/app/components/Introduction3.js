@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, TouchableOpacity,StyleSheet,StatusBar, Image } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
+
 
 let styles = require('../style/IntroStyle');
 import Introduction from './Introduction';
@@ -38,10 +40,28 @@ let Introduction3 = React.createClass( {
       navigationBarHidden:true,
     });
   },
+  onSwipeLeft() {
+    this.props.navigator.push({
+      component: Introduction4,
+      title:'Introduction4',
+      navigationBarHidden:true,
+    });
+  },
+  onSwipeRight() {
+    this.props.navigator.pop();
+  },
 
   render() {
+    const config = {
+      velocityThreshold: 0.3,
+      directionalOffsetThreshold: 80
+    };
     return (
-      <View style={styles.introContainer}>
+      <GestureRecognizer
+        onSwipeLeft={() => {this.onSwipeLeft()}}
+        onSwipeRight={()=>{this.onSwipeRight()}}
+        config={config}
+        style={styles.introContainer}>
         <StatusBar barStyle="dark-content"
         />
       <View style={styles.container}>
@@ -84,7 +104,7 @@ let Introduction3 = React.createClass( {
       </Text>
     </TouchableOpacity>
       </View>
-    </View>
+    </GestureRecognizer>
     )
   }
 });
