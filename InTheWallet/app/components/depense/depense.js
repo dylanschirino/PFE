@@ -5,6 +5,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import axios from 'axios';
 import Swipeout from 'react-native-swipeout';
 import Display from 'react-native-display';
+let concat = require('unique-concat');
 
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
@@ -38,6 +39,7 @@ let Depense = React.createClass ({
       name:'',
       enable:false,
       result:[],
+      arrayCategorie:[],
     }
   },
   toggleDisplay() {
@@ -272,6 +274,26 @@ let Depense = React.createClass ({
     } );
   }
 },
+_renderCategorie(){
+  let spendArray = (this.state.depenseArray);
+      {
+        var array = [];
+        for( var i in spendArray ){
+          array = array.concat(spendArray[i]['categorie']);
+        }
+        var unique = array.filter( function( item, index, inputArray ) {
+           return inputArray.indexOf(item) == index;
+         });
+      }
+      return unique.map( ( Categorie ) => {
+        {
+
+        }
+        return(
+          <Text style={styles.catText}>{Categorie}</Text>
+        )
+      });
+},
 _renderSearch(text){
   let spendArray = (this.state.depenseArray);
   var stringSearch = text;
@@ -303,11 +325,7 @@ _renderSearch(text){
       </View>
       <View style={styles.container}>
         <ScrollView horizontal={true} scrollEnabled={true} contentContainerStyle={styles.categorie}>
-          <Text style={styles.catText}>Général</Text>
-          <Text style={styles.catText}>Loisirs</Text>
-          <Text style={styles.catText}>Alimentation</Text>
-          <Text style={styles.catText}>Maison</Text>
-          <Text style={styles.catText}>Santé</Text>
+          {this._renderCategorie()}
         </ScrollView>
         <SearchBar
           ref='searchBar'
