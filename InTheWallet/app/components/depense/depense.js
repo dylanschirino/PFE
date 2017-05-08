@@ -37,6 +37,7 @@ let Depense = React.createClass ({
       user:this.props.username,
       name:'',
       enable:false,
+      result:[],
     }
   },
   toggleDisplay() {
@@ -130,76 +131,156 @@ let Depense = React.createClass ({
   },
   _renderDepense(){
   let spendArray = (this.state.depenseArray).reverse();
-  return spendArray.map( ( oDepense, i ) => {
-    {
-      this.state.name = oDepense.name;
-      var generateImage = function(){
-      if( oDepense.payement == 'carte'){
-        return (require('../../img/carte.png'));
+  if(this.state.search){
+    var payement = this.state.search.payement;
+    var repeater = this.state.search.repeater;
+      var generateImageSearch =function(){
+      if( payement == 'carte'){
+        return require('../../img/carte.png');
       }
-      else if ( oDepense.payement == 'cash'){
-        return (require('../../img/cash.png'));
+      else if ( payement == 'cash'){
+        return require('../../img/cash.png');
       }
     }
-      var generateRepeat = function(){
-        if ( oDepense.repeater == 'Jamais' || oDepense.repeater == false ){
+    var generateRepeatSearch = function(){
+        if ( repeater == 'Jamais' || repeater == false ){
           return null;
         }
         else{
-          return (require('../../img/repeat.png'));
+          return require('../../img/repeat.png');
         }
       }
-    }
-      return (
-        <Swipeout key={i} autoClose={true} right={[
-          {
-          component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oDepense.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
-            /></TouchableOpacity>,
-          backgroundColor:'#FF9500'
-        },
-          {
-          component:<TouchableOpacity onPress={
-            () => Alert.alert(
-            oDepense.name,
-            'Voulez-vous vraiment le supprimer?',
-            [
-              {text: 'Annuler', onPress: () => null},
-              {text: 'Supprimer', onPress: () => {this._handleDelete(oDepense.id)}},
-            ]
-          )
-          } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
-            /></TouchableOpacity>,
-          backgroundColor:'#FE3F35'
-        }
-      ]} backgroundColor={'#FFFFFF'}>
-        <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
-        <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
-          <View style={styles.smallInfo}>
-            <Image style={styles.imgRepeat} source={generateRepeat()}
-              />
-            <Image style={styles.imgPayement} source={generateImage()}
+        return (
+          <Swipeout autoClose={true} right={[
+            {
+            component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(this.state.search.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
+              /></TouchableOpacity>,
+            backgroundColor:'#FF9500'
+          },
+            {
+            component:<TouchableOpacity onPress={
+              () => Alert.alert(
+              this.state.search.name,
+              'Voulez-vous vraiment le supprimer?',
+              [
+                {text: 'Annuler', onPress: () => null},
+                {text: 'Supprimer', onPress: () => {this._handleDelete(this.state.search.id)}},
+              ]
+            )
+            } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
+              /></TouchableOpacity>,
+            backgroundColor:'#FE3F35'
+          }
+        ]} backgroundColor={'#FFFFFF'}>
+          <TouchableOpacity onPress={ ()=>{this.goDetails(this.state.search.id, this.state.search.name)}}>
+          <View style={styles.depenseContainer}>
+            <View style={styles.smallInfo}>
+              <Image style={styles.imgRepeat} source={generateRepeatSearch()}
                 />
+              <Image style={styles.imgPayement} source={generateImageSearch()}
+                  />
+            </View>
+            <View style={styles.thumb}>
+              <Image style={styles.img} source={ require('../../img/photo.jpg')}
+                />
+            </View>
+            <View style={styles.containerInfo}>
+              <View style={styles.mainInfo}>
+                <Text style={styles.price}>{this.state.search.montant}€</Text>
+                <Text style={styles.name}>{this.state.search.name}</Text>
+              </View>
+              <View style={styles.secondInfo}>
+                <Text style={styles.label}>DÉPENSÉ LE</Text>
+                <Text style={styles.date}>{this.state.search.created_at}</Text>
+              </View>
+            </View>
           </View>
-          <View style={styles.thumb}>
-            <Image style={styles.img} source={ require('../../img/photo.jpg')}
-              />
-          </View>
-          <View style={styles.containerInfo}>
+          </TouchableOpacity>
+          </Swipeout>
+        )
+  }
+  if(this.state.search == null ){
+    return spendArray.map( ( oDepense, i ) => {
+      {
+        this.state.name = oDepense.name;
+        var generateImage = function(){
+        if( oDepense.payement == 'carte'){
+          return (require('../../img/carte.png'));
+        }
+        else if ( oDepense.payement == 'cash'){
+          return (require('../../img/cash.png'));
+        }
+      }
+        var generateRepeat = function(){
+          if ( oDepense.repeater == 'Jamais' || oDepense.repeater == false ){
+            return null;
+          }
+          else{
+            return (require('../../img/repeat.png'));
+          }
+        }
 
-            <View style={styles.mainInfo}>
-              <Text style={styles.price}>{oDepense.montant}€</Text>
-              <Text style={styles.name}>{oDepense.name}</Text>
+      }
+        return (
+          <Swipeout key={i} autoClose={true} right={[
+            {
+            component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oDepense.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
+              /></TouchableOpacity>,
+            backgroundColor:'#FF9500'
+          },
+            {
+            component:<TouchableOpacity onPress={
+              () => Alert.alert(
+              oDepense.name,
+              'Voulez-vous vraiment le supprimer?',
+              [
+                {text: 'Annuler', onPress: () => null},
+                {text: 'Supprimer', onPress: () => {this._handleDelete(oDepense.id)}},
+              ]
+            )
+            } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
+              /></TouchableOpacity>,
+            backgroundColor:'#FE3F35'
+          }
+        ]} backgroundColor={'#FFFFFF'}>
+          <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
+          <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
+            <View style={styles.smallInfo}>
+              <Image style={styles.imgRepeat} source={generateRepeat()}
+                />
+              <Image style={styles.imgPayement} source={generateImage()}
+                  />
             </View>
-            <View style={styles.secondInfo}>
-              <Text style={styles.label}>DÉPENSÉ LE</Text>
-              <Text style={styles.date}>{oDepense.created_at}</Text>
+            <View style={styles.thumb}>
+              <Image style={styles.img} source={ require('../../img/photo.jpg')}
+                />
+            </View>
+            <View style={styles.containerInfo}>
+              <View style={styles.mainInfo}>
+                <Text style={styles.price}>{oDepense.montant}€</Text>
+                <Text style={styles.name}>{oDepense.name}</Text>
+              </View>
+              <View style={styles.secondInfo}>
+                <Text style={styles.label}>DÉPENSÉ LE</Text>
+                <Text style={styles.date}>{oDepense.created_at}</Text>
+              </View>
             </View>
           </View>
-        </View>
-        </TouchableOpacity>
-        </Swipeout>
-      )
-  } );
+          </TouchableOpacity>
+          </Swipeout>
+        )
+    } );
+  }
+},
+_renderSearch(text){
+  let spendArray = (this.state.depenseArray);
+  var stringSearch = text;
+  var match = function(depense){
+    return depense.name == stringSearch;
+  }
+  var result = spendArray.find(match);
+  this.setState({search: result});
+
 },
   render() {
     return (
@@ -231,6 +312,7 @@ let Depense = React.createClass ({
         <SearchBar
           ref='searchBar'
           placeholder='Recherche'
+          onChangeText={(text) => {this._renderSearch(text)}}
           />
       </View>
       <ScrollView scrollEnabled={true} contentContainerStyle={styles.listCustom}>
