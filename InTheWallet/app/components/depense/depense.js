@@ -300,7 +300,11 @@ _renderSearch(text){
   let spendArray = (this.state.depenseArray);
   var stringSearch = text;
   var match = function(depense){
-    return depense.name == stringSearch;
+    var depenseName = depense.name;
+    var pattern = new RegExp( stringSearch );
+    if(pattern.test(depenseName) == true){
+      return true;
+    }
   }
   var result = spendArray.filter(match);
   this.setState({search: result});
@@ -317,7 +321,6 @@ _renderSearchCategorie(categorie){
     }
     }
   var result = spendArray.filter(match);
-  console.log(result);
   this.setState({search: result});
 },
   render() {
