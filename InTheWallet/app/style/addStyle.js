@@ -236,6 +236,11 @@ module.exports = EStyleSheet.create({
     width:48,
     height:40,
   },
+  iconPhotoValid:{
+    width:80,
+    height:80,
+    borderRadius:40,
+  },
   actionContainer:{
     flexDirection:'row',
   },

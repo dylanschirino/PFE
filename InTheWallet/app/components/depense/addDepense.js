@@ -4,11 +4,12 @@ import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
 import SimpleStepper from 'react-native-simple-stepper';
+var ImagePicker = require('react-native-image-picker');
 
 let styles = require('../../style/addStyle'),
     menu = require('../../style/menuStyle');
 
-    const options = ['Jamais', '1', '2'];
+    const optionsPicker = ['Jamais', '1', '2'];
 
     import Depense from './depense';
     import Epargne from '../epargne/epargne';
@@ -16,6 +17,23 @@ let styles = require('../../style/addStyle'),
     import Home from '../Home';
 
 let addDepense = React.createClass ({
+  pickImage(){
+    var options = {
+    title: 'Select Avatar',
+    customButtons: [
+      {name: 'fb', title: 'Choose Photo from Facebook'},
+      ],
+      storageOptions: {
+        skipBackup: true,
+        path: 'images'
+      }
+    };
+    ImagePicker.showImagePicker( options, (response) => {
+      this.setState({
+        uri: response.uri
+      });
+    })
+  },
   goHome(){
     this.props.navigator.push({
       component: Home,
@@ -81,6 +99,7 @@ let addDepense = React.createClass ({
       selectedOption:'',
       montant:0,
       imageSource:null,
+      uri:''
     }
   },
   valueChanged(montant){
@@ -89,7 +108,24 @@ let addDepense = React.createClass ({
       montant:montant,
     })
   },
-  pickImage() {
+  _renderImage(){
+    if( this.state.uri === ''){
+      return(
+        <Image
+          style={styles.iconPhoto}
+          source={ require('../../img/photo-camera.png')}
+        />
+      )
+    }
+    else if(this.state.uri){
+        return(
+          <Image
+            style={styles.iconPhotoValid}
+            source={{uri:this.state.uri}}
+          />
+      )
+    }
+
   },
   render() {
     return (
@@ -170,7 +206,7 @@ let addDepense = React.createClass ({
             </Text>
             <SimplePicker
               ref={'picker'}
-              options={options}
+              options={optionsPicker}
               onSubmit={(option) => {
                 this.setState({
                   selectedOption: option,
@@ -201,12 +237,8 @@ let addDepense = React.createClass ({
         <View style={styles.pictureContainerTwo}>
           <Text style={styles.labelChoose}>{ 'Photo de la dépense'.toUpperCase() }</Text>
           <View style={styles.chooseContainerPhoto}>
-            <TouchableOpacity style={styles.pictureChoose} onPress={this.pickImage()}>
-              <Image
-                style={styles.iconPhoto}
-                source={ require('../../img/photo-camera.png')}
-              />
-            <Image style={styles.avatar} source={this.state.imageSource} />
+            <TouchableOpacity style={styles.pictureChoose} onPress={() => {this.pickImage()}}>
+              {this._renderImage()}
           </TouchableOpacity>
           </View>
         </View>
