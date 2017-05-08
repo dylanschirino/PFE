@@ -14,12 +14,6 @@ import Mongo from "mongodb";
 const PAYEMENT = [ "cash", "carte" ];
 
 export default function( oRequest, oResponse ) {
-  // Petit test d'upload d'une image
-  let path = "test.png";
-      fs.writeFileSync( path );
-  let oData = fs.readFileSync( path ),
-      oImage = new Mongo.Binary( oData );
-      console.log( oImage );
     const POST = oRequest.body;
 
     let sDepenseID = new ObjectID(),
@@ -30,7 +24,7 @@ export default function( oRequest, oResponse ) {
         sPayement = POST.payement,
         bRepeater = POST.repeater,
         sUserID = ( POST.user || "" ).trim(),
-        aPicture = oImage,
+        aPicture = POST.picture,
         oDepense,
         fCreateDepense,
         monthArray = ['JAN','FÉV','MARS','AVRIL','MAI','JUIN','JUIL','AOÛT','SEP','OCT','NOV','DÉC'];
@@ -61,7 +55,7 @@ export default function( oRequest, oResponse ) {
     sPayement && ( oDepense.payement = sPayement );
     bRepeater && ( oDepense.repeater = bRepeater );
     sUserID && ( oDepense.user = sUserID );
-    aPicture = oImage;
+    aPicture && ( oDepense.picture = aPicture );
 
     fCreateDepense = () => {
 
@@ -80,7 +74,7 @@ export default function( oRequest, oResponse ) {
               "categorie": oDepense.categorie,
               "repeater": oDepense.repeater,
               "user": oDepense.user,
-              "picture": aPicture,
+              "picture": oDepense.picture,
               "created_at":days +' '+month+' '+year,
           }, 201 );
       } )

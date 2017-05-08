@@ -45,7 +45,7 @@ export default function( oRequest, oResponse ) {
             aDepenseToReset = [];
 
 
-        aCleanDepense = aDepenses.map( ( { _id, name, montant, repeater, payement, created_at } ) => {
+        aCleanDepense = aDepenses.map( ( { _id, name, montant, repeater, payement, created_at,picture } ) => {
             aDepenseToReset.push( _id );
 
             return {
@@ -54,6 +54,7 @@ export default function( oRequest, oResponse ) {
                 "montant": montant,
                 "payement": payement,
                 "repeater": repeater,
+                "picture":picture,
                 "created_at":created_at,
             };
         } );
