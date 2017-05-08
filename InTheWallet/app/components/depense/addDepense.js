@@ -72,6 +72,7 @@ let addDepense = React.createClass ({
       categorieString = this.state.categorie,
       categorieArray = [],
       payement,
+      picture,
       repeater = this.state.repeater;
       categorieArray = categorieString.split(',');
 
@@ -81,6 +82,7 @@ let addDepense = React.createClass ({
     user:this.props.username,
     categorie:categorieArray,
     payement:this.state.payement,
+    picture:this.state.uri,
     repeater:this.state.selectedOption,
   })
   .then(function (response) {

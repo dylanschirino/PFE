@@ -35,7 +35,7 @@ export default function( oRequest, oResponse ) {
             "categorie": categorie,
             "payement": payement,
             "repeater": repeater,
-            "picture":picture
+            "picture":picture,
             "created_at": created_at,
         };
         send( oRequest, oResponse, oCleanDepense );
