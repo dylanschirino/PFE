@@ -4,6 +4,7 @@ import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
 import SimpleStepper from 'react-native-simple-stepper';
+var ImagePicker = require('react-native-image-picker');
 
 let styles = require('../../style/addStyle'),
     menu = require('../../style/menuStyle');
@@ -16,6 +17,22 @@ let styles = require('../../style/addStyle'),
     import Home from '../Home';
 
 let updateDepense = React.createClass ({
+  pickImage(){
+    var options = {
+    title:'Choisir une photo',
+    takePhotoButtonTitle:'Prendre une photo',
+    chooseFromLibraryButtonTitle:'Choisir une photo existante',
+      storageOptions: {
+        skipBackup:false,
+        path: 'image'
+      }
+    };
+    ImagePicker.showImagePicker( options, (response) => {
+      this.setState({
+        uri: response.origURL
+      });
+    })
+  },
   goHome(){
     this.props.navigator.push({
       component: Home,
@@ -81,6 +98,7 @@ let updateDepense = React.createClass ({
     categorie:categorieArray,
     payement:this.state.payement,
     repeater:this.state.selectedOption,
+    picture:this.state.uri,
   })
   .then(function (response) {
   })
@@ -106,6 +124,7 @@ let updateDepense = React.createClass ({
       depenseDetails:'',
       name:'',
       categorie:'',
+      uri:''
     }
   },
   valueChanged(montant){
@@ -113,8 +132,6 @@ let updateDepense = React.createClass ({
     this.setState({
       montant:montant,
     })
-  },
-  pickImage() {
   },
   _renderUpdate(){
     let depenseResult = this.state.depenseArray;
@@ -225,11 +242,8 @@ let updateDepense = React.createClass ({
         <View style={styles.pictureContainerTwo}>
           <Text style={styles.labelChoose}>{ 'Photo de la dépense'.toUpperCase() }</Text>
           <View style={styles.chooseContainerPhoto}>
-            <TouchableOpacity style={styles.pictureChoose} onPress={this.pickImage()}>
-              <Image
-                style={styles.iconPhoto}
-                source={ require('../../img/photo-camera.png')}
-              />
+            <TouchableOpacity style={styles.pictureChoose} onPress={() => {this.pickImage()}}>
+              {this._renderImage()}
             <Image style={styles.avatar} source={this.state.imageSource} />
           </TouchableOpacity>
           </View>
@@ -247,6 +261,25 @@ let updateDepense = React.createClass ({
       </View>
       </Form>
       )
+  },
+  _renderImage(){
+    if( this.state.uri === ''){
+      return(
+        <Image
+          style={styles.iconPhoto}
+          source={ require('../../img/photoThumb.png')}
+        />
+      )
+    }
+    else if(this.state.uri){
+        return(
+          <Image
+            style={styles.iconPhotoValid}
+            source={{uri:this.state.uri}}
+          />
+      )
+    }
+
   },
   render() {
     return (
