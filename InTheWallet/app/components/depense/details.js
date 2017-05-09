@@ -88,6 +88,20 @@ let Details = React.createClass ({
           </View>
         )
   },
+  _renderThumb(){
+    if(this.state.depenseDetails.picture !=null){
+      return(
+        <Image source={{uri: this.state.depenseDetails.picture}} style={styles.photo}
+          />
+      )
+    }
+    else{
+      return(
+        <Image source={require('../../img/nophoto.png')} style={styles.photo}
+          />
+      )
+    }
+  },
   render() {
     return (
       <View style={{flex:1,}}>
@@ -116,8 +130,7 @@ let Details = React.createClass ({
           <Image source={require('../../img/arrow-back.png')} style={styles.arrow}
           />
           </TouchableOpacity>
-        <Image source={require('../../img/details-photo.png')} style={styles.photo}
-          />
+        {this._renderThumb()}
         <Text style={styles.title}>{this.props.name}</Text>
         </View>
         <View style={styles.content}>
