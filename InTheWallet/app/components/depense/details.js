@@ -145,19 +145,17 @@ let Details = React.createClass ({
             </TouchableOpacity>
           </View>
         </View>
-        <SearchBar
-          ref='searchBar'
-          placeholder='Recherche'
-          />
         <View style={styles.headContent}>
-          <TouchableOpacity onPress={this.goDepense} style={styles.link}>
-          <Image source={require('../../img/arrow-back.png')} style={styles.arrow}
-          />
-          </TouchableOpacity>
         {this._renderThumb()}
-        <Text style={styles.title}>{this.props.name}</Text>
         </View>
         <View style={styles.content}>
+          <View style={styles.contentHead}>
+            <TouchableOpacity onPress={this.goDepense} style={styles.link}>
+            <Image source={require('../../img/arrow-back.png')} style={styles.arrow}
+            />
+            </TouchableOpacity>
+            <Text style={styles.title}>{this.props.name}</Text>
+          </View>
           {this._renderDetails()}
         </View>
         <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={menu.container}>
