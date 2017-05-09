@@ -148,7 +148,7 @@ let Home = React.createClass ({
         <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainer}>
           <Image source={require('../img/sun.png')} style={styles.infoIcone}
            />
-          <Text style={styles.infoTitle}>Les vacances au soleil arrive!</Text>
+         <Text style={styles.infoTitle}>Les vacances au soleil arrivent !</Text>
         </Display>
       )
     }
