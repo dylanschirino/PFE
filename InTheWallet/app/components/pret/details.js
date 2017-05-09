@@ -173,10 +173,6 @@ let Details = React.createClass ({
         </View>
       </View>
       <View style={styles.container}>
-        <SearchBar
-          ref='searchBar'
-          placeholder='Recherche'
-          />
         <View style={details.quickLinkContainerCustom}>
           <TouchableOpacity style={styles.quickLink}>
             <View style={styles.quickLinkContentActiveLeft}>
