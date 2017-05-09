@@ -138,7 +138,6 @@ let Epargne = React.createClass ({
       }
     }
     var result = spendArray.filter(match);
-    console.log(result);
     this.setState({search: result});
 
   },
