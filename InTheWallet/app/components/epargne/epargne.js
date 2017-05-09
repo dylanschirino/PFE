@@ -6,6 +6,7 @@ import axios from 'axios';
 import Swipeout from 'react-native-swipeout';
 import Display from 'react-native-display';
 import moment from 'moment';
+let concat = require('unique-concat');
 
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
@@ -74,6 +75,7 @@ let Epargne = React.createClass ({
       epargneArray:[[],[]],
       user:this.props.username,
       enable:false,
+      result:[],
     }
   },
   componentDidMount(){
@@ -125,15 +127,31 @@ let Epargne = React.createClass ({
   let toggle = !this.state.enable;
   this.setState({enable: toggle});
   },
-  _renderEpargne(){
-  let epargneArray = (this.state.epargneArray);
-  return epargneArray.map( ( oEpargne, i ) => {
-    {
-      var start = moment(oEpargne.start)*1000;
-      var end = moment(oEpargne.end,'DD-MM-YYYY')*1000;
-      var now = + new Date();
-      var percent = Math.round(( ( now - start ) / ( end - start ) ) * 100)/10000;
+  _renderSearch(text){
+    let spendArray = (this.state.epargneArray);
+    var stringSearch = text;
+    var match = function(depense){
+      var depenseName = depense.name;
+      var pattern = new RegExp( stringSearch );
+      if(pattern.test(depenseName) == true){
+        return true;
+      }
     }
+    var result = spendArray.filter(match);
+    console.log(result);
+    this.setState({search: result});
+
+  },
+  _renderEpargne(){
+    if(this.state.search){
+      let epargneArray = (this.state.search);
+      return epargneArray.map( ( oEpargne, i ) => {
+        {
+          var start = moment(oEpargne.start)*1000;
+          var end = moment(oEpargne.end,'DD-MM-YYYY')*1000;
+          var now = + new Date();
+          var percent = Math.round(( ( now - start ) / ( end - start ) ) * 100)/10000;
+        }
       return (
         <Swipeout key={i} autoClose={true} right={[
           {
@@ -178,8 +196,64 @@ let Epargne = React.createClass ({
         </TouchableOpacity>
         </Swipeout>
       )
-  } );
-},
+    });
+    }
+    if(this.state.search == null ){
+      let epargneArray = (this.state.epargneArray);
+      return epargneArray.map( ( oEpargne, i ) => {
+        {
+          var start = moment(oEpargne.start)*1000;
+          var end = moment(oEpargne.end,'DD-MM-YYYY')*1000;
+          var now = + new Date();
+          var percent = Math.round(( ( now - start ) / ( end - start ) ) * 100)/10000;
+        }
+      return (
+        <Swipeout key={i} autoClose={true} right={[
+          {
+          component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oEpargne.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
+            /></TouchableOpacity>,
+          backgroundColor:'#FF9500'
+        },
+          {
+          component:<TouchableOpacity onPress={
+            () => Alert.alert(
+            oEpargne.name,
+            'Voulez-vous vraiment le supprimer?',
+            [
+              {text: 'Annuler', onPress: () => null},
+              {text: 'Supprimer', onPress: () => {this._handleDelete(oEpargne.id)}},
+            ]
+          )
+          } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
+            /></TouchableOpacity>,
+          backgroundColor:'#FE3F35'
+        }
+      ]} backgroundColor={'#FFFFFF'}>
+        <TouchableOpacity onPress={ ()=>{this.goDetails(oEpargne.id, oEpargne.name,oEpargne.end)}}>
+        <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
+          <View style={styles.containerInfoCustom}>
+            <View>
+              <Text style={styles.nameCustom}>{oEpargne.name}</Text>
+            </View>
+            <View style={styles.secondInfo}>
+              <Text style={styles.label}>DATE DE FIN</Text>
+              <Text style={styles.date}>{oEpargne.end}</Text>
+            </View>
+            <View style={styles.progressContainer}>
+              <View style={styles.progressView}>
+                <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
+                progress={Math.abs(percent)/100}/>
+              <Text style={styles.percent}>{Math.abs(percent).toFixed(2)}%</Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        </TouchableOpacity>
+        </Swipeout>
+      )
+    });
+  }
+  },
   render() {
     return (
       <View style={{flex:1,}}>
@@ -203,6 +277,7 @@ let Epargne = React.createClass ({
         <SearchBar
           ref='searchBar'
           placeholder='Recherche'
+          onChangeText={(text) => {this._renderSearch(text)}}
           />
       <View style={styles.quickLinkContainer}>
           <TouchableOpacity style={styles.quickLink} onPress={this.goPret}>
