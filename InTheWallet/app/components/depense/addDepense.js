@@ -19,18 +19,17 @@ let styles = require('../../style/addStyle'),
 let addDepense = React.createClass ({
   pickImage(){
     var options = {
-    title: 'Select Avatar',
-    customButtons: [
-      {name: 'fb', title: 'Choose Photo from Facebook'},
-      ],
+    title:'Choisir une photo',
+    takePhotoButtonTitle:'Prendre une photo',
+    chooseFromLibraryButtonTitle:'Choisir une photo existante',
       storageOptions: {
-        skipBackup: true,
-        path: 'images'
+        skipBackup:false,
+        path: 'image'
       }
     };
     ImagePicker.showImagePicker( options, (response) => {
       this.setState({
-        uri: response.uri
+        uri: response.origURL
       });
     })
   },
