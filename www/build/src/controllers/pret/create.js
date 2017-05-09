@@ -30,8 +30,10 @@ export default function( oRequest, oResponse ) {
 
         var timeStamp = moment(dDateDepart,'DD-MM-YYYY');
         var datecreated = new Date(timeStamp);
-        var timeStampFinal = datecreated.setDate(datecreated.getDate()+dDuree);
-        var finalDate = new Date(timeStampFinal);
+        console.log(datecreated);
+        var timeStampFinal = datecreated.setTime(timeStamp+(dDuree * 24 * 60 * 60 * 1000));
+        var finalDate = new Date(datecreated.setTime( datecreated.getTime() + dDuree * 86400000 ));
+        console.log(finalDate);
         var dd = finalDate.getDate();
         var mm = finalDate.getMonth()+1;
         var y = finalDate.getFullYear();
