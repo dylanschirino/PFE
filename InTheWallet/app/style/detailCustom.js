@@ -19,7 +19,7 @@ module.exports = EStyleSheet.create({
     height:25,
   },
   contentInfo:{
-    flex:1,
+    flex:2,
     backgroundColor:'$contentBckg',
   },
   container:{
@@ -28,7 +28,7 @@ module.exports = EStyleSheet.create({
   },
   head:{
     flexDirection:'row',
-    paddingTop:30,
+    paddingTop:40,
     justifyContent:'center',
     alignItems:'center',
   },
@@ -44,8 +44,8 @@ module.exports = EStyleSheet.create({
     height:150,
     alignSelf:'center',
     backgroundColor:'$mainColor',
-    marginTop:45,
-    marginBottom:40,
+    marginTop:50,
+    marginBottom:50,
     borderRadius:150,
     justifyContent:'center',
     alignItems:'center',
