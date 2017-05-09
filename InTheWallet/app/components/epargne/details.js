@@ -5,6 +5,7 @@ import SearchBar from 'react-native-search-bar';
 import axios from 'axios';
 import TimerMixin from 'react-timer-mixin';
 import moment from 'moment';
+import Display from 'react-native-display';
 let duration = require("moment-duration-format");
 
 let nav = require('../../style/navStyle'),
@@ -17,6 +18,8 @@ import Depense from '../depense/depense';
 import Pret from '../pret/pret';
 import Home from '../Home';
 import Epargne from '../epargne/epargne';
+import addDepense from '../depense/addDepense';
+import addPret from "../pret/addPret";
 
 let Details = React.createClass ({
   mixins: [TimerMixin],
@@ -47,7 +50,28 @@ let Details = React.createClass ({
       epargneDetails:'',
       user:this.props.username,
       time:'',
+      enable:false,
     }
+  },
+  toggleDisplay() {
+  let toggle = !this.state.enable;
+  this.setState({enable: toggle});
+  },
+  addDepense(){
+    this.props.navigator.push({
+      component: addDepense,
+      title:'addDepense',
+      navigationBarHidden:true,
+      passProps:{username:this.props.username},
+    })
+  },
+  addPret(){
+    this.props.navigator.push({
+      component: addPret,
+      title:'Ajouter prêt',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user},
+    })
   },
   goHome(){
     this.props.navigator.push({
@@ -168,6 +192,33 @@ let Details = React.createClass ({
         </View>
       </View>
       {this._renderDetails()}
+      <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={menu.container}>
+        <TouchableOpacity style={menu.buttonBack} onPress={() => {this.toggleDisplay()}}>
+          <Image style={menu.imgAnnuler} source={ require('../../img/annuler.png')}
+            />
+        </TouchableOpacity>
+          <TouchableOpacity style={menu.buttonContainerDepense} onPress={this.addDepense}>
+            <Image
+              style={menu.icone}
+              source={ require('../../img/depenseB.png')}
+            />
+          <Text style={menu.buttonLabel}>{'Dépense'.toUpperCase()}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={menu.buttonContainerPret} onPress={this.addPret}>
+            <Image
+              style={menu.iconePret}
+              source={ require('../../img/pretB.png')}
+            />
+          <Text style={menu.buttonLabel}>{'Prêt'.toUpperCase()}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={menu.buttonContainerEpargne} onPress={this.addEpargne}>
+            <Image
+              style={menu.iconeEpargne}
+              source={ require('../../img/epargneB.png')}
+            />
+          <Text style={menu.buttonLabel}>{'Épargne'.toUpperCase()}</Text>
+          </TouchableOpacity>
+      </Display>
       <View style={menu.menu}>
           <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
             <Image
@@ -183,7 +234,7 @@ let Details = React.createClass ({
             />
           <Text style={menu.menuLabel}>Dépenses</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLinkAdd}>
+          <TouchableOpacity style={menu.menuLinkAdd} onPress={() => {this.toggleDisplay()}}>
             <View style={menu.add}>
               <Image
                 style={menu.iconeAdd}

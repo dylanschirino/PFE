@@ -202,7 +202,7 @@ let Details = React.createClass ({
               />
             <Text style={menu.menuLabel}>Dépenses</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={menu.menuLinkAdd}onPress={() => {this.toggleDisplay()}}>
+            <TouchableOpacity style={menu.menuLinkAdd} onPress={() => {this.toggleDisplay()}}>
               <View style={menu.add}>
                 <Image
                   style={menu.iconeAdd}
