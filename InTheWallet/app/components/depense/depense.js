@@ -154,6 +154,24 @@ let Depense = React.createClass ({
             return require('../../img/repeat.png');
           }
         }
+        var _renderThumb = function(){
+          if(oDepense.picture !=null){
+            return(
+              <View style={styles.thumb}>
+                <Image style={styles.img} source={{uri: oDepense.picture}}
+                />
+              </View>
+            )
+          }
+          else{
+            return(
+              <View style={styles.thumb}>
+                <Image style={styles.imgThumb} source={ require('../../img/photo-camera.png')}
+                />
+              </View>
+            )
+          }
+        }
           return (
             <Swipeout key={i} autoClose={true} right={[
               {
@@ -184,10 +202,7 @@ let Depense = React.createClass ({
                 <Image style={styles.imgPayement} source={generateImageSearch()}
                     />
               </View>
-              <View style={styles.thumb}>
-                <Image style={styles.img} source={ require('../../img/photo.jpg')}
-                  />
-              </View>
+              {_renderThumb()}
               <View style={styles.containerInfo}>
                 <View style={styles.mainInfo}>
                   <Text style={styles.price}>{oDepense.montant}€</Text>
