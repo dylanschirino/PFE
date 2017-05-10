@@ -207,7 +207,7 @@ let Home = React.createClass ({
       component: Depense,
       title:'Dépense',
       navigationBarHidden:true,
-      passProps:{username:this.state.user}
+      passProps:{username:this.state.user, token:this.props.token}
     });
   },
   goEpargne(){
@@ -215,7 +215,7 @@ let Home = React.createClass ({
       component: Epargne,
       title:'Épargne',
       navigationBarHidden:true,
-      passProps:{username:this.state.user}
+      passProps:{username:this.state.user,token:this.props.token}
     });
   },
   goPret(){
@@ -223,7 +223,7 @@ let Home = React.createClass ({
       component: Pret,
       title:'Prêt',
       navigationBarHidden:true,
-      passProps:{username:this.state.user}
+      passProps:{username:this.state.user,token:this.props.token}
     });
   },
   goLimit(){
@@ -231,7 +231,7 @@ let Home = React.createClass ({
       component: Limit,
       title:'Limit',
       navigationBarHidden:true,
-      passProps:{username:this.state.user}
+      passProps:{username:this.state.user,token:this.props.token}
     });
   },
   addDepense(){
@@ -239,7 +239,7 @@ let Home = React.createClass ({
       component: addDepense,
       title:'Ajouter dépense',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   addPret(){
@@ -247,7 +247,7 @@ let Home = React.createClass ({
       component: addPret,
       title:'Ajouter prêt',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   addEpargne(){
@@ -255,7 +255,7 @@ let Home = React.createClass ({
       component: addEpargne,
       title:'Ajouter épargne',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   goDetails(id,name){
@@ -264,7 +264,7 @@ let Home = React.createClass ({
         this.props.navigator.push({
           component: Details,
           title:name,
-          passProps:{depense_id:id,name:name,username:this.state.user},
+          passProps:{depense_id:id,name:name,username:this.state.user,token:this.props.token},
           navigationBarHidden:true,
         });
   },

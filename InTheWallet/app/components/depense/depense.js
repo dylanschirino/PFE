@@ -22,7 +22,10 @@ let nav = require('../../style/navStyle'),
 
 let Depense = React.createClass ({
   componentDidMount(){
-    axios.get('http://104.131.74.22:8080/depense?user='+this.props.username)
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
+    axios.get('http://104.131.74.22:8080/depense?user='+this.props.username , config)
     .then( response => {
       const depenseObject = response.data['data'];
       const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);
@@ -40,6 +43,7 @@ let Depense = React.createClass ({
       enable:false,
       result:[],
       arrayCategorie:[],
+      tokenID:this.props.token,
     }
   },
   toggleDisplay() {
@@ -52,7 +56,7 @@ let Depense = React.createClass ({
         this.props.navigator.push({
           component: Details,
           title:name,
-          passProps:{depense_id:id,name:name,username:this.state.user},
+          passProps:{depense_id:id,name:name,username:this.state.user,token:this.props.token},
           navigationBarHidden:true,
         });
   },
@@ -61,7 +65,7 @@ let Depense = React.createClass ({
       component: Home,
       title:'Home',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     });
   },
   goEpargne(){
@@ -69,7 +73,7 @@ let Depense = React.createClass ({
       component: Epargne,
       title:'Épargne',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   goPret(){
@@ -77,7 +81,7 @@ let Depense = React.createClass ({
       component: Pret,
       title:'Prêt',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   addDepense(){
@@ -85,7 +89,7 @@ let Depense = React.createClass ({
       component: addDepense,
       title:'Ajouter dépense',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   addPret(){
@@ -93,7 +97,7 @@ let Depense = React.createClass ({
       component: addPret,
       title:'Ajouter prêt',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   addEpargne(){
@@ -101,7 +105,7 @@ let Depense = React.createClass ({
       component: addEpargne,
       title:'Ajouter épargne',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   _handleEdit(id){
@@ -109,19 +113,22 @@ let Depense = React.createClass ({
       component: updateDepense,
       title:'Modifier une dépense',
       navigationBarHidden:true,
-      passProps:{username:this.state.user,depense_id:id},
+      passProps:{username:this.state.user,depense_id:id,token:this.props.token},
     })
   },
 
   _handleDelete(id){
-    axios.delete('http://104.131.74.22:8080/depense/'+id)
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
+    axios.delete('http://104.131.74.22:8080/depense/'+id,config)
     .then( response => {
       alert('La dépense à bien été supprimée');
     })
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
-    axios.get('http://104.131.74.22:8080/depense?user='+this.props.username)
+    axios.get('http://104.131.74.22:8080/depense?user='+this.props.username,config)
     .then( response => {
       const depenseObject = response.data['data'];
       const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);
