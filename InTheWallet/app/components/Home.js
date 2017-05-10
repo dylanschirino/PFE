@@ -371,8 +371,10 @@ _renderDepense(){
                 ['Déc', this.state.dec],
               ]
             }
-  					type="bar"
+  					type="line"
   					showDataPoint={true}
+            dataPointFillColor={'#3769A0'}
+            dataPointRadius={3}
             verticalGridStep={4}
             color={'#A1C1D6'}
             axisColor={'#EDF7FF'}
