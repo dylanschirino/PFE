@@ -24,7 +24,7 @@ let updateEpargne = React.createClass ({
       component: Home,
       title:'Home',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goDepense(){
@@ -32,7 +32,7 @@ let updateEpargne = React.createClass ({
       component: Depense,
       title:'Depense',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goEpargne(){
@@ -40,7 +40,7 @@ let updateEpargne = React.createClass ({
       component: Epargne,
       title:'Epargne',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goPret(){
@@ -48,7 +48,7 @@ let updateEpargne = React.createClass ({
       component: Pret,
       title:'Pret',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   addEpargne(){
@@ -56,11 +56,14 @@ let updateEpargne = React.createClass ({
       component: addEpargne,
       title:'Ajouter épargne',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     })
   },
   componentDidMount(){
-    axios.get('http://104.131.74.22:8080/epargne/'+this.props.epargne_id)
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
+    axios.get('http://104.131.74.22:8080/epargne/'+this.props.epargne_id,config)
     .then( response => {
       const epargneDetails = response.data['data'];
       this.setState({ name:epargneDetails.name,
@@ -74,6 +77,9 @@ let updateEpargne = React.createClass ({
     });
   },
   _handlePress() {
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
   let name = ( this.state.name || "" ),
       montant = ( this.state.montant || "" ),
       mensualite = (this.state.mensualite || "" ),
@@ -85,7 +91,7 @@ let updateEpargne = React.createClass ({
     mensualite:mensualite,
     depart:depart,
     user:this.props.username,
-  })
+  },config)
   .then(function (response) {
   })
   .catch(function (error) {
@@ -96,7 +102,7 @@ let updateEpargne = React.createClass ({
       component: Epargne,
       title:'Epargne',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   }
   },

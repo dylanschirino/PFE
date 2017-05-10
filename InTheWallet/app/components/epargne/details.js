@@ -24,7 +24,10 @@ import addPret from "../pret/addPret";
 let Details = React.createClass ({
   mixins: [TimerMixin],
   componentDidMount(){
-    axios.get('http://104.131.74.22:8080/epargne/'+this.props.epargne_id)
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
+    axios.get('http://104.131.74.22:8080/epargne/'+this.props.epargne_id,config)
     .then( response => {
       const epargneDetails = response.data['data'];
       this.setState({ epargneDetails });
@@ -62,7 +65,7 @@ let Details = React.createClass ({
       component: addDepense,
       title:'addDepense',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     })
   },
   addPret(){
@@ -70,7 +73,7 @@ let Details = React.createClass ({
       component: addPret,
       title:'Ajouter prêt',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   goHome(){
@@ -78,7 +81,7 @@ let Details = React.createClass ({
       component: Home,
       title:'Home',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   goEpargne(){
@@ -86,7 +89,7 @@ let Details = React.createClass ({
       component: Epargne,
       title:'Epargne',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   goDepense(){
@@ -94,7 +97,7 @@ let Details = React.createClass ({
       component: Depense,
       title:'Dépense',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   goPret(){
@@ -102,7 +105,7 @@ let Details = React.createClass ({
       component: Pret,
       title:'Prêt',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   addEpargne(){
@@ -110,7 +113,7 @@ let Details = React.createClass ({
       component: addEpargne,
       title:'Ajouter épargne',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   _renderDetails(){

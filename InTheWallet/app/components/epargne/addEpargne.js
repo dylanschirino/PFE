@@ -22,7 +22,7 @@ let addEpargne = React.createClass ({
       component: Home,
       title:'Home',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goDepense(){
@@ -30,7 +30,7 @@ let addEpargne = React.createClass ({
       component: Depense,
       title:'Depense',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goEpargne(){
@@ -38,7 +38,7 @@ let addEpargne = React.createClass ({
       component: Epargne,
       title:'Epargne',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goPret(){
@@ -46,7 +46,7 @@ let addEpargne = React.createClass ({
       component: Pret,
       title:'Pret',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   addPret(){
@@ -54,10 +54,13 @@ let addEpargne = React.createClass ({
       component: addPret,
       title:'addPret',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   _handlePress() {
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
   let name = ( this.state.name || "" ),
       montant = ( this.state.montant || "" ),
       mensualite = (this.state.mensualite || "" ),
@@ -69,7 +72,7 @@ let addEpargne = React.createClass ({
     mensualite:mensualite,
     depart:debut,
     user:this.props.username,
-  })
+  },config)
   .then(function (response) {
   })
   .catch(function (error) {

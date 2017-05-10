@@ -27,7 +27,7 @@ let Epargne = React.createClass ({
       component:Home,
       title:'Home',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     });
   },
   goDepense(){
@@ -35,7 +35,7 @@ let Epargne = React.createClass ({
       component:Depense,
       title:'Depense',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     });
   },
   goPret(){
@@ -43,7 +43,7 @@ let Epargne = React.createClass ({
       component: Pret,
       title:'Prêt',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   addEpargne(){
@@ -51,7 +51,7 @@ let Epargne = React.createClass ({
       component: addEpargne,
       title:'Ajouter épargne',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   addPret(){
@@ -59,7 +59,7 @@ let Epargne = React.createClass ({
       component: addPret,
       title:'Ajouter prêt',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   addDepense(){
@@ -67,7 +67,7 @@ let Epargne = React.createClass ({
       component: addDepense,
       title:'Ajouter dépense',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   getInitialState: function() {
@@ -79,7 +79,10 @@ let Epargne = React.createClass ({
     }
   },
   componentDidMount(){
-    axios.get('http://104.131.74.22:8080/epargne?user='+this.props.username)
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
+    axios.get('http://104.131.74.22:8080/epargne?user='+this.props.username,config)
     .then( response => {
       const epargneObject = response.data['data'];
       const epargneArray = Object.keys(epargneObject).map(key => epargneObject[key]);
@@ -94,18 +97,21 @@ let Epargne = React.createClass ({
       component: updateEpargne,
       title:'Modifier une dépense',
       navigationBarHidden:true,
-      passProps:{username:this.state.user,epargne_id:id},
+      passProps:{username:this.state.user,epargne_id:id,token:this.props.token},
     })
   },
   _handleDelete(id){
-    axios.delete('http://104.131.74.22:8080/epargne/'+id)
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
+    axios.delete('http://104.131.74.22:8080/epargne/'+id,config)
     .then( response => {
       alert('La dépense à bien été supprimée');
     })
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
-    axios.get('http://104.131.74.22:8080/epargne?user='+this.props.username)
+    axios.get('http://104.131.74.22:8080/epargne?user='+this.props.username,config)
     .then( response => {
       const epargneObject = response.data['data'];
       const epargneArray = Object.keys(epargneObject).map(key => epargneObject[key]);
@@ -119,7 +125,7 @@ let Epargne = React.createClass ({
     this.props.navigator.push({
       component: Details,
       title:name,
-      passProps:{epargne_id:id,name:name,username:this.state.user,end:end},
+      passProps:{epargne_id:id,name:name,username:this.state.user,end:end,token:this.props.token},
       navigationBarHidden:true,
     });
   },
