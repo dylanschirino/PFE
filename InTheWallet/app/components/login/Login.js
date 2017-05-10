@@ -27,7 +27,8 @@ let Login = React.createClass ({
   },
   _handlePress(event) {
   let email=this.state.email.toLowerCase(),
-      password=this.state.password;
+      password=this.state.password,
+      that = this;
 
       if( password =="" || email==""){
         alert("Un ou plusieurs champs est vide");
@@ -37,17 +38,20 @@ let Login = React.createClass ({
             email:email,
             password:sha256(password),
         })
-        .then(function (response) {
+        .then( response => {
+         var tokenID = response.data['data']['token'];
+         return Promise.resolve(tokenID);
+        })
+        .then(function(response) {
+          that.props.navigator.push({
+          component: Home,
+          title:'Home',
+          navigationBarHidden:true,
+          passProps:{username:email,token:response},
+          });
         })
         .catch(function (error) {
            alert('Erreur:'+ error);
-        });
-
-        this.props.navigator.push({
-        component: Home,
-        title:'Home',
-        navigationBarHidden:true,
-        passProps:{username:email},
         });
       }
   },
@@ -104,12 +108,11 @@ let Login = React.createClass ({
           <TouchableOpacity style={styles.linkContainer} onPress={this.goSubscription}>
           <Text style={styles.link}>Pas encore inscrit ? Vers l’inscription !</Text>
           </TouchableOpacity>
-
-          <TouchableOpacity style={styles.buttonConnexion} onPress={this._handlePress}>
-          <Text style={styles.buttonText}>
-          { `Connexion`.toUpperCase() }
-          </Text>
-        </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonConnexion} onPress={this._handlePress}>
+            <Text style={styles.buttonText}>
+            { `Connexion`.toUpperCase() }
+            </Text>
+          </TouchableOpacity>
 
         </Form>
 

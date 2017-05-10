@@ -23,14 +23,18 @@ import Limit from './Limit';
 let Home = React.createClass ({
     mixins: [TimerMixin],
   componentDidMount() {
-    axios.get('http://104.131.74.22:8080/home?user='+this.props.username)
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
+    axios.get('http://104.131.74.22:8080/home?user='+this.props.username,config
+      )
       .then(response => {
         let dataTab = response.data['data'];
         const limit = dataTab[dataTab.length-1]['maxdepense'];
         this.setState({ limit });
       });
 
-    axios.get('http://104.131.74.22:8080/depense?user='+this.props.username)
+    axios.get('http://104.131.74.22:8080/depense?user='+this.props.username,config)
       .then( response => {
         const depenseObject = response.data['data'];
         var depense = response.data['data'][0]['id'];
@@ -155,7 +159,7 @@ let Home = React.createClass ({
         alert('Erreur:'+ error);
       });
 
-    axios.get('http://104.131.74.22:8080/depense_sum/'+this.props.username)
+    axios.get('http://104.131.74.22:8080/depense_sum/'+this.props.username,config)
       .then( response => {
         const total = response.data['data']['total'];
         this.setState({ total });
@@ -173,6 +177,7 @@ let Home = React.createClass ({
       total:'',
       depenseArray:[[],[]],
       user:this.props.username,
+      tokenID:this.props.token,
       enable:false,
       enableInfo:true,
       janv:0,

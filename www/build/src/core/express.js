@@ -42,12 +42,28 @@ fInit = function( iAppPort = APP_PORT ) {
     // configure templates
     oApp.set( "views", `${ __dirname }/../views` );
     oApp.set( "view engine", "pug" );
+    oApp.use( userRoutes );
+    oApp.use( ( oRequest, oResponse, next ) => {
+      let tToken = oRequest.body.tToken || oRequest.headers.authorization,
+      tResultToken = oRequest.headers.authorization.split( " " )[ 1 ];
 
-        oApp.use( systemRoutes );
-        oApp.use( depenseRoutes );
-        oApp.use( pretRoutes );
-        oApp.use( epargneRoutes );
-        oApp.use( userRoutes );
+      if ( tToken ) {
+        jwt.verify( tResultToken, "shhhhh", ( oError, decoded ) => {
+          if ( oError ) {
+            return error( oRequest, oResponse, "Auth failed", 403 );
+          }
+        oRequest.decoded = decoded;
+        next();
+          } );
+       }
+
+       // Routes
+       oApp.use( systemRoutes );
+       oApp.use( depenseRoutes );
+       oApp.use( pretRoutes );
+       oApp.use( epargneRoutes );
+      } );
+
 
     // Listening on port
     oApp.listen( iAppPort, () => {
