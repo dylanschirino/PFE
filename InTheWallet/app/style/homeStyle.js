@@ -34,16 +34,22 @@ module.exports = EStyleSheet.create({
     color:'#FFFFFF',
     fontFamily:'droidsans',
     textAlign:'center',
-    height:20,
-    width:'26%'
+    width:'26%',
+    paddingBottom:25,
   },
   limitContainer:{
-    marginTop:45,
+    marginTop:37,
     height:20,
     flexDirection:'row',
   },
   label:{
     marginTop:10,
+    fontSize:14,
+    fontFamily:'droidsans',
+    color:'#89B0DB',
+  },
+  labelLimit:{
+    marginTop:18,
     fontSize:14,
     fontFamily:'droidsans',
     color:'#89B0DB',

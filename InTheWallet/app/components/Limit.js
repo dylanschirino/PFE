@@ -10,9 +10,18 @@ let nav = require('../style/navStyle'),
 
 import Depense from "./depense/depense";
 import Epargne from "./epargne/epargne";
+import Home from "./Home";
 import Pret from "./pret/pret";
 
 let Limit = React.createClass ({
+  componentDidMount() {
+    axios.get('http://104.131.74.22:8080/home?user='+this.props.username)
+      .then(response => {
+        let dataTab = response.data['data'];
+        const limit = dataTab[dataTab.length-1]['maxdepense'];
+        this.setState({ limit });
+      });
+  },
   getInitialState: function() {
     return {
       limit:'',
@@ -43,6 +52,41 @@ let Limit = React.createClass ({
       passProps:{username:this.state.user}
     });
   },
+  cancelHome(){
+    this.props.navigator.push({
+      component: Home,
+      title:'Accueil',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user}
+    });
+  },
+  _handlePress(event) {
+    let limit=this.state.limit;
+
+    if( limit ==""){
+      alert("La limite ne peut pas être vide");
+    }
+    else {
+      axios.post('http://104.131.74.22:8080/home', {
+          maxdepense:limit,
+          user:this.props.username,
+      })
+      .then(function (response) {
+        limit = response.data['data']['maxdepense'];
+      })
+      .catch(function (error) {
+        alert('Erreur:'+ error);
+      });
+      if(!navigator.props){
+        this.props.navigator.push({
+          component: Home,
+          title:'Accueil',
+          navigationBarHidden:true,
+          passProps:{username:this.state.user,limite:limit}
+        });
+      }
+    }
+},
   render() {
     return (
       <View style={{flex:1,}}>
@@ -90,7 +134,7 @@ let Limit = React.createClass ({
           </Form>
         </View>
         <View style={limit.actionContainer}>
-          <TouchableOpacity style={limit.cancelContainer} onPress={this.goEpargne}>
+          <TouchableOpacity style={limit.cancelContainer} onPress={this.cancelHome}>
             <Image source={require('../img/cancel.png')} style={limit.cancelIcon}
             />
           </TouchableOpacity>
