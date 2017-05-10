@@ -38,7 +38,7 @@ let updateDepense = React.createClass ({
       component: Home,
       title:'Home',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goDepense(){
@@ -46,7 +46,7 @@ let updateDepense = React.createClass ({
       component: Depense,
       title:'Depense',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goEpargne(){
@@ -54,7 +54,7 @@ let updateDepense = React.createClass ({
       component: Epargne,
       title:'Epargne',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goPret(){
@@ -62,11 +62,14 @@ let updateDepense = React.createClass ({
       component: Pret,
       title:'Pret',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   componentDidMount(){
-    axios.get('http://104.131.74.22:8080/depense/'+this.props.depense_id)
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
+    axios.get('http://104.131.74.22:8080/depense/'+this.props.depense_id,config)
     .then( response => {
       const depenseDetails = response.data['data'];
       this.setState({ name:depenseDetails.name,
@@ -81,6 +84,9 @@ let updateDepense = React.createClass ({
     });
   },
   _handlePress() {
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
   let name = ( this.state.name || "" ),
       montant = ( this.state.montant || "" ),
       categorieString = this.state.categorie,
@@ -99,7 +105,7 @@ let updateDepense = React.createClass ({
     payement:this.state.payement,
     repeater:this.state.selectedOption,
     picture:this.state.uri,
-  })
+  },config)
   .then(function (response) {
   })
   .catch(function (error) {
@@ -110,7 +116,7 @@ let updateDepense = React.createClass ({
       component: Depense,
       title:'Depense',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   }
   },

@@ -38,7 +38,7 @@ let addDepense = React.createClass ({
       component: Home,
       title:'Home',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goDepense(){
@@ -46,7 +46,7 @@ let addDepense = React.createClass ({
       component: Depense,
       title:'Depense',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goEpargne(){
@@ -54,7 +54,7 @@ let addDepense = React.createClass ({
       component: Epargne,
       title:'Epargne',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goPret(){
@@ -62,10 +62,13 @@ let addDepense = React.createClass ({
       component: Pret,
       title:'Pret',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   _handlePress() {
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
   let name = ( this.state.name || "" ),
       montant = ( this.state.montant || "" ),
       categorieString = this.state.categorie,
@@ -83,7 +86,7 @@ let addDepense = React.createClass ({
     payement:this.state.payement,
     picture:this.state.uri,
     repeater:this.state.selectedOption,
-  })
+  },config)
   .then(function (response) {
   })
   .catch(function (error) {
