@@ -25,7 +25,7 @@ export default function( oRequest, oResponse ) {
             return error( oRequest, oResponse, "Unknow Depense", 404 );
         }
 
-        let { _id, name, montant, repeater, categorie, created_at, payement,picture } = oDepense,
+        let { _id, name, montant, repeater, categorie, created_at, payement,picture,month } = oDepense,
             oCleanDepense;
 
         oCleanDepense = {
@@ -36,6 +36,7 @@ export default function( oRequest, oResponse ) {
             "payement": payement,
             "repeater": repeater,
             "picture":picture,
+            "month":month,
             "created_at": created_at,
         };
         send( oRequest, oResponse, oCleanDepense );

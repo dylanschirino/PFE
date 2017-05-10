@@ -55,6 +55,7 @@ export default function( oRequest, oResponse ) {
     sPayement && ( oDepense.payement = sPayement );
     bRepeater && ( oDepense.repeater = bRepeater );
     sUserID && ( oDepense.user = sUserID );
+    month && ( oDepense.month = month );
     aPicture && ( oDepense.picture = aPicture );
 
     fCreateDepense = () => {
@@ -75,6 +76,7 @@ export default function( oRequest, oResponse ) {
               "repeater": oDepense.repeater,
               "user": oDepense.user,
               "picture": oDepense.picture,
+              "month":month,
               "created_at":days +' '+month+' '+year,
           }, 201 );
       } )
