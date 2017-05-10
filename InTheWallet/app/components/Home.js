@@ -10,20 +10,6 @@ import TimerMixin from 'react-timer-mixin';
 let styles = require('../style/homeStyle'),
     menu = require('../style/menuStyle');
 
-const data = [
-  ['Janv', 330],
-  ['Févr', 300],
-  ['Mars', 400],
-  ['Avril', 900],
-  ['Mai', 500],
-  ['Juin', 100],
-  ['Juil', 200],
-  ['Août', 100],
-  ['Sept', 1200],
-  ['Oct', 300],
-  ['Nov', 900],
-  ['Déc', 900],
-];
 
 import Depense from "./depense/depense";
 import Details from './depense/details';
@@ -42,11 +28,137 @@ let Home = React.createClass ({
       const limit = dataTab[dataTab.length-1]['maxdepense'];
       this.setState({ limit });
     });
+
   axios.get('http://104.131.74.22:8080/depense?user='+this.props.username)
   .then( response => {
     const depenseObject = response.data['data'];
+    var depense = response.data['data'][0]['id'];
     const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);
     this.setState({ depenseArray });
+
+    for ( var i = 0; i< depenseArray.length; i++ ){
+      var depense = response.data['data'][i]['montant'];
+      if( response.data['data'][i]['month'] == 'JANV' ){
+        var arrayJanv = [];
+        arrayJanv.push(depense);
+        var countJanv = 0;
+        for(var j=0; j < arrayJanv.length; j++)
+          {
+            countJanv += arrayJanv[j];
+            this.setState({janv:countJanv});
+          }
+      }
+      else if( response.data['data'][i]['month'] == 'FÉV' ){
+        var arrayFev = [];
+        arrayFev.push(depense);
+        var countFev = 0;
+        for(var j=0; j < arrayFev.length; j++)
+          {
+            countFev += arrayFev[j];
+            this.setState({fev:countFev});
+          }
+      }
+      else if( response.data['data'][i]['month'] == 'MARS' ){
+        var arrayMars = [];
+        arrayMars.push(depense);
+        var countMars = 0;
+        for(var j=0; j < arrayMars.length; j++)
+          {
+            countMars += arrayMars[j];
+            this.setState({mars:countMars});
+          }
+      }
+      else if( response.data['data'][i]['month'] == 'AVRIL' ){
+        var arrayAvril = [];
+        arrayAvril.push(depense);
+        var countAvril = 0;
+        for(var j=0; j < arrayAvril.length; j++)
+          {
+            countAvril += arrayAvril[j];
+            this.setState({avril:countAvril});
+          }
+      }
+      else if( response.data['data'][i]['month'] == 'MAI' ){
+        var arrayMai = [];
+        arrayMai.push(depense);
+        var countMai = 0;
+        for(var j=0; j < arrayMai.length; j++)
+          {
+            countMai += arrayMai[j];
+            this.setState({mai:countMai});
+          }
+      }
+      else if( response.data['data'][i]['month'] == 'JUIN' ){
+        var arrayJuin = [];
+        arrayJuin.push(depense);
+        var countJuin = 0;
+        for(var j=0; j < arrayJuin.length; j++)
+          {
+            countJuin += arrayJuin[j];
+            this.setState({juin:countJuin});
+          }
+      }
+      else if( response.data['data'][i]['month'] == 'JUIL' ){
+        var arrayJuil = [];
+        arrayJuil.push(depense);
+        var countJuil = 0;
+        for(var j=0; j < arrayJuil.length; j++)
+          {
+            countJuil += arrayJuil[j];
+            this.setState({juil:countJuil});
+          }
+      }
+      else if( response.data['data'][i]['month'] == 'AOÛT' ){
+        var arrayAout = [];
+        arrayAout.push(depense);
+        var countAout = 0;
+        for(var j=0; j < arrayAout.length; j++)
+          {
+            countAout += arrayAout[j];
+            this.setState({aout:countAout});
+          }
+      }
+      else if( response.data['data'][i]['month'] == 'SEP' ){
+        var arraySept = [];
+        arraySept.push(depense);
+        var countSept = 0;
+        for(var j=0; j < arraySept.length; j++)
+          {
+            countSept += arraySept[j];
+            this.setState({sept:countSept});
+          }
+      }
+      else if( response.data['data'][i]['month'] == 'OCT' ){
+        var arrayOcto = [];
+        arrayOcto.push(depense);
+        var countOcto = 0;
+        for(var j=0; j < arrayOcto.length; j++)
+          {
+            countOcto += arrayOcto[j];
+            this.setState({oct:countOcto});
+          }
+      }
+      else if( response.data['data'][i]['month'] == 'NOV' ){
+        var arrayNov = [];
+        arrayNov.push(depense);
+        var countNov = 0;
+        for(var j=0; j < arrayNov.length; j++)
+          {
+            countNov += arrayNov[j];
+            this.setState({nov:countNov});
+          }
+      }
+      else if( response.data['data'][i]['month'] == 'DÉC' ){
+        var arrayDec = [];
+        arrayDec.push(depense);
+        var countDec = 0;
+        for(var j=0; j < arrayDec.length; j++)
+          {
+            countDec += arrayDec[j];
+            this.setState({dec:countDec});
+          }
+      }
+    }
   })
   .catch(function (error) {
     alert('Erreur:'+ error);
@@ -72,6 +184,19 @@ let Home = React.createClass ({
       user:this.props.username,
       enable:false,
       enableInfo:true,
+      janv:0,
+      fev:0,
+      mars:0,
+      avril:0,
+      mai:0,
+      juin:0,
+      juil:0,
+      aout:0,
+      sept:0,
+      oct:0,
+      nov:0,
+      dec:0,
+
     }
   },
   toggleDisplay() {
@@ -240,7 +365,22 @@ _renderDepense(){
         <View>
           <Chart
   					style={styles.chart}
-  					data={data}
+  					data={
+              [
+                ['Janv', this.state.janv],
+                ['Févr', this.state.fev],
+                ['Mars', this.state.mars],
+                ['Avril', this.state.avril],
+                ['Mai', this.state.mai],
+                ['Juin', this.state.juin],
+                ['Juil', this.state.juil],
+                ['Août', this.state.aout],
+                ['Sept', this.state.sept],
+                ['Oct', this.state.oct],
+                ['Nov', this.state.nov],
+                ['Déc', this.state.dec],
+              ]
+            }
   					type="bar"
   					showDataPoint={true}
             verticalGridStep={5}
