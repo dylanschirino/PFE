@@ -23,7 +23,7 @@ let updatePret = React.createClass ({
       component: Home,
       title:'Home',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goDepense(){
@@ -31,7 +31,7 @@ let updatePret = React.createClass ({
       component: Depense,
       title:'Depense',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goEpargne(){
@@ -39,7 +39,7 @@ let updatePret = React.createClass ({
       component: Epargne,
       title:'Epargne',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   goPret(){
@@ -47,7 +47,7 @@ let updatePret = React.createClass ({
       component: Pret,
       title:'Pret',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   addEpargne(){
@@ -55,7 +55,7 @@ let updatePret = React.createClass ({
       component: addEpargne,
       title:'addEpargne',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   addPret(){
@@ -63,11 +63,14 @@ let updatePret = React.createClass ({
       component: addPret,
       title:'addPret',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   },
   componentDidMount(){
-    axios.get('http://104.131.74.22:8080/pret/'+this.props.pret_id)
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
+    axios.get('http://104.131.74.22:8080/pret/'+this.props.pret_id,config)
     .then( response => {
       const pretDetails = response.data['data'];
       this.setState({ name:pretDetails.name,
@@ -83,6 +86,9 @@ let updatePret = React.createClass ({
     });
   },
   _handlePress() {
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
   let name = ( this.state.name || "" ),
       montant = ( this.state.montant || "" ),
       mensualite = (this.state.mensualite || "" ),
@@ -96,7 +102,7 @@ let updatePret = React.createClass ({
     interet:interet,
     depart:depart,
     user:this.props.username,
-  })
+  },config)
   .then(function (response) {
   })
   .catch(function (error) {
@@ -107,7 +113,7 @@ let updatePret = React.createClass ({
       component: Pret,
       title:'Pret',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     });
   }
   },

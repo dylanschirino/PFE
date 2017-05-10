@@ -26,7 +26,7 @@ let Pret = React.createClass ({
       component: Home,
       title:'Home',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     })
   },
   goDepense(){
@@ -34,7 +34,7 @@ let Pret = React.createClass ({
       component: Depense,
       title:'Dépense',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     })
   },
   goEpargne(){
@@ -42,7 +42,7 @@ let Pret = React.createClass ({
       component: Epargne,
       title:'Épargne',
       navigationBarHidden:true,
-      passProps:{username:this.props.username},
+      passProps:{username:this.props.username,token:this.props.token},
     })
   },
   addEpargne(){
@@ -50,7 +50,7 @@ let Pret = React.createClass ({
       component: addEpargne,
       title:'Ajouter épargne',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   addPret(){
@@ -58,7 +58,7 @@ let Pret = React.createClass ({
       component: addPret,
       title:'Ajouter prêt',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   addDepense(){
@@ -66,11 +66,14 @@ let Pret = React.createClass ({
       component: addDepense,
       title:'Ajouter dépense',
       navigationBarHidden:true,
-      passProps:{username:this.state.user},
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   componentDidMount(){
-    axios.get('http://104.131.74.22:8080/pret?user='+this.props.username)
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
+    axios.get('http://104.131.74.22:8080/pret?user='+this.props.username,config)
     .then( response => {
       const pretObject = response.data['data'];
       const pretArray = Object.keys(pretObject).map(key => pretObject[key]);
@@ -85,18 +88,21 @@ let Pret = React.createClass ({
       component: updatePret,
       title:'Modifier un prêt',
       navigationBarHidden:true,
-      passProps:{username:this.state.user,pret_id:id},
+      passProps:{username:this.state.user,pret_id:id,token:this.props.token},
     })
   },
   _handleDelete(id){
-    axios.delete('http://104.131.74.22:8080/pret/'+id)
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
+    axios.delete('http://104.131.74.22:8080/pret/'+id,config)
     .then( response => {
       alert('Le prêt à bien été supprimé');
     })
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
-    axios.get('http://104.131.74.22:8080/pret?user='+this.props.username)
+    axios.get('http://104.131.74.22:8080/pret?user='+this.props.username,config)
     .then( response => {
       const pretObject = response.data['data'];
       const pretArray = Object.keys(pretObject).map(key => pretObject[key]);
@@ -110,7 +116,7 @@ let Pret = React.createClass ({
     this.props.navigator.push({
       component: Details,
       title:name,
-      passProps:{pret_id:id,name:name,username:this.state.user,end:end},
+      passProps:{pret_id:id,name:name,username:this.state.user,end:end,token:this.props.token},
       navigationBarHidden:true,
     });
   },
