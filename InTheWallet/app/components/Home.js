@@ -18,6 +18,7 @@ import Pret from './pret/pret';
 import addDepense from './depense/addDepense';
 import addPret from './pret/addPret';
 import addEpargne from './epargne/addEpargne';
+import Limit from './Limit';
 
 let Home = React.createClass ({
     mixins: [TimerMixin],
@@ -220,6 +221,14 @@ let Home = React.createClass ({
       passProps:{username:this.state.user}
     });
   },
+  goLimit(){
+    this.props.navigator.push({
+      component: Limit,
+      title:'Limit',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user}
+    });
+  },
   addDepense(){
     this.props.navigator.push({
       component: addDepense,
@@ -278,23 +287,23 @@ let Home = React.createClass ({
     }
   },
   _handlePress(event) {
-  let limit=this.state.limit;
+    let limit=this.state.limit;
 
-  if( limit ==""){
-    alert("La limite ne peut pas être vide");
-  }
-  else {
-    axios.post('http://104.131.74.22:8080/home', {
-        maxdepense:limit,
-        user:this.props.username,
-    })
-    .then(function (response) {
-      limit = response.data['data']['maxdepense'];
-    })
-       .catch(function (error) {
-         alert('Erreur:'+ error);
-       });
-  }
+    if( limit ==""){
+      alert("La limite ne peut pas être vide");
+    }
+    else {
+      axios.post('http://104.131.74.22:8080/home', {
+          maxdepense:limit,
+          user:this.props.username,
+      })
+      .then(function (response) {
+        limit = response.data['data']['maxdepense'];
+      })
+         .catch(function (error) {
+           alert('Erreur:'+ error);
+         });
+    }
 },
 _renderDepense(){
   let length = this.state.depenseArray.length;
@@ -333,14 +342,10 @@ _renderDepense(){
                 value={this.state.limit.toString()}
                 color='#FFFFFF'
                 placeholderTextColor='#FFFFFF'/>
-              <TouchableOpacity style={styles.button} onPress={this._reset}>
+              <TouchableOpacity style={styles.button} onPress={this.goLimit}>
                 <Image style={styles.buttonImg} source={ require('../img/edit.png')}
                   />
               </TouchableOpacity>
-              <TouchableOpacity style={styles.button} onPress={this._handlePress}>
-              <Image style={styles.buttonImgCheck} source={ require('../img/validation.png')}
-                />
-            </TouchableOpacity>
             </View>
             <Text style={styles.label}>{'Limite du mois'.toUpperCase() } </Text>
           </Form>
