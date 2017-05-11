@@ -48,6 +48,31 @@ let Introduction4 = React.createClass( {
   onSwipeRight() {
     this.props.navigator.pop();
   },
+  _renderSwitcher(){
+    return(
+      <View style={styles.switchContainer}>
+
+      <TouchableOpacity onPress={this.goIntroduction}
+      style={styles.switcher}>
+      <View></View>
+      </TouchableOpacity>
+
+      <View>
+      <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction2}>
+      <View></View>
+      </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity onPress={this.goIntroduction3} style={styles.switcher}>
+      <View></View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.active}>
+      <View></View>
+      </TouchableOpacity>
+      </View>
+    )
+  },
   render() {
     const config = {
       velocityThreshold: 0.3,
@@ -72,30 +97,7 @@ let Introduction4 = React.createClass( {
       <Text style={styles.introText}>
       Dans combien de temps pourrez-vous vous offrir la voiture de vos rêves en mettant 10€ / mois ?
       </Text>
-
-      <View style={styles.switchContainer}>
-
-      <TouchableOpacity onPress={this.goIntroduction}
-      style={styles.switcher}>
-      <View></View>
-      </TouchableOpacity>
-
-      <View>
-      <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction2}>
-      <View></View>
-      </TouchableOpacity>
-      </View>
-
-      <TouchableOpacity onPress={this.goIntroduction3} style={styles.switcher}>
-      <View></View>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.active}>
-      <View></View>
-      </TouchableOpacity>
-
-
-      </View>
+      {this._renderSwitcher()}
       <TouchableOpacity style={styles.buttonCustom2} onPress={this.goSubscribe}>
       <Text style={styles.buttonText}>
       Passer les introductions !

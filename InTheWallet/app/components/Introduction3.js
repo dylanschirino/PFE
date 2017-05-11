@@ -50,7 +50,32 @@ let Introduction3 = React.createClass( {
   onSwipeRight() {
     this.props.navigator.pop();
   },
+  _renderSwitcher(){
+    return(
+      <View style={styles.switchContainer}>
 
+      <TouchableOpacity onPress={this.goIntroduction}
+      style={styles.switcher}>
+      <View></View>
+      </TouchableOpacity>
+
+      <View>
+      <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction2}>
+      <View></View>
+      </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity style={styles.active}>
+      <View></View>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={this.goIntroduction4} style={styles.switcher}>
+      <View></View>
+      </TouchableOpacity>
+
+      </View>
+    )
+  },
   render() {
     const config = {
       velocityThreshold: 0.3,
@@ -76,28 +101,7 @@ let Introduction3 = React.createClass( {
       Ajouter vos prêts avec vos taux d’intêret et voir le remboursement en temps réels.
       </Text>
 
-      <View style={styles.switchContainer}>
-
-      <TouchableOpacity onPress={this.goIntroduction}
-      style={styles.switcher}>
-      <View></View>
-      </TouchableOpacity>
-
-      <View>
-      <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction2}>
-      <View></View>
-      </TouchableOpacity>
-      </View>
-
-      <TouchableOpacity style={styles.active}>
-      <View></View>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={this.goIntroduction4} style={styles.switcher}>
-      <View></View>
-      </TouchableOpacity>
-
-      </View>
+      {this._renderSwitcher()}
       <TouchableOpacity style={styles.buttonCustom} onPress={this.goSubscribe}>
       <Text style={styles.buttonText}>
       Passer les introductions !

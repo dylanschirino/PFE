@@ -49,6 +49,33 @@ var Introduction2 = React.createClass ( {
   onSwipeRight() {
     this.props.navigator.pop();
   },
+  _renderSwitcher(){
+    return(
+      <View style={styles.switchContainer}>
+
+      <TouchableOpacity onPress={this.goIntroduction}
+      style={styles.switcher}>
+      <View></View>
+      </TouchableOpacity>
+
+      <View>
+      <TouchableOpacity style={styles.active}>
+      <View></View>
+      </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity onPress={this.goIntroduction3} style={styles.switcher}>
+      <View></View>
+
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={this.goIntroduction4} style={styles.switcher}>
+      <View></View>
+      </TouchableOpacity>
+
+      </View>
+    )
+  },
   render() {
     const config = {
       velocityThreshold: 0.3,
@@ -73,30 +100,7 @@ var Introduction2 = React.createClass ( {
         <Text style={styles.introText}>
         Vous pouvez ajouter une dépense en un rien de temps ou que vous soyez.
         </Text>
-
-        <View style={styles.switchContainer}>
-
-        <TouchableOpacity onPress={this.goIntroduction}
-        style={styles.switcher}>
-        <View></View>
-        </TouchableOpacity>
-
-        <View>
-        <TouchableOpacity style={styles.active}>
-        <View></View>
-        </TouchableOpacity>
-        </View>
-
-        <TouchableOpacity onPress={this.goIntroduction3} style={styles.switcher}>
-        <View></View>
-
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.goIntroduction4} style={styles.switcher}>
-        <View></View>
-        </TouchableOpacity>
-
-        </View>
+        {this._renderSwitcher()}
         <TouchableOpacity style={styles.button} onPress={this.goSubscribe}>
         <Text style={styles.buttonText}>
         Passer les introductions !
