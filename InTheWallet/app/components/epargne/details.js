@@ -57,8 +57,8 @@ let Details = React.createClass ({
     }
   },
   toggleDisplay() {
-  let toggle = !this.state.enable;
-  this.setState({enable: toggle});
+    let toggle = !this.state.enable;
+    this.setState({enable: toggle});
   },
   addDepense(){
     this.props.navigator.push({
@@ -157,9 +157,8 @@ let Details = React.createClass ({
           </View>
         )
   },
-  render() {
-    return (
-      <View style={{flex:1,}}>
+  _renderHead(){
+    return(
       <View style={nav.header}>
         <StatusBar barStyle="light-content"
           />
@@ -176,21 +175,10 @@ let Details = React.createClass ({
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.container}>
-        <View style={details.quickLinkContainerCustom}>
-          <TouchableOpacity style={styles.quickLink} onPress={this.goPret}>
-            <View style={styles.quickLinkContent}>
-              <Text style={styles.quickLinkText}>Prêt</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.quickLink} onPress={this.goEpargne}>
-            <View style={styles.quickLinkContentActive}>
-              <Text style={styles.quickLinkTextActive}>Épargne</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-      </View>
-      {this._renderDetails()}
+    )
+  },
+  _renderDisplay(){
+    return(
       <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={menu.container}>
         <TouchableOpacity style={menu.buttonBack} onPress={() => {this.toggleDisplay()}}>
           <Image style={menu.imgAnnuler} source={ require('../../img/annuler.png')}
@@ -218,6 +206,10 @@ let Details = React.createClass ({
           <Text style={menu.buttonLabel}>{'Épargne'.toUpperCase()}</Text>
           </TouchableOpacity>
       </Display>
+    )
+  },
+  _renderMenu(){
+    return(
       <View style={menu.menu}>
           <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
             <Image
@@ -256,6 +248,29 @@ let Details = React.createClass ({
           <Text style={menu.menuLabel}>Prêt</Text>
           </TouchableOpacity>
       </View>
+    )
+  },
+  render() {
+    return (
+      <View style={{flex:1,}}>
+      {this._renderHead()}
+      <View style={styles.container}>
+        <View style={details.quickLinkContainerCustom}>
+          <TouchableOpacity style={styles.quickLink} onPress={this.goPret}>
+            <View style={styles.quickLinkContent}>
+              <Text style={styles.quickLinkText}>Prêt</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.quickLink} onPress={this.goEpargne}>
+            <View style={styles.quickLinkContentActive}>
+              <Text style={styles.quickLinkTextActive}>Épargne</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      </View>
+      {this._renderDetails()}
+      {this._renderDisplay()}
+      {this._renderMenu()}
       </View>
     )}
   });

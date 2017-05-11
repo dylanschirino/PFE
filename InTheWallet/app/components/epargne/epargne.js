@@ -130,8 +130,8 @@ let Epargne = React.createClass ({
     });
   },
   toggleDisplay() {
-  let toggle = !this.state.enable;
-  this.setState({enable: toggle});
+    let toggle = !this.state.enable;
+    this.setState({enable: toggle});
   },
   _renderSearch(text){
     let spendArray = (this.state.epargneArray);
@@ -259,9 +259,8 @@ let Epargne = React.createClass ({
     });
   }
   },
-  render() {
-    return (
-      <View style={{flex:1,}}>
+  _renderHeader(){
+    return(
       <View style={nav.header}>
         <StatusBar barStyle="light-content"
           />
@@ -278,12 +277,10 @@ let Epargne = React.createClass ({
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.container}>
-        <SearchBar
-          ref='searchBar'
-          placeholder='Recherche'
-          onChangeText={(text) => {this._renderSearch(text)}}
-          />
+    )
+  },
+  _renderSwitch(){
+    return(
       <View style={styles.quickLinkContainer}>
           <TouchableOpacity style={styles.quickLink} onPress={this.goPret}>
             <View style={styles.quickLinkContent}>
@@ -296,10 +293,10 @@ let Epargne = React.createClass ({
             </View>
           </TouchableOpacity>
         </View>
-      </View>
-      <ScrollView scrollEnabled={true} automaticallyAdjustContentInsets={false} contentContainerStyle={styles.listCustom}>
-        {this._renderEpargne()}
-      </ScrollView>
+    )
+  },
+  _renderDisplay(){
+    return(
       <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={menu.container}>
         <TouchableOpacity style={menu.buttonBack} onPress={() => {this.toggleDisplay()}}>
           <Image style={menu.imgAnnuler} source={ require('../../img/annuler.png')}
@@ -327,6 +324,10 @@ let Epargne = React.createClass ({
           <Text style={menu.buttonLabel}>{'Épargne'.toUpperCase()}</Text>
           </TouchableOpacity>
       </Display>
+    )
+  },
+  _renderMenu(){
+    return(
       <View style={menu.menu}>
           <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
             <Image
@@ -365,6 +366,25 @@ let Epargne = React.createClass ({
           <Text style={menu.menuLabel}>Prêt</Text>
           </TouchableOpacity>
       </View>
+    )
+  },
+  render() {
+    return (
+      <View style={{flex:1,}}>
+      {this._renderHeader()}
+      <View style={styles.container}>
+        <SearchBar
+          ref='searchBar'
+          placeholder='Recherche'
+          onChangeText={(text) => {this._renderSearch(text)}}
+          />
+      {this._renderSwitch()}
+      </View>
+      <ScrollView scrollEnabled={true} automaticallyAdjustContentInsets={false} contentContainerStyle={styles.listCustom}>
+        {this._renderEpargne()}
+      </ScrollView>
+      {this._renderDisplay()}
+      {this._renderMenu()}
       </View>
     )}
   });
