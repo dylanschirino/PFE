@@ -268,9 +268,6 @@ let Home = React.createClass ({
           navigationBarHidden:true,
         });
   },
-  _reset(){
-    this.setState({ limit:'0' });
-  },
   renderInfo(){
     if( this.state.total >= 50 ){
       return(
@@ -318,7 +315,7 @@ _renderDepense(){
             <Text style={styles.amount}>{this.state.total}€</Text>
             <Text style={styles.label}> {'Dépenses du mois'.toUpperCase() } </Text>
           </View>
-          <Form style={styles.limitSecond} ref="limite">
+          <View style={styles.limitSecond} ref="limite">
             <View style={styles.limitContainer}>
               <Text style={styles.amountLimit}>{this.state.limit}</Text>
               <TouchableOpacity style={styles.button} onPress={this.goLimit}>
@@ -327,7 +324,7 @@ _renderDepense(){
               </TouchableOpacity>
             </View>
             <Text style={styles.labelLimit}>{'Limite du mois'.toUpperCase() } </Text>
-          </Form>
+          </View>
       </View>
       <View style={styles.progressContainer}>
         <View style={styles.progressView}>

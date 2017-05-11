@@ -15,7 +15,10 @@ import Pret from "./pret/pret";
 
 let Limit = React.createClass ({
   componentDidMount() {
-    axios.get('http://104.131.74.22:8080/home?user='+this.props.username)
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
+    axios.get('http://104.131.74.22:8080/home?user='+this.props.username,config)
       .then(response => {
         let dataTab = response.data['data'];
         const limit = dataTab[dataTab.length-1]['maxdepense'];
@@ -33,7 +36,7 @@ let Limit = React.createClass ({
       component: Depense,
       title:'Dépense',
       navigationBarHidden:true,
-      passProps:{username:this.state.user}
+      passProps:{username:this.state.user,token:this.props.token}
     });
   },
   goEpargne(){
@@ -41,7 +44,7 @@ let Limit = React.createClass ({
       component: Epargne,
       title:'Épargne',
       navigationBarHidden:true,
-      passProps:{username:this.state.user}
+      passProps:{username:this.state.user,token:this.props.token}
     });
   },
   goPret(){
@@ -49,7 +52,7 @@ let Limit = React.createClass ({
       component: Pret,
       title:'Prêt',
       navigationBarHidden:true,
-      passProps:{username:this.state.user}
+      passProps:{username:this.state.user,token:this.props.token}
     });
   },
   cancelHome(){
@@ -57,10 +60,13 @@ let Limit = React.createClass ({
       component: Home,
       title:'Accueil',
       navigationBarHidden:true,
-      passProps:{username:this.state.user}
+      passProps:{username:this.state.user,token:this.props.token}
     });
   },
   _handlePress(event) {
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
     let limit=this.state.limit;
 
     if( limit ==""){
@@ -70,7 +76,7 @@ let Limit = React.createClass ({
       axios.post('http://104.131.74.22:8080/home', {
           maxdepense:limit,
           user:this.props.username,
-      })
+      },config)
       .then(function (response) {
         limit = response.data['data']['maxdepense'];
       })
@@ -82,7 +88,7 @@ let Limit = React.createClass ({
           component: Home,
           title:'Accueil',
           navigationBarHidden:true,
-          passProps:{username:this.state.user,limite:limit}
+          passProps:{username:this.state.user,limite:limit,token:this.props.token}
         });
       }
     }
