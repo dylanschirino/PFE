@@ -129,8 +129,8 @@ let Pret = React.createClass ({
     }
   },
   toggleDisplay() {
-  let toggle = !this.state.enable;
-  this.setState({enable: toggle});
+    let toggle = !this.state.enable;
+    this.setState({enable: toggle});
   },
   _renderSearch(text){
     let spendArray = (this.state.pretArray);
@@ -148,9 +148,64 @@ let Pret = React.createClass ({
 
   },
   _renderEpargne(){
-  if(this.state.search){
-    let pretArray = (this.state.search);
-    return pretArray.map( ( oPret, i ) => {
+    if(this.state.search){
+      let pretArray = (this.state.search);
+      return pretArray.map( ( oPret, i ) => {
+          {
+            var start = moment(oPret.start)*1000;
+            var end = moment(oPret.end,'DD-MM-YYYY')*1000;
+            var now = + new Date();
+            var percent = Math.round(( ( now - start ) / ( end - start ) ) * 100)/10000;
+          }
+            return (
+              <Swipeout key={i} autoClose={true} right={[
+                {
+                component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oPret.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
+                  /></TouchableOpacity>,
+                backgroundColor:'#FF9500'
+              },
+                {
+                component:<TouchableOpacity onPress={
+                  () => Alert.alert(
+                  oPret.name,
+                  'Voulez-vous vraiment le supprimer?',
+                  [
+                    {text: 'Annuler', onPress: () => null},
+                    {text: 'Supprimer', onPress: () => {this._handleDelete(oPret.id)}},
+                  ]
+                )
+                } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
+                  /></TouchableOpacity>,
+                backgroundColor:'#FE3F35'
+              }
+            ]} backgroundColor={'#FFFFFF'}>
+              <TouchableOpacity onPress={ ()=>{this.goDetails(oPret.id, oPret.name,oPret.end)}}>
+              <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
+                <View style={styles.containerInfoCustom}>
+                  <View>
+                    <Text style={styles.nameCustom}>{oPret.name}</Text>
+                  </View>
+                  <View style={styles.secondInfo}>
+                    <Text style={styles.label}>{'Date de fin'.toUpperCase()}</Text>
+                    <Text style={styles.date}>{oPret.end}</Text>
+                  </View>
+                  <View style={styles.progressContainer}>
+                    <View style={styles.progressView}>
+                      <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
+                      progress={Math.abs(percent)/100}/>
+                    <Text style={styles.percent}>{Math.abs(percent).toFixed(2)}%</Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              </TouchableOpacity>
+              </Swipeout>
+            )
+        } );
+    }
+    if(this.state.search == null ){
+      let pretArray = (this.state.pretArray).reverse();
+      return pretArray.map( ( oPret, i ) => {
         {
           var start = moment(oPret.start)*1000;
           var end = moment(oPret.end,'DD-MM-YYYY')*1000;
@@ -202,66 +257,10 @@ let Pret = React.createClass ({
             </Swipeout>
           )
       } );
-  }
-  if(this.state.search == null ){
-    let pretArray = (this.state.pretArray).reverse();
-    return pretArray.map( ( oPret, i ) => {
-      {
-        var start = moment(oPret.start)*1000;
-        var end = moment(oPret.end,'DD-MM-YYYY')*1000;
-        var now = + new Date();
-        var percent = Math.round(( ( now - start ) / ( end - start ) ) * 100)/10000;
-      }
-        return (
-          <Swipeout key={i} autoClose={true} right={[
-            {
-            component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oPret.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
-              /></TouchableOpacity>,
-            backgroundColor:'#FF9500'
-          },
-            {
-            component:<TouchableOpacity onPress={
-              () => Alert.alert(
-              oPret.name,
-              'Voulez-vous vraiment le supprimer?',
-              [
-                {text: 'Annuler', onPress: () => null},
-                {text: 'Supprimer', onPress: () => {this._handleDelete(oPret.id)}},
-              ]
-            )
-            } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
-              /></TouchableOpacity>,
-            backgroundColor:'#FE3F35'
-          }
-        ]} backgroundColor={'#FFFFFF'}>
-          <TouchableOpacity onPress={ ()=>{this.goDetails(oPret.id, oPret.name,oPret.end)}}>
-          <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
-            <View style={styles.containerInfoCustom}>
-              <View>
-                <Text style={styles.nameCustom}>{oPret.name}</Text>
-              </View>
-              <View style={styles.secondInfo}>
-                <Text style={styles.label}>{'Date de fin'.toUpperCase()}</Text>
-                <Text style={styles.date}>{oPret.end}</Text>
-              </View>
-              <View style={styles.progressContainer}>
-                <View style={styles.progressView}>
-                  <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
-                  progress={Math.abs(percent)/100}/>
-                <Text style={styles.percent}>{Math.abs(percent).toFixed(2)}%</Text>
-                </View>
-              </View>
-            </View>
-          </View>
-          </TouchableOpacity>
-          </Swipeout>
-        )
-    } );
-  }
-},
-  render() {
-    return (
-      <View style={{flex:1,}}>
+    }
+  },
+  _renderHead(){
+    return(
       <View style={nav.header}>
         <StatusBar barStyle="light-content"
           />
@@ -278,12 +277,10 @@ let Pret = React.createClass ({
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.container}>
-        <SearchBar
-          ref='searchBar'
-          placeholder='Recherche'
-          onChangeText={(text) => {this._renderSearch(text)}}
-          />
+    )
+  },
+  _renderSwitch(){
+    return(
       <View style={styles.quickLinkContainer}>
           <TouchableOpacity style={styles.quickLink}>
             <View style={styles.quickLinkContentActiveLeft}>
@@ -296,10 +293,10 @@ let Pret = React.createClass ({
             </View>
           </TouchableOpacity>
         </View>
-        <ScrollView scrollEnabled={true} automaticallyAdjustContentInsets={false} contentContainerStyle={styles.listCustom}>
-          {this._renderEpargne()}
-        </ScrollView>
-      </View>
+    )
+  },
+  _renderDisplay(){
+    return(
       <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={menu.container}>
           <TouchableOpacity style={menu.buttonBack} onPress={() => {this.toggleDisplay()}}>
             <Image style={menu.imgAnnuler} source={ require('../../img/annuler.png')}
@@ -327,6 +324,10 @@ let Pret = React.createClass ({
           <Text style={menu.buttonLabel}>{'Épargne'.toUpperCase()}</Text>
           </TouchableOpacity>
       </Display>
+    )
+  },
+  _renderMenu(){
+    return(
       <View style={menu.menu}>
           <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
             <Image
@@ -365,6 +366,25 @@ let Pret = React.createClass ({
           <Text style={menu.menuLabel}>Prêt</Text>
           </TouchableOpacity>
       </View>
+    )
+  },
+  render() {
+    return (
+      <View style={{flex:1,}}>
+      {this._renderHead()}
+      <View style={styles.container}>
+        <SearchBar
+          ref='searchBar'
+          placeholder='Recherche'
+          onChangeText={(text) => {this._renderSearch(text)}}
+          />
+        {this._renderSwitch()}
+        <ScrollView scrollEnabled={true} automaticallyAdjustContentInsets={false} contentContainerStyle={styles.listCustom}>
+          {this._renderEpargne()}
+        </ScrollView>
+      </View>
+      {this._renderDisplay()}
+      {this._renderMenu()}
       </View>
     )}
   });
