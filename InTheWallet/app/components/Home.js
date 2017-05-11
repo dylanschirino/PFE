@@ -288,7 +288,7 @@ let Home = React.createClass ({
       )
     }
   },
-_renderDepense(){
+  _renderDepense(){
   let length = this.state.depenseArray.length;
   let threeLast = this.state.depenseArray.slice(Math.max(length - 3, 0));
   return threeLast.map( ( oDepense, i ) => {
@@ -305,9 +305,8 @@ _renderDepense(){
       )
   } );
 },
-  render() {
-    return (
-      <View style={menu.containerBase}>
+  _renderHeader(){
+    return(
       <View style={styles.header}>
         <StatusBar barStyle="light-content"
         />
@@ -326,12 +325,20 @@ _renderDepense(){
             <Text style={styles.labelLimit}>{'Limite du mois'.toUpperCase() } </Text>
           </View>
       </View>
+    )
+  },
+  _renderProgress(){
+    return(
       <View style={styles.progressContainer}>
         <View style={styles.progressView}>
           <ProgressViewIOS style={styles.progressBar} trackTintColor={'#124D73'} progressTintColor='white' progress={this.state.total/this.state.limit}/>
           <Text style={styles.percent}>{((Math.floor(this.state.total)/Math.floor(this.state.limit))*100) | 0}%</Text>
         </View>
       </View>
+    )
+  },
+  _renderChart(){
+    return(
       <View style={styles.chartContainer}>
         <View>
           <Chart
@@ -367,41 +374,10 @@ _renderDepense(){
         </View>
         {this.renderInfo()}
       </View>
-      <View style={styles.lastDepenseContainer}>
-        <View style={styles.depenseHeader}>
-          <Text style={styles.depenseHeaderTitle}>DERNIÈRES DÉPENSES</Text>
-        </View>
-        <View style={styles.depenseContainerCustom}>
-          {this._renderDepense()}
-        </View>
-      </View>
-      <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={menu.container}>
-        <TouchableOpacity style={menu.buttonBack} onPress={() => {this.toggleDisplay()}}>
-          <Image style={menu.imgAnnuler} source={ require('../img/annuler.png')}
-            />
-        </TouchableOpacity>
-          <TouchableOpacity style={menu.buttonContainerDepense} onPress={this.addDepense}>
-            <Image
-              style={menu.icone}
-              source={ require('../img/depenseB.png')}
-            />
-          <Text style={menu.buttonLabel}>{'Dépense'.toUpperCase()}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={menu.buttonContainerPret} onPress={this.addPret}>
-            <Image
-              style={menu.iconePret}
-              source={ require('../img/pretB.png')}
-            />
-          <Text style={menu.buttonLabel}>{'Prêt'.toUpperCase()}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={menu.buttonContainerEpargne} onPress={this.addEpargne}>
-            <Image
-              style={menu.iconeEpargne}
-              source={ require('../img/epargneB.png')}
-            />
-          <Text style={menu.buttonLabel}>{'Épargne'.toUpperCase()}</Text>
-          </TouchableOpacity>
-      </Display>
+    )
+  },
+  _renderMenu(){
+    return(
       <View style={menu.menu}>
           <TouchableOpacity style={menu.menuLink}>
             <Image
@@ -440,6 +416,50 @@ _renderDepense(){
           <Text style={menu.menuLabel}>Prêt</Text>
           </TouchableOpacity>
       </View>
+    )
+  },
+  render() {
+    return (
+      <View style={menu.containerBase}>
+      {this._renderHeader()}
+      {this._renderProgress()}
+      {this._renderChart()}
+      <View style={styles.lastDepenseContainer}>
+        <View style={styles.depenseHeader}>
+          <Text style={styles.depenseHeaderTitle}>DERNIÈRES DÉPENSES</Text>
+        </View>
+        <View style={styles.depenseContainerCustom}>
+          {this._renderDepense()}
+        </View>
+      </View>
+      <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={menu.container}>
+        <TouchableOpacity style={menu.buttonBack} onPress={() => {this.toggleDisplay()}}>
+          <Image style={menu.imgAnnuler} source={ require('../img/annuler.png')}
+            />
+        </TouchableOpacity>
+          <TouchableOpacity style={menu.buttonContainerDepense} onPress={this.addDepense}>
+            <Image
+              style={menu.icone}
+              source={ require('../img/depenseB.png')}
+            />
+          <Text style={menu.buttonLabel}>{'Dépense'.toUpperCase()}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={menu.buttonContainerPret} onPress={this.addPret}>
+            <Image
+              style={menu.iconePret}
+              source={ require('../img/pretB.png')}
+            />
+          <Text style={menu.buttonLabel}>{'Prêt'.toUpperCase()}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={menu.buttonContainerEpargne} onPress={this.addEpargne}>
+            <Image
+              style={menu.iconeEpargne}
+              source={ require('../img/epargneB.png')}
+            />
+          <Text style={menu.buttonLabel}>{'Épargne'.toUpperCase()}</Text>
+          </TouchableOpacity>
+      </Display>
+      {this._renderMenu()}
       </View>
 
     )}
