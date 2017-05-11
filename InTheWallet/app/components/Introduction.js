@@ -46,6 +46,28 @@ let Introduction = React.createClass ({
       navigationBarHidden:true,
     });
   },
+  _renderSwitcher(){
+    return(
+      <View style={styles.switchContainer}>
+        <TouchableOpacity
+        style={styles.active}>
+        <View></View>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction2}>
+        <View></View>
+
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction3}>
+        <View></View>
+
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction4}>
+        <View></View>
+        </TouchableOpacity>
+      </View>
+    )
+  },
   render() {
     const config = {
       velocityThreshold: 0.3,
@@ -67,31 +89,12 @@ let Introduction = React.createClass ({
           <Text style={styles.introText}>
           In The Wallet vous permets de mieux gérer vos dépenses au quotidien.
           </Text>
-          <View style={styles.switchContainer}>
-
-          <TouchableOpacity
-          style={styles.active}>
-          <View></View>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction2}>
-          <View></View>
-
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction3}>
-          <View></View>
-
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction4}>
-          <View></View>
-          </TouchableOpacity>
-
-          </View>
+          {this._renderSwitcher()}
           <TouchableOpacity style={styles.button} onPress={this.goSubscribe}>
-          <Text style={styles.buttonText}>
-          Passer les introductions !
-          </Text>
-        </TouchableOpacity>
+            <Text style={styles.buttonText}>
+            Passer les introductions !
+            </Text>
+          </TouchableOpacity>
       </View>
       </GestureRecognizer>
     )
