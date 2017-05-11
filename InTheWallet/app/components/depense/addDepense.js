@@ -9,12 +9,12 @@ var ImagePicker = require('react-native-image-picker');
 let styles = require('../../style/addStyle'),
     menu = require('../../style/menuStyle');
 
-    const optionsPicker = ['Jamais', '1', '2'];
+ const optionsPicker = ['Jamais', '1', '2'];
 
-    import Depense from './depense';
-    import Epargne from '../epargne/epargne';
-    import Pret from '../pret/pret';
-    import Home from '../Home';
+ import Depense from './depense';
+ import Epargne from '../epargne/epargne';
+ import Pret from '../pret/pret';
+ import Home from '../Home';
 
 let addDepense = React.createClass ({
   pickImage(){
@@ -69,32 +69,32 @@ let addDepense = React.createClass ({
     var config = {
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
     };
-  let name = ( this.state.name || "" ),
-      montant = ( this.state.montant || "" ),
-      categorieString = this.state.categorie,
-      categorieArray = [],
-      payement,
-      picture,
-      repeater = this.state.repeater;
-      categorieArray = categorieString.split(',');
+    let name = ( this.state.name || "" ),
+        montant = ( this.state.montant || "" ),
+        categorieString = this.state.categorie,
+        categorieArray = [],
+        payement,
+        picture,
+        repeater = this.state.repeater;
+        categorieArray = categorieString.split(',');
 
-  axios.post('http://104.131.74.22:8080/depense', {
-    name:name,
-    montant:montant,
-    user:this.props.username,
-    categorie:categorieArray,
-    payement:this.state.payement,
-    picture:this.state.uri,
-    repeater:this.state.selectedOption,
-  },config)
-  .then(function (response) {
-  })
-  .catch(function (error) {
-    alert('Erreur:'+ error);
-  });
-  if(!navigator.props){
-    this.props.navigator.pop();
-  }
+    axios.post('http://104.131.74.22:8080/depense', {
+      name:name,
+      montant:montant,
+      user:this.props.username,
+      categorie:categorieArray,
+      payement:this.state.payement,
+      picture:this.state.uri,
+      repeater:this.state.selectedOption,
+    },config)
+    .then(function (response) {
+    })
+    .catch(function (error) {
+      alert('Erreur:'+ error);
+    });
+    if(!navigator.props){
+      this.props.navigator.pop();
+    }
   },
   getInitialState: function() {
     return {
@@ -131,12 +131,46 @@ let addDepense = React.createClass ({
     }
 
   },
+  _renderMenu(){
+    return(
+      <View style={menu.menu}>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
+          <Image
+            style={menu.icone}
+            source={ require('../../img/home.png')}
+          />
+        <Text style={menu.menuLabel}>Accueil</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goDepense}>
+          <Image
+            style={menu.icone}
+            source={ require('../../img/depense.png')}
+          />
+        <Text style={menu.menuLabel}>Dépenses</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
+          <Image
+            style={menu.iconeEpargne}
+            source={ require('../../img/epargne.png')}
+          />
+        <Text style={menu.menuLabel}>Épargne</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
+          <Image
+            style={menu.iconePret}
+            source={ require('../../img/pret.png')}
+          />
+        <Text style={menu.menuLabel}>Prêt</Text>
+        </TouchableOpacity>
+    </View>
+    )
+  },
   render() {
     return (
       <View style={styles.mainContent}>
       <StatusBar barStyle="dark-content"
       />
-    <Form ref="addDepense">
+      <Form ref="addDepense">
       <View style={styles.nameContainer}>
         <Text style={styles.label}>{ 'Nom de la dépense'.toUpperCase() }</Text>
           <View style={styles.inputBox}>
@@ -258,36 +292,7 @@ let addDepense = React.createClass ({
         </TouchableOpacity>
       </View>
     </Form>
-    <View style={menu.menu}>
-        <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
-          <Image
-            style={menu.icone}
-            source={ require('../../img/home.png')}
-          />
-        <Text style={menu.menuLabel}>Accueil</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={menu.menuLink} onPress={this.goDepense}>
-          <Image
-            style={menu.icone}
-            source={ require('../../img/depense.png')}
-          />
-        <Text style={menu.menuLabel}>Dépenses</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
-          <Image
-            style={menu.iconeEpargne}
-            source={ require('../../img/epargne.png')}
-          />
-        <Text style={menu.menuLabel}>Épargne</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
-          <Image
-            style={menu.iconePret}
-            source={ require('../../img/pret.png')}
-          />
-        <Text style={menu.menuLabel}>Prêt</Text>
-        </TouchableOpacity>
-    </View>
+      {this._renderMenu()}
       </View>
     )}
   });

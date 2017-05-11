@@ -87,38 +87,38 @@ let updateDepense = React.createClass ({
     var config = {
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
     };
-  let name = ( this.state.name || "" ),
-      montant = ( this.state.montant || "" ),
-      categorieString = this.state.categorie,
-      categorieArray = [],
-      payement,
-      repeater = this.state.repeater;
-      if(!!this.state.categorie){
-        categorieArray = this.state.categorie;
-      }
+    let name = ( this.state.name || "" ),
+        montant = ( this.state.montant || "" ),
+        categorieString = this.state.categorie,
+        categorieArray = [],
+        payement,
+        repeater = this.state.repeater;
+        if(!!this.state.categorie){
+          categorieArray = this.state.categorie;
+        }
 
-  axios.patch('http://104.131.74.22:8080/depense/'+this.props.depense_id, {
-    name:name,
-    montant:montant,
-    user:this.props.username,
-    categorie:categorieArray,
-    payement:this.state.payement,
-    repeater:this.state.selectedOption,
-    picture:this.state.uri,
-  },config)
-  .then(function (response) {
-  })
-  .catch(function (error) {
-    alert('Erreur:'+ error);
-  });
-  if(!navigator.props){
-    this.props.navigator.push({
-      component: Depense,
-      title:'Depense',
-      navigationBarHidden:true,
-      passProps:{username:this.props.username,token:this.props.token},
+    axios.patch('http://104.131.74.22:8080/depense/'+this.props.depense_id, {
+      name:name,
+      montant:montant,
+      user:this.props.username,
+      categorie:categorieArray,
+      payement:this.state.payement,
+      repeater:this.state.selectedOption,
+      picture:this.state.uri,
+    },config)
+    .then(function (response) {
+    })
+    .catch(function (error) {
+      alert('Erreur:'+ error);
     });
-  }
+    if(!navigator.props){
+      this.props.navigator.push({
+        component: Depense,
+        title:'Depense',
+        navigationBarHidden:true,
+        passProps:{username:this.props.username,token:this.props.token},
+      });
+    }
   },
   getInitialState: function() {
     return {
@@ -287,13 +287,9 @@ let updateDepense = React.createClass ({
     }
 
   },
-  render() {
-    return (
-      <View style={styles.mainContent}>
-      <StatusBar barStyle="dark-content"
-      />
-      {this._renderUpdate()}
-    <View style={menu.menu}>
+  _renderMenu(){
+    return(
+      <View style={menu.menu}>
         <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
           <Image
             style={menu.icone}
@@ -323,6 +319,15 @@ let updateDepense = React.createClass ({
         <Text style={menu.menuLabel}>Prêt</Text>
         </TouchableOpacity>
     </View>
+    )
+  },
+  render() {
+    return (
+      <View style={styles.mainContent}>
+      <StatusBar barStyle="dark-content"
+      />
+      {this._renderUpdate()}
+      {this._renderMenu()}
       </View>
     )}
   });

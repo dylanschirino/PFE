@@ -47,12 +47,10 @@ let Depense = React.createClass ({
     }
   },
   toggleDisplay() {
-  let toggle = !this.state.enable;
-  this.setState({enable: toggle});
+    let toggle = !this.state.enable;
+    this.setState({enable: toggle});
   },
   goDetails(id,name){
-    let spendArray = this.state.depenseArray;
-
         this.props.navigator.push({
           component: Details,
           title:name,
@@ -116,7 +114,6 @@ let Depense = React.createClass ({
       passProps:{username:this.state.user,depense_id:id,token:this.props.token},
     })
   },
-
   _handleDelete(id){
     var config = {
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
@@ -139,45 +136,132 @@ let Depense = React.createClass ({
     });
   },
   _renderDepense(){
-  let spendArray = (this.state.depenseArray).reverse();
-  if(this.state.search){
-    let searchArray = this.state.search;
-    return searchArray.map( ( oDepense, i ) => {
-      var payement = oDepense.payement;
-      var repeater = oDepense.repeater;
-        var generateImageSearch =function(){
-        if( payement == 'carte'){
-          return require('../../img/carte.png');
-        }
-        else if ( payement == 'cash'){
-          return require('../../img/cash.png');
-        }
-      }
-      var generateRepeatSearch = function(){
-          if ( repeater == 'Jamais' || repeater == false ){
-            return null;
+    let spendArray = (this.state.depenseArray).reverse();
+    if(this.state.search){
+      let searchArray = this.state.search;
+      return searchArray.map( ( oDepense, i ) => {
+        var payement = oDepense.payement;
+        var repeater = oDepense.repeater;
+          var generateImageSearch =function(){
+          if( payement == 'carte'){
+            return require('../../img/carte.png');
           }
-          else{
-            return require('../../img/repeat.png');
+          else if ( payement == 'cash'){
+            return require('../../img/cash.png');
           }
         }
-        var _renderThumb = function(){
-          if(oDepense.picture !=null){
-            return(
-              <View style={styles.thumb}>
-                <Image style={styles.img} source={{uri: oDepense.picture}}
-                />
+        var generateRepeatSearch = function(){
+            if ( repeater == 'Jamais' || repeater == false ){
+              return null;
+            }
+            else{
+              return require('../../img/repeat.png');
+            }
+          }
+          var _renderThumb = function(){
+            if(oDepense.picture !=null){
+              return(
+                <View style={styles.thumb}>
+                  <Image style={styles.img} source={{uri: oDepense.picture}}
+                  />
+                </View>
+              )
+            }
+            else{
+              return(
+                <View style={styles.thumb}>
+                  <Image style={styles.imgThumb} source={ require('../../img/photo-camera.png')}
+                  />
+                </View>
+              )
+            }
+          }
+            return (
+              <Swipeout key={i} autoClose={true} right={[
+                {
+                component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oDepense.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
+                  /></TouchableOpacity>,
+                backgroundColor:'#FF9500'
+              },
+                {
+                component:<TouchableOpacity onPress={
+                  () => Alert.alert(
+                  oDepense.name,
+                  'Voulez-vous vraiment le supprimer?',
+                  [
+                    {text: 'Annuler', onPress: () => null},
+                    {text: 'Supprimer', onPress: () => {this._handleDelete(oDepense.id)}},
+                  ]
+                )
+                } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
+                  /></TouchableOpacity>,
+                backgroundColor:'#FE3F35'
+              }
+            ]} backgroundColor={'#FFFFFF'}>
+              <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
+              <View style={styles.depenseContainer}>
+                <View style={styles.smallInfo}>
+                  <Image style={styles.imgRepeat} source={generateRepeatSearch()}
+                    />
+                  <Image style={styles.imgPayement} source={generateImageSearch()}
+                      />
+                </View>
+                {_renderThumb()}
+                <View style={styles.containerInfo}>
+                  <View style={styles.mainInfo}>
+                    <Text style={styles.price}>{oDepense.montant}€</Text>
+                    <Text style={styles.name}>{oDepense.name}</Text>
+                  </View>
+                  <View style={styles.secondInfo}>
+                    <Text style={styles.label}>DÉPENSÉ LE</Text>
+                    <Text style={styles.date}>{oDepense.created_at}</Text>
+                  </View>
+                </View>
               </View>
+              </TouchableOpacity>
+              </Swipeout>
             )
+      });
+    }
+    if(this.state.search == null ){
+      return spendArray.map( ( oDepense, i ) => {
+        {
+          this.state.name = oDepense.name;
+          var generateImage = function(){
+          if( oDepense.payement == 'carte'){
+            return (require('../../img/carte.png'));
           }
-          else{
-            return(
-              <View style={styles.thumb}>
-                <Image style={styles.imgThumb} source={ require('../../img/photo-camera.png')}
-                />
-              </View>
-            )
+          else if ( oDepense.payement == 'cash'){
+            return (require('../../img/cash.png'));
           }
+        }
+          var generateRepeat = function(){
+            if ( oDepense.repeater == 'Jamais' || oDepense.repeater == false ){
+              return null;
+            }
+            else{
+              return (require('../../img/repeat.png'));
+            }
+          }
+          var _renderThumb = function(){
+            if(oDepense.picture !=null){
+              return(
+                <View style={styles.thumb}>
+                  <Image style={styles.img} source={{uri: oDepense.picture}}
+                  />
+                </View>
+              )
+            }
+            else{
+              return(
+                <View style={styles.thumb}>
+                  <Image style={styles.imgThumb} source={ require('../../img/photo-camera.png')}
+                  />
+                </View>
+              )
+            }
+          }
+
         }
           return (
             <Swipeout key={i} autoClose={true} right={[
@@ -202,14 +286,14 @@ let Depense = React.createClass ({
             }
           ]} backgroundColor={'#FFFFFF'}>
             <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
-            <View style={styles.depenseContainer}>
+            <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
               <View style={styles.smallInfo}>
-                <Image style={styles.imgRepeat} source={generateRepeatSearch()}
+                <Image style={styles.imgRepeat} source={generateRepeat()}
                   />
-                <Image style={styles.imgPayement} source={generateImageSearch()}
+                <Image style={styles.imgPayement} source={generateImage()}
                     />
               </View>
-              {_renderThumb()}
+                {_renderThumb()}
               <View style={styles.containerInfo}>
                 <View style={styles.mainInfo}>
                   <Text style={styles.price}>{oDepense.montant}€</Text>
@@ -224,96 +308,9 @@ let Depense = React.createClass ({
             </TouchableOpacity>
             </Swipeout>
           )
-    });
-  }
-  if(this.state.search == null ){
-    return spendArray.map( ( oDepense, i ) => {
-      {
-        this.state.name = oDepense.name;
-        var generateImage = function(){
-        if( oDepense.payement == 'carte'){
-          return (require('../../img/carte.png'));
-        }
-        else if ( oDepense.payement == 'cash'){
-          return (require('../../img/cash.png'));
-        }
-      }
-        var generateRepeat = function(){
-          if ( oDepense.repeater == 'Jamais' || oDepense.repeater == false ){
-            return null;
-          }
-          else{
-            return (require('../../img/repeat.png'));
-          }
-        }
-        var _renderThumb = function(){
-          if(oDepense.picture !=null){
-            return(
-              <View style={styles.thumb}>
-                <Image style={styles.img} source={{uri: oDepense.picture}}
-                />
-              </View>
-            )
-          }
-          else{
-            return(
-              <View style={styles.thumb}>
-                <Image style={styles.imgThumb} source={ require('../../img/photo-camera.png')}
-                />
-              </View>
-            )
-          }
-        }
-
-      }
-        return (
-          <Swipeout key={i} autoClose={true} right={[
-            {
-            component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oDepense.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
-              /></TouchableOpacity>,
-            backgroundColor:'#FF9500'
-          },
-            {
-            component:<TouchableOpacity onPress={
-              () => Alert.alert(
-              oDepense.name,
-              'Voulez-vous vraiment le supprimer?',
-              [
-                {text: 'Annuler', onPress: () => null},
-                {text: 'Supprimer', onPress: () => {this._handleDelete(oDepense.id)}},
-              ]
-            )
-            } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
-              /></TouchableOpacity>,
-            backgroundColor:'#FE3F35'
-          }
-        ]} backgroundColor={'#FFFFFF'}>
-          <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
-          <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
-            <View style={styles.smallInfo}>
-              <Image style={styles.imgRepeat} source={generateRepeat()}
-                />
-              <Image style={styles.imgPayement} source={generateImage()}
-                  />
-            </View>
-              {_renderThumb()}
-            <View style={styles.containerInfo}>
-              <View style={styles.mainInfo}>
-                <Text style={styles.price}>{oDepense.montant}€</Text>
-                <Text style={styles.name}>{oDepense.name}</Text>
-              </View>
-              <View style={styles.secondInfo}>
-                <Text style={styles.label}>DÉPENSÉ LE</Text>
-                <Text style={styles.date}>{oDepense.created_at}</Text>
-              </View>
-            </View>
-          </View>
-          </TouchableOpacity>
-          </Swipeout>
-        )
-    } );
-  }
-},
+      } );
+    }
+  },
 _renderCategorie(){
   let spendArray = (this.state.depenseArray);
       {
@@ -360,25 +357,103 @@ _renderSearchCategorie(categorie){
   var result = spendArray.filter(match);
   this.setState({search: result});
 },
+_renderHeader(){
+  return(
+    <View style={nav.header}>
+      <StatusBar barStyle="light-content"
+        />
+      <View style={nav.navBar}>
+        <TouchableOpacity style={nav.backLink} onPress={this.goHome}>
+          <Image style={nav.backIcone} source={ require('../../img/back.png')}
+            />
+          <Text style={nav.backText}>Accueil</Text>
+        </TouchableOpacity>
+        <Text style={nav.navTitle}>Dépenses</Text>
+        <TouchableOpacity style={nav.add} onPress={this.addDepense}>
+          <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
+            />
+        </TouchableOpacity>
+      </View>
+    </View>
+  )
+},
+_renderMenu(){
+  return(
+    <View style={menu.menu}>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
+          <Image
+            style={menu.icone}
+            source={ require('../../img/home.png')}
+          />
+        <Text style={menu.menuLabel}>Accueil</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goDepense}>
+          <Image
+            style={menu.icone}
+            source={ require('../../img/depense.png')}
+          />
+        <Text style={menu.menuLabel}>Dépenses</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={menu.menuLinkAdd} onPress={() => {this.toggleDisplay()}}>
+          <View style={menu.add}>
+            <Image
+              style={menu.iconeAdd}
+              source={ require('../../img/add.png')}
+            />
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
+          <Image
+            style={menu.iconeEpargne}
+            source={ require('../../img/epargne.png')}
+          />
+        <Text style={menu.menuLabel}>Épargne</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
+          <Image
+            style={menu.iconePret}
+            source={ require('../../img/pret.png')}
+          />
+        <Text style={menu.menuLabel}>Prêt</Text>
+        </TouchableOpacity>
+    </View>
+  )
+},
+_renderDisplay(){
+  return(
+    <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={menu.container}>
+      <TouchableOpacity style={menu.buttonBack} onPress={() => {this.toggleDisplay()}}>
+        <Image style={menu.imgAnnuler} source={ require('../../img/annuler.png')}
+          />
+      </TouchableOpacity>
+        <TouchableOpacity style={menu.buttonContainerDepense} onPress={this.addDepense}>
+          <Image
+            style={menu.icone}
+            source={ require('../../img/depenseB.png')}
+          />
+        <Text style={menu.buttonLabel}>{'Dépense'.toUpperCase()}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={menu.buttonContainerPret} onPress={this.addPret}>
+          <Image
+            style={menu.iconePret}
+            source={ require('../../img/pretB.png')}
+          />
+        <Text style={menu.buttonLabel}>{'Prêt'.toUpperCase()}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={menu.buttonContainerEpargne} onPress={this.addEpargne}>
+          <Image
+            style={menu.iconeEpargne}
+            source={ require('../../img/epargneB.png')}
+          />
+        <Text style={menu.buttonLabel}>{'Épargne'.toUpperCase()}</Text>
+        </TouchableOpacity>
+    </Display>
+  )
+},
   render() {
     return (
       <View style={{flex:1,}}>
-      <View style={nav.header}>
-        <StatusBar barStyle="light-content"
-          />
-        <View style={nav.navBar}>
-          <TouchableOpacity style={nav.backLink} onPress={this.goHome}>
-            <Image style={nav.backIcone} source={ require('../../img/back.png')}
-              />
-            <Text style={nav.backText}>Accueil</Text>
-          </TouchableOpacity>
-          <Text style={nav.navTitle}>Dépenses</Text>
-          <TouchableOpacity style={nav.add} onPress={this.addDepense}>
-            <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
-              />
-          </TouchableOpacity>
-        </View>
-      </View>
+      {this._renderHeader()}
       <View style={styles.container}>
         <ScrollView horizontal={true} scrollEnabled={true} contentContainerStyle={styles.categorie}>
           {this._renderCategorie()}
@@ -392,71 +467,8 @@ _renderSearchCategorie(categorie){
       <ScrollView scrollEnabled={true} contentContainerStyle={styles.listCustom}>
         {this._renderDepense()}
       </ScrollView>
-      <Display enable={this.state.enable} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={menu.container}>
-        <TouchableOpacity style={menu.buttonBack} onPress={() => {this.toggleDisplay()}}>
-          <Image style={menu.imgAnnuler} source={ require('../../img/annuler.png')}
-            />
-        </TouchableOpacity>
-          <TouchableOpacity style={menu.buttonContainerDepense} onPress={this.addDepense}>
-            <Image
-              style={menu.icone}
-              source={ require('../../img/depenseB.png')}
-            />
-          <Text style={menu.buttonLabel}>{'Dépense'.toUpperCase()}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={menu.buttonContainerPret} onPress={this.addPret}>
-            <Image
-              style={menu.iconePret}
-              source={ require('../../img/pretB.png')}
-            />
-          <Text style={menu.buttonLabel}>{'Prêt'.toUpperCase()}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={menu.buttonContainerEpargne} onPress={this.addEpargne}>
-            <Image
-              style={menu.iconeEpargne}
-              source={ require('../../img/epargneB.png')}
-            />
-          <Text style={menu.buttonLabel}>{'Épargne'.toUpperCase()}</Text>
-          </TouchableOpacity>
-      </Display>
-      <View style={menu.menu}>
-          <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
-            <Image
-              style={menu.icone}
-              source={ require('../../img/home.png')}
-            />
-          <Text style={menu.menuLabel}>Accueil</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLink} onPress={this.goDepense}>
-            <Image
-              style={menu.icone}
-              source={ require('../../img/depense.png')}
-            />
-          <Text style={menu.menuLabel}>Dépenses</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLinkAdd} onPress={() => {this.toggleDisplay()}}>
-            <View style={menu.add}>
-              <Image
-                style={menu.iconeAdd}
-                source={ require('../../img/add.png')}
-              />
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
-            <Image
-              style={menu.iconeEpargne}
-              source={ require('../../img/epargne.png')}
-            />
-          <Text style={menu.menuLabel}>Épargne</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
-            <Image
-              style={menu.iconePret}
-              source={ require('../../img/pret.png')}
-            />
-          <Text style={menu.menuLabel}>Prêt</Text>
-          </TouchableOpacity>
-      </View>
+      {this._renderDisplay()}
+      {this._renderMenu()}
       </View>
     )}
   });
