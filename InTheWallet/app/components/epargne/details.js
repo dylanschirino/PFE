@@ -45,8 +45,14 @@ let Details = React.createClass ({
       var distance = (timeStampFinal - timeStamp);
       var month = Math.floor( distance / (1000 * 60 * 60 * 24 * 31));
       var days = Math.floor((distance / (1000 * 60 * 60 * 24)));
-      var timeS = moment.duration(days, "days").format("Y [ANS] M [MOIS] D [JOURS]");
-      this.setState({time:timeS});} ,1000);
+      if( days == 0 ){
+        var timeS = 'ÉPARGNE CLOTURÉ'
+      }
+      else{
+        var timeS = moment.duration(days, "days").format("Y [ANS] M [MOIS] D [JOURS]");
+      }
+      this.setState({time:timeS});
+      } ,1000);
       this.refs.Load.setTimeClose();
   },
   getInitialState: function() {
@@ -234,7 +240,7 @@ let Details = React.createClass ({
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={menu.menuLink} onPress={this.goHome}>
+          <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
             <Image
               style={menu.iconeEpargne}
               source={ require('../../img/epargne.png')}

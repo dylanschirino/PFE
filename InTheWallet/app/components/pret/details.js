@@ -45,8 +45,14 @@ let Details = React.createClass ({
       var distance = (timeStampFinal - timeStamp);
       var month = Math.floor( distance / (1000 * 60 * 60 * 24 * 31));
       var days = Math.floor((distance / (1000 * 60 * 60 * 24)));
-      var timeS = moment.duration(days, "days").format("Y [ANS] M [MOIS] D [JOURS]");
-      this.setState({time:timeS});} ,1000);
+      if( days == 0 ){
+        var timeS = 'PRÊT CLOTURÉ'
+      }
+      else{
+        var timeS = moment.duration(days, "days").format("Y [ANS] M [MOIS] D [JOURS]");
+      }
+      this.setState({time:timeS});
+      } ,1000);
       this.refs.Load.setTimeClose();
   },
   getInitialState: function() {
