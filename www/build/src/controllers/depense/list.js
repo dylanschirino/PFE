@@ -7,7 +7,7 @@
 import getDepenses from "../../models/depense";
 import { send, error } from "../../core/utils/api";
 export default function( oRequest, oResponse ) {
-    let sUserID = oRequest.query.user || "" ;
+    let sUserID = oRequest.query.user || "";
 
     if ( !sUserID ) {
         error( oRequest, oResponse, "Mandatory country query params not found!", 400 );

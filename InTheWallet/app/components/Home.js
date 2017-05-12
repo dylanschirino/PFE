@@ -42,6 +42,9 @@ let Home = React.createClass ({
         const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);
         this.setState({ depenseArray });
         var arrayJanv = [], arrayFev = [], arrayMars = [],arrayAvril = [],arrayMai = [],arrayJuin = [],arrayJuil = [],arrayAout = [],arraySept = [],arrayOcto = [],arrayNov = [],arrayDec = [];
+        var monthArray = ['JAN','FÉV','MARS','AVRIL','MAI','JUIN','JUIL','AOÛT','SEP','OCT','NOV','DÉC'];
+        var currentDate = new Date();
+        var currentMonth = monthArray[currentDate.getMonth()];
         for ( var i = 0; i< depenseArray.length; i++ ){
           var depense = response.data['data'][i]['montant'];
           var mois = response.data['data'][i]['month'];
@@ -52,15 +55,22 @@ let Home = React.createClass ({
               {
                 countJanv += arrayJanv[j];
                 this.setState({janv:countJanv});
+                if(currentMonth == 'JAN'){
+                  this.setState({total:countJanv});
+                }
               }
           }
           else if( mois == 'FÉV' ){
             arrayFev.push(depense);
             var countFev = 0;
+
             for(var j=0; j < arrayFev.length; j++)
               {
                 countFev += arrayFev[j];
                 this.setState({fev:countFev});
+                if( currentMonth = 'FÉV' ){
+                  this.setState({total:countFev});
+                }
               }
           }
           else if( mois == 'MARS' ){
@@ -70,6 +80,9 @@ let Home = React.createClass ({
               {
                 countMars += arrayMars[j];
                 this.setState({mars:countMars});
+                if(currentMonth == 'MARS'){
+                  this.setState({total:countMars});
+                }
               }
           }
           else if( mois == 'AVRIL' ){
@@ -79,6 +92,9 @@ let Home = React.createClass ({
               {
                 countAvril += arrayAvril[j];
                 this.setState({avril:countAvril});
+                if(currentMonth == 'AVRIL'){
+                  this.setState({total:countAvril});
+                }
               }
           }
           else if( mois == 'MAI' ){
@@ -88,6 +104,9 @@ let Home = React.createClass ({
               {
                 countMai += arrayMai[j];
                 this.setState({mai:countMai});
+                if(currentMonth == 'MAI'){
+                  this.setState({total:countMai});
+                }
               }
           }
           else if( mois == 'JUIN' ){
@@ -97,6 +116,9 @@ let Home = React.createClass ({
               {
                 countJuin += arrayJuin[j];
                 this.setState({juin:countJuin});
+                if(currentMonth == 'JUIN'){
+                  this.setState({total:countJuin});
+                }
               }
           }
           else if( mois == 'JUIL' ){
@@ -106,6 +128,9 @@ let Home = React.createClass ({
               {
                 countJuil += arrayJuil[j];
                 this.setState({juil:countJuil});
+                if(currentMonth == 'JUIL'){
+                  this.setState({total:countJuil});
+                }
               }
           }
           else if( mois == 'AOÛT' ){
@@ -115,6 +140,9 @@ let Home = React.createClass ({
               {
                 countAout += arrayAout[j];
                 this.setState({aout:countAout});
+                if(currentMonth == 'AOÛT'){
+                  this.setState({total:countAout});
+                }
               }
           }
           else if( mois == 'SEP' ){
@@ -124,6 +152,9 @@ let Home = React.createClass ({
               {
                 countSept += arraySept[j];
                 this.setState({sept:countSept});
+                if(currentMonth == 'SEP'){
+                  this.setState({total:countSept});
+                }
               }
           }
           else if( mois == 'OCT' ){
@@ -133,6 +164,9 @@ let Home = React.createClass ({
               {
                 countOcto += arrayOcto[j];
                 this.setState({oct:countOcto});
+                if(currentMonth == 'OCT'){
+                  this.setState({total:countOcto});
+                }
               }
           }
           else if( mois == 'NOV' ){
@@ -142,6 +176,9 @@ let Home = React.createClass ({
               {
                 countNov += arrayNov[j];
                 this.setState({nov:countNov});
+                if(currentMonth == 'NOV'){
+                  this.setState({total:countNov});
+                }
               }
           }
           else if( mois == 'DÉC' ){
@@ -151,23 +188,17 @@ let Home = React.createClass ({
               {
                 countDec += arrayDec[j];
                 this.setState({dec:countDec});
+                if(currentMonth == 'DÉC'){
+                  this.setState({total:countDec});
+                }
               }
           }
         }
-        console.log(arrayJanv);
       })
       .catch(function (error) {
         alert('Erreur:'+ error);
       });
 
-    axios.get('http://104.131.74.22:8080/depense_sum/'+this.props.username,config)
-      .then( response => {
-        const total = response.data['data']['total'];
-        this.setState({ total });
-      })
-      .catch(function (error) {
-        alert('Erreur:'+ error);
-      });
 
     this.setTimeout( () => { this.toggleDisplayInfo()} ,7000);
 
