@@ -303,7 +303,8 @@ let Home = React.createClass ({
         });
   },
   renderInfo(){
-    if( this.state.total >= 50 ){
+    var pourcentage = (Math.floor(this.state.total)/Math.floor(this.state.limit))*100;
+    if( pourcentage <= 50 ){
       return(
         <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainer}>
           <Image source={require('../img/sun.png')} style={styles.infoIcone}
@@ -312,7 +313,7 @@ let Home = React.createClass ({
         </Display>
       )
     }
-    else if( this.state.total <= 50 ){
+    else if( pourcentage >= 50 ){
       return(
         <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainerStorm}>
           <Image source={require('../img/storm.png')} style={styles.infoIconeStorm}
