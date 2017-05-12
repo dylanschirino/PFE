@@ -13,6 +13,7 @@
     "react": "15.4.2",
     "react-native": "0.42.0",
     "react-native-camera-roll-picker": "^1.1.9",
+    "react-native-catch-first-time": "^0.0.1",
     "react-native-chart": "^1.0.8-beta",
     "react-native-display": "^1.0.8",
     "react-native-extended-stylesheet": "^0.3.2",

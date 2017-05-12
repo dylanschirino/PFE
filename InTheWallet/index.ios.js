@@ -8,50 +8,49 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+var firstTime = require('react-native-catch-first-time');
+var DeviceInfo = require('react-native-device-info');
 
 import Introduction from "./app/components/Introduction";
 import Login from "./app/components/login/Login";
-
+const firstLaunch = 0;
 export default class InTheWallet extends Component {
   constructor(){
     super();
     this.state = {firstLaunch: null};
   }
-  componentDidMount(){
-    AsyncStorage.getItem("alreadyLaunched").then(value => {
-      if(value == null){
-        AsyncStorage.setItem('key','alreadyLaunched', false);
-        this.setState({firstLaunch: true});
-      }
-      else{
-        this.setState({firstLaunch: false});
-      }
+  componentWillMount(){
+    var that = this;
+    firstTime(DeviceInfo.getUniqueID())
+    .catch(function(response) {
+          let toggle = !that.state.firstLaunch;
+          that.setState({firstLaunch:true})
     })
   }
   render() {
-      if ( this.state.firstLaunch == null ){
+    if ( this.state.firstLaunch == 1 ){
+      return(
+        <NavigatorIOS
+        initialRoute = {{
+          component: Introduction,
+          title:'Introduction',
+          navigationBarHidden:true,
+        }}
+       style={{ flex:1,}}/>
+      )
+    }
+      else if (this.state.firstLaunch == null) {
         return null;
       }
-       else if(this.state.firstLaunch == true){
-         return (
-           <NavigatorIOS
-           initialRoute = {{
-             component: Introduction,
-             title:'Introduction',
-             navigationBarHidden:true,
-           }}
-          style={{ flex:1,}}/>
-         )
-      }
-      else{
-        return (
-         <NavigatorIOS
-         initialRoute = {{
-           component: Login,
-           title:'Login',
-           navigationBarHidden:true,
-         }}
-        style={{ flex:1,}}/>
+      else if( this.state.firstLaunch == +0){
+        return(
+          <NavigatorIOS
+          initialRoute = {{
+            component: Login,
+            title:'Login',
+            navigationBarHidden:true,
+          }}
+         style={{ flex:1,}}/>
         )
       }
   }
