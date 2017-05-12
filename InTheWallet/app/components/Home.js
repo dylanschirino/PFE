@@ -6,6 +6,7 @@ import axios from 'axios';
 import Chart from 'react-native-chart';
 import Display from 'react-native-display';
 import TimerMixin from 'react-timer-mixin';
+import Load from "react-native-loading-gif";
 
 let styles = require('../style/homeStyle'),
     menu = require('../style/menuStyle');
@@ -169,6 +170,8 @@ let Home = React.createClass ({
       });
 
     this.setTimeout( () => { this.toggleDisplayInfo()} ,7000);
+
+    this.refs.Load.setTimeClose();
 },
   getInitialState: function() {
     return {
@@ -421,6 +424,7 @@ let Home = React.createClass ({
   render() {
     return (
       <View style={menu.containerBase}>
+      <Load ref="Load"></Load>
       {this._renderHeader()}
       {this._renderProgress()}
       {this._renderChart()}
