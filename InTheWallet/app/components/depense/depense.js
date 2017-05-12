@@ -5,6 +5,8 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import axios from 'axios';
 import Swipeout from 'react-native-swipeout';
 import Display from 'react-native-display';
+import Load from "react-native-loading-gif";
+
 let concat = require('unique-concat');
 
 let nav = require('../../style/navStyle'),
@@ -34,6 +36,7 @@ let Depense = React.createClass ({
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
+    this.refs.Load.setTimeClose();
   },
   getInitialState: function() {
     return {
@@ -453,6 +456,7 @@ _renderDisplay(){
   render() {
     return (
       <View style={{flex:1,}}>
+       <Load ref="Load"></Load>
       {this._renderHeader()}
       <View style={styles.container}>
         <ScrollView horizontal={true} scrollEnabled={true} contentContainerStyle={styles.categorie}>
