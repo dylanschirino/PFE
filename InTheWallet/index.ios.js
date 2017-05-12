@@ -29,12 +29,15 @@ export default class InTheWallet extends Component {
     })
   }
   render() {
-       if(this.state.firstLaunch == true){
+      if ( this.state.firstLaunch == null ){
+        return null;
+      }
+       else if(this.state.firstLaunch == true){
          return (
            <NavigatorIOS
            initialRoute = {{
-             component: Login,
-             title:'Login',
+             component: Introduction,
+             title:'Introduction',
              navigationBarHidden:true,
            }}
           style={{ flex:1,}}/>
@@ -42,13 +45,13 @@ export default class InTheWallet extends Component {
       }
       else{
         return (
-          <NavigatorIOS
-          initialRoute = {{
-            component: Introduction,
-            title:'Introduction',
-            navigationBarHidden:true,
-          }}
-         style={{ flex:1,}}/>
+         <NavigatorIOS
+         initialRoute = {{
+           component: Login,
+           title:'Login',
+           navigationBarHidden:true,
+         }}
+        style={{ flex:1,}}/>
         )
       }
   }
