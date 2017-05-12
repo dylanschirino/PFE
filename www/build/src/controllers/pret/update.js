@@ -26,7 +26,7 @@ export default function( oRequest, oResponse ) {
 
             var timeStamp = moment(dDateDepart,'DD-MM-YYYY');
             var datecreated = new Date(timeStamp);
-            var timeStampFinal = datecreated.setDate(datecreated.getDate()+dDuree);
+            var timeStampFinal = datecreated.setMonth(datecreated.getMonth()+dDuree);
             var finalDate = new Date(timeStampFinal);
             var dd = finalDate.getDate();
             var mm = finalDate.getMonth()+1;
