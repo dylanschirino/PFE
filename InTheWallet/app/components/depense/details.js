@@ -81,15 +81,36 @@ let Details = React.createClass ({
     axios.get('http://104.131.74.22:8080/depense/'+this.props.depense_id,config)
     .then( response => {
       const depenseDetails = response.data['data'];
+      const payement = response.data['data']['payement'];
+
       this.setState({ depenseDetails });
+      this.setState({payement});
     })
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
+
+    let monthArray = ['JAN','FÉV','MARS','AVRIL','MAI','JUIN','JUIL','AOÛT','SEP','OCT','NOV','DÉC'];
+    let currentDate = new Date(),
+    day = 1,
+    monthUpdated = monthArray[currentDate.getMonth()];
+
+    if( day == 1 ){
+      axios.patch('http://104.131.74.22:8080/depense/'+this.props.depense_id, {
+        payement:this.props.payement,
+        month:monthUpdated,
+      },config)
+      .then(function (response) {
+      })
+      .catch(function (error) {
+        alert('Erreur:'+ error);
+      });
+    }
   },
   getInitialState: function() {
     return {
       depenseDetails:'',
+      payement:'',
       user:this.props.username,
       enable:false,
     }
@@ -105,8 +126,8 @@ let Details = React.createClass ({
             <Text style={styles.info}>{this.state.depenseDetails.montant}€</Text>
             <Text style={styles.label}>Jour de la dépense</Text>
             <Text style={styles.info}>{this.state.depenseDetails.created_at}</Text>
-            <Text style={styles.label}>La dépense est répété le </Text>
-            <Text style={styles.info}>14 du mois</Text>
+            <Text style={styles.label}>La dépense est répété</Text>
+            <Text style={styles.info}>{this.state.depenseDetails.repeater}</Text>
             <Text style={styles.label}>Catégories</Text>
             <Text style={styles.info}>{this.state.depenseDetails.categorie}</Text>
             <Text style={styles.label}>Mode de payement</Text>
