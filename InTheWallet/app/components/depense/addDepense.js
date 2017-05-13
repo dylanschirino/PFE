@@ -9,7 +9,7 @@ var ImagePicker = require('react-native-image-picker');
 let styles = require('../../style/addStyle'),
     menu = require('../../style/menuStyle');
 
- const optionsPicker = ['Jamais', '1', '2'];
+ const optionsPicker = ['Jamais', 'Chaque mois'];
 
  import Depense from './depense';
  import Epargne from '../epargne/epargne';
