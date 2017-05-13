@@ -32,11 +32,17 @@ let Introduction = React.createClass ({
       navigationBarHidden:true,
     });
   },
+  getInitialState: function() {
+    return {
+      firstLaunch:this.props.firstLaunch
+    }
+  },
   goSubscribe() {
     this.props.navigator.push({
       component: Subscribe,
       title:'Inscription',
       navigationBarHidden:true,
+      passProps:{firstLaunch:false}
     });
   },
   onSwipeLeft() {

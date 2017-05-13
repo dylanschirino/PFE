@@ -16,6 +16,7 @@ let Subscribe = React.createClass ({
       component: Login,
       title:'Login',
       navigationBarHidden:true,
+      passProps:{firstLaunch:false}
     });
   },
   getInitialState: function() {
@@ -23,6 +24,7 @@ let Subscribe = React.createClass ({
       email:'',
       password:'',
       password2:'',
+      firstLaunch:this.props.firstLaunch
     }
   },
   _handlePress(event) {
@@ -61,6 +63,7 @@ let Subscribe = React.createClass ({
           component: Login,
           title:'Login',
           navigationBarHidden:true,
+          passProps:{firstLaunch:false}
         });
       }
   },
