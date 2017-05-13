@@ -216,7 +216,7 @@ let Home = React.createClass ({
     this.setTimeout( () => { this.toggleDisplayInfo()} ,7000);
 
     this.refs.Load.setTimeClose();
-},
+  },
   getInitialState: function() {
     return {
       limit:'',
