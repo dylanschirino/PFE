@@ -92,7 +92,7 @@ let Details = React.createClass ({
 
     let monthArray = ['JAN','FÉV','MARS','AVRIL','MAI','JUIN','JUIL','AOÛT','SEP','OCT','NOV','DÉC'];
     let currentDate = new Date(),
-    day = 1,
+    day = currentDate.getDate(),
     monthUpdated = monthArray[currentDate.getMonth()];
 
     if( day == 1 ){

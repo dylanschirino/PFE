@@ -36,6 +36,8 @@ let Depense = React.createClass ({
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
+
+
     this.refs.Load.setTimeClose();
   },
   getInitialState: function() {
@@ -47,17 +49,18 @@ let Depense = React.createClass ({
       result:[],
       arrayCategorie:[],
       tokenID:this.props.token,
+      repeater:null,
     }
   },
   toggleDisplay() {
     let toggle = !this.state.enable;
     this.setState({enable: toggle});
   },
-  goDetails(id,name){
+  goDetails(id,name,payement){
         this.props.navigator.push({
           component: Details,
           title:name,
-          passProps:{depense_id:id,name:name,username:this.state.user,token:this.props.token},
+          passProps:{depense_id:id,name:name,username:this.state.user,token:this.props.token,payement:payement},
           navigationBarHidden:true,
         });
   },
@@ -145,6 +148,7 @@ let Depense = React.createClass ({
       return searchArray.map( ( oDepense, i ) => {
         var payement = oDepense.payement;
         var repeater = oDepense.repeater;
+        var id = oDepense.id;
           var generateImageSearch =function(){
           if( payement == 'carte'){
             return require('../../img/carte.png');
@@ -155,9 +159,11 @@ let Depense = React.createClass ({
         }
         var generateRepeatSearch = function(){
             if ( repeater == 'Jamais' || repeater == false ){
+              this.setState({repeater:false});
               return null;
             }
             else{
+
               return require('../../img/repeat.png');
             }
           }
@@ -201,7 +207,7 @@ let Depense = React.createClass ({
                 backgroundColor:'#FE3F35'
               }
             ]} backgroundColor={'#FFFFFF'}>
-              <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
+              <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name,oDepense.payement)}}>
               <View style={styles.depenseContainer}>
                 <View style={styles.smallInfo}>
                   <Image style={styles.imgRepeat} source={generateRepeatSearch()}
@@ -288,7 +294,7 @@ let Depense = React.createClass ({
               backgroundColor:'#FE3F35'
             }
           ]} backgroundColor={'#FFFFFF'}>
-            <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
+            <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name,oDepense.payement)}}>
             <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
               <View style={styles.smallInfo}>
                 <Image style={styles.imgRepeat} source={generateRepeat()}
