@@ -17,28 +17,21 @@ import Login from "./app/components/login/Login";
 export default class InTheWallet extends Component {
   constructor(){
     super();
-    this.state = {firstLaunch: null};
+    this.state = {firstLaunch:null};
   }
   componentWillMount(){
-    var that = this;
-    firstTime(DeviceInfo.getUniqueID())
-    .catch(function(response) {
-      that.setState({firstLaunch:true})
-    })
+      var that = this;
+      firstTime(DeviceInfo.getUniqueID())
+      .then(function(response) {
+      that.setState({firstLaunch:response});
+      return Promise.resolve(response);
+      })
+      .catch(function(response){
+        that.setState({firstLaunch:response});
+      })
   }
   render() {
-    if (this.state.firstLaunch == null) {
-      return(
-        <NavigatorIOS
-        initialRoute = {{
-          component: Login,
-          title:'Login',
-          navigationBarHidden:true,
-        }}
-       style={{ flex:1,}}/>
-      )
-    }
-    else if ( this.state.firstLaunch == 1 ){
+    if (this.state.firstLaunch === 'Running first time') {
       return(
         <NavigatorIOS
         initialRoute = {{
@@ -49,16 +42,20 @@ export default class InTheWallet extends Component {
        style={{ flex:1,}}/>
       )
     }
+    else if( this.state.firstLaunch ==='Not running first time')
+    {
+      return(
+        <NavigatorIOS
+        initialRoute = {{
+          component: Login,
+          title:'Login',
+          navigationBarHidden:true,
+        }}
+       style={{ flex:1,}}/>
+      )
+    }
       else{
-        return(
-          <NavigatorIOS
-          initialRoute = {{
-            component: Login,
-            title:'Login',
-            navigationBarHidden:true,
-          }}
-         style={{ flex:1,}}/>
-        )
+        return null;
       }
   }
 }
