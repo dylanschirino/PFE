@@ -337,31 +337,38 @@ let Home = React.createClass ({
     }
   },
   _renderDepense(){
-  let length = this.state.depenseArray.length;
-  if( this.state.depenseArray.length == 0 ){
-    return(
-          <View style={styles.noContent}>
-            <Text style={styles.noContentTitle}>{'Aucune dépense trouvée'.toUpperCase()}</Text>
-          </View>
-    )
-  }
-  else{
-    let threeLast = this.state.depenseArray.slice(Math.max(length - 3, 0));
-    return threeLast.map( ( oDepense, i ) => {
-        return (
-          <TouchableOpacity style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
-            <View style={styles.depenseContent}>
-              <Text style={styles.price}>{oDepense.montant}€</Text>
-              <Text style={styles.title}>{oDepense.name}</Text>
-              <View>
-                <Text style={styles.date}>{oDepense.created_at}</Text>
+    let length = this.state.depenseArray.length;
+    if( this.state.depenseArray.length == 0 ){
+      return(
+            <View>
+              <View style={styles.noContent}>
+                <Text style={styles.noContentTitle}>{'Aucune dépense trouvée'.toUpperCase()}</Text>
+              </View>
+              <View style={styles.noContentButton}>
+                <TouchableOpacity onPress={this.addDepense}>
+                  <Text style={styles.noContentButtonTitle}>Ajouter votre première dépense</Text>
+                </TouchableOpacity>
               </View>
             </View>
-          </TouchableOpacity>
-        )
-    } );
-  }
-},
+      )
+    }
+    else{
+      let threeLast = this.state.depenseArray.slice(Math.max(length - 3, 0));
+      return threeLast.map( ( oDepense, i ) => {
+          return (
+            <TouchableOpacity style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
+              <View style={styles.depenseContent}>
+                <Text style={styles.price}>{oDepense.montant}€</Text>
+                <Text style={styles.title}>{oDepense.name}</Text>
+                <View>
+                  <Text style={styles.date}>{oDepense.created_at}</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+          )
+      } );
+    }
+  },
   _renderHeader(){
     return(
       <View style={styles.header}>
@@ -372,13 +379,13 @@ let Home = React.createClass ({
             <Text style={styles.label}> {'Dépenses du mois'.toUpperCase() } </Text>
           </View>
           <View style={styles.limitSecond} ref="limite">
-            <View style={styles.limitContainer}>
+            <TouchableOpacity style={styles.limitContainer} onPress={this.goLimit}>
               <Text style={styles.amountLimit}>{this.state.limit}</Text>
-              <TouchableOpacity style={styles.button} onPress={this.goLimit}>
+              <View style={styles.button} onPress={this.goLimit}>
                 <Image style={styles.buttonImg} source={ require('../img/edit.png')}
                   />
-              </TouchableOpacity>
-            </View>
+              </View>
+            </TouchableOpacity>
             <Text style={styles.labelLimit}>{'Limite du mois'.toUpperCase() } </Text>
           </View>
       </View>

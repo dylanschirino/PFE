@@ -21,8 +21,13 @@ let Limit = React.createClass ({
     axios.get('http://104.131.74.22:8080/home?user='+this.props.username,config)
       .then(response => {
         let dataTab = response.data['data'];
-        const limit = dataTab[dataTab.length-1]['maxdepense'];
-        this.setState({ limit });
+        if(dataTab.length == 0){
+          this.setState({limit:0})
+        }
+        else{
+          const limit = dataTab[dataTab.length-1]['maxdepense'];
+          this.setState({ limit });
+        }
       });
   },
   getInitialState: function() {
@@ -99,7 +104,7 @@ let Limit = React.createClass ({
         <StatusBar barStyle="light-content"
           />
         <View style={nav.navBar}>
-          <TouchableOpacity style={nav.backLink} onPress={this.goHome}>
+          <TouchableOpacity style={nav.backLink} onPress={this.cancelHome}>
             <Image style={nav.backIcone} source={ require('../img/back.png')}
               />
             <Text style={nav.backText}>Accueil</Text>

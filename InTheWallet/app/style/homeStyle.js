@@ -221,16 +221,25 @@ module.exports = EStyleSheet.create({
     justifyContent:'center',
     flex:1,
   },
-  noContent:{
-    borderTopWidth:1,
-    borderBottomWidth:1,
-    borderColor:'#518DB6',
-  },
   noContentTitle:{
     fontSize:18,
     fontFamily:'lato-regular',
     color:'#518DB6',
     paddingTop:15,
     paddingBottom:15,
+  },
+  noContentButton:{
+    backgroundColor:'#518DB6',
+    borderRadius:8,
+    marginTop:15,
+  },
+  noContentButtonTitle:{
+    fontSize:16,
+    fontFamily:'lato-regular',
+    color:'#FFFFFF',
+    borderRadius:8,
+    paddingTop:12,
+    paddingBottom:12,
+    textAlign:'center',
   }
 });
