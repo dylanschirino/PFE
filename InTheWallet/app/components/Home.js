@@ -31,167 +31,180 @@ let Home = React.createClass ({
       )
       .then(response => {
         let dataTab = response.data['data'];
-        const limit = dataTab[dataTab.length-1]['maxdepense'];
-        this.setState({ limit });
+        if(dataTab.length == 0){
+          this.setState({limit:0})
+        }
+        else {
+          const limit = dataTab[dataTab.length-1]['maxdepense'];
+          this.setState({ limit });
+        }
       });
 
     axios.get('http://104.131.74.22:8080/depense?user='+this.props.username,config)
       .then( response => {
         const depenseObject = response.data['data'];
-        var depense = response.data['data'][0]['id'];
-        const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);
-        this.setState({ depenseArray });
-        var arrayJanv = [], arrayFev = [], arrayMars = [],arrayAvril = [],arrayMai = [],arrayJuin = [],arrayJuil = [],arrayAout = [],arraySept = [],arrayOcto = [],arrayNov = [],arrayDec = [];
-        var monthArray = ['JAN','FÉV','MARS','AVRIL','MAI','JUIN','JUIL','AOÛT','SEP','OCT','NOV','DÉC'];
-        var currentDate = new Date();
-        var currentMonth = monthArray[currentDate.getMonth()];
-        for ( var i = 0; i< depenseArray.length; i++ ){
-          var depense = response.data['data'][i]['montant'];
-          var mois = response.data['data'][i]['month'];
-          if( mois == 'JAN' ){
-            arrayJanv.push(depense);
-            var countJanv = 0;
-            for(var j=0; j < arrayJanv.length; j++)
-              {
-                countJanv += arrayJanv[j];
-                this.setState({janv:countJanv});
-                if(currentMonth == 'JAN'){
-                  this.setState({total:countJanv});
-                }
-              }
-          }
-          else if( mois == 'FÉV' ){
-            arrayFev.push(depense);
-            var countFev = 0;
+        if (depenseObject.length == 0 ){
+          this.setState({total:0});
+          const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);
+          this.setState({ depenseArray });
+        }
+        else {
+          var depense = response.data['data'][0]['id'];
+          const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);
+          this.setState({ depenseArray });
+          var arrayJanv = [], arrayFev = [], arrayMars = [],arrayAvril = [],arrayMai = [],arrayJuin = [],arrayJuil = [],arrayAout = [],arraySept = [],arrayOcto = [],arrayNov = [],arrayDec = [];
+          var monthArray = ['JAN','FÉV','MARS','AVRIL','MAI','JUIN','JUIL','AOÛT','SEP','OCT','NOV','DÉC'];
+          var currentDate = new Date();
+          var currentMonth = monthArray[currentDate.getMonth()];
 
-            for(var j=0; j < arrayFev.length; j++)
-              {
-                countFev += arrayFev[j];
-                this.setState({fev:countFev});
-                if( currentMonth = 'FÉV' ){
-                  this.setState({total:countFev});
+          for ( var i = 0; i< depenseArray.length; i++ ){
+            var depense = response.data['data'][i]['montant'];
+            var mois = response.data['data'][i]['month'];
+            if( mois == 'JAN' ){
+              arrayJanv.push(depense);
+              var countJanv = 0;
+              for(var j=0; j < arrayJanv.length; j++)
+                {
+                  countJanv += arrayJanv[j];
+                  this.setState({janv:countJanv});
+                  if(currentMonth == 'JAN'){
+                    this.setState({total:countJanv});
+                  }
                 }
-              }
-          }
-          else if( mois == 'MARS' ){
-            arrayMars.push(depense);
-            var countMars = 0;
-            for(var j=0; j < arrayMars.length; j++)
-              {
-                countMars += arrayMars[j];
-                this.setState({mars:countMars});
-                if(currentMonth == 'MARS'){
-                  this.setState({total:countMars});
+            }
+            else if( mois == 'FÉV' ){
+              arrayFev.push(depense);
+              var countFev = 0;
+
+              for(var j=0; j < arrayFev.length; j++)
+                {
+                  countFev += arrayFev[j];
+                  this.setState({fev:countFev});
+                  if( currentMonth = 'FÉV' ){
+                    this.setState({total:countFev});
+                  }
                 }
-              }
-          }
-          else if( mois == 'AVRIL' ){
-            arrayAvril.push(depense);
-            var countAvril = 0;
-            for(var j=0; j < arrayAvril.length; j++)
-              {
-                countAvril += arrayAvril[j];
-                this.setState({avril:countAvril});
-                if(currentMonth == 'AVRIL'){
-                  this.setState({total:countAvril});
+            }
+            else if( mois == 'MARS' ){
+              arrayMars.push(depense);
+              var countMars = 0;
+              for(var j=0; j < arrayMars.length; j++)
+                {
+                  countMars += arrayMars[j];
+                  this.setState({mars:countMars});
+                  if(currentMonth == 'MARS'){
+                    this.setState({total:countMars});
+                  }
                 }
-              }
-          }
-          else if( mois == 'MAI' ){
-            arrayMai.push(depense);
-            var countMai = 0;
-            for(var j=0; j < arrayMai.length; j++)
-              {
-                countMai += arrayMai[j];
-                this.setState({mai:countMai});
-                if(currentMonth == 'MAI'){
-                  this.setState({total:countMai});
+            }
+            else if( mois == 'AVRIL' ){
+              arrayAvril.push(depense);
+              var countAvril = 0;
+              for(var j=0; j < arrayAvril.length; j++)
+                {
+                  countAvril += arrayAvril[j];
+                  this.setState({avril:countAvril});
+                  if(currentMonth == 'AVRIL'){
+                    this.setState({total:countAvril});
+                  }
                 }
-              }
-          }
-          else if( mois == 'JUIN' ){
-            arrayJuin.push(depense);
-            var countJuin = 0;
-            for(var j=0; j < arrayJuin.length; j++)
-              {
-                countJuin += arrayJuin[j];
-                this.setState({juin:countJuin});
-                if(currentMonth == 'JUIN'){
-                  this.setState({total:countJuin});
+            }
+            else if( mois == 'MAI' ){
+              arrayMai.push(depense);
+              var countMai = 0;
+              for(var j=0; j < arrayMai.length; j++)
+                {
+                  countMai += arrayMai[j];
+                  this.setState({mai:countMai});
+                  if(currentMonth == 'MAI'){
+                    this.setState({total:countMai});
+                  }
                 }
-              }
-          }
-          else if( mois == 'JUIL' ){
-            arrayJuil.push(depense);
-            var countJuil = 0;
-            for(var j=0; j < arrayJuil.length; j++)
-              {
-                countJuil += arrayJuil[j];
-                this.setState({juil:countJuil});
-                if(currentMonth == 'JUIL'){
-                  this.setState({total:countJuil});
+            }
+            else if( mois == 'JUIN' ){
+              arrayJuin.push(depense);
+              var countJuin = 0;
+              for(var j=0; j < arrayJuin.length; j++)
+                {
+                  countJuin += arrayJuin[j];
+                  this.setState({juin:countJuin});
+                  if(currentMonth == 'JUIN'){
+                    this.setState({total:countJuin});
+                  }
                 }
-              }
-          }
-          else if( mois == 'AOÛT' ){
-            arrayAout.push(depense);
-            var countAout = 0;
-            for(var j=0; j < arrayAout.length; j++)
-              {
-                countAout += arrayAout[j];
-                this.setState({aout:countAout});
-                if(currentMonth == 'AOÛT'){
-                  this.setState({total:countAout});
+            }
+            else if( mois == 'JUIL' ){
+              arrayJuil.push(depense);
+              var countJuil = 0;
+              for(var j=0; j < arrayJuil.length; j++)
+                {
+                  countJuil += arrayJuil[j];
+                  this.setState({juil:countJuil});
+                  if(currentMonth == 'JUIL'){
+                    this.setState({total:countJuil});
+                  }
                 }
-              }
-          }
-          else if( mois == 'SEP' ){
-            arraySept.push(depense);
-            var countSept = 0;
-            for(var j=0; j < arraySept.length; j++)
-              {
-                countSept += arraySept[j];
-                this.setState({sept:countSept});
-                if(currentMonth == 'SEP'){
-                  this.setState({total:countSept});
+            }
+            else if( mois == 'AOÛT' ){
+              arrayAout.push(depense);
+              var countAout = 0;
+              for(var j=0; j < arrayAout.length; j++)
+                {
+                  countAout += arrayAout[j];
+                  this.setState({aout:countAout});
+                  if(currentMonth == 'AOÛT'){
+                    this.setState({total:countAout});
+                  }
                 }
-              }
-          }
-          else if( mois == 'OCT' ){
-            arrayOcto.push(depense);
-            var countOcto = 0;
-            for(var j=0; j < arrayOcto.length; j++)
-              {
-                countOcto += arrayOcto[j];
-                this.setState({oct:countOcto});
-                if(currentMonth == 'OCT'){
-                  this.setState({total:countOcto});
+            }
+            else if( mois == 'SEP' ){
+              arraySept.push(depense);
+              var countSept = 0;
+              for(var j=0; j < arraySept.length; j++)
+                {
+                  countSept += arraySept[j];
+                  this.setState({sept:countSept});
+                  if(currentMonth == 'SEP'){
+                    this.setState({total:countSept});
+                  }
                 }
-              }
-          }
-          else if( mois == 'NOV' ){
-            arrayNov.push(depense);
-            var countNov = 0;
-            for(var j=0; j < arrayNov.length; j++)
-              {
-                countNov += arrayNov[j];
-                this.setState({nov:countNov});
-                if(currentMonth == 'NOV'){
-                  this.setState({total:countNov});
+            }
+            else if( mois == 'OCT' ){
+              arrayOcto.push(depense);
+              var countOcto = 0;
+              for(var j=0; j < arrayOcto.length; j++)
+                {
+                  countOcto += arrayOcto[j];
+                  this.setState({oct:countOcto});
+                  if(currentMonth == 'OCT'){
+                    this.setState({total:countOcto});
+                  }
                 }
-              }
-          }
-          else if( mois == 'DÉC' ){
-            arrayDec.push(depense);
-            var countDec = 0;
-            for(var j=0; j < arrayDec.length; j++)
-              {
-                countDec += arrayDec[j];
-                this.setState({dec:countDec});
-                if(currentMonth == 'DÉC'){
-                  this.setState({total:countDec});
+            }
+            else if( mois == 'NOV' ){
+              arrayNov.push(depense);
+              var countNov = 0;
+              for(var j=0; j < arrayNov.length; j++)
+                {
+                  countNov += arrayNov[j];
+                  this.setState({nov:countNov});
+                  if(currentMonth == 'NOV'){
+                    this.setState({total:countNov});
+                  }
                 }
-              }
+            }
+            else if( mois == 'DÉC' ){
+              arrayDec.push(depense);
+              var countDec = 0;
+              for(var j=0; j < arrayDec.length; j++)
+                {
+                  countDec += arrayDec[j];
+                  this.setState({dec:countDec});
+                  if(currentMonth == 'DÉC'){
+                    this.setState({total:countDec});
+                  }
+                }
+            }
           }
         }
       })
@@ -325,20 +338,29 @@ let Home = React.createClass ({
   },
   _renderDepense(){
   let length = this.state.depenseArray.length;
-  let threeLast = this.state.depenseArray.slice(Math.max(length - 3, 0));
-  return threeLast.map( ( oDepense, i ) => {
-      return (
-        <TouchableOpacity style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
-          <View style={styles.depenseContent}>
-            <Text style={styles.price}>{oDepense.montant}€</Text>
-            <Text style={styles.title}>{oDepense.name}</Text>
-            <View>
-              <Text style={styles.date}>{oDepense.created_at}</Text>
-            </View>
+  if( this.state.depenseArray.length == 0 ){
+    return(
+          <View style={styles.noContent}>
+            <Text style={styles.noContentTitle}>{'Aucune dépense trouvée'.toUpperCase()}</Text>
           </View>
-        </TouchableOpacity>
-      )
-  } );
+    )
+  }
+  else{
+    let threeLast = this.state.depenseArray.slice(Math.max(length - 3, 0));
+    return threeLast.map( ( oDepense, i ) => {
+        return (
+          <TouchableOpacity style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
+            <View style={styles.depenseContent}>
+              <Text style={styles.price}>{oDepense.montant}€</Text>
+              <Text style={styles.title}>{oDepense.name}</Text>
+              <View>
+                <Text style={styles.date}>{oDepense.created_at}</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+        )
+    } );
+  }
 },
   _renderHeader(){
     return(

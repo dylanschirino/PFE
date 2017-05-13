@@ -217,4 +217,20 @@ module.exports = EStyleSheet.create({
     color:'#949DA8',
     marginLeft:10,
   },
+  depenseContainerCustom:{
+    justifyContent:'center',
+    flex:1,
+  },
+  noContent:{
+    borderTopWidth:1,
+    borderBottomWidth:1,
+    borderColor:'#518DB6',
+  },
+  noContentTitle:{
+    fontSize:18,
+    fontFamily:'lato-regular',
+    color:'#518DB6',
+    paddingTop:15,
+    paddingBottom:15,
+  }
 });
