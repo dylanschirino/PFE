@@ -20,6 +20,7 @@ export default function( oRequest, oResponse ) {
         aCategorie = POST.categorie,
         sPayement = POST.payement,
         bRepeater = POST.repeater,
+        month = POST.month,
         aModification = [];
 
     try {
@@ -60,6 +61,10 @@ export default function( oRequest, oResponse ) {
         if ( bRepeater ) {
             oDepense.repeater = bRepeater;
             aModification.push( "repeater" );
+        }
+        if ( month ) {
+            oDepense.month = month;
+            aModification.push( "month" );
         }
 
         return checkDepense( sDepenseID ).then( () => {

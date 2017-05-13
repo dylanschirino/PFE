@@ -34,7 +34,6 @@ export default function( oRequest, oResponse ) {
         month = monthArray[datecreated.getMonth()],
         year = datecreated.getFullYear();
 
-
     oDepense = {
         "created_at": days +' '+month+' '+year,
         "updated_at": new Date(),
