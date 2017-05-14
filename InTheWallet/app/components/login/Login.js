@@ -26,9 +26,9 @@ let Login = React.createClass ({
     }
   },
   _handlePress(event) {
-  let email=this.state.email.toLowerCase(),
-      password=this.state.password,
-      that = this;
+    let email=this.state.email.toLowerCase(),
+        password=this.state.password,
+        that = this;
 
       if( password =="" || email==""){
         alert("Un ou plusieurs champs est vide");
@@ -56,7 +56,6 @@ let Login = React.createClass ({
       }
   },
   render() {
-
     return (
         <View style={styles.body}>
           <View style={styles.titleLoginContainer}>
