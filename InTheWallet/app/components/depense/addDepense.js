@@ -76,7 +76,12 @@ let addDepense = React.createClass ({
         payement,
         picture,
         repeater = this.state.repeater;
-        categorieArray = categorieString.split(',');
+        if( categorieString == null ){
+          categorieArray = [];
+        }
+        else{
+          categorieArray = categorieString.split(',');
+        }
 
     axios.post('http://104.131.74.22:8080/depense', {
       name:name,
