@@ -233,4 +233,18 @@ module.exports = EStyleSheet.create({
     color:'$mainColor',
     marginRight:10,
   },
+  '@media (max-width: 320px)':{
+    container:{
+      flexDirection:'column',
+      height:50,
+      flex:0.3,
+    },
+    name:{
+      fontSize:16,
+      letterSpacing:0.75,
+    },
+    containerInfo:{
+      marginLeft:10,
+    },
+  }
 });
