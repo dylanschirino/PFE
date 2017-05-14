@@ -108,10 +108,26 @@ module.exports = EStyleSheet.create({
     titleContainer:{
       marginBottom:40,
     },
+    titleLoginContainer:{
+      marginBottom:20,
+    },
+    logoContainer:{
+      marginBottom:20,
+    },
+    title:{
+      marginTop:40,
+    },
     inputBox:{
       marginBottom:20,
     },
     button:{
+      marginBottom:40,
+    },
+    logo:{
+      width:100,
+      height:93,
+    },
+    buttonConnexion:{
       marginBottom:30,
     },
   }
