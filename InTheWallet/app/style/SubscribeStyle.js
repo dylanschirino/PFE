@@ -103,5 +103,16 @@ module.exports = EStyleSheet.create({
     fontSize:13,
     color:'#34586B',
     alignSelf:'center',
+  },
+  '@media (max-width: 320px)':{
+    titleContainer:{
+      marginBottom:40,
+    },
+    inputBox:{
+      marginBottom:20,
+    },
+    button:{
+      marginBottom:30,
+    },
   }
 });
