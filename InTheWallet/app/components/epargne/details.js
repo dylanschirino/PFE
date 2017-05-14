@@ -124,7 +124,6 @@ let Details = React.createClass ({
     })
   },
   _renderDetails(){
-
         return (
           <View style={details.contentInfo}>
             <View style={details.container}>

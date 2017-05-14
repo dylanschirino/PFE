@@ -159,11 +159,9 @@ let Depense = React.createClass ({
         }
         var generateRepeatSearch = function(){
             if ( repeater == 'Jamais' || repeater == false ){
-              this.setState({repeater:false});
               return null;
             }
             else{
-
               return require('../../img/repeat.png');
             }
           }
