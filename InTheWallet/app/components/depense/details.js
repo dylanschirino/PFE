@@ -82,9 +82,16 @@ let Details = React.createClass ({
     .then( response => {
       const depenseDetails = response.data['data'];
       const payement = response.data['data']['payement'];
-
+      const categorie = response.data['data']['categorie'];
       this.setState({ depenseDetails });
       this.setState({payement});
+      if(categorie == '' ){
+        var noCategorie = 'Aucune catégorie';
+        this.setState({categorie:noCategorie});
+      }
+      else{
+        this.setState({categorie});
+      }
     })
     .catch(function (error) {
       alert('Erreur:'+ error);
@@ -113,6 +120,7 @@ let Details = React.createClass ({
       payement:'',
       user:this.props.username,
       enable:false,
+      categorie:'',
     }
   },
   toggleDisplay() {
@@ -129,7 +137,7 @@ let Details = React.createClass ({
             <Text style={styles.label}>La dépense est répété</Text>
             <Text style={styles.info}>{this.state.depenseDetails.repeater}</Text>
             <Text style={styles.label}>Catégories</Text>
-            <Text style={styles.info}>{this.state.depenseDetails.categorie}</Text>
+            <Text style={styles.info}>{this.state.categorie}</Text>
             <Text style={styles.label}>Mode de payement</Text>
             <Text style={styles.info}>{this.state.depenseDetails.payement}</Text>
           </View>
