@@ -137,11 +137,7 @@ let updateEpargne = React.createClass ({
               />
             <Text style={nav.backText}>Épargne</Text>
           </TouchableOpacity>
-          <Text style={nav.navTitle}>Modifier une épargne</Text>
-          <TouchableOpacity style={nav.add} onPress={this.addEpargne}>
-            <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
-              />
-          </TouchableOpacity>
+          <Text style={nav.navTitleCustom}>Modifier une épargne</Text>
         </View>
        </View>
     )
