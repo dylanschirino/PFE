@@ -307,7 +307,7 @@ let updatePret = React.createClass ({
                     this.setState( {depart:text} );
                   }}
                   value={this.state.depart}
-                  placeholder='21 Juillet 2017'
+                  placeholder='11/5/2017'
                   placeholderTextColor='#B6CBE1'
                 />
               </View>
