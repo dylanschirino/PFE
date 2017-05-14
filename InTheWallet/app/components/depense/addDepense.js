@@ -197,13 +197,14 @@ let addDepense = React.createClass ({
               />
             <TextInput style={styles.inputMontant}
                 ref="montant"
+                keyboardType={'numeric'}
                 onChangeText={(text) => {
                   this.setState( {montant:text} );
                 }}
                 value={this.state.montant.toString()}
               />
             <View style={styles.buttonMontant}>
-              <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={this.state.montant}
+              <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={Number(this.state.montant)}
               minimumValue={0}
               maximumValue={100.000}
               stepValue={1}
