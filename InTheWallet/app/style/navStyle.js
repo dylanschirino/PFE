@@ -71,5 +71,10 @@ module.exports = EStyleSheet.create({
   addIcone:{
     width:25,
     height:25,
+  },
+  '@media (max-width: 320px)':{
+    navTitleCustomLimit:{
+      marginRight:100,
+    },
   }
 });
