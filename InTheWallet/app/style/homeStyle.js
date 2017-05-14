@@ -109,7 +109,7 @@ module.exports = EStyleSheet.create({
   depenseHeader:{
     backgroundColor:'#F8FCFF',
     paddingTop:15,
-    paddingBottom:15,
+    paddingBottom:13,
     width:'100%',
     borderTopWidth:1,
     borderBottomWidth:1,
@@ -118,6 +118,7 @@ module.exports = EStyleSheet.create({
   depenseHeaderTitle:{
     fontFamily:'droidsans',
     fontSize:14,
+    lineHeight:0,
     color:'#002E48',
     alignSelf:'center'
   },
