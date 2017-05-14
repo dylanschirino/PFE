@@ -110,12 +110,16 @@ let Introduction4 = React.createClass( {
 
 });
 
-const intro4 = StyleSheet.create({
+const intro4 = EStyleSheet.create({
   img:{
     width:216,
     height:225,
     marginTop:25,
     marginBottom:35,
+    '@media (max-width: 320px)': {
+      marginTop:15,
+      marginBottom:20,
+    },
   },
 });
 

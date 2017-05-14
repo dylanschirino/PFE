@@ -130,5 +130,12 @@ module.exports = EStyleSheet.create({
       marginLeft:0,
       marginRight:0,
     },
+    buttonCustom2:{
+      width:'80%',
+      alignSelf:'center',
+      marginLeft:0,
+      marginTop:5,
+      marginRight:0,
+    },
   }
 });
