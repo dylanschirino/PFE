@@ -116,5 +116,28 @@ module.exports = EStyleSheet.create({
   checkIcon:{
     width:30,
     height:21,
+  },
+  '@media (max-width: 320px)':{
+    content:{
+      marginTop:15,
+      marginBottom:10,
+      flex:0,
+    },
+    iconTitle:{
+      width:30,
+      height:26,
+    },
+    title:{
+      marginLeft:5,
+    },
+    titleForm:{
+      marginTop:35,
+    },
+    text:{
+      paddingTop:8,
+    },
+    formContent:{
+      marginTop:10,
+    },
   }
 });
