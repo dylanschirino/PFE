@@ -98,5 +98,30 @@ module.exports = EStyleSheet.create({
     borderColor:'$Blue',
     borderRadius:2.5,
     marginLeft:26.33,
+  },
+
+  '@media (max-width: 320px)':{
+    introContainer: {
+      marginTop:25,// 15px on arrive a la StatusBar + 20px de margin
+      margin:15,
+      borderWidth:0,
+    },
+    img:{
+      marginTop:15,
+      marginBottom:20,
+    },
+    introText:{
+      paddingBottom:25,
+    },
+    switchContainer:{
+      marginBottom:30,
+    },
+    titleIntro:{
+      marginBottom:10,
+    },
+    button:{
+      width:'80%',
+      alignSelf:'center',
+    },
   }
 });

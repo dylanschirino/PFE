@@ -8,13 +8,14 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 let styles = require('../../style/SubscribeStyle');
 import Login from './Login.js';
+import Introduction from '../Introduction';
 
 let Subscribe = React.createClass ({
 
   goLogin() {
     this.props.navigator.push({
-      component: Login,
-      title:'Login',
+      component: Introduction,
+      title:'Introduction',
       navigationBarHidden:true,
       passProps:{firstLaunch:false}
     });
