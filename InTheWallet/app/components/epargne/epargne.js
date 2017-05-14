@@ -196,7 +196,7 @@ let Epargne = React.createClass ({
               <View style={styles.progressView}>
                 <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
                 progress={Math.abs(percent)/100}/>
-              <Text style={styles.percent}>{Math.abs(percent).toFixed(2)}%</Text>
+              <Text style={styles.percent}>{Math.abs(percent/100).toFixed(2)}%</Text>
               </View>
             </View>
           </View>
@@ -251,7 +251,9 @@ let Epargne = React.createClass ({
               <View style={styles.progressView}>
                 <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
                 progress={Math.abs(percent)/100}/>
-              <Text style={styles.percent}>{Math.abs(percent).toFixed(2)}%</Text>
+              {
+              }
+              <Text style={styles.percent}>{Math.abs(percent/100).toFixed(2)}%</Text>
               </View>
             </View>
           </View>
