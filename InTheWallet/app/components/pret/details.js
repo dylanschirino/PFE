@@ -44,7 +44,7 @@ let Details = React.createClass ({
       var timeStampFinal = new Date(newDate).getTime();
       var distance = (timeStampFinal - timeStamp);
       var month = Math.floor( distance / (1000 * 60 * 60 * 24 * 31));
-      var days = Math.floor((distance / (1000 * 60 * 60 * 24)));
+      var days = Math.floor((distance / (1000 * 60 * 60 * 24))+1);
       if( days == 0 ){
         var timeS = 'PRÊT CLOTURÉ'
       }
