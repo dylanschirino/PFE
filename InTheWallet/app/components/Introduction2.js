@@ -112,12 +112,16 @@ var Introduction2 = React.createClass ( {
   }
 });
 
-const intro2 = StyleSheet.create({
+const intro2 = EStyleSheet.create({
   img:{
     width:256,
     height:252,
     marginTop:25,
     marginBottom:35,
+    '@media (max-width: 320px)': {
+      marginTop:15,
+      marginBottom:20,
+    },
   },
   active:{
     backgroundColor:'#235182',
