@@ -87,5 +87,17 @@ module.exports = EStyleSheet.create({
     fontSize:16,
     fontFamily:'lato-regular',
     lineHeight:26,
+  },
+  '@media (max-width: 320px)':{
+    head:{
+      flexDirection:'row',
+      paddingTop:25,
+    },
+    clockContainer:{
+      width:150,
+      height:150,
+      marginTop:20,
+      marginBottom:20,
+    },
   }
 });
