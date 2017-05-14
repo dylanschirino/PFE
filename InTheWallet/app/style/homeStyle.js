@@ -218,20 +218,22 @@ module.exports = EStyleSheet.create({
     marginLeft:10,
   },
   depenseContainerCustom:{
-    justifyContent:'center',
     flex:1,
   },
   noContentTitle:{
     fontSize:18,
     fontFamily:'lato-regular',
-    color:'#518DB6',
-    paddingTop:15,
-    paddingBottom:15,
+    color:'#333333',
+    paddingTop:70,
+    paddingBottom:10,
+    textAlign:'center',
   },
   noContentButton:{
     backgroundColor:'#518DB6',
     borderRadius:8,
-    marginTop:15,
+    marginTop:10,
+    paddingLeft:10,
+    paddingRight:10,
   },
   noContentButtonTitle:{
     fontSize:16,

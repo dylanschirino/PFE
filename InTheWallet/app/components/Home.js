@@ -342,7 +342,7 @@ let Home = React.createClass ({
       return(
             <View>
               <View style={styles.noContent}>
-                <Text style={styles.noContentTitle}>{'Aucune dépense trouvée'.toUpperCase()}</Text>
+                <Text style={styles.noContentTitle}>Aucune dépense trouvée</Text>
               </View>
               <View style={styles.noContentButton}>
                 <TouchableOpacity onPress={this.addDepense}>
