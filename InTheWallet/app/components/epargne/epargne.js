@@ -122,7 +122,7 @@ let Epargne = React.createClass ({
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
-    this.refs.Load.setTimeClose();
+    this.refs.Load.setTimeClose(1500);
   },
   goDetails(id,name,end){
     this.props.navigator.push({

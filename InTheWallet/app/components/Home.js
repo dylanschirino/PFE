@@ -215,7 +215,7 @@ let Home = React.createClass ({
 
     this.setTimeout( () => { this.toggleDisplayInfo()} ,7000);
 
-    this.refs.Load.setTimeClose();
+    this.refs.Load.setTimeClose(1500);
   },
   getInitialState: function() {
     return {

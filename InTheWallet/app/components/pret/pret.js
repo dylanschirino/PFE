@@ -83,7 +83,7 @@ let Pret = React.createClass ({
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
-    this.refs.Load.setTimeClose();
+    this.refs.Load.setTimeClose(1500);
   },
   _handleEdit(id){
     this.props.navigator.push({

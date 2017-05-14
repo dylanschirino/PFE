@@ -38,7 +38,7 @@ let Depense = React.createClass ({
     });
 
 
-    this.refs.Load.setTimeClose();
+    this.refs.Load.setTimeClose(1500);
   },
   getInitialState: function() {
     return {
