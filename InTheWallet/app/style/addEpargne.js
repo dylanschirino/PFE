@@ -94,5 +94,12 @@ module.exports = EStyleSheet.create({
     fontSize:18,
     fontFamily:'lato-light',
     height:20,
+  },
+  '@media (max-width: 320px)':{
+    quickLinkContainer:{
+      flex:0,
+      paddingTop:7,
+      paddingBottom:7,
+    }
   }
 });

@@ -273,6 +273,18 @@ module.exports = EStyleSheet.create({
       paddingTop:15,
       paddingBottom:15,
     },
+    montantContainer:{
+      paddingTop:10,
+      paddingBottom:10,
+      alignItems:'center',
+      backgroundColor:'$montantBckg',
+    },
+    mensualiteContainer:{
+      paddingTop:15,
+      paddingBottom:15,
+      backgroundColor:'$mensualiteBckg',
+      alignItems:'center',
+    },
     euroIcone:{
       width:40,
       height:40,
@@ -322,6 +334,10 @@ module.exports = EStyleSheet.create({
       color:'$nameBckg',
       textAlign:'center',
       paddingBottom:5,
+    },
+    dateContainer:{
+      paddingTop:15.4,
+      paddingBottom:15.4,
     },
     pictureChoose:{
       width:65,
