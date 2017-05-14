@@ -225,13 +225,14 @@ let updateEpargne = React.createClass ({
               />
             <TextInput style={styles.inputMontant}
                 ref="montant"
+                keyboardType={'numeric'}
                 onChangeText={(text) => {
                   this.setState( {montant:text} );
                 }}
                 value={this.state.montant.toString()}
               />
             <View style={styles.buttonMontant}>
-              <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={this.state.montant}
+              <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={Number(this.state.montant)}
               minimumValue={0}
               maximumValue={100.000}
               stepValue={1}
@@ -251,13 +252,14 @@ let updateEpargne = React.createClass ({
               />
             <TextInput style={styles.inputMontant}
                 ref="mensualite"
+                keyboardType={'numeric'}
                 onChangeText={(text) => {
                   this.setState( {mensualite:text} );
                 }}
                 value={this.state.mensualite.toString()}
               />
             <View style={styles.buttonMontant}>
-              <SimpleStepper valueChanged={(mensualite) => this.mensualiteChanged(mensualite)} initialValue={this.state.mensualite}
+              <SimpleStepper valueChanged={(mensualite) => this.mensualiteChanged(mensualite)} initialValue={Number(this.state.mensualite)}
               minimumValue={0}
               maximumValue={100.000}
               stepValue={1}

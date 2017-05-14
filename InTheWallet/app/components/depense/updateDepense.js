@@ -169,6 +169,7 @@ let updateDepense = React.createClass ({
             />
           <TextInput style={styles.inputMontant}
               ref="montant"
+              keyboardType={'numeric'}
               onChangeText={(text) => {
                 this.setState( {montant:text} );
               }}
