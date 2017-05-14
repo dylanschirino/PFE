@@ -113,12 +113,16 @@ let Introduction3 = React.createClass( {
   }
 });
 
-const intro3 = StyleSheet.create({
+const intro3 = EStyleSheet.create({
   img:{
     width:308,
     height:208,
     marginTop:25,
     marginBottom:35,
+    '@media (max-width: 320px)': {
+      marginTop:15,
+      marginBottom:20,
+    },
   },
 });
 
