@@ -171,127 +171,127 @@ let addDepense = React.createClass ({
       <StatusBar barStyle="dark-content"
       />
       <Form ref="addDepense">
-      <View style={styles.nameContainer}>
-        <Text style={styles.label}>{ 'Nom de la dépense'.toUpperCase() }</Text>
-          <View style={styles.inputBox}>
-            <Image
-              style={styles.icone}
-              source={ require('../../img/add-edit.png')}
-            />
-            <TextInput style={styles.input}
-              ref="name"
-              onChangeText={(text) => {
-                this.setState( {name:text} );
-              }}
-              placeholder='Ex : Glace au chocolat'
-              placeholderTextColor='#B6CBE1'
-            />
-          </View>
-      </View>
-      <View style={styles.montantContainerDepense}>
-        <Text style={styles.label}>{ 'Montant total'.toUpperCase() }</Text>
-          <View style={styles.inputMontantBox}>
-            <Image
-              style={styles.euroIcone}
-              source={ require('../../img/euro.png')}
-            />
-          <TextInput style={styles.inputMontant}
-              ref="montant"
-              onChangeText={(text) => {
-                this.setState( {montant:text} );
-              }}
-              value={this.state.montant.toString()}
-            />
-          <View style={styles.buttonMontant}>
-            <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={this.state.montant}
-            minimumValue={0}
-            maximumValue={100.000}
-            stepValue={1}
-            tintColor={'#5999CE'}
-            padding={9}
-            backgroundColor={'#FFFFFF'}
-            />
-          </View>
-          </View>
-      </View>
-      <View style={styles.optionContainer}>
-        <Text style={styles.labelOptions}>{ 'Catégories'.toUpperCase() }</Text>
-          <View style={styles.inputOptionBox}>
-            <Image
-              style={styles.icone}
-              source={ require('../../img/add-edit-blue.png')}
-            />
-          <TextInput style={styles.inputCategorie}
-              ref="categorie"
-              onChangeText={(text) => {
-                this.setState( {categorie:text} );
-              }}
-              placeholder='Ex : Alimentation'
-              placeholderTextColor='#B6CBE1'
-            />
-          </View>
-      </View>
-      <View style={styles.optionContainer}>
-        <Text style={styles.labelOptions}>{ 'Répéter la dépense'.toUpperCase() }</Text>
-          <View style={styles.inputOptionBox}>
-            <Image
-              style={styles.refreshIcone}
-              source={ require('../../img/refresh.png')}
-            />
-          <View style={styles.picker}>
-            <Text style={styles.pickerButton} onPress={() => {this.refs.picker.show();}}>
-            La dépense est repeté  : {this.state.selectedOption}
-            </Text>
-            <SimplePicker
-              ref={'picker'}
-              options={optionsPicker}
-              onSubmit={(option) => {
-                this.setState({
-                  selectedOption: option,
-                });
-              }}
-            />
-          </View>
-          </View>
-      </View>
-      <View style={styles.bigContainer}>
-        <View style={styles.pictureContainer}>
-          <Text style={styles.labelChoose}>{ 'Mode de payement'.toUpperCase() }</Text>
-          <View style={styles.chooseContainer}>
-            <TouchableOpacity style={(this.state.clicked == 0 || this.state.clicked == 2)?styles.buttonChoose:styles.buttonChooseActived} onPress={() => this.setState({payement:'carte',clicked:1})}>
-                <Image
-                  style={styles.iconCredit}
-                  source={ require('../../img/credit-card.png')}
-                />
-            </TouchableOpacity>
-            <TouchableOpacity style={(this.state.clicked == 0 || this.state.clicked == 1)?styles.buttonChoose:styles.buttonChooseActived} onPress={() => this.setState({payement:'cash',clicked:2})}>
+        <View style={styles.nameContainer}>
+          <Text style={styles.label}>{ 'Nom de la dépense'.toUpperCase() }</Text>
+            <View style={styles.inputBox}>
               <Image
-                style={styles.iconCash}
-                source={ require('../../img/cash-choose.png')}
+                style={styles.icone}
+                source={ require('../../img/add-edit.png')}
               />
+              <TextInput style={styles.input}
+                ref="name"
+                onChangeText={(text) => {
+                  this.setState( {name:text} );
+                }}
+                placeholder='Ex : Glace au chocolat'
+                placeholderTextColor='#B6CBE1'
+              />
+            </View>
+        </View>
+        <View style={styles.montantContainerDepense}>
+          <Text style={styles.label}>{ 'Montant total'.toUpperCase() }</Text>
+            <View style={styles.inputMontantBox}>
+              <Image
+                style={styles.euroIcone}
+                source={ require('../../img/euro.png')}
+              />
+            <TextInput style={styles.inputMontant}
+                ref="montant"
+                onChangeText={(text) => {
+                  this.setState( {montant:text} );
+                }}
+                value={this.state.montant.toString()}
+              />
+            <View style={styles.buttonMontant}>
+              <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={this.state.montant}
+              minimumValue={0}
+              maximumValue={100.000}
+              stepValue={1}
+              tintColor={'#5999CE'}
+              padding={9}
+              backgroundColor={'#FFFFFF'}
+              />
+            </View>
+            </View>
+        </View>
+        <View style={styles.optionContainer}>
+          <Text style={styles.labelOptions}>{ 'Catégories'.toUpperCase() }</Text>
+            <View style={styles.inputOptionBox}>
+              <Image
+                style={styles.icone}
+                source={ require('../../img/add-edit-blue.png')}
+              />
+            <TextInput style={styles.inputCategorie}
+                ref="categorie"
+                onChangeText={(text) => {
+                  this.setState( {categorie:text} );
+                }}
+                placeholder='Ex : Alimentation'
+                placeholderTextColor='#B6CBE1'
+              />
+            </View>
+        </View>
+        <View style={styles.optionContainer}>
+          <Text style={styles.labelOptions}>{ 'Répéter la dépense'.toUpperCase() }</Text>
+            <View style={styles.inputOptionBox}>
+              <Image
+                style={styles.refreshIcone}
+                source={ require('../../img/refresh.png')}
+              />
+            <View style={styles.picker}>
+              <Text style={styles.pickerButton} onPress={() => {this.refs.picker.show();}}>
+              La dépense est repeté  : {this.state.selectedOption}
+              </Text>
+              <SimplePicker
+                ref={'picker'}
+                options={optionsPicker}
+                onSubmit={(option) => {
+                  this.setState({
+                    selectedOption: option,
+                  });
+                }}
+              />
+            </View>
+            </View>
+        </View>
+        <View style={styles.bigContainer}>
+          <View style={styles.pictureContainer}>
+            <Text style={styles.labelChoose}>{ 'Mode de payement'.toUpperCase() }</Text>
+            <View style={styles.chooseContainer}>
+              <TouchableOpacity style={(this.state.clicked == 0 || this.state.clicked == 2)?styles.buttonChoose:styles.buttonChooseActived} onPress={() => this.setState({payement:'carte',clicked:1})}>
+                  <Image
+                    style={styles.iconCredit}
+                    source={ require('../../img/credit-card.png')}
+                  />
+              </TouchableOpacity>
+              <TouchableOpacity style={(this.state.clicked == 0 || this.state.clicked == 1)?styles.buttonChoose:styles.buttonChooseActived} onPress={() => this.setState({payement:'cash',clicked:2})}>
+                <Image
+                  style={styles.iconCash}
+                  source={ require('../../img/cash-choose.png')}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View style={styles.pictureContainerTwo}>
+            <Text style={styles.labelChoose}>{ 'Photo de la dépense'.toUpperCase() }</Text>
+            <View style={styles.chooseContainerPhoto}>
+              <TouchableOpacity style={styles.pictureChoose} onPress={() => {this.pickImage()}}>
+                {this._renderImage()}
             </TouchableOpacity>
+            </View>
           </View>
         </View>
-        <View style={styles.pictureContainerTwo}>
-          <Text style={styles.labelChoose}>{ 'Photo de la dépense'.toUpperCase() }</Text>
-          <View style={styles.chooseContainerPhoto}>
-            <TouchableOpacity style={styles.pictureChoose} onPress={() => {this.pickImage()}}>
-              {this._renderImage()}
+        <View style={styles.actionContainer}>
+          <TouchableOpacity style={styles.cancelContainer} onPress={this.goDepense}>
+            <Image source={require('../../img/cancel.png')} style={styles.cancelIcon}
+            />
           </TouchableOpacity>
-          </View>
+          <TouchableOpacity style={styles.checkContainer} onPress={this._handlePress}>
+            <Image source={require('../../img/check.png')} style={styles.checkIcon}
+            />
+          </TouchableOpacity>
         </View>
-      </View>
-      <View style={styles.actionContainer}>
-        <TouchableOpacity style={styles.cancelContainer} onPress={this.goDepense}>
-          <Image source={require('../../img/cancel.png')} style={styles.cancelIcon}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.checkContainer} onPress={this._handlePress}>
-          <Image source={require('../../img/check.png')} style={styles.checkIcon}
-          />
-        </TouchableOpacity>
-      </View>
-    </Form>
+      </Form>
       {this._renderMenu()}
       </View>
     )}
