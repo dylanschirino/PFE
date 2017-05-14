@@ -241,5 +241,11 @@ module.exports = EStyleSheet.create({
     paddingTop:12,
     paddingBottom:12,
     textAlign:'center',
+  },
+  '@media (max-width: 320px)':{
+    depenseContent:{
+      paddingTop:15,
+      paddingBottom:15,
+    },
   }
 });
