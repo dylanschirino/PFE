@@ -266,7 +266,7 @@ let addPret = React.createClass ({
                   onChangeText={(text) => {
                     this.setState( {debut:text} );
                   }}
-                  placeholder='22 Mars 2016'
+                  placeholder='11/5/2017'
                   placeholderTextColor='#B6CBE1'
                 />
               </View>
