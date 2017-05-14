@@ -125,7 +125,7 @@ let Details = React.createClass ({
             <Text style={styles.label}>Montant dépensé</Text>
             <Text style={styles.info}>{this.state.depenseDetails.montant}€</Text>
             <Text style={styles.label}>Jour de la dépense</Text>
-            <Text style={styles.info}>{this.state.depenseDetails.created_at}</Text>
+            <Text style={styles.info}>{this.state.depenseDetails.created_at.toLowerCase()}</Text>
             <Text style={styles.label}>La dépense est répété</Text>
             <Text style={styles.info}>{this.state.depenseDetails.repeater}</Text>
             <Text style={styles.label}>Catégories</Text>
@@ -145,7 +145,7 @@ let Details = React.createClass ({
     else{
       return(
         <Image source={require('../../img/nophoto.png')} style={styles.photo}
-          />
+        />
       )
     }
   },

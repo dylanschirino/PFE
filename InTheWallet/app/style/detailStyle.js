@@ -68,5 +68,40 @@ module.exports = EStyleSheet.create({
     marginBottom:15,
     width:'70%',
     lineHeight:26,
+  },
+  '@media (max-width: 320px)':{
+    headContent:{
+      position:'relative',
+      height:100,
+    },
+    contentHead:{
+      paddingTop:8,
+      paddingBottom:8,
+    },
+    link:{
+      position:'absolute',
+      left:30,
+      top:13,
+    },
+    title:{
+      color:'#FFFFFF',
+      fontFamily:'droidsans',
+      fontWeight:'600',
+      fontSize:16,
+      lineHeight:24,
+    },
+    arrow:{
+      width:20.5,
+      height:13,
+      marginTop:2,
+      marginLeft:3,
+    },
+    contentInfo:{
+      marginLeft:32,
+      marginTop:15,
+    },
+    info:{
+      marginBottom:13,
+    },
   }
 });
