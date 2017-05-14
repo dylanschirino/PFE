@@ -100,6 +100,10 @@ module.exports = EStyleSheet.create({
       flex:0,
       paddingTop:7,
       paddingBottom:7,
-    }
+    },
+    pretContainer:{
+      paddingTop:13.9,
+      paddingBottom:13.9,
+    },
   }
 });
