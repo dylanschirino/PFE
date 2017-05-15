@@ -11,6 +11,8 @@ EStyleSheet.build({
 module.exports = EStyleSheet.create({
   categorie:{
     height:27,
+    alignItems:'center',
+    justifyContent:'center',
   },
   container:{
     flexDirection:'column',
@@ -27,6 +29,14 @@ module.exports = EStyleSheet.create({
     color:'$borderColor',
     fontFamily:'lato-regular',
     fontSize:14,
+  },
+  noCatText:{
+    paddingTop:5,
+    textAlign:'center',
+    color:'$borderColor',
+    fontFamily:'lato-regular',
+    fontSize:15,
+    width:'100%',
   },
   listCustom:{
     flexGrow:1,
@@ -232,6 +242,35 @@ module.exports = EStyleSheet.create({
     fontFamily:'lato-regular',
     color:'$mainColor',
     marginRight:10,
+  },
+  noContent:{
+    paddingTop:100
+  },
+  noContentTitle:{
+    fontSize:18,
+    fontFamily:'lato-regular',
+    color:'#333333',
+    paddingTop:70,
+    paddingBottom:10,
+    textAlign:'center',
+  },
+  noContentButton:{
+    backgroundColor:'#518DB6',
+    borderRadius:8,
+    marginTop:10,
+    paddingLeft:10,
+    paddingRight:10,
+    width:'80%',
+    alignSelf:'center',
+  },
+  noContentButtonTitle:{
+    fontSize:16,
+    fontFamily:'lato-regular',
+    color:'#FFFFFF',
+    borderRadius:8,
+    paddingTop:12,
+    paddingBottom:12,
+    textAlign:'center',
   },
   '@media (max-width: 320px)':{
     container:{
