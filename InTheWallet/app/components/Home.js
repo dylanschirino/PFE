@@ -380,14 +380,18 @@ let Home = React.createClass ({
           </View>
           <View style={styles.limitSecond} ref="limite">
             <TouchableOpacity style={styles.limitContainer} onPress={this.goLimit}>
-              <Text style={styles.amountLimit}>{this.state.limit}</Text>
-              <View style={styles.button} onPress={this.goLimit}>
+              <View style={styles.button}>
                 <Image style={styles.buttonImg} source={ require('../img/edit.png')}
                   />
               </View>
+              <Text style={styles.amountLimit}>{this.state.limit}</Text>
             </TouchableOpacity>
             <Text style={styles.labelLimit}>{'Limite du mois'.toUpperCase() } </Text>
           </View>
+          <TouchableOpacity style={styles.logout}>
+            <Image style={styles.logoutImg} source={ require('../img/logout.png')}
+              />
+          </TouchableOpacity>
       </View>
     )
   },

@@ -8,20 +8,21 @@ module.exports = EStyleSheet.create({
   header:{
     backgroundColor:'$headerColor',
     flexDirection:'row',
+    position:'relative'
   },
   limitFirst:{
-    flex:1,
+    flex:0.2,
     alignItems:'center',
-    width:'50%',
+    width:'40%',
     marginTop:37,
     borderRightWidth:2,
     borderColor:"#FFFFFF",
     marginBottom:15,
   },
   limitSecond:{
-    flex:1,
+    flex:0.2,
     alignItems:'center',
-    width:'50%',
+    width:'40%',
   },
   amount:{
     fontSize:24,
@@ -54,9 +55,21 @@ module.exports = EStyleSheet.create({
     fontFamily:'droidsans',
     color:'#89B0DB',
   },
+  button:{
+    marginTop:7,
+  },
   buttonImg:{
     width:5,
     height:16,
+  },
+  logoutImg:{
+    width:29,
+    height:29,
+  },
+  logout:{
+    position:'absolute',
+    right:10,
+    top:24,
   },
   buttonImgCheck:{
     width:15,
