@@ -28,9 +28,21 @@ let updateDepense = React.createClass ({
       }
     };
     ImagePicker.showImagePicker( options, (response) => {
-      this.setState({
-        uri: response.origURL
-      });
+      if (response.didCancel) {
+        this.setState({
+            uri: ''
+        });
+      }
+      else if (response.error) {
+        this.setState({
+          uri: ''
+        });
+      }
+      else{
+        this.setState({
+          uri: response.origURL
+        });
+      }
     })
   },
   goHome(){
@@ -94,12 +106,19 @@ let updateDepense = React.createClass ({
         categorieArray = [],
         payement,
         picture;
+        var patt = new RegExp(",");
+        var test = patt.test(this.state.categorie);
         if( this.state.name !='' ){
           var name = this.state.name;
           if( !isNaN(this.state.montant) ){
             var montant = this.state.montant;
-            if(!!this.state.categorie){
-               categorieArray = categorieString.split(',');
+            if(categorieString != null){
+              if( test === true ){
+                categorieArray = categorieString.split(',');
+              }
+              else{
+                categorieArray = this.state.categorie;
+              }
               if ( this.state.selectedOption !='' ){
                 if (this.state.payement !='' ){
                   var that = this;

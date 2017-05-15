@@ -28,9 +28,21 @@ let addDepense = React.createClass ({
       }
     };
     ImagePicker.showImagePicker( options, (response) => {
-      this.setState({
-        uri: response.origURL
-      });
+      if (response.didCancel) {
+        this.setState({
+            uri: ''
+        });
+      }
+      else if (response.error) {
+        this.setState({
+          uri: ''
+        });
+      }
+      else{
+        this.setState({
+          uri: response.origURL
+        });
+      }
     })
   },
   goHome(){
