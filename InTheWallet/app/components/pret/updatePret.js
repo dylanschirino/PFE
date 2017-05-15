@@ -89,33 +89,51 @@ let updatePret = React.createClass ({
     var config = {
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
     };
-    let name = ( this.state.name || "" ),
-        montant = ( this.state.montant || "" ),
-        mensualite = (this.state.mensualite || "" ),
-        interet = (this.state.interet || "" ),
-        depart = (this.state.depart || "" );
+    let duree = (this.state.duree || "" );
+    let regex = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/,
+        test = regex.test(this.state.depart);
 
-    axios.patch('http://104.131.74.22:8080/pret/'+this.props.pret_id,{
-      name:name,
-      montant:montant,
-      mensualite:mensualite,
-      interet:interet,
-      depart:depart,
-      user:this.props.username,
-    },config)
-    .then(function (response) {
-    })
-    .catch(function (error) {
-      alert('Erreur:'+ error);
-    });
-    if(!navigator.props){
-      this.props.navigator.push({
-        component: Pret,
-        title:'Pret',
-        navigationBarHidden:true,
-        passProps:{username:this.props.username,token:this.props.token},
-      });
-    }
+        if( this.state.name !='' ){
+          var name = this.state.name;
+          if ( !isNaN(this.state.montant) && !isNaN(this.state.mensualite)){
+            var montant = ( this.state.montant || "" );
+            var mensualite = (this.state.mensualite || "" );
+            if( this.state.interet !=null || !isNaN(this.state.interet) && this.state.interet >= 0 && this.state.interet <=100 ){
+              var interet = this.state.interet;
+              if ( test === true){
+                var that = this;
+                var depart = (this.state.depart || "" );
+                axios.patch('http://104.131.74.22:8080/pret/'+this.props.pret_id,{
+                  name:name,
+                  montant:montant,
+                  mensualite:mensualite,
+                  interet:interet,
+                  duree:duree,
+                  depart:depart,
+                  user:this.props.username,
+                },config)
+                .then(function (response) {
+                  that.props.navigator.pop();
+                })
+                .catch(function (error) {
+                  alert('Erreur:'+ error);
+                });
+              }
+              else{
+                alert('Date format incorrect (Ex:12/01/2017)');
+              }
+            }
+            else{
+              alert(`Taux d'interêt incorrect`);
+            }
+          }
+          else{
+            alert('Les montants doivent être des nombres !')
+          }
+        }
+        else{
+          alert(`Le nom du prêt est vide`);
+        }
   },
   getInitialState: function() {
     return {
@@ -123,7 +141,6 @@ let updatePret = React.createClass ({
       mensualite:0,
       name:'',
       interet:'',
-      depart:'',
     }
   },
   valueChanged(montant){
