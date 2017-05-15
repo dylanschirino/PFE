@@ -98,8 +98,8 @@ let updateDepense = React.createClass ({
           var name = this.state.name;
           if( !isNaN(this.state.montant) ){
             var montant = this.state.montant;
-            if( !!categorieString){
-              categorieArray = this.state.categorie;
+            if(!!this.state.categorie){
+               categorieArray = categorieString.split(',');
               if ( this.state.selectedOption !='' ){
                 if (this.state.payement !='' ){
                   var that = this;
