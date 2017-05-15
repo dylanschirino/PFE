@@ -27,8 +27,8 @@ export default class InTheWallet extends Component {
          stores.map((result, i, store) => {
            // get at each store's key/value so you can work with it
            let key = store[i][0];
-           let value = store[1][1];
-           this.setState({username:store[2][1],tokenID:store[1][1]})
+           let value = store[i][1];
+           this.setState({tokenID:store[0][1],username:store[1][1]})
           });
         });
       });
