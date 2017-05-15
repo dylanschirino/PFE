@@ -149,10 +149,81 @@ let Pret = React.createClass ({
     this.setState({search: result});
 
   },
-  _renderEpargne(){
-    if(this.state.search){
-      let pretArray = (this.state.search);
-      return pretArray.map( ( oPret, i ) => {
+  _renderPret(){
+    let pretArray = this.state.pretArray;
+    if( pretArray.length === 0 ){
+      return (
+        <View>
+          <View style={styles.noContent}>
+            <Text style={styles.noContentTitle}>Aucun prêt trouvé</Text>
+          </View>
+          <View style={styles.noContentButton}>
+            <TouchableOpacity onPress={this.addPret}>
+              <Text style={styles.noContentButtonTitle}>Ajouter votre premier prêt</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )
+    }
+    else{
+      if(this.state.search){
+        let pretArray = (this.state.search);
+        return pretArray.map( ( oPret, i ) => {
+            {
+              var start = moment(oPret.start)*1000;
+              var end = moment(oPret.end,'DD-MM-YYYY')*1000;
+              var now = + new Date();
+              var percent = Math.round(( ( now - start ) / ( end - start ) ) * 100)/10000;
+            }
+              return (
+                <Swipeout key={i} autoClose={true} right={[
+                  {
+                  component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oPret.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
+                    /></TouchableOpacity>,
+                  backgroundColor:'#FF9500'
+                },
+                  {
+                  component:<TouchableOpacity onPress={
+                    () => Alert.alert(
+                    oPret.name,
+                    'Voulez-vous vraiment le supprimer?',
+                    [
+                      {text: 'Annuler', onPress: () => null},
+                      {text: 'Supprimer', onPress: () => {this._handleDelete(oPret.id)}},
+                    ]
+                  )
+                  } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
+                    /></TouchableOpacity>,
+                  backgroundColor:'#FE3F35'
+                }
+              ]} backgroundColor={'#FFFFFF'}>
+                <TouchableOpacity onPress={ ()=>{this.goDetails(oPret.id, oPret.name,oPret.end)}}>
+                <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
+                  <View style={styles.containerInfoCustom}>
+                    <View>
+                      <Text style={styles.nameCustom}>{oPret.name}</Text>
+                    </View>
+                    <View style={styles.secondInfo}>
+                      <Text style={styles.label}>{'Date de fin'.toUpperCase()}</Text>
+                      <Text style={styles.date}>{oPret.end}</Text>
+                    </View>
+                    <View style={styles.progressContainer}>
+                      <View style={styles.progressView}>
+                        <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
+                        progress={Math.abs(percent)/100}/>
+                      <Text style={styles.percent}>{Math.abs(percent).toFixed(2)}%</Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+                </TouchableOpacity>
+                </Swipeout>
+              )
+          } );
+      }
+      if(this.state.search == null ){
+        let pretArray = (this.state.pretArray).reverse();
+        return pretArray.map( ( oPret, i ) => {
           {
             var start = moment(oPret.start)*1000;
             var end = moment(oPret.end,'DD-MM-YYYY')*1000;
@@ -204,61 +275,7 @@ let Pret = React.createClass ({
               </Swipeout>
             )
         } );
-    }
-    if(this.state.search == null ){
-      let pretArray = (this.state.pretArray).reverse();
-      return pretArray.map( ( oPret, i ) => {
-        {
-          var start = moment(oPret.start)*1000;
-          var end = moment(oPret.end,'DD-MM-YYYY')*1000;
-          var now = + new Date();
-          var percent = Math.round(( ( now - start ) / ( end - start ) ) * 100)/10000;
-        }
-          return (
-            <Swipeout key={i} autoClose={true} right={[
-              {
-              component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oPret.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
-                /></TouchableOpacity>,
-              backgroundColor:'#FF9500'
-            },
-              {
-              component:<TouchableOpacity onPress={
-                () => Alert.alert(
-                oPret.name,
-                'Voulez-vous vraiment le supprimer?',
-                [
-                  {text: 'Annuler', onPress: () => null},
-                  {text: 'Supprimer', onPress: () => {this._handleDelete(oPret.id)}},
-                ]
-              )
-              } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
-                /></TouchableOpacity>,
-              backgroundColor:'#FE3F35'
-            }
-          ]} backgroundColor={'#FFFFFF'}>
-            <TouchableOpacity onPress={ ()=>{this.goDetails(oPret.id, oPret.name,oPret.end)}}>
-            <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
-              <View style={styles.containerInfoCustom}>
-                <View>
-                  <Text style={styles.nameCustom}>{oPret.name}</Text>
-                </View>
-                <View style={styles.secondInfo}>
-                  <Text style={styles.label}>{'Date de fin'.toUpperCase()}</Text>
-                  <Text style={styles.date}>{oPret.end}</Text>
-                </View>
-                <View style={styles.progressContainer}>
-                  <View style={styles.progressView}>
-                    <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
-                    progress={Math.abs(percent)/100}/>
-                  <Text style={styles.percent}>{Math.abs(percent).toFixed(2)}%</Text>
-                  </View>
-                </View>
-              </View>
-            </View>
-            </TouchableOpacity>
-            </Swipeout>
-          )
-      } );
+      }
     }
   },
   _renderHead(){
@@ -383,7 +400,7 @@ let Pret = React.createClass ({
           />
         {this._renderSwitch()}
         <ScrollView scrollEnabled={true} automaticallyAdjustContentInsets={false} contentContainerStyle={styles.listCustom}>
-          {this._renderEpargne()}
+          {this._renderPret()}
         </ScrollView>
       </View>
       {this._renderDisplay()}
