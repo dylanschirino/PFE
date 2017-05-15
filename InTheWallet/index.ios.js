@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  NavigatorIOS,
   AsyncStorage,
+  NavigatorIOS,
   View,
   Text,
   TouchableOpacity,
@@ -14,6 +14,7 @@ var DeviceInfo = require('react-native-device-info');
 
 import Introduction from "./app/components/Introduction";
 import Login from "./app/components/login/Login";
+import Home from './app/components/Home';
 export default class InTheWallet extends Component {
   constructor(){
     super();
@@ -21,6 +22,16 @@ export default class InTheWallet extends Component {
   }
   componentWillMount(){
       var that = this;
+      AsyncStorage.getAllKeys((err, keys) => {
+        AsyncStorage.multiGet(keys, (err, stores) => {
+         stores.map((result, i, store) => {
+           // get at each store's key/value so you can work with it
+           let key = store[i][0];
+           let value = store[1][1];
+           this.setState({username:store[2][1],tokenID:store[1][1]})
+          });
+        });
+      });
       firstTime(DeviceInfo.getUniqueID())
       .then(function(response) {
       that.setState({firstLaunch:response});
@@ -47,9 +58,10 @@ export default class InTheWallet extends Component {
       return(
         <NavigatorIOS
         initialRoute = {{
-          component: Login,
-          title:'Login',
+          component: Home,
+          title:'Home',
           navigationBarHidden:true,
+          passProps:{username:this.state.username,token:this.state.tokenID}
         }}
        style={{ flex:1,}}/>
       )

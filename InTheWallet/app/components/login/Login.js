@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, AlertIOS, TextInput, Image} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, AlertIOS, TextInput, Image,AsyncStorage} from 'react-native';
 import Form from 'react-native-form';
 import axios from 'axios';
 import sha256 from 'sha256';
@@ -43,6 +43,7 @@ let Login = React.createClass ({
          return Promise.resolve(tokenID);
         })
         .then(function(response) {
+          AsyncStorage.multiSet([["tokenID", response],['username',email]]);
           that.props.navigator.push({
           component: Home,
           title:'Home',
