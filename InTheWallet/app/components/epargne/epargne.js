@@ -151,118 +151,135 @@ let Epargne = React.createClass ({
 
   },
   _renderEpargne(){
-    if(this.state.search){
-      let epargneArray = (this.state.search);
-      return epargneArray.map( ( oEpargne, i ) => {
-        {
-          var start = moment(oEpargne.start)*1000;
-          var end = moment(oEpargne.end,'DD-MM-YYYY')*1000;
-          var now = + new Date();
-          var percent = Math.round(( ( now - start ) / ( end - start ) ) * 100)/10000;
-        }
+    let epargneArray = this.state.epargneArray
+    if( epargneArray.length === 0 ){
       return (
-        <Swipeout key={i} autoClose={true} right={[
-          {
-          component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oEpargne.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
-            /></TouchableOpacity>,
-          backgroundColor:'#FF9500'
-        },
-          {
-          component:<TouchableOpacity onPress={
-            () => Alert.alert(
-            oEpargne.name,
-            'Voulez-vous vraiment le supprimer?',
-            [
-              {text: 'Annuler', onPress: () => null},
-              {text: 'Supprimer', onPress: () => {this._handleDelete(oEpargne.id)}},
-            ]
-          )
-          } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
-            /></TouchableOpacity>,
-          backgroundColor:'#FE3F35'
-        }
-      ]} backgroundColor={'#FFFFFF'}>
-        <TouchableOpacity onPress={ ()=>{this.goDetails(oEpargne.id, oEpargne.name,oEpargne.end)}}>
-        <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
-          <View style={styles.containerInfoCustom}>
-            <View>
-              <Text style={styles.nameCustom}>{oEpargne.name}</Text>
-            </View>
-            <View style={styles.secondInfo}>
-              <Text style={styles.label}>DATE DE FIN</Text>
-              <Text style={styles.date}>{oEpargne.end}</Text>
-            </View>
-            <View style={styles.progressContainer}>
-              <View style={styles.progressView}>
-                <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
-                progress={Math.abs(percent)/100}/>
-              <Text style={styles.percent}>{Math.abs(percent/100).toFixed(2)}%</Text>
-              </View>
-            </View>
+        <View>
+          <View style={styles.noContent}>
+            <Text style={styles.noContentTitle}>Aucune épargne trouvée</Text>
+          </View>
+          <View style={styles.noContentButton}>
+            <TouchableOpacity onPress={this.addEpargne}>
+              <Text style={styles.noContentButtonTitle}>Ajouter votre première épargne</Text>
+            </TouchableOpacity>
           </View>
         </View>
-        </TouchableOpacity>
-        </Swipeout>
       )
-    });
     }
-    if(this.state.search == null ){
-      let epargneArray = (this.state.epargneArray);
-      return epargneArray.map( ( oEpargne, i ) => {
-        {
-          var start = moment(oEpargne.start)*1000;
-          var end = moment(oEpargne.end,'DD-MM-YYYY')*1000;
-          var now = + new Date();
-          var percent = Math.round(( ( now - start ) / ( end - start ) ) * 100)/10000;
-        }
-      return (
-        <Swipeout key={i} autoClose={true} right={[
+    else{
+      if(this.state.search){
+        let epargneArray = (this.state.search);
+        return epargneArray.map( ( oEpargne, i ) => {
           {
-          component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oEpargne.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
-            /></TouchableOpacity>,
-          backgroundColor:'#FF9500'
-        },
-          {
-          component:<TouchableOpacity onPress={
-            () => Alert.alert(
-            oEpargne.name,
-            'Voulez-vous vraiment le supprimer?',
-            [
-              {text: 'Annuler', onPress: () => null},
-              {text: 'Supprimer', onPress: () => {this._handleDelete(oEpargne.id)}},
-            ]
-          )
-          } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
-            /></TouchableOpacity>,
-          backgroundColor:'#FE3F35'
-        }
-      ]} backgroundColor={'#FFFFFF'}>
-        <TouchableOpacity onPress={ ()=>{this.goDetails(oEpargne.id, oEpargne.name,oEpargne.end)}}>
-        <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
-          <View style={styles.containerInfoCustom}>
-            <View>
-              <Text style={styles.nameCustom}>{oEpargne.name}</Text>
-            </View>
-            <View style={styles.secondInfo}>
-              <Text style={styles.label}>DATE DE FIN</Text>
-              <Text style={styles.date}>{oEpargne.end}</Text>
-            </View>
-            <View style={styles.progressContainer}>
-              <View style={styles.progressView}>
-                <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
-                progress={Math.abs(percent)/100}/>
-              {
-              }
-              <Text style={styles.percent}>{Math.abs(percent/100).toFixed(2)}%</Text>
+            var start = moment(oEpargne.start)*1000;
+            var end = moment(oEpargne.end,'DD-MM-YYYY')*1000;
+            var now = + new Date();
+            var percent = Math.round(( ( now - start ) / ( end - start ) ) * 100)/10000;
+          }
+        return (
+          <Swipeout key={i} autoClose={true} right={[
+            {
+            component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oEpargne.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
+              /></TouchableOpacity>,
+            backgroundColor:'#FF9500'
+          },
+            {
+            component:<TouchableOpacity onPress={
+              () => Alert.alert(
+              oEpargne.name,
+              'Voulez-vous vraiment le supprimer?',
+              [
+                {text: 'Annuler', onPress: () => null},
+                {text: 'Supprimer', onPress: () => {this._handleDelete(oEpargne.id)}},
+              ]
+            )
+            } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
+              /></TouchableOpacity>,
+            backgroundColor:'#FE3F35'
+          }
+        ]} backgroundColor={'#FFFFFF'}>
+          <TouchableOpacity onPress={ ()=>{this.goDetails(oEpargne.id, oEpargne.name,oEpargne.end)}}>
+          <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
+            <View style={styles.containerInfoCustom}>
+              <View>
+                <Text style={styles.nameCustom}>{oEpargne.name}</Text>
+              </View>
+              <View style={styles.secondInfo}>
+                <Text style={styles.label}>DATE DE FIN</Text>
+                <Text style={styles.date}>{oEpargne.end}</Text>
+              </View>
+              <View style={styles.progressContainer}>
+                <View style={styles.progressView}>
+                  <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
+                  progress={Math.abs(percent)/100}/>
+                <Text style={styles.percent}>{Math.abs(percent/100).toFixed(2)}%</Text>
+                </View>
               </View>
             </View>
           </View>
-        </View>
-        </TouchableOpacity>
-        </Swipeout>
-      )
-    });
-  }
+          </TouchableOpacity>
+          </Swipeout>
+        )
+      });
+      }
+      if(this.state.search == null ){
+        let epargneArray = (this.state.epargneArray);
+        return epargneArray.map( ( oEpargne, i ) => {
+          {
+            var start = moment(oEpargne.start)*1000;
+            var end = moment(oEpargne.end,'DD-MM-YYYY')*1000;
+            var now = + new Date();
+            var percent = Math.round(( ( now - start ) / ( end - start ) ) * 100)/10000;
+          }
+        return (
+          <Swipeout key={i} autoClose={true} right={[
+            {
+            component:<TouchableOpacity style={styles.swipeContainer} onPress={ ()=>{this._handleEdit(oEpargne.id)}}><Image style={styles.edit} source={ require('../../img/edit-swipe.png')}
+              /></TouchableOpacity>,
+            backgroundColor:'#FF9500'
+          },
+            {
+            component:<TouchableOpacity onPress={
+              () => Alert.alert(
+              oEpargne.name,
+              'Voulez-vous vraiment le supprimer?',
+              [
+                {text: 'Annuler', onPress: () => null},
+                {text: 'Supprimer', onPress: () => {this._handleDelete(oEpargne.id)}},
+              ]
+            )
+            } style={styles.swipeContainer}><Image style={styles.delete} source={ require('../../img/delete.png')}
+              /></TouchableOpacity>,
+            backgroundColor:'#FE3F35'
+          }
+        ]} backgroundColor={'#FFFFFF'}>
+          <TouchableOpacity onPress={ ()=>{this.goDetails(oEpargne.id, oEpargne.name,oEpargne.end)}}>
+          <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
+            <View style={styles.containerInfoCustom}>
+              <View>
+                <Text style={styles.nameCustom}>{oEpargne.name}</Text>
+              </View>
+              <View style={styles.secondInfo}>
+                <Text style={styles.label}>DATE DE FIN</Text>
+                <Text style={styles.date}>{oEpargne.end}</Text>
+              </View>
+              <View style={styles.progressContainer}>
+                <View style={styles.progressView}>
+                  <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
+                  progress={Math.abs(percent)/100}/>
+                {
+                }
+                <Text style={styles.percent}>{Math.abs(percent/100).toFixed(2)}%</Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          </TouchableOpacity>
+          </Swipeout>
+        )
+      });
+      }
+    }
   },
   _renderHeader(){
     return(
