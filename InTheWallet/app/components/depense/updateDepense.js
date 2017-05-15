@@ -293,20 +293,21 @@ let updateDepense = React.createClass ({
       )
   },
   _renderImage(){
-    if( this.state.uri === ''){
-      return(
-        <Image
-          style={styles.iconPhoto}
-          source={ require('../../img/photoThumb.png')}
-        />
-      )
-    }
-    else if(this.state.uri){
+
+    if(this.state.uri){
         return(
           <Image
             style={styles.iconPhotoValid}
             source={{uri:this.state.uri}}
           />
+      )
+    }
+    else{
+      return(
+        <Image
+          style={styles.iconPhoto}
+          source={require('../../img/photoThumb.png')}
+        />
       )
     }
 

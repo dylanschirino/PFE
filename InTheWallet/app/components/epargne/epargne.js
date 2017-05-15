@@ -108,16 +108,7 @@ let Epargne = React.createClass ({
     };
     axios.delete('http://104.131.74.22:8080/epargne/'+id,config)
     .then( response => {
-      alert('La dépense à bien été supprimée');
-    })
-    .catch(function (error) {
-      alert('Erreur:'+ error);
-    });
-    axios.get('http://104.131.74.22:8080/epargne?user='+this.props.username,config)
-    .then( response => {
-      const epargneObject = response.data['data'];
-      const epargneArray = Object.keys(epargneObject).map(key => epargneObject[key]);
-      this.setState({ epargneArray });
+      alert(`L'épargne à bien été supprimée`);
     })
     .catch(function (error) {
       alert('Erreur:'+ error);

@@ -124,9 +124,19 @@ let Depense = React.createClass ({
     var config = {
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
     };
+    var that = this;
     axios.delete('http://104.131.74.22:8080/depense/'+id,config)
     .then( response => {
       alert('La dépense à bien été supprimée');
+      axios.get('http://104.131.74.22:8080/depense?user='+this.props.username,config)
+      .then( response => {
+        const depenseObject = response.data['data'];
+        const depenseArray = Object.keys(depenseObject).map(key => depenseObject[key]);
+        that.setState({ depenseArray });
+      })
+      .catch(function (error) {
+        alert('Erreur:'+ error);
+      });
     })
     .catch(function (error) {
       alert('Erreur:'+ error);
