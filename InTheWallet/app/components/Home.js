@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image,ProgressViewIOS, TextInput} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image,ProgressViewIOS, TextInput,AsyncStorage} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Form from 'react-native-form';
 import axios from 'axios';
@@ -20,6 +20,7 @@ import addDepense from './depense/addDepense';
 import addPret from './pret/addPret';
 import addEpargne from './epargne/addEpargne';
 import Limit from './Limit';
+import Login from './login/Login';
 
 let Home = React.createClass ({
     mixins: [TimerMixin],
@@ -249,6 +250,14 @@ let Home = React.createClass ({
   toggleDisplayInfo(){
     this.setState({enableInfo:false});
   },
+  logOut(){
+    AsyncStorage.multiRemove(['tokenID','username']);
+    this.props.navigator.push({
+      component: Login,
+      title:'Login',
+      navigationBarHidden:true,
+    });
+  },
   goDepense(){
     this.props.navigator.push({
       component: Depense,
@@ -388,7 +397,7 @@ let Home = React.createClass ({
             </TouchableOpacity>
             <Text style={styles.labelLimit}>{'Limite du mois'.toUpperCase() } </Text>
           </View>
-          <TouchableOpacity style={styles.logout}>
+          <TouchableOpacity style={styles.logout} onPress={this.logOut}>
             <Image style={styles.logoutImg} source={ require('../img/logout.png')}
               />
           </TouchableOpacity>
