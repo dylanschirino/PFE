@@ -77,6 +77,7 @@ let updateDepense = React.createClass ({
                       categorie:depenseDetails.categorie,
                       selectedOption:depenseDetails.repeater,
                       payement:depenseDetails.payement,
+                      uri: depenseDetails.picture,
        });
     })
     .catch(function (error) {
@@ -87,38 +88,61 @@ let updateDepense = React.createClass ({
     var config = {
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
     };
-    let name = ( this.state.name || "" ),
-        montant = ( this.state.montant || "" ),
-        categorieString = this.state.categorie,
+
+
+        let categorieString = this.state.categorie,
         categorieArray = [],
         payement,
-        repeater = this.state.repeater;
-        if(!!this.state.categorie){
-          categorieArray = this.state.categorie;
+        picture;
+        if( this.state.name !='' ){
+          var name = this.state.name;
+          if( !isNaN(this.state.montant) ){
+            var montant = this.state.montant;
+            if( !!categorieString){
+              categorieArray = this.state.categorie;
+              if ( this.state.selectedOption !='' ){
+                if (this.state.payement !='' ){
+                  var that = this;
+                  axios.patch('http://104.131.74.22:8080/depense/'+this.props.depense_id, {
+                    name:name,
+                    montant:montant,
+                    user:this.props.username,
+                    categorie:categorieArray,
+                    payement:this.state.payement,
+                    repeater:this.state.selectedOption,
+                    picture:this.state.uri,
+                  },config)
+                  .then(function (response) {
+                    that.props.navigator.push({
+                      component: Depense,
+                      title:'Depense',
+                      navigationBarHidden:true,
+                      passProps:{username:that.props.username,token:that.props.token},
+                    });
+                  })
+                  .catch(function (error) {
+                    alert('Erreur:'+ error);
+                  });
+                }
+                else{
+                  alert(`Le moyen de payement n'a pas été choisi`);
+                }
+              }else {
+                alert('La repeteur ne peut pas être vide');
+              }
+            }
+            else{
+                categorieArray = [];
+            }
+          }
+          else{
+            alert('Le montant doit être un nombre');
+          }
+        }
+        else{
+          alert('Le nom ne peut pas être vide');
         }
 
-    axios.patch('http://104.131.74.22:8080/depense/'+this.props.depense_id, {
-      name:name,
-      montant:montant,
-      user:this.props.username,
-      categorie:categorieArray,
-      payement:this.state.payement,
-      repeater:this.state.selectedOption,
-      picture:this.state.uri,
-    },config)
-    .then(function (response) {
-    })
-    .catch(function (error) {
-      alert('Erreur:'+ error);
-    });
-    if(!navigator.props){
-      this.props.navigator.push({
-        component: Depense,
-        title:'Depense',
-        navigationBarHidden:true,
-        passProps:{username:this.props.username,token:this.props.token},
-      });
-    }
   },
   getInitialState: function() {
     return {
@@ -251,7 +275,6 @@ let updateDepense = React.createClass ({
           <View style={styles.chooseContainerPhoto}>
             <TouchableOpacity style={styles.pictureChoose} onPress={() => {this.pickImage()}}>
               {this._renderImage()}
-            <Image style={styles.avatar} source={this.state.imageSource} />
           </TouchableOpacity>
           </View>
         </View>
