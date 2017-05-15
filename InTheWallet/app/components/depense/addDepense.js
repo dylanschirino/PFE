@@ -69,41 +69,61 @@ let addDepense = React.createClass ({
     var config = {
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
     };
-    let name = ( this.state.name || "" ),
-        montant = ( this.state.montant || "" ),
-        categorieString = this.state.categorie,
+
+        let categorieString = this.state.categorie,
         categorieArray = [],
         payement,
-        picture,
-        repeater = this.state.repeater;
-        if( categorieString == null ){
-          categorieArray = [];
+        picture;
+        if( this.state.name !='' ){
+          var name = this.state.name;
+          if( !isNaN(this.state.montant) ){
+            var montant = this.state.montant;
+            if( categorieString != null){
+              categorieArray = categorieString.split(',');
+              if ( this.state.selectedOption !='' ){
+                if (this.state.payement !='' ){
+                  var that = this;
+                  axios.post('http://104.131.74.22:8080/depense', {
+                    name:name,
+                    montant:montant,
+                    user:this.props.username,
+                    categorie:categorieArray,
+                    payement:this.state.payement,
+                    picture:this.state.uri,
+                    repeater:this.state.selectedOption,
+                  },config)
+                  .then(function (response) {
+                      that.props.navigator.pop();
+                  })
+                  .catch(function (error) {
+                    alert('Erreur:'+ error);
+                  });
+                }
+                else{
+                  alert(`Le moyen de payement n'a pas été choisi`);
+                }
+              }else {
+                alert('La repeteur ne peut pas être vide');
+              }
+            }
+            else{
+                categorieArray = [];
+            }
+          }
+          else{
+            alert('Le montant doit être un nombre');
+          }
         }
         else{
-          categorieArray = categorieString.split(',');
+          alert('Le nom ne peut pas être vide');
         }
 
-    axios.post('http://104.131.74.22:8080/depense', {
-      name:name,
-      montant:montant,
-      user:this.props.username,
-      categorie:categorieArray,
-      payement:this.state.payement,
-      picture:this.state.uri,
-      repeater:this.state.selectedOption,
-    },config)
-    .then(function (response) {
-    })
-    .catch(function (error) {
-      alert('Erreur:'+ error);
-    });
-    if(!navigator.props){
-      this.props.navigator.pop();
-    }
   },
   getInitialState: function() {
     return {
+      name:'',
       payement:'',
+      categorie:'',
       clicked:0,
       selectedOption:'',
       montant:0,
