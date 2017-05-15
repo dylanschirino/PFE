@@ -147,7 +147,7 @@ let Details = React.createClass ({
                   </View>
                   <View style={details.content}>
                     <Text style={details.label}>Taux d'interêt</Text>
-                    <Text style={details.response}>{this.state.pretDetails.interet*100} %</Text>
+                    <Text style={details.response}>{this.state.pretDetails.interet*100} % </Text>
                   </View>
                 </View>
                 <View style={details.row}>
@@ -156,7 +156,7 @@ let Details = React.createClass ({
                     <Text style={details.response}>{this.state.pretDetails.depart}</Text>
                   </View>
                   <View style={details.content}>
-                    <Text style={details.label}>Durée du prêt</Text>
+                    <Text style={details.label}>Fin du prêt</Text>
                     <Text style={details.response}>{this.state.pretDetails.end}</Text>
                   </View>
                 </View>
