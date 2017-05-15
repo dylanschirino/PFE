@@ -61,29 +61,53 @@ let addEpargne = React.createClass ({
     var config = {
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
     };
-    let name = ( this.state.name || "" ),
-        montant = ( this.state.montant || "" ),
-        mensualite = (this.state.mensualite || "" ),
-        debut = (this.state.debut || "" );
 
-    axios.post('http://104.131.74.22:8080/epargne', {
-      name:name,
-      montant:montant,
-      mensualite:mensualite,
-      depart:debut,
-      user:this.props.username,
-    },config)
-    .then(function (response) {
-    })
-    .catch(function (error) {
-      alert('Erreur:'+ error);
-    });
-    if(!navigator.props){
-      this.props.navigator.pop();
-    }
+        let regex = /^[0-9]{2}\/[0-9]{1}\/[0-9]{4}$/,
+            test = regex.test(this.state.debut);
+
+        if( this.state.name !='' ){
+          var name = this.state.name;
+          if ( !isNaN(this.state.montant) && !isNaN(this.state.mensualite)){
+            var montant = ( this.state.montant || "" );
+            var mensualite = (this.state.mensualite || "" );
+            if ( test === true){
+              var that = this;
+              var debut = (this.state.debut || "" );
+              axios.post('http://104.131.74.22:8080/epargne', {
+                name:name,
+                montant:montant,
+                mensualite:mensualite,
+                depart:debut,
+                user:this.props.username,
+              },config)
+               .then(function(response) {
+                 that.props.navigator.push({
+                 component: Epargne,
+                 title:'Epargne',
+                 navigationBarHidden:true,
+                 passProps:{username:that.props.username,token:that.props.token},
+                 });
+              })
+              .catch(function (error) {
+                alert('Erreur:'+ error);
+              });
+            }
+            else{
+              alert('Date format incorrect (Ex:12/01/2017)');
+            }
+          }
+          else{
+            alert('Les montants doivent être des nombres !')
+          }
+        }
+        else{
+          alert(`Le nom de l'épargne est vide`);
+        }
+
   },
   getInitialState: function() {
     return {
+      name:'',
       montant:0,
       mensualite:0,
     }
