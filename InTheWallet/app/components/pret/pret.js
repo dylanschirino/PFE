@@ -170,10 +170,12 @@ let Pret = React.createClass ({
         let pretArray = (this.state.search);
         return pretArray.map( ( oPret, i ) => {
             {
-              var start = moment(oPret.start)*1000;
-              var end = moment(oPret.end,'DD-MM-YYYY')*1000;
-              var now = + new Date();
-              var percent = Math.round(( ( now - start ) / ( end - start ) ) * 100)/10000;
+              var start = moment(oPret.depart,'DD-MM-YYYY');
+              var end = moment(oPret.end,'DD-MM-YYYY');
+              var depart = new Date(start).getTime()/1000;
+              var final = new Date(end).getTime()/1000;
+              var now = Date.now()/1000;
+              var percent = (now-depart)/(final-depart);
             }
               return (
                 <Swipeout key={i} autoClose={true} right={[
@@ -210,8 +212,8 @@ let Pret = React.createClass ({
                     <View style={styles.progressContainer}>
                       <View style={styles.progressView}>
                         <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
-                        progress={Math.abs(percent)/100}/>
-                      <Text style={styles.percent}>{Math.abs(percent).toFixed(2)}%</Text>
+                        progress={Math.abs(percent)}/>
+                      <Text style={styles.percent}>{Math.abs(percent*100).toFixed(1)}%</Text>
                       </View>
                     </View>
                   </View>
@@ -225,10 +227,12 @@ let Pret = React.createClass ({
         let pretArray = (this.state.pretArray).reverse();
         return pretArray.map( ( oPret, i ) => {
           {
-            var start = moment(oPret.start)*1000;
-            var end = moment(oPret.end,'DD-MM-YYYY')*1000;
-            var now = + new Date();
-            var percent = Math.round(( ( now - start ) / ( end - start ) ) * 100)/10000;
+            var start = moment(oPret.depart,'DD-MM-YYYY');
+            var end = moment(oPret.end,'DD-MM-YYYY');
+            var depart = new Date(start).getTime()/1000;
+            var final = new Date(end).getTime()/1000;
+            var now = Date.now()/1000;
+            var percent = (now-depart)/(final-depart);
           }
             return (
               <Swipeout key={i} autoClose={true} right={[
@@ -265,8 +269,8 @@ let Pret = React.createClass ({
                   <View style={styles.progressContainer}>
                     <View style={styles.progressView}>
                       <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
-                      progress={Math.abs(percent)/100}/>
-                    <Text style={styles.percent}>{Math.abs(percent).toFixed(2)}%</Text>
+                      progress={Math.abs(percent)}/>
+                    <Text style={styles.percent}>{Math.abs(percent*100).toFixed(1)}%</Text>
                     </View>
                   </View>
                 </View>
