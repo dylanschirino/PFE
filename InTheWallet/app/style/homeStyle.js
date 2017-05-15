@@ -250,5 +250,8 @@ module.exports = EStyleSheet.create({
       paddingTop:15,
       paddingBottom:15,
     },
+    noContentTitle:{
+      paddingTop:45,
+    },
   }
 });

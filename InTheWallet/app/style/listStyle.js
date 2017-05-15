@@ -285,5 +285,8 @@ module.exports = EStyleSheet.create({
     containerInfo:{
       marginLeft:10,
     },
+    noContent:{
+      paddingTop:50
+    },
   }
 });
