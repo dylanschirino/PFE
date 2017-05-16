@@ -266,5 +266,10 @@ module.exports = EStyleSheet.create({
     noContentTitle:{
       paddingTop:45,
     },
+  },
+  '@media (min-width:380px) and (max-width:768px)':{
+    header:{
+      height:150,
+    },
   }
 });

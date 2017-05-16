@@ -122,12 +122,16 @@ const intro2 = EStyleSheet.create({
       marginTop:15,
       marginBottom:20,
     },
+    '@media (min-width:380px) and (max-width:768px)':{
+      width:356,
+      height:352,
+    },
   },
   active:{
     backgroundColor:'#235182',
     borderRadius:2.5,
-    width:19.75,
-    height:15,
+    width:29.75,
+    height:25,
     borderWidth:1,
     borderColor:'#235182',
     borderRadius:2.5,

@@ -137,5 +137,55 @@ module.exports = EStyleSheet.create({
       marginTop:5,
       marginRight:0,
     },
+  },
+  '@media (min-width:380px) and (max-width:768px)':{
+    img:{
+      width:357,
+      height:350,
+    },
+    titleIntro:{
+      fontSize:32,
+      marginBottom:40,
+    },
+    introText:{
+      fontSize:28,
+      textAlign:'center',
+      fontWeight:'100',
+      lineHeight:38,
+      color:'$Blue',
+      paddingLeft:30,
+      paddingRight:30,
+      paddingBottom:80,
+    },
+    switchContainer:{
+      flexDirection:'row',
+      marginBottom:160,
+      marginRight:21,
+    },
+    switcher:{
+      width:29.75,
+      height:25,
+    },
+    active:{
+      width:29.75,
+      height:25,
+    },
+    button:{
+      paddingTop:20,
+      paddingBottom:20,
+    },
+    buttonCustom:{
+      paddingTop:20,
+      paddingBottom:20,
+    },
+    buttonCustom2:{
+      paddingTop:20,
+      paddingBottom:20,
+    },
+    buttonText:{
+      color:'#FFFFFF',
+      fontFamily:'droidsans',
+      fontSize:24,
+    },
   }
 });
