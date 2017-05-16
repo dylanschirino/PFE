@@ -339,5 +339,28 @@ module.exports = EStyleSheet.create({
       paddingTop:15,
       paddingBottom:15,
     },
+    infoContainer:{
+      position:'absolute',
+      top:20,
+      borderRadius:8,
+      width:350,
+      paddingTop:20,
+      paddingBottom:20,
+    },
+    infoTitle:{
+      textAlign:'center',
+      fontSize:18,
+      fontFamily:'droidsans',
+      color:'#E5A23F',
+      marginLeft:10,
+    },
+    infoIcone:{
+      width:40,
+      height:40,
+    },
+    infoIconeStorm:{
+      width:40,
+      height:39,
+    },
   }
 });
