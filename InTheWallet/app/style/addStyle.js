@@ -382,24 +382,24 @@ module.exports = EStyleSheet.create({
       paddingBottom:30,
     },
     dateContainer:{
-      paddingTop:35,
-      paddingBottom:35,
+      paddingTop:55,
+      paddingBottom:55,
     },
     nameContainerCustom:{
       paddingTop:30,
       paddingBottom:30,
     },
     montantContainer:{
-      paddingTop:35,
-      paddingBottom:35,
+      paddingTop:45,
+      paddingBottom:45,
     },
     montantContainerDepense:{
       paddingTop:30,
       paddingBottom:30,
     },
     mensualiteContainer:{
-      paddingTop:25,
-      paddingBottom:35,
+      paddingTop:45,
+      paddingBottom:45,
     },
     optionContainer:{
       paddingTop:30,

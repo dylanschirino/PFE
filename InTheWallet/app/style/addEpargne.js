@@ -105,5 +105,53 @@ module.exports = EStyleSheet.create({
       paddingTop:13.9,
       paddingBottom:13.9,
     },
+  },
+  '@media (min-width:380px) and (max-width:768px)':{
+    quickLinkContainer:{
+      backgroundColor:'#F8FCFF',
+      flex:0,
+      paddingTop:20,
+      paddingBottom:20,
+      alignItems:'center',
+      justifyContent:'center',
+      flexDirection:'row',
+    },
+    quickLinkText:{
+      fontSize:16,
+      borderRadius:10,
+      fontFamily:'droidsans',
+      color:'$mainColor',
+      paddingTop:10,
+      paddingBottom:10,
+      alignSelf:'center',
+    },
+    quickLinkTextActive:{
+      fontSize:16,
+      borderRadius:10,
+      fontFamily:'droidsans',
+      color:'#FFFFFF',
+      paddingTop:10,
+      paddingBottom:10,
+      alignSelf:'center',
+    },
+    labelBlue:{
+        fontFamily:'droidsans',
+        fontSize:18,
+        color:'#275174',
+        paddingBottom:21.4,
+    },
+    pretContainer:{
+      alignItems:'center',
+      paddingTop:51,
+      paddingBottom:51,
+      flexDirection:'row',
+    },
+    inputOption:{
+      textAlign:'center',
+      color:'#333333',
+      fontSize:24,
+      fontFamily:'lato-light',
+      height:40,
+    },
   }
 });
