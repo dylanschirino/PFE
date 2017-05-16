@@ -123,7 +123,7 @@ module.exports = EStyleSheet.create({
     letterSpacing:0.75,
   },
   name:{
-    fontSize:18,
+    fontSize:17,
     fontFamily:'lato-regular',
     letterSpacing:0.75,
     color:'$textColor',

@@ -249,15 +249,23 @@ let Depense = React.createClass ({
       if(this.state.search == null ){
         return spendArray.map( ( oDepense, i ) => {
           {
-            this.state.name = oDepense.name;
+            var name = oDepense.name;
+            var generateName = function(){
+              if(name != null && name.length >= 15 ){
+                return oDepense.name.substring(0,15)+'...';
+              }
+              else{
+                return oDepense.name;
+              }
+            }
             var generateImage = function(){
-            if( oDepense.payement == 'carte'){
-              return (require('../../img/carte.png'));
+              if( oDepense.payement == 'carte'){
+                return (require('../../img/carte.png'));
+              }
+              else if ( oDepense.payement == 'cash'){
+                return (require('../../img/cash.png'));
+              }
             }
-            else if ( oDepense.payement == 'cash'){
-              return (require('../../img/cash.png'));
-            }
-          }
             var generateRepeat = function(){
               if ( oDepense.repeater == 'Jamais' || oDepense.repeater == false ){
                 return null;
@@ -320,7 +328,7 @@ let Depense = React.createClass ({
                 <View style={styles.containerInfo}>
                   <View style={styles.mainInfo}>
                     <Text style={styles.price}>{oDepense.montant}€</Text>
-                    <Text style={styles.name}>{oDepense.name}</Text>
+                    <Text style={styles.name}>{generateName()}</Text>
                   </View>
                   <View style={styles.secondInfo}>
                     <Text style={styles.label}>DÉPENSÉ LE</Text>
