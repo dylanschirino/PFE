@@ -380,5 +380,45 @@ module.exports = EStyleSheet.create({
       width:29,
       height:21,
     },
+    quickLinkText:{
+      fontSize:16,
+      paddingTop:10,
+      paddingBottom:10,
+    },
+    quickLinkTextActive:{
+      fontSize:16,
+      paddingTop:10,
+      paddingBottom:10,
+    },
+    quickLinkContent:{
+      borderRadius:10,
+      borderTopRightRadius:0,
+      borderBottomRightRadius:0,
+      borderWidth:1,
+      borderColor:'$mainColor',
+    },
+    quickLinkContentActive:{
+      borderRadius:8,
+      borderTopLeftRadius:0,
+      borderBottomLeftRadius:0,
+      borderWidth:1,
+      borderColor:'$mainColor',
+      backgroundColor:'$mainColor',
+    },
+    quickLinkContentRight:{
+      borderRadius:8,
+      borderTopLeftRadius:0,
+      borderBottomLeftRadius:0,
+      borderWidth:1,
+      borderColor:'$mainColor',
+    },
+    quickLinkContentActiveLeft:{
+      borderRadius:8,
+      borderTopRightRadius:0,
+      borderBottomRightRadius:0,
+      borderWidth:1,
+      borderColor:'$mainColor',
+      backgroundColor:'$mainColor',
+    },
   }
 });

@@ -99,5 +99,56 @@ module.exports = EStyleSheet.create({
       marginTop:20,
       marginBottom:20,
     },
+  },
+  '@media (min-width:380px) and (max-width:768px)':{
+    head:{
+      flexDirection:'row',
+      paddingTop:45,
+    },
+    clockContainer:{
+      width:300,
+      height:300,
+      marginTop:80,
+      marginBottom:80,
+    },
+    clockBorder:{
+      width:282,
+      height:282,
+    },
+    timer:{
+      width:'25%',
+      textAlign:'center',
+      color:'#FFFFFF',
+      fontSize:28,
+      fontFamily:'lato-light',
+      lineHeight:44,
+    },
+    label:{
+      fontSize:24,
+      fontFamily:'droidsans',
+      letterSpacing:0.5,
+      lineHeight:34,
+      color:'$mainColor',
+    },
+    response:{
+      fontSize:24,
+      paddingTop:10,
+      fontFamily:'lato-regular',
+      lineHeight:38,
+      paddingBottom:20,
+    },
+    row:{
+      width:'100%',
+      justifyContent:'center',
+      flexDirection:'row',
+      marginBottom:20,
+    },
+    title:{
+      fontSize:32,
+    },
+    imgAnnuler:{
+      width:35,
+      height:35,
+    },
   }
 });
