@@ -170,7 +170,7 @@ let Limit = React.createClass ({
   _renderMenu(){
     return(
       <View style={menu.menu}>
-          <TouchableOpacity style={menu.menuLink}>
+          <TouchableOpacity style={menu.menuLink} onPress={this.cancelHome}>
             <Image
               style={menu.icone}
               source={ require('../img/home.png')}
