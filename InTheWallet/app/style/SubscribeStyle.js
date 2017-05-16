@@ -130,5 +130,51 @@ module.exports = EStyleSheet.create({
     buttonConnexion:{
       marginBottom:30,
     },
-  }
+  },
+  '@media (min-width:380px) and (max-width:768px)':{
+    title:{
+      fontSize:40,
+      marginTop:80,
+    },
+    label:{
+      fontSize:16,
+    },
+    inputBox:{
+      marginBottom:45,
+    },
+    input:{
+      height:50,
+      color:'$input',
+      fontSize:20,
+    },
+    linkContainer:{
+      marginBottom:40,
+    },
+    link:{
+      fontSize:18,
+    },
+    button:{
+      paddingTop:22,
+      paddingBottom:22,
+      marginBottom:100,
+    },
+    buttonConnexion:{
+      paddingTop:22,
+      paddingBottom:22,
+      marginBottom:100,
+    },
+    buttonText:{
+      color:'$input',
+      fontFamily:'lato-regular',
+      fontSize:20,
+    },
+    cercle:{
+      width:'100%',
+      height:204,
+    },
+    logo:{
+      width:150,
+      height:143,
+    },
+  },
 });
