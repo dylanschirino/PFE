@@ -24,8 +24,8 @@ module.exports = EStyleSheet.create({
     marginLeft:10,
   },
   backText:{
-    fontSize:16,
-    marginLeft:10,
+    fontSize:15,
+    marginLeft:7,
     color:'#FFFFFF',
     position:'relative',
     bottom:2,
@@ -33,7 +33,7 @@ module.exports = EStyleSheet.create({
   navTitle:{
     color:'#FFFFFF',
     fontWeight:'500',
-    fontSize:16,
+    fontSize:15,
     marginRight:20,
     position:'relative',
     bottom:2,
@@ -41,7 +41,7 @@ module.exports = EStyleSheet.create({
   navTitleCustom:{
     color:'#FFFFFF',
     fontWeight:'500',
-    fontSize:16,
+    fontSize:15,
     marginRight:105,
     textAlign:'center',
     position:'relative',
@@ -50,7 +50,7 @@ module.exports = EStyleSheet.create({
   navTitleCustomLimit:{
     color:'#FFFFFF',
     fontWeight:'500',
-    fontSize:16,
+    fontSize:15,
     marginRight:130,
     textAlign:'center',
     position:'relative',
@@ -59,7 +59,7 @@ module.exports = EStyleSheet.create({
   navTitleCustomPret:{
     color:'#FFFFFF',
     fontWeight:'500',
-    fontSize:16,
+    fontSize:15,
     marginRight:125,
     textAlign:'center',
     position:'relative',

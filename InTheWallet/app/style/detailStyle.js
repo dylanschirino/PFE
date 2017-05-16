@@ -19,7 +19,7 @@ module.exports = EStyleSheet.create({
     zIndex:1,
     justifyContent:'flex-start',
     position:'absolute',
-    left:30,
+    left:15,
     top:20,
   },
   arrow:{
@@ -32,7 +32,7 @@ module.exports = EStyleSheet.create({
     color:'#FFFFFF',
     fontFamily:'droidsans',
     fontWeight:'600',
-    fontSize:20,
+    fontSize:18,
     lineHeight:28,
     letterSpacing:0.8,
     textAlign:'center',

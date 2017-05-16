@@ -165,6 +165,15 @@ let Depense = React.createClass ({
           var payement = oDepense.payement;
           var repeater = oDepense.repeater;
           var id = oDepense.id;
+          var name = oDepense.name;
+          var generateName = function(){
+            if(name != null && name.length >= 15 ){
+              return oDepense.name.substring(0,15)+'...';
+            }
+            else{
+              return oDepense.name;
+            }
+          }
             var generateImageSearch =function(){
             if( payement == 'carte'){
               return require('../../img/carte.png');
@@ -233,7 +242,7 @@ let Depense = React.createClass ({
                   <View style={styles.containerInfo}>
                     <View style={styles.mainInfo}>
                       <Text style={styles.price}>{oDepense.montant}€</Text>
-                      <Text style={styles.name}>{oDepense.name}</Text>
+                      <Text style={styles.name}>{generateName()}</Text>
                     </View>
                     <View style={styles.secondInfo}>
                       <Text style={styles.label}>DÉPENSÉ LE</Text>
