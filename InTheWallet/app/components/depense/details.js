@@ -137,7 +137,7 @@ let Details = React.createClass ({
             <Text style={styles.label}>La dépense est répété</Text>
             <Text style={styles.info}>{this.state.depenseDetails.repeater}</Text>
             <Text style={styles.label}>Catégories</Text>
-            <Text style={styles.info}>{this.state.categorie}</Text>
+            <Text style={styles.info}>{this.state.categorie.toString()}</Text>
             <Text style={styles.label}>Mode de payement</Text>
             <Text style={styles.info}>{this.state.depenseDetails.payement}</Text>
           </View>
