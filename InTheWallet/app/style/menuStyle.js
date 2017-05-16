@@ -125,5 +125,71 @@ module.exports = EStyleSheet.create({
     position:'absolute',
     top:30,
     right:30,
+  },
+  '@media (min-width:380px) and (max-width:768px)':{
+    menu:{
+      height:55,
+    },
+    menuLink:{
+      paddingTop:10,
+      paddingBottom:10,
+    },
+    icone:{
+      width:22,
+      height:22,
+    },
+    iconeEpargne:{
+      width:28,
+      height:22,
+    },
+    iconePret:{
+      width:18,
+      height:22,
+    },
+    iconeAdd:{
+      width:35,
+      height:35
+    },
+    menuLabel:{
+      fontSize:13,
+      color:'#FFFFFF',
+      paddingTop:3,
+    },
+    imgAnnuler:{
+      width:50,
+      height:50,
+    },
+    add:{
+      paddingTop:12,
+      width:60,
+      height:60,
+    },
+    buttonContainerDepense:{
+      bottom:100,
+      left:'44.8%',
+      width:100,
+      height:100,
+    },
+    buttonContainerPret:{
+      bottom:180,
+      left:'20%',
+      width:100,
+      height:100,
+    },
+    buttonContainerEpargne:{
+      bottom:180,
+      right:'20%',
+      width:100,
+      height:100,
+    },
+    buttonLabel:{
+      paddingTop:10,
+      fontSize:14,
+    },
+    buttonBack:{
+      position:'absolute',
+      top:35,
+      right:20,
+    },
   }
 });
