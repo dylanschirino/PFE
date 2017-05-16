@@ -105,7 +105,12 @@ let addDepense = React.createClass ({
                     repeater:this.state.selectedOption,
                   },config)
                   .then(function (response) {
-                      that.props.navigator.pop();
+                      that.props.navigator.push({
+                        component: Depense,
+                        title:'Depense',
+                        navigationBarHidden:true,
+                        passProps:{username:that.props.username,token:that.props.token},
+                      })
                   })
                   .catch(function (error) {
                     alert('Erreur:'+ error);
