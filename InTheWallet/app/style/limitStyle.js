@@ -139,5 +139,69 @@ module.exports = EStyleSheet.create({
     formContent:{
       marginTop:10,
     },
+  },
+  '@media (min-width:380px) and (max-width:768px)':{
+    iconTitle:{
+      width:50,
+      height:46,
+    },
+    content:{
+      marginTop:40,
+      marginBottom:40,
+    },
+    title:{
+      fontSize:24,
+      marginLeft:25,
+    },
+    text:{
+      fontSize:22,
+      fontFamily:'lato-light',
+      lineHeight:32,
+      color:'$text',
+      paddingTop:30,
+    },
+    titleForm:{
+      fontSize:28,
+      marginTop:100,
+    },
+    formContent:{
+      flexDirection:'row',
+      width:'75%',
+      alignSelf:'center',
+      marginTop:50,
+    },
+    iconContainer:{
+      width:80,
+      height:80,
+    },
+    iconForm:{
+      width:60,
+      height:60,
+    },
+    inputText:{
+      fontSize:40,
+      fontFamily:'lato-light',
+      marginLeft:30,
+      height:60,
+    },
+    euro:{
+      fontSize:40,
+    },
+    cancelContainer:{
+      paddingTop:30,
+      paddingBottom:30,
+    },
+    checkContainer:{
+      paddingTop:30,
+      paddingBottom:30,
+    },
+    cancelIcon:{
+      width:40,
+      height:40,
+    },
+    checkIcon:{
+      width:45,
+      height:31,
+    },
   }
 });
