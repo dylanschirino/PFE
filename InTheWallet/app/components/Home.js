@@ -7,6 +7,7 @@ import Chart from 'react-native-chart';
 import Display from 'react-native-display';
 import TimerMixin from 'react-timer-mixin';
 import Load from "react-native-loading-gif";
+import DeviceInfo from 'react-native-device-info';
 
 let styles = require('../style/homeStyle'),
     menu = require('../style/menuStyle');
@@ -362,20 +363,38 @@ let Home = React.createClass ({
       )
     }
     else{
-      let threeLast = this.state.depenseArray.slice(Math.max(length - 3, 0));
-      return threeLast.map( ( oDepense, i ) => {
-          return (
-            <TouchableOpacity style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
-              <View style={styles.depenseContent}>
-                <Text style={styles.price}>{oDepense.montant}€</Text>
-                <Text style={styles.title}>{oDepense.name}</Text>
-                <View>
-                  <Text style={styles.date}>{oDepense.created_at}</Text>
+      if(DeviceInfo.isTablet() == true){
+        let threeLast = this.state.depenseArray.slice(Math.max(length - 5, 0));
+        return threeLast.map( ( oDepense, i ) => {
+            return (
+              <TouchableOpacity style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
+                <View style={styles.depenseContent}>
+                  <Text style={styles.price}>{oDepense.montant}€</Text>
+                  <Text style={styles.title}>{oDepense.name}</Text>
+                  <View>
+                    <Text style={styles.date}>{oDepense.created_at}</Text>
+                  </View>
                 </View>
-              </View>
-            </TouchableOpacity>
-          )
-      } );
+              </TouchableOpacity>
+            )
+        } );
+      }
+      else{
+        let threeLast = this.state.depenseArray.slice(Math.max(length - 3, 0));
+        return threeLast.map( ( oDepense, i ) => {
+            return (
+              <TouchableOpacity style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
+                <View style={styles.depenseContent}>
+                  <Text style={styles.price}>{oDepense.montant}€</Text>
+                  <Text style={styles.title}>{oDepense.name}</Text>
+                  <View>
+                    <Text style={styles.date}>{oDepense.created_at}</Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            )
+        } );
+      }
     }
   },
   _renderHeader(){

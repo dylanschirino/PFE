@@ -71,11 +71,6 @@ module.exports = EStyleSheet.create({
     right:10,
     top:24,
   },
-  buttonImgCheck:{
-    width:15,
-    height:15,
-    marginLeft:10,
-  },
   progressBar:{
     width:'70%',
     alignSelf:'center',
@@ -270,6 +265,73 @@ module.exports = EStyleSheet.create({
   '@media (min-width:380px) and (max-width:768px)':{
     header:{
       height:150,
+    },
+    amount:{
+      fontSize:32,
+      paddingTop:15,
+    },
+    amountLimit:{
+      fontSize:32,
+      paddingBottom:25,
+    },
+    limitContainer:{
+      marginTop:47,
+      height:30,
+    },
+    label:{
+      fontSize:18,
+    },
+    labelLimit:{
+      marginTop:21,
+      fontSize:18,
+    },
+    buttonImg:{
+      width:10,
+      height:31,
+    },
+    logoutImg:{
+      width:49,
+      height:49,
+    },
+    logout:{
+      position:'absolute',
+      right:20,
+      top:35,
+    },
+    progressBar:{
+      marginBottom:9,
+      marginTop:9,
+      marginRight:9,
+    },
+    progressView:{
+      borderRadius:12,
+    },
+    progressContainer:{
+      paddingBottom:20,
+    },
+    percent:{
+      fontSize:14,
+    },
+    depenseHeader:{
+      paddingTop:20,
+      paddingBottom:18,
+    },
+    depenseHeaderTitle:{
+      fontSize:18,
+    },
+    price:{
+      fontSize:20,
+    },
+    title:{
+      fontSize:18,
+    },
+    date:{
+      fontFamily:'droidsans',
+      fontSize:14,
+      color:'#528DB5',
+      lineHeight:18,
+      width:60,
+      textAlign:'center'
     },
   }
 });
