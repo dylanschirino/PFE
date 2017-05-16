@@ -325,13 +325,19 @@ module.exports = EStyleSheet.create({
     title:{
       fontSize:18,
     },
-    date:{
-      fontFamily:'droidsans',
-      fontSize:14,
-      color:'#528DB5',
-      lineHeight:18,
-      width:60,
-      textAlign:'center'
+    noContentTitle:{
+      fontSize:24,
+      paddingTop:120,
+      paddingBottom:20,
+    },
+    noContentButton:{
+      paddingLeft:15,
+      paddingRight:15,
+    },
+    noContentButtonTitle:{
+      fontSize:18,
+      paddingTop:15,
+      paddingBottom:15,
     },
   }
 });

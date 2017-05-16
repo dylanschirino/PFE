@@ -6,6 +6,7 @@ import axios from 'axios';
 import Swipeout from 'react-native-swipeout';
 import Display from 'react-native-display';
 import Load from "react-native-loading-gif";
+import DeviceInfo from 'react-native-device-info';
 
 let concat = require('unique-concat');
 
@@ -167,11 +168,16 @@ let Depense = React.createClass ({
           var id = oDepense.id;
           var name = oDepense.name;
           var generateName = function(){
-            if(name != null && name.length >= 15 ){
-              return oDepense.name.substring(0,15)+'...';
+            if(DeviceInfo.isTablet() == true){
+              return oDepense.name;
             }
             else{
-              return oDepense.name;
+              if(name != null && name.length >= 15 ){
+                return oDepense.name.substring(0,15)+'...';
+              }
+              else{
+                return oDepense.name;
+              }
             }
           }
             var generateImageSearch =function(){
@@ -260,11 +266,16 @@ let Depense = React.createClass ({
           {
             var name = oDepense.name;
             var generateName = function(){
-              if(name != null && name.length >= 15 ){
-                return oDepense.name.substring(0,15)+'...';
+              if(DeviceInfo.isTablet() == true){
+                return oDepense.name;
               }
               else{
-                return oDepense.name;
+                if(name != null && name.length >= 15 ){
+                  return oDepense.name.substring(0,15)+'...';
+                }
+                else{
+                  return oDepense.name;
+                }
               }
             }
             var generateImage = function(){
