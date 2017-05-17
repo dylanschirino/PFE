@@ -92,7 +92,7 @@ var Introduction2 = React.createClass ( {
       <View style={styles.container}>
         <Image
           style={intro2.img}
-          source={ require('../img/Intro2.png')}
+          source={ require('../img/gif/intro2.gif')}
         />
         <Text style={styles.titleIntro}>
         Gérer vos dépenses facilement.
