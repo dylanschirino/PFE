@@ -143,7 +143,7 @@ let Subscribe = React.createClass ({
         </Form>
 
         <Image style={styles.cercle}
-          source={ require('../../img/cercle.png')}
+          source={ require('../../img/gif/cercle.gif')}
           />
         </View>
     )
