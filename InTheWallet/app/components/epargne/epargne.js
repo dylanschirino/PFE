@@ -79,7 +79,7 @@ let Epargne = React.createClass ({
       result:[],
     }
   },
-  componentDidMount(){
+  componentWillMount(){
     var config = {
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
     };
@@ -92,6 +92,8 @@ let Epargne = React.createClass ({
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
+  },
+  componentDidMount(){
     this.refs.Load.setTimeClose();
   },
   _handleEdit(id){

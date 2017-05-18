@@ -241,7 +241,7 @@ let addEpargne = React.createClass ({
             </View>
         </View>
         <View style={styles.mensualiteContainer}>
-          <Text style={styles.label}>{ 'Mensualité (€ par mois)'.toUpperCase() }</Text>
+          <Text style={styles.label}>{ 'Montant par jour'.toUpperCase() }</Text>
             <View style={styles.inputMontantBox}>
               <Image
                 style={styles.calendarIcone}
@@ -274,7 +274,7 @@ let addEpargne = React.createClass ({
                 onChangeText={(text) => {
                   this.setState( {debut:text} );
                 }}
-                placeholder='Format : 21/07/2017'
+                placeholder='Format : 21/7/2017'
                 placeholderTextColor='#B6CBE1'
               />
             </View>
