@@ -8,6 +8,7 @@ import Display from 'react-native-display';
 import TimerMixin from 'react-timer-mixin';
 import Load from "react-native-loading-gif";
 import DeviceInfo from 'react-native-device-info';
+import PushNotification from 'react-native-push-notification';
 
 let styles = require('../style/homeStyle'),
     menu = require('../style/menuStyle');
@@ -29,6 +30,7 @@ let Home = React.createClass ({
     var config = {
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
     };
+
     axios.get('http://104.131.74.22:8080/home?user='+this.props.username,config
       )
       .then(response => {
@@ -218,6 +220,12 @@ let Home = React.createClass ({
     this.setTimeout( () => { this.toggleDisplayInfo()} ,5000);
 
     this.refs.Load.setTimeClose(1500);
+
+    PushNotification.configure({
+      onNotification: function(notification) {
+          console.log( 'NOTIFICATION:', notification );
+      },
+    });
   },
   getInitialState: function() {
     return {
@@ -328,6 +336,10 @@ let Home = React.createClass ({
   renderInfo(){
     var pourcentage = (Math.floor(this.state.total)/Math.floor(this.state.limit))*100;
     if( pourcentage <= 50 ){
+        PushNotification.localNotificationSchedule({
+          message: "Oh hey l'ami ! Continuez comme cela, votre compte en banque vous remercie",
+          date: new Date(Date.now() + (1296000)) // in 15 days
+        });
       return(
         <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainer}>
           <Image source={require('../img/sun.png')} style={styles.infoIcone}
@@ -337,6 +349,11 @@ let Home = React.createClass ({
       )
     }
     else if( pourcentage >= 50 ){
+      var date = new Date();
+      PushNotification.localNotificationSchedule({
+        message: "Attention, vous devenez encore tenir la moitié du mois avec ce qu'il vous reste!",
+        date: new Date(Date.now() + (1296000)) // in 15 days
+      });
       return(
         <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainerStorm}>
           <Image source={require('../img/storm.png')} style={styles.infoIconeStorm}

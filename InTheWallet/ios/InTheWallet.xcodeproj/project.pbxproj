@@ -14,6 +14,7 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* InTheWalletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* InTheWalletTests.m */; };
 		1143CB4B1E7D97E100EFF132 /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1143CB4A1E7D97E100EFF132 /* icomoon.ttf */; };
+		115EED7D1ECDEF3600E8547D /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 115EED681ECDEF2B00E8547D /* libRCTPushNotification.a */; };
 		1166DAA71E75AFB500F7BC57 /* lato-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1166DAA31E75AFB500F7BC57 /* lato-regular.ttf */; };
 		1166DAAB1E75B0B200F7BC57 /* droidsans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1166DAA81E75B0B200F7BC57 /* droidsans.ttf */; };
 		1166DAAC1E75B0B200F7BC57 /* lato-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1166DAA91E75B0B200F7BC57 /* lato-bold.ttf */; };
@@ -97,6 +98,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
 			remoteInfo = RNImagePicker;
+		};
+		115EED671ECDEF2B00E8547D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 115EED561ECDEF2B00E8547D /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTPushNotification;
+		};
+		115EED691ECDEF2B00E8547D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 115EED561ECDEF2B00E8547D /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D05745F1DE6004600184BB4;
+			remoteInfo = "RCTPushNotification-tvOS";
 		};
 		116D86991E9548B800E58025 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -287,6 +302,7 @@
 		00E356F21AD99517003FC87E /* InTheWalletTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InTheWalletTests.m; sourceTree = "<group>"; };
 		03B5463DB8D94DFA8B44C2B3 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		1143CB4A1E7D97E100EFF132 /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
+		115EED561ECDEF2B00E8547D /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		1166DAA31E75AFB500F7BC57 /* lato-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lato-regular.ttf"; sourceTree = "<group>"; };
 		1166DAA81E75B0B200F7BC57 /* droidsans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = droidsans.ttf; sourceTree = "<group>"; };
 		1166DAA91E75B0B200F7BC57 /* lato-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lato-bold.ttf"; sourceTree = "<group>"; };
@@ -327,6 +343,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				115EED7D1ECDEF3600E8547D /* libRCTPushNotification.a in Frameworks */,
 				11B91B391EB4C45F007A232A /* libRCTCameraRoll.a in Frameworks */,
 				11DEA3141EA39BD100D0BFE5 /* libRNSearchBar.a in Frameworks */,
 				116D86B41E9548C300E58025 /* libART.a in Frameworks */,
@@ -438,6 +455,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		115EED571ECDEF2B00E8547D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				115EED681ECDEF2B00E8547D /* libRCTPushNotification.a */,
+				115EED6A1ECDEF2B00E8547D /* libRCTPushNotification-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		116D86961E9548B800E58025 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,6 +564,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				115EED561ECDEF2B00E8547D /* RCTPushNotification.xcodeproj */,
 				11B91B181EB4C430007A232A /* RCTCameraRoll.xcodeproj */,
 				11DEA2F41EA39AFB00D0BFE5 /* RNSearchBar.xcodeproj */,
 				116D86951E9548B800E58025 /* ART.xcodeproj */,
@@ -683,6 +710,9 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
+					13B07F861A680F5B00A75B9A = {
+						ProvisioningStyle = Automatic;
+					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
@@ -737,6 +767,10 @@
 				{
 					ProductGroup = 00C302D41ABCB9D200DB3ED1 /* Products */;
 					ProjectRef = 00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */;
+				},
+				{
+					ProductGroup = 115EED571ECDEF2B00E8547D /* Products */;
+					ProjectRef = 115EED561ECDEF2B00E8547D /* RCTPushNotification.xcodeproj */;
 				},
 				{
 					ProductGroup = 139105B71AF99BAD00B5F7CC /* Products */;
@@ -822,6 +856,20 @@
 			fileType = archive.ar;
 			path = libRNImagePicker.a;
 			remoteRef = 115A1AAC1EC0D14300E8444B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		115EED681ECDEF2B00E8547D /* libRCTPushNotification.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTPushNotification.a;
+			remoteRef = 115EED671ECDEF2B00E8547D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		115EED6A1ECDEF2B00E8547D /* libRCTPushNotification-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRCTPushNotification-tvOS.a";
+			remoteRef = 115EED691ECDEF2B00E8547D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		116D869A1E9548B800E58025 /* libART.a */ = {
@@ -1201,8 +1249,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
@@ -1210,6 +1260,7 @@
 					"$(SRCROOT)/../node_modules/@remobile/react-native-image-picker/ios/RCTImagePicker/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",
+					"$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS/**",
 				);
 				INFOPLIST_FILE = InTheWallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1219,6 +1270,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = InTheWallet;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1229,7 +1281,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
@@ -1237,6 +1291,7 @@
 					"$(SRCROOT)/../node_modules/@remobile/react-native-image-picker/ios/RCTImagePicker/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",
+					"$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS/**",
 				);
 				INFOPLIST_FILE = InTheWallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1246,6 +1301,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = InTheWallet;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
