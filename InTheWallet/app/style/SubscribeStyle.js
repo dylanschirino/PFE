@@ -2,7 +2,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 EStyleSheet.build({
   $titleColor: '#235182',
-  $bodyColor:'#F8FDFF',
+  $bodyColor:'#F3F8FC',
   $input:'#538EB6',
 });
 
