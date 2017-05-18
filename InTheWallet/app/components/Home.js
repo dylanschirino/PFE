@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image,ProgressViewIOS, TextInput,AsyncStorage} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image,ProgressViewIOS,Alert,TextInput,AsyncStorage} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Form from 'react-native-form';
 import axios from 'axios';
@@ -416,7 +416,16 @@ let Home = React.createClass ({
             </TouchableOpacity>
             <Text style={styles.labelLimit}>{'Limite du mois'.toUpperCase() } </Text>
           </View>
-          <TouchableOpacity style={styles.logout} onPress={this.logOut}>
+          <TouchableOpacity style={styles.logout} onPress={
+            () => Alert.alert(
+            'Déconnexion',
+            'Vos données seront sauvegardés si vous vous déconnectez',
+            [
+              {text: 'Se Déconnecter', onPress: () => {this.logOut()}},
+              {text: 'Annuler', onPress: () => null},
+            ]
+            )
+            }>
             <Image style={styles.logoutImg} source={ require('../img/logout.png')}
               />
           </TouchableOpacity>
