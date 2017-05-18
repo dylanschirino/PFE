@@ -70,7 +70,7 @@ let Pret = React.createClass ({
       passProps:{username:this.state.user,token:this.props.token},
     })
   },
-  componentDidMount(){
+  componentWillMount(){
     var config = {
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
     };
@@ -83,6 +83,8 @@ let Pret = React.createClass ({
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
+  },
+  componentDidMount(){
     this.refs.Load.setTimeClose(1500);
   },
   _handleEdit(id){

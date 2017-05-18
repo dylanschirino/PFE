@@ -85,7 +85,12 @@ let addPret = React.createClass ({
                   user:this.props.username,
                 },config)
                 .then(function (response) {
-                  that.props.navigator.pop();
+                  that.props.navigator.push({
+                  component: Pret,
+                  title:'Pret',
+                  navigationBarHidden:true,
+                  passProps:{username:that.props.username,token:that.props.token},
+                  });
                 })
                 .catch(function (error) {
                   alert('Erreur:'+ error);
