@@ -241,7 +241,7 @@ let addEpargne = React.createClass ({
             </View>
         </View>
         <View style={styles.mensualiteContainer}>
-          <Text style={styles.label}>{ 'Montant par jour'.toUpperCase() }</Text>
+          <Text style={styles.label}>{ 'Mensualité'.toUpperCase() }</Text>
             <View style={styles.inputMontantBox}>
               <Image
                 style={styles.calendarIcone}

@@ -37,7 +37,7 @@ let Details = React.createClass ({
       alert('Erreur:'+ error);
     });
     this.setInterval( () => {
-      var datecreated = new Date()+1;
+      var datecreated = new Date();
       var timeStamp = + new Date();
       var myDate = this.props.end;
       myDate = myDate.split("/");
@@ -146,7 +146,7 @@ let Details = React.createClass ({
                     <Text style={details.response}>{this.state.epargneDetails.montant} €</Text>
                   </View>
                   <View style={details.content}>
-                    <Text style={details.label}>Montant par jour</Text>
+                    <Text style={details.label}>Mensualité</Text>
                     <Text style={details.response}>{this.state.epargneDetails.mensualite} €</Text>
                   </View>
                 </View>
