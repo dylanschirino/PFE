@@ -119,8 +119,6 @@ let addDepense = React.createClass ({
                 else{
                   alert(`Le moyen de payement n'a pas été choisi`);
                 }
-              }else {
-                alert('La repeteur ne peut pas être vide');
               }
             }
             else{
@@ -142,7 +140,7 @@ let addDepense = React.createClass ({
       payement:'',
       categorie:'',
       clicked:0,
-      selectedOption:'',
+      selectedOption:'Jamais',
       montant:0,
       imageSource:null,
       uri:''
@@ -275,7 +273,7 @@ let addDepense = React.createClass ({
             </View>
         </View>
         <View style={styles.optionContainer}>
-          <Text style={styles.labelOptions}>{ 'Répéter la dépense'.toUpperCase() }</Text>
+          <Text style={styles.labelOptions}>{ 'Répéter la dépense ?'.toUpperCase() }</Text>
             <View style={styles.inputOptionBox}>
               <Image
                 style={styles.refreshIcone}
