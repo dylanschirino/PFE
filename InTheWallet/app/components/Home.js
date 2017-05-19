@@ -348,7 +348,7 @@ let Home = React.createClass ({
         </Display>
       )
     }
-    else if( pourcentage >= 50 ){
+    else if( pourcentage >= 50 && pourcentage < 99 ){
       var date = new Date();
       PushNotification.localNotificationSchedule({
         message: "Attention, vous devenez encore tenir la moitié du mois avec ce qu'il vous reste!",
@@ -359,6 +359,15 @@ let Home = React.createClass ({
           <Image source={require('../img/storm.png')} style={styles.infoIconeStorm}
            />
          <Text style={styles.infoTitleStorm}>Ressaisissez vous!</Text>
+        </Display>
+      )
+    }
+    else if ( pourcentage >= 100 ){
+      return(
+        <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainerStorm}>
+          <Image source={require('../img/storm.png')} style={styles.infoIconeStorm}
+           />
+         <Text style={styles.infoTitleStorm}>Vous avez dépassez la limite!</Text>
         </Display>
       )
     }
