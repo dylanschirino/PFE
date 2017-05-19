@@ -32,7 +32,7 @@ let Limit = React.createClass ({
   },
   getInitialState: function() {
     return {
-      limit:'',
+      limit:0,
       user:this.props.username,
     }
   },
@@ -74,27 +74,32 @@ let Limit = React.createClass ({
     };
     let limit=this.state.limit;
 
-    if( limit ==""){
+    if(limit ==""){
       alert("La limite ne peut pas être vide");
     }
     else {
-      axios.post('http://104.131.74.22:8080/home', {
-          maxdepense:limit,
-          user:this.props.username,
-      },config)
-      .then(function (response) {
-        limit = response.data['data']['maxdepense'];
-      })
-      .catch(function (error) {
-        alert('Erreur:'+ error);
-      });
-      if(!navigator.props){
-        this.props.navigator.push({
-          component: Home,
-          title:'Accueil',
-          navigationBarHidden:true,
-          passProps:{username:this.state.user,limite:limit,token:this.props.token}
+      if( !isNaN(limit) ){
+        axios.post('http://104.131.74.22:8080/home', {
+            maxdepense:limit,
+            user:this.props.username,
+        },config)
+        .then(function (response) {
+          limit = response.data['data']['maxdepense'];
+        })
+        .catch(function (error) {
+          alert('Erreur:'+ error);
         });
+        if(!navigator.props){
+          this.props.navigator.push({
+            component: Home,
+            title:'Accueil',
+            navigationBarHidden:true,
+            passProps:{username:this.state.user,limite:limit,token:this.props.token}
+          });
+        }
+      }
+      else{
+        alert('La limite doit être un nombre');
       }
     }
   },
@@ -144,6 +149,7 @@ let Limit = React.createClass ({
               onChangeText={(text) => {
                 this.setState( {limit:text} );
               }}
+              keyboardType={'numeric'}
               value={this.state.limit.toString()}
               color='#333333'
               placeholderTextColor='#ACACAC'/>
