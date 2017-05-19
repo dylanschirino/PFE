@@ -4,6 +4,7 @@ import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
 import SimpleStepper from 'react-native-simple-stepper';
+import DatePicker from 'react-native-datepicker'
 
 let styles = require('../../style/addStyle'),
     nav = require('../../style/navStyle'),
@@ -62,7 +63,7 @@ let addEpargne = React.createClass ({
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
     };
 
-        let regex = /^[0-9]{2}\/[0-9]{1}\/[0-9]{4}$/,
+        let regex = /^[0-9]{2}\-[0-9]{1}\-[0-9]{4}$/,
             test = regex.test(this.state.debut);
 
         if( this.state.name !='' ){
@@ -269,13 +270,22 @@ let addEpargne = React.createClass ({
         <View style={styles.dateContainer}>
           <Text style={custom.labelBlue}>{ `Date de début de l'épargne`.toUpperCase() }</Text>
             <View style={styles.inputBoxEpargne}>
-              <TextInput style={styles.inputDate}
-                ref="debut"
-                onChangeText={(text) => {
-                  this.setState( {debut:text} );
+              <DatePicker
+                style={styles.inputDate}
+                date={this.state.debut}
+                mode="date"
+                placeholder="Selectionner une date"
+                format="DD-M-YYYY"
+                minDate="2017-5-01"
+                maxDate="2018-1-01"
+                confirmBtnText="Confirmer"
+                cancelBtnText="Annuler"
+                customStyles={{
+                  dateInput: {
+                    borderWidth:0,
+                  }
                 }}
-                placeholder='Format : 21/7/2017'
-                placeholderTextColor='#B6CBE1'
+                onDateChange={(text) => {this.setState({debut: text})}}
               />
             </View>
         </View>

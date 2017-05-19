@@ -102,12 +102,10 @@ module.exports = EStyleSheet.create({
     fontSize:16,
   },
   inputDate:{
-    height:20,
-    textAlign:'center',
+    height:40,
     marginBottom:5,
-    color:'#333333',
-    fontFamily:'lato-regular',
-    fontSize:16,
+    width:'80%',
+    borderWidth:0,
   },
   inputPicker:{
     height:20,

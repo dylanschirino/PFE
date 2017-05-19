@@ -15,6 +15,7 @@
     "react-native-camera-roll-picker": "^1.1.9",
     "react-native-catch-first-time": "^0.0.1",
     "react-native-chart": "^1.0.8-beta",
+    "react-native-datepicker": "^1.5.1",
     "react-native-display": "^1.0.8",
     "react-native-extended-stylesheet": "^0.3.2",
     "react-native-form": "^2.1.2",
