@@ -6,6 +6,7 @@ import axios from 'axios';
 import Swipeout from 'react-native-swipeout';
 import Display from 'react-native-display';
 import moment from 'moment';
+import DeviceInfo from 'react-native-device-info';
 let concat = require('unique-concat');
 import Load from "react-native-loading-gif";
 
@@ -180,6 +181,20 @@ let Epargne = React.createClass ({
             var now = Date.now()/1000;
             var percent = (now-depart)/(final-depart);
           }
+          var name = oEpargne.name;
+          var generateName = function(){
+            if(DeviceInfo.isTablet() == true){
+              return oEpargne.name;
+            }
+            else{
+              if(name != null && name.length >= 25 ){
+                return oEpargne.name.substring(0,25)+'...';
+              }
+              else{
+                return oEpargne.name;
+              }
+            }
+          }
         return (
           <Swipeout key={i} autoClose={true} right={[
             {
@@ -206,7 +221,7 @@ let Epargne = React.createClass ({
           <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
             <View style={styles.containerInfoCustom}>
               <View>
-                <Text style={styles.nameCustom}>{oEpargne.name}</Text>
+                <Text style={styles.nameCustom}>{generateName()}</Text>
               </View>
               <View style={styles.secondInfo}>
                 <Text style={styles.label}>DATE DE FIN</Text>
@@ -237,6 +252,20 @@ let Epargne = React.createClass ({
             var now = Date.now()/1000;
             var percent = (now-depart)/(final-depart);
           }
+          var name = oEpargne.name;
+          var generateName = function(){
+            if(DeviceInfo.isTablet() == true){
+              return oEpargne.name;
+            }
+            else{
+              if(name != null && name.length >= 25 ){
+                return oEpargne.name.substring(0,25)+'...';
+              }
+              else{
+                return oEpargne.name;
+              }
+            }
+          }
         return (
           <Swipeout key={i} autoClose={true} right={[
             {
@@ -263,7 +292,7 @@ let Epargne = React.createClass ({
           <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
             <View style={styles.containerInfoCustom}>
               <View>
-                <Text style={styles.nameCustom}>{oEpargne.name}</Text>
+                <Text style={styles.nameCustom}>{generateName()}</Text>
               </View>
               <View style={styles.secondInfo}>
                 <Text style={styles.label}>DATE DE FIN</Text>

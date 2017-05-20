@@ -6,6 +6,7 @@ import axios from 'axios';
 import Swipeout from 'react-native-swipeout';
 import Display from 'react-native-display';
 import moment from 'moment';
+import DeviceInfo from 'react-native-device-info';
 import Load from "react-native-loading-gif";
 
 let nav = require('../../style/navStyle'),
@@ -179,6 +180,20 @@ let Pret = React.createClass ({
               var now = Date.now()/1000;
               var percent = (now-depart)/(final-depart);
             }
+            var name = oPret.name;
+            var generateName = function(){
+              if(DeviceInfo.isTablet() == true){
+                return oPret.name;
+              }
+              else{
+                if(name != null && name.length >= 25 ){
+                  return oPret.name.substring(0,25)+'...';
+                }
+                else{
+                  return oPret.name;
+                }
+              }
+            }
               return (
                 <Swipeout key={i} autoClose={true} right={[
                   {
@@ -205,7 +220,7 @@ let Pret = React.createClass ({
                 <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
                   <View style={styles.containerInfoCustom}>
                     <View>
-                      <Text style={styles.nameCustom}>{oPret.name}</Text>
+                      <Text style={styles.nameCustom}>{generateName()}</Text>
                     </View>
                     <View style={styles.secondInfo}>
                       <Text style={styles.label}>{'Date de fin'.toUpperCase()}</Text>
@@ -236,6 +251,20 @@ let Pret = React.createClass ({
             var now = Date.now()/1000;
             var percent = (now-depart)/(final-depart);
           }
+          var name = oPret.name;
+          var generateName = function(){
+            if(DeviceInfo.isTablet() == true){
+              return oPret.name;
+            }
+            else{
+              if(name != null && name.length >= 25 ){
+                return oPret.name.substring(0,25)+'...';
+              }
+              else{
+                return oPret.name;
+              }
+            }
+          }
             return (
               <Swipeout key={i} autoClose={true} right={[
                 {
@@ -262,7 +291,7 @@ let Pret = React.createClass ({
               <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
                 <View style={styles.containerInfoCustom}>
                   <View>
-                    <Text style={styles.nameCustom}>{oPret.name}</Text>
+                    <Text style={styles.nameCustom}>{generateName()}</Text>
                   </View>
                   <View style={styles.secondInfo}>
                     <Text style={styles.label}>{'Date de fin'.toUpperCase()}</Text>
