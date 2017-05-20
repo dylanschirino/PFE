@@ -335,7 +335,16 @@ let Home = React.createClass ({
   },
   renderInfo(){
     var pourcentage = (Math.floor(this.state.total)/Math.floor(this.state.limit))*100;
-    if( pourcentage <= 50 ){
+    if( !isNaN(pourcentage)){
+      return(
+        <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainerCloud}>
+          <Image source={require('../img/clouds.png')} style={styles.infoIconeCloud}
+           />
+         <Text style={styles.infoTitleCloud}>Aucune limite du mois fixé!</Text>
+        </Display>
+      )
+    }
+    else if( pourcentage >= 0 && pourcentage <= 50 ){
         PushNotification.localNotificationSchedule({
           message: "Oh hey l'ami ! Continuez comme cela, votre compte en banque vous remercie",
           date: new Date(Date.now() + (1296000)) // in 15 days
@@ -348,7 +357,7 @@ let Home = React.createClass ({
         </Display>
       )
     }
-    else if( pourcentage >= 50 && pourcentage < 99 ){
+    else if( pourcentage >= 51 && pourcentage <= 99 ){
       var date = new Date();
       PushNotification.localNotificationSchedule({
         message: "Attention, vous devenez encore tenir la moitié du mois avec ce qu'il vous reste!",
@@ -362,7 +371,7 @@ let Home = React.createClass ({
         </Display>
       )
     }
-    else if ( pourcentage >= 100 ){
+    else if( pourcentage >= 100){
       return(
         <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainerStorm}>
           <Image source={require('../img/storm.png')} style={styles.infoIconeStorm}
