@@ -99,6 +99,13 @@ module.exports = EStyleSheet.create({
     height:20,
     marginBottom:2
   },
+  percent:{
+    position:'absolute',
+    right:0,
+    top:0,
+    fontSize:16,
+    fontFamily:'lato-regular'
+  },
   '@media (max-width: 320px)':{
     quickLinkContainer:{
       flex:0,

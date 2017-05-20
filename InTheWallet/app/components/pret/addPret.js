@@ -283,9 +283,10 @@ let addPret = React.createClass ({
                   onChangeText={(text) => {
                     this.setState( {interet:text} );
                   }}
-                  placeholder='15%'
+                  placeholder='2.5'
                   placeholderTextColor='#B6CBE1'
                 />
+              <Text style={custom.percent}>%</Text>
               </View>
           </View>
           <View style={custom.pretOption}>
@@ -305,18 +306,20 @@ let addPret = React.createClass ({
                   customStyles={{
                     dateInput: {
                       borderWidth:0,
-                      width:'20%',
+                      width:'100%',
                     },
                     placeholderText:{
                       fontSize:16,
                       paddingBottom:15,
                       fontFamily:'lato-regular',
-                      color:'#B6CBE1'
+                      color:'#B6CBE1',
+                      textAlign:'center',
                     },
                     dateText:{
                       fontSize:16,
                       paddingBottom:15,
                       fontFamily:'lato-regular',
+                      textAlign:'center',
                     }
                   }}
                   onDateChange={(text) => {this.setState({debut: text})}}

@@ -314,10 +314,11 @@ let updatePret = React.createClass ({
                   onChangeText={(text) => {
                     this.setState( {interet:text} );
                   }}
-                  placeholder='15%'
+                  placeholder='2.5'
                   value={(this.state.interet).toString()}
                   placeholderTextColor='#B6CBE1'
                 />
+              <Text style={custom.percent}>%</Text>
               </View>
           </View>
           <View style={custom.pretOption}>
