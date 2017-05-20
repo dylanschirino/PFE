@@ -392,11 +392,24 @@ let Home = React.createClass ({
       if(DeviceInfo.isTablet() == true){
         let threeLast = this.state.depenseArray.slice(Math.max(length - 5, 0));
         return threeLast.map( ( oDepense, i ) => {
+          var generateName = function(){
+            if(DeviceInfo.isTablet() == true){
+              return oDepense.name;
+            }
+            else{
+              if(name != null && name.length >= 40 ){
+                return oDepense.name.substring(0,20)+'...';
+              }
+              else{
+                return oDepense.name;
+              }
+            }
+          }
             return (
               <TouchableOpacity style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
                 <View style={styles.depenseContent}>
                   <Text style={styles.price}>{oDepense.montant}€</Text>
-                  <Text style={styles.title}>{oDepense.name}</Text>
+                  <Text style={styles.title}>{generateName()}</Text>
                   <View>
                     <Text style={styles.date}>{oDepense.created_at}</Text>
                   </View>
@@ -407,12 +420,27 @@ let Home = React.createClass ({
       }
       else{
         let threeLast = this.state.depenseArray.slice(Math.max(length - 3, 0));
+
         return threeLast.map( ( oDepense, i ) => {
+          var name = oDepense.name;
+          var generateName = function(){
+            if(DeviceInfo.isTablet() == true){
+              return oDepense.name;
+            }
+            else{
+              if(name != null && name.length >= 26 ){
+                return oDepense.name.substring(0,20)+'...';
+              }
+              else{
+                return oDepense.name;
+              }
+            }
+          }
             return (
               <TouchableOpacity style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name)}}>
                 <View style={styles.depenseContent}>
                   <Text style={styles.price}>{oDepense.montant}€</Text>
-                  <Text style={styles.title}>{oDepense.name}</Text>
+                  <Text style={styles.title}>{generateName()}</Text>
                   <View>
                     <Text style={styles.date}>{oDepense.created_at}</Text>
                   </View>
