@@ -139,10 +139,6 @@ let Details = React.createClass ({
           <View style={details.contentInfo}>
             <View style={details.container}>
               <View style={details.head}>
-                <TouchableOpacity onPress={this.goEpargne}>
-                  <Image style={details.imgAnnuler} source={ require('../../img/annuler.png')}
-                    />
-                </TouchableOpacity>
                 <Text style={details.title}>{this.props.name}</Text>
               </View>
               <View style={details.clockContainer}>
@@ -275,13 +271,13 @@ let Details = React.createClass ({
       <View style={styles.container}>
         <View style={details.quickLinkContainerCustom}>
           <TouchableOpacity style={styles.quickLink} onPress={this.goPret}>
-            <View style={styles.quickLinkContent}>
-              <Text style={styles.quickLinkText}>Prêt</Text>
+            <View style={styles.quickLinkContentActive}>
+              <Text style={styles.quickLinkTextActive}>Épargne</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.quickLink} onPress={this.goEpargne}>
-            <View style={styles.quickLinkContentActive}>
-              <Text style={styles.quickLinkTextActive}>Épargne</Text>
+            <View style={styles.quickLinkContent}>
+              <Text style={styles.quickLinkText}>Prêt</Text>
             </View>
           </TouchableOpacity>
         </View>

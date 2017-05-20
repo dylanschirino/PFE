@@ -34,9 +34,11 @@ module.exports = EStyleSheet.create({
   },
   title:{
     fontSize:24,
+    lineHeight:34,
     fontFamily:'droidsans',
     marginLeft:20,
     color:'$mainColor',
+    textAlign:'center',
     letterSpacing:1,
   },
   clockContainer:{
