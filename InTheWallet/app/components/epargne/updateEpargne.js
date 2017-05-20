@@ -4,6 +4,7 @@ import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
 import SimpleStepper from 'react-native-simple-stepper';
+import DatePicker from 'react-native-datepicker'
 
 let styles = require('../../style/addStyle'),
     nav = require('../../style/navStyle'),
@@ -81,7 +82,7 @@ let updateEpargne = React.createClass ({
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
     };
 
-      let regex = /^[0-9]{2}\/[0-9]{1}\/[0-9]{4}$/,
+      let regex = /^[0-9]{2}\-[0-9]{1}\-[0-9]{4}$/,
           test = regex.test(this.state.depart);
 
         if( this.state.name !='' ){
@@ -290,14 +291,38 @@ let updateEpargne = React.createClass ({
         <View style={styles.dateContainer}>
           <Text style={custom.labelBlue}>{ `Date de début de l'épargne`.toUpperCase() }</Text>
             <View style={styles.inputBoxEpargne}>
-              <TextInput style={styles.inputDate}
-                ref="depart"
-                onChangeText={(text) => {
-                  this.setState( {depart:text} );
+              <DatePicker
+                style={styles.inputDate}
+                date={this.state.debut}
+                mode="date"
+                placeholder={this.state.depart}
+                format="DD-M-YYYY"
+                minDate="01-5-2017"
+                maxDate="01-01-2018"
+                confirmBtnText="Confirmer"
+                cancelBtnText="Annuler"
+                customStyles={{
+                  dateInput: {
+                    borderWidth:0,
+                    width:'80%',
+                    alignItems:'center',
+                  },
+                  placeholderText:{
+                    fontSize:18,
+                    fontFamily:'lato-regular',
+                    color:'#333333',
+                  },
+                  dateIcon: {
+                    position: 'absolute',
+                    right: 0,
+                    top: 4,
+                  },
+                  dateText:{
+                    fontSize:18,
+                    fontFamily:'lato-regular',
+                  }
                 }}
-                value={this.state.depart}
-                placeholder='Format : 21/07/2017'
-                placeholderTextColor='#B6CBE1'
+                onDateChange={(text) => {this.setState({debut: text})}}
               />
             </View>
         </View>

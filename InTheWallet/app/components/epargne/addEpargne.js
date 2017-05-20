@@ -114,7 +114,6 @@ let addEpargne = React.createClass ({
     }
   },
   valueChanged(montant){
-    montant = Math.round(montant * 100) / 100;
     this.setState({
       montant:montant,
     })
@@ -230,9 +229,10 @@ let addEpargne = React.createClass ({
                 value={this.state.montant.toString()}
               />
             <View style={styles.buttonMontant}>
-              <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={Number(this.state.montant)}
+              <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)}
+              initialValue={Number(this.state.montant)}
               minimumValue={0}
-              maximumValue={100.000}
+              maximumValue={1000000}
               stepValue={1}
               tintColor={'#5999CE'}
               padding={9}
@@ -283,6 +283,21 @@ let addEpargne = React.createClass ({
                 customStyles={{
                   dateInput: {
                     borderWidth:0,
+                    width:'80%',
+                    alignItems:'center',
+                  },
+                  placeholderText:{
+                    fontSize:18,
+                    fontFamily:'lato-regular',
+                  },
+                  dateIcon: {
+                    position: 'absolute',
+                    right: 0,
+                    top: 4,
+                  },
+                  dateText:{
+                    fontSize:18,
+                    fontFamily:'lato-regular',
                   }
                 }}
                 onDateChange={(text) => {this.setState({debut: text})}}
