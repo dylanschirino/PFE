@@ -97,6 +97,14 @@ let Details = React.createClass ({
       alert('Erreur:'+ error);
     });
 
+        if(this.props.name != null && this.props.name.length >= 15 ){
+          var name = this.props.name.substring(0,15)+'...';
+          this.setState({name});
+        }
+        else{
+          this.setState({name:this.props.name});
+        }
+
     let monthArray = ['JAN','FÉV','MARS','AVRIL','MAI','JUIN','JUIL','AOÛT','SEP','OCT','NOV','DÉC'];
     let currentDate = new Date(),
     day = currentDate.getDate(),
@@ -121,6 +129,7 @@ let Details = React.createClass ({
       user:this.props.username,
       enable:false,
       categorie:'',
+      name:'',
     }
   },
   toggleDisplay() {
@@ -168,7 +177,7 @@ let Details = React.createClass ({
               />
             <Text style={nav.backText}>Dépenses</Text>
           </TouchableOpacity>
-          <Text style={nav.navTitle}>{this.props.name}</Text>
+          <Text style={nav.navTitle}>{this.state.name}</Text>
           <TouchableOpacity style={nav.add} onPress={this.addDepense}>
             <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
               />

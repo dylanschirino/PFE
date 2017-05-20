@@ -32,8 +32,8 @@ module.exports = EStyleSheet.create({
     color:'#FFFFFF',
     fontFamily:'droidsans',
     fontWeight:'600',
-    fontSize:18,
-    lineHeight:28,
+    fontSize:17,
+    lineHeight:27,
     letterSpacing:0.8,
     textAlign:'center',
   },
@@ -80,21 +80,21 @@ module.exports = EStyleSheet.create({
     },
     link:{
       position:'absolute',
-      left:30,
+      left:10,
       top:13,
     },
     title:{
       color:'#FFFFFF',
       fontFamily:'droidsans',
       fontWeight:'600',
-      fontSize:16,
+      fontSize:14,
       lineHeight:24,
     },
     arrow:{
       width:20.5,
       height:13,
       marginTop:2,
-      marginLeft:3,
+      marginLeft:1,
     },
     contentInfo:{
       marginLeft:32,
@@ -103,8 +103,11 @@ module.exports = EStyleSheet.create({
     info:{
       marginBottom:13,
     },
+    photo:{
+      height:100,
+    },
   },
-  '@media (min-width:380px) and (max-width:768px)':{
+  '@media (min-width:580px) and (max-width:768px)':{
     headContent:{
       height:300,
     },
@@ -126,7 +129,7 @@ module.exports = EStyleSheet.create({
       marginLeft:4,
     },
     title:{
-      fontSize:22,
+      fontSize:20,
       lineHeight:32,
       letterSpacing:0.8,
     },
