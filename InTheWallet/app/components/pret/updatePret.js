@@ -125,9 +125,6 @@ let updatePret = React.createClass ({
                   alert('Erreur:'+ error);
                 });
               }
-              else{
-                alert('Date format incorrect (Ex:12/1/2017)');
-              }
             }
             else{
               alert(`Taux d'interêt incorrect`);
@@ -354,7 +351,7 @@ let updatePret = React.createClass ({
                       fontFamily:'lato-regular',
                     }
                   }}
-                  onDateChange={(text) => {this.setState({debut: text})}}
+                  onDateChange={(text) => {this.setState({depart: text})}}
                 />
               </View>
           </View>
