@@ -52,7 +52,7 @@ let Login = React.createClass ({
           });
         })
         .catch(function (error) {
-           alert('Erreur:'+ error);
+           alert(`Nom d'utilisateur ou mot de passe incorrect`);
         });
       }
   },
