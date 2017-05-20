@@ -72,6 +72,12 @@ module.exports = EStyleSheet.create({
       color:'#275174',
       paddingBottom:10,
   },
+  labelBluePret:{
+      fontFamily:'droidsans',
+      fontSize:14,
+      color:'#275174',
+      paddingBottom:10,
+  },
   pretContainer:{
     alignItems:'center',
     paddingTop:20,
@@ -121,6 +127,12 @@ module.exports = EStyleSheet.create({
         fontSize:14,
         color:'#275174',
         paddingBottom:2,
+    },
+    labelBluePret:{
+        fontFamily:'droidsans',
+        fontSize:14,
+        color:'#275174',
+        paddingBottom:9.4,
     },
   },
   '@media (min-width:380px) and (max-width:768px)':{

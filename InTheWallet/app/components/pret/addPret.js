@@ -276,7 +276,7 @@ let addPret = React.createClass ({
         </View>
         <View style={custom.pretContainer}>
           <View style={custom.pretOption}>
-            <Text style={custom.labelBlue}>{ `Taux d'interêt`.toUpperCase() }</Text>
+            <Text style={custom.labelBluePret}>{ `Taux d'interêt`.toUpperCase() }</Text>
               <View style={custom.inputBoxPret}>
                 <TextInput style={custom.inputOption}
                   ref="interet"
@@ -290,7 +290,7 @@ let addPret = React.createClass ({
               </View>
           </View>
           <View style={custom.pretOption}>
-            <Text style={custom.labelBlue}>{ `Date de départ`.toUpperCase() }</Text>
+            <Text style={custom.labelBluePret}>{ `Date de départ`.toUpperCase() }</Text>
               <View style={custom.inputBoxPret}>
                 <DatePicker
                   style={custom.inputOptionDate}
