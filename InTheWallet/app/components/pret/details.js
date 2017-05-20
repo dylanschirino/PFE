@@ -36,6 +36,15 @@ let Details = React.createClass ({
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
+
+    if(this.props.name != null && this.props.name.length >= 15 ){
+      var name = this.props.name.substring(0,15)+'...';
+      this.setState({name});
+    }
+    else{
+      this.setState({name:this.props.name});
+    }
+
     this.setInterval( () => {  var datecreated = new Date();
       var timeStamp = + new Date();
       var myDate = this.props.end;
@@ -61,6 +70,7 @@ let Details = React.createClass ({
       user:this.props.username,
       time:'',
       enable:false,
+      name:''
     }
   },
   goHome(){
@@ -175,7 +185,7 @@ let Details = React.createClass ({
               />
             <Text style={nav.backText}>Prêt</Text>
           </TouchableOpacity>
-          <Text style={nav.navTitle}>{this.props.name}</Text>
+          <Text style={nav.navTitle}>{this.state.name}</Text>
           <TouchableOpacity style={nav.add} onPress={this.addEpargne}>
             <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
               />
