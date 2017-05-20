@@ -13,7 +13,7 @@ let nav = require('../../style/navStyle'),
     import Pret from '../pret/pret';
     import Home from '../Home';
     import Epargne from '../epargne/epargne';
-    import addDepense from './addDepense';
+    import updateDepense from './updateDepense';
     import addPret from "../pret/addPret";
     import addEpargne from "../epargne/addEpargne";
 
@@ -50,12 +50,12 @@ let Details = React.createClass ({
       passProps:{username:this.props.username,token:this.props.token},
     })
   },
-  addDepense(){
+  updateDepense(){
     this.props.navigator.push({
-      component: addDepense,
-      title:'addDepense',
+      component: updateDepense,
+      title:'updateDepense',
       navigationBarHidden:true,
-      passProps:{username:this.props.username,token:this.props.token},
+      passProps:{username:this.props.username,token:this.props.token,depense_id:this.props.depense_id},
     })
   },
   addPret(){
@@ -178,8 +178,8 @@ let Details = React.createClass ({
             <Text style={nav.backText}>Dépenses</Text>
           </TouchableOpacity>
           <Text style={nav.navTitle}>{this.state.name}</Text>
-          <TouchableOpacity style={nav.add} onPress={this.addDepense}>
-            <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
+          <TouchableOpacity style={nav.add} onPress={this.updateDepense}>
+            <Image style={nav.addIcone} source={ require('../../img/edit-details.png')}
               />
           </TouchableOpacity>
         </View>
