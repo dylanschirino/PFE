@@ -48,7 +48,7 @@ module.exports = EStyleSheet.create({
     textAlign:'center',
     position:'relative',
     bottom:2,
-    width:'45%',
+    marginRight:110,
     textAlign:'center',
   },
   navTitleCustomLimit:{
@@ -58,7 +58,7 @@ module.exports = EStyleSheet.create({
     textAlign:'center',
     position:'relative',
     bottom:2,
-    width:'45%',
+    marginRight:130,
     textAlign:'center',
   },
   navTitleCustomPret:{
@@ -68,7 +68,7 @@ module.exports = EStyleSheet.create({
     textAlign:'center',
     position:'relative',
     bottom:2,
-    width:'45%',
+    marginRight:130,
     textAlign:'center',
   },
   add:{
