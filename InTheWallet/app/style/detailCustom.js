@@ -99,6 +99,9 @@ module.exports = EStyleSheet.create({
       marginTop:20,
       marginBottom:20,
     },
+    title:{
+      fontSize:16,
+    }
   },
   '@media (min-width:380px) and (max-width:768px)':{
     head:{

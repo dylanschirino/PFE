@@ -112,9 +112,6 @@ let updateEpargne = React.createClass ({
                 alert('Erreur:'+ error);
               });
             }
-            else{
-              alert('Date format incorrect (Ex:12/1/2017)');
-            }
           }
           else{
             alert('Les montants doivent être des nombres !')
@@ -322,7 +319,7 @@ let updateEpargne = React.createClass ({
                     fontFamily:'lato-regular',
                   }
                 }}
-                onDateChange={(text) => {this.setState({debut: text})}}
+                onDateChange={(text) => {this.setState({depart: text})}}
               />
             </View>
         </View>

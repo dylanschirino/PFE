@@ -93,9 +93,6 @@ let addEpargne = React.createClass ({
                 alert('Erreur:'+ error);
               });
             }
-            else{
-              alert('Date format incorrect (Ex:12/01/2017)');
-            }
           }
           else{
             alert('Les montants doivent être des nombres !')
