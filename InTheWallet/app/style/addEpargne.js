@@ -95,6 +95,10 @@ module.exports = EStyleSheet.create({
     fontFamily:'lato-light',
     height:20,
   },
+  inputOptionDate:{
+    height:20,
+    marginBottom:2
+  },
   '@media (max-width: 320px)':{
     quickLinkContainer:{
       flex:0,

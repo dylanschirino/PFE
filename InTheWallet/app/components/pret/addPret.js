@@ -4,6 +4,7 @@ import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
 import SimpleStepper from 'react-native-simple-stepper';
+import DatePicker from 'react-native-datepicker';
 
 let styles = require('../../style/addStyle'),
     nav = require('../../style/navStyle'),
@@ -62,7 +63,7 @@ let addPret = React.createClass ({
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
     };
     let duree = (this.state.duree || "" );
-    let regex = /^[0-9]{2}\/[0-9]{1}\/[0-9]{4}$/,
+    let regex = /^[0-9]{2}\-[0-9]{1}\-[0-9]{4}$/,
         test = regex.test(this.state.debut);
 
         if( this.state.name !='' ){
@@ -290,13 +291,35 @@ let addPret = React.createClass ({
           <View style={custom.pretOption}>
             <Text style={custom.labelBlue}>{ `Date de départ`.toUpperCase() }</Text>
               <View style={custom.inputBoxPret}>
-                <TextInput style={custom.inputOption}
-                  ref="interet"
-                  onChangeText={(text) => {
-                    this.setState( {debut:text} );
+                <DatePicker
+                  style={custom.inputOptionDate}
+                  date={this.state.debut}
+                  mode="date"
+                  placeholder="Choisir une date"
+                  format="DD-M-YYYY"
+                  minDate="01-1-2017"
+                  maxDate="01-1-2018"
+                  confirmBtnText="Confirmer"
+                  cancelBtnText="Annuler"
+                  showIcon={false}
+                  customStyles={{
+                    dateInput: {
+                      borderWidth:0,
+                      width:'20%',
+                    },
+                    placeholderText:{
+                      fontSize:16,
+                      paddingBottom:15,
+                      fontFamily:'lato-regular',
+                      color:'#B6CBE1'
+                    },
+                    dateText:{
+                      fontSize:16,
+                      paddingBottom:15,
+                      fontFamily:'lato-regular',
+                    }
                   }}
-                  placeholder='11/5/2017'
-                  placeholderTextColor='#B6CBE1'
+                  onDateChange={(text) => {this.setState({debut: text})}}
                 />
               </View>
           </View>
