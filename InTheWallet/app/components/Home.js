@@ -335,7 +335,7 @@ let Home = React.createClass ({
   },
   renderInfo(){
     var pourcentage = (Math.floor(this.state.total)/Math.floor(this.state.limit))*100;
-    if( !isNaN(pourcentage)){
+    if( pourcentage == 'NaN' || pourcentage == 'Infinity'){
       return(
         <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainerCloud}>
           <Image source={require('../img/clouds.png')} style={styles.infoIconeCloud}
