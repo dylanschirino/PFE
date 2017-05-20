@@ -237,7 +237,7 @@ let addDepense = React.createClass ({
               />
             <TextInput style={styles.inputMontant}
                 ref="montant"
-                keyboardType={'numeric'}
+                keyboardType={'numbers-and-punctuation'}
                 onChangeText={(text) => {
                   this.setState( {montant:text} );
                 }}

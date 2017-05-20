@@ -15,6 +15,10 @@ module.exports = EStyleSheet.create({
     justifyContent:'center',
     flexDirection:'row',
   },
+  containerForm:{
+    position:'relative',
+    top:-20,
+  },
   quickLink:{
     width:95,
   },

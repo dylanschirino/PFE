@@ -12,6 +12,11 @@ module.exports = EStyleSheet.create({
     flex:1,
     backgroundColor:'$mainBckg',
   },
+  mainContentKeyboard:{
+    flex:1,
+    justifyContent: 'center',
+    backgroundColor:'$mainBckg',
+  },
   nameContainer:{
     marginTop:22,
     backgroundColor:'$nameBckg',

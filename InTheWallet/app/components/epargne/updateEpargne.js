@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,CameraRoll } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,CameraRoll,KeyboardAvoidingView } from 'react-native';
 import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
@@ -217,125 +217,127 @@ let updateEpargne = React.createClass ({
       {this._renderHead()}
       {this._renderSwitch()}
       <Form ref="addEpargne">
-        <View style={styles.nameContainerCustom}>
-          <Text style={styles.label}>{ `Nom de l'épargne`.toUpperCase() }</Text>
-            <View style={styles.inputBox}>
-              <Image
-                style={styles.icone}
-                source={ require('../../img/add-edit.png')}
+        <KeyboardAvoidingView behavior='position'>
+          <View style={styles.nameContainerCustom}>
+            <Text style={styles.label}>{ `Nom de l'épargne`.toUpperCase() }</Text>
+              <View style={styles.inputBox}>
+                <Image
+                  style={styles.icone}
+                  source={ require('../../img/add-edit.png')}
+                />
+                <TextInput style={styles.input}
+                  ref="name"
+                  onChangeText={(text) => {
+                    this.setState( {name:text} );
+                  }}
+                  value={this.state.name}
+                  placeholder='Ex : Économie pour un iphone'
+                  placeholderTextColor='#B6CBE1'
+                />
+              </View>
+          </View>
+          <View style={styles.montantContainer}>
+            <Text style={styles.label}>{ 'Montant total'.toUpperCase() }</Text>
+              <View style={styles.inputMontantBox}>
+                <Image
+                  style={styles.euroIcone}
+                  source={ require('../../img/euro.png')}
+                />
+              <TextInput style={styles.inputMontant}
+                  ref="montant"
+                  keyboardType={'numbers-and-punctuation'}
+                  onChangeText={(text) => {
+                    this.setState( {montant:text} );
+                  }}
+                  value={this.state.montant.toString()}
+                />
+              <View style={styles.buttonMontant}>
+                <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={Number(this.state.montant)}
+                minimumValue={0}
+                maximumValue={100.000}
+                stepValue={1}
+                tintColor={'#5999CE'}
+                padding={9}
+                backgroundColor={'#FFFFFF'}
+                />
+              </View>
+              </View>
+          </View>
+          <View style={styles.mensualiteContainer}>
+            <Text style={styles.label}>{ 'Économie par mois'.toUpperCase() }</Text>
+              <View style={styles.inputMontantBox}>
+                <Image
+                  style={styles.calendarIcone}
+                  source={ require('../../img/calendar.png')}
+                />
+              <TextInput style={styles.inputMontant}
+                  ref="mensualite"
+                  keyboardType={'numbers-and-punctuation'}
+                  onChangeText={(text) => {
+                    this.setState( {mensualite:text} );
+                  }}
+                  value={this.state.mensualite.toString()}
+                />
+              <View style={styles.buttonMontant}>
+                <SimpleStepper valueChanged={(mensualite) => this.mensualiteChanged(mensualite)} initialValue={Number(this.state.mensualite)}
+                minimumValue={0}
+                maximumValue={100.000}
+                stepValue={1}
+                tintColor={'#FFFFFF'}
+                padding={4}
+                />
+              </View>
+              </View>
+          </View>
+          <View style={styles.dateContainer}>
+            <Text style={custom.labelBlue}>{ `Date de début de l'épargne`.toUpperCase() }</Text>
+              <View style={styles.inputBoxEpargne}>
+                <DatePicker
+                  style={styles.inputDate}
+                  date={this.state.debut}
+                  mode="date"
+                  placeholder={this.state.depart}
+                  format="DD-M-YYYY"
+                  minDate="01-5-2017"
+                  maxDate="01-01-2018"
+                  confirmBtnText="Confirmer"
+                  cancelBtnText="Annuler"
+                  customStyles={{
+                    dateInput: {
+                      borderWidth:0,
+                      width:'80%',
+                      alignItems:'center',
+                    },
+                    placeholderText:{
+                      fontSize:18,
+                      fontFamily:'lato-regular',
+                      color:'#333333',
+                    },
+                    dateIcon: {
+                      position: 'absolute',
+                      right: 0,
+                      top: 4,
+                    },
+                    dateText:{
+                      fontSize:18,
+                      fontFamily:'lato-regular',
+                    }
+                  }}
+                  onDateChange={(text) => {this.setState({depart: text})}}
+                />
+              </View>
+          </View>
+          <View style={styles.actionContainer}>
+            <TouchableOpacity style={styles.cancelContainer} onPress={this.goEpargne}>
+              <Image source={require('../../img/cancel.png')} style={styles.cancelIcon}
               />
-              <TextInput style={styles.input}
-                ref="name"
-                onChangeText={(text) => {
-                  this.setState( {name:text} );
-                }}
-                value={this.state.name}
-                placeholder='Ex : Économie pour un iphone'
-                placeholderTextColor='#B6CBE1'
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.checkContainer} onPress={this._handlePress}>
+              <Image source={require('../../img/check.png')} style={styles.checkIcon}
               />
-            </View>
-        </View>
-        <View style={styles.montantContainer}>
-          <Text style={styles.label}>{ 'Montant total'.toUpperCase() }</Text>
-            <View style={styles.inputMontantBox}>
-              <Image
-                style={styles.euroIcone}
-                source={ require('../../img/euro.png')}
-              />
-            <TextInput style={styles.inputMontant}
-                ref="montant"
-                keyboardType={'numeric'}
-                onChangeText={(text) => {
-                  this.setState( {montant:text} );
-                }}
-                value={this.state.montant.toString()}
-              />
-            <View style={styles.buttonMontant}>
-              <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={Number(this.state.montant)}
-              minimumValue={0}
-              maximumValue={100.000}
-              stepValue={1}
-              tintColor={'#5999CE'}
-              padding={9}
-              backgroundColor={'#FFFFFF'}
-              />
-            </View>
-            </View>
-        </View>
-        <View style={styles.mensualiteContainer}>
-          <Text style={styles.label}>{ 'Économie par mois'.toUpperCase() }</Text>
-            <View style={styles.inputMontantBox}>
-              <Image
-                style={styles.calendarIcone}
-                source={ require('../../img/calendar.png')}
-              />
-            <TextInput style={styles.inputMontant}
-                ref="mensualite"
-                keyboardType={'numeric'}
-                onChangeText={(text) => {
-                  this.setState( {mensualite:text} );
-                }}
-                value={this.state.mensualite.toString()}
-              />
-            <View style={styles.buttonMontant}>
-              <SimpleStepper valueChanged={(mensualite) => this.mensualiteChanged(mensualite)} initialValue={Number(this.state.mensualite)}
-              minimumValue={0}
-              maximumValue={100.000}
-              stepValue={1}
-              tintColor={'#FFFFFF'}
-              padding={4}
-              />
-            </View>
-            </View>
-        </View>
-        <View style={styles.dateContainer}>
-          <Text style={custom.labelBlue}>{ `Date de début de l'épargne`.toUpperCase() }</Text>
-            <View style={styles.inputBoxEpargne}>
-              <DatePicker
-                style={styles.inputDate}
-                date={this.state.debut}
-                mode="date"
-                placeholder={this.state.depart}
-                format="DD-M-YYYY"
-                minDate="01-5-2017"
-                maxDate="01-01-2018"
-                confirmBtnText="Confirmer"
-                cancelBtnText="Annuler"
-                customStyles={{
-                  dateInput: {
-                    borderWidth:0,
-                    width:'80%',
-                    alignItems:'center',
-                  },
-                  placeholderText:{
-                    fontSize:18,
-                    fontFamily:'lato-regular',
-                    color:'#333333',
-                  },
-                  dateIcon: {
-                    position: 'absolute',
-                    right: 0,
-                    top: 4,
-                  },
-                  dateText:{
-                    fontSize:18,
-                    fontFamily:'lato-regular',
-                  }
-                }}
-                onDateChange={(text) => {this.setState({depart: text})}}
-              />
-            </View>
-        </View>
-        <View style={styles.actionContainer}>
-          <TouchableOpacity style={styles.cancelContainer} onPress={this.goEpargne}>
-            <Image source={require('../../img/cancel.png')} style={styles.cancelIcon}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.checkContainer} onPress={this._handlePress}>
-            <Image source={require('../../img/check.png')} style={styles.checkIcon}
-            />
-          </TouchableOpacity>
-        </View>
+            </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
       </Form>
       {this._renderMenu()}
       </View>

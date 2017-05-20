@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,CameraRoll } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,CameraRoll,KeyboardAvoidingView } from 'react-native';
 import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
@@ -193,6 +193,7 @@ let addEpargne = React.createClass ({
       {this._renderHead()}
       {this._renderSwitch()}
       <Form ref="addEpargne">
+        <KeyboardAvoidingView behavior='position'>
         <View style={styles.nameContainerCustom}>
           <Text style={styles.label}>{ `Nom de l'épargne`.toUpperCase() }</Text>
             <View style={styles.inputBox}>
@@ -219,7 +220,7 @@ let addEpargne = React.createClass ({
               />
             <TextInput style={styles.inputMontant}
                 ref="montant"
-                keyboardType={'numeric'}
+                keyboardType={'numbers-and-punctuation'}
                 onChangeText={(text) => {
                   this.setState( {montant:text} );
                 }}
@@ -247,7 +248,7 @@ let addEpargne = React.createClass ({
               />
             <TextInput style={styles.inputMontant}
                 ref="mensualite"
-                keyboardType={'numeric'}
+                keyboardType={'numbers-and-punctuation'}
                 onChangeText={(text) => {
                   this.setState( {mensualite:text} );
                 }}
@@ -311,6 +312,7 @@ let addEpargne = React.createClass ({
             />
           </TouchableOpacity>
         </View>
+      </KeyboardAvoidingView>
       </Form>
       {this._renderMenu()}
       </View>
