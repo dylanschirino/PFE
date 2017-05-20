@@ -21,8 +21,15 @@ export default function( oRequest, oResponse ) {
         iMensualite = +POST.mensualite,
         iInteret = +POST.interet / 100,
         dDateDepart = POST.depart,
-        dDuree = Math.log( -iMensualite / ( ( ( iInteret / 12 ) * iMontant ) - iMensualite ) ) / Math.log( 1 + ( iInteret / 12 ) ),
         aModification = [];
+
+        if( iInteret === 0 ){
+          iInteret = 0.01/1000;
+          var dDuree = Math.log( -iMensualite / ( ( ( 0.0001 / 12 ) * iMontant ) - iMensualite ) ) / Math.log( 1 + ( 0.0001 / 12 ) );
+        }
+        else{
+          var dDuree = Math.log( -iMensualite / ( ( ( iInteret / 12 ) * iMontant ) - iMensualite ) ) / Math.log( 1 + ( iInteret / 12 ) );
+        }
 
             var timeStamp = moment(dDateDepart,'DD-MM-YYYY');
             var datecreated = new Date(timeStamp);
