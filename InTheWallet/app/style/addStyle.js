@@ -346,6 +346,12 @@ module.exports = EStyleSheet.create({
       width:38,
       height:32,
     },
+    inputDate:{
+      height:29.5,
+      marginBottom:5,
+      width:'80%',
+      borderWidth:0,
+    },
     iconPhotoValid:{
       width:60,
       height:60,

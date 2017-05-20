@@ -282,6 +282,9 @@ module.exports = EStyleSheet.create({
       fontSize:16,
       letterSpacing:0.75,
     },
+    nameCustom:{
+      fontSize:18,
+    },
     containerInfo:{
       marginLeft:10,
     },

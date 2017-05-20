@@ -116,6 +116,12 @@ module.exports = EStyleSheet.create({
       paddingTop:13.9,
       paddingBottom:13.9,
     },
+    labelBlue:{
+        fontFamily:'droidsans',
+        fontSize:14,
+        color:'#275174',
+        paddingBottom:2,
+    },
   },
   '@media (min-width:380px) and (max-width:768px)':{
     quickLinkContainer:{
