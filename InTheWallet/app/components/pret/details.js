@@ -20,7 +20,7 @@ import Pret from '../pret/pret';
 import Home from '../Home';
 import Epargne from '../epargne/epargne';
 import addDepense from '../depense/addDepense';
-import addEpargne from '../epargne/addEpargne';
+import updatePret from '../pret/updatePret';
 
 let Details = React.createClass ({
   mixins: [TimerMixin],
@@ -125,12 +125,12 @@ let Details = React.createClass ({
       passProps:{username:this.props.username,token:this.props.token},
     })
   },
-  addEpargne(){
+  updatePret(){
     this.props.navigator.push({
-      component: addEpargne,
-      title:'Ajouter épargne',
+      component: updatePret,
+      title:'Modifier prêt',
       navigationBarHidden:true,
-      passProps:{username:this.state.user,token:this.props.token},
+      passProps:{username:this.state.user,token:this.props.token,pret_id:this.props.pret_id},
     })
   },
   _renderDetails(){
@@ -182,8 +182,8 @@ let Details = React.createClass ({
             <Text style={nav.backText}>Prêt</Text>
           </TouchableOpacity>
           <Text style={nav.navTitle}>{this.state.name}</Text>
-          <TouchableOpacity style={nav.add} onPress={this.addEpargne}>
-            <Image style={nav.addIcone} source={ require('../../img/addMenu.png')}
+          <TouchableOpacity style={nav.add} onPress={this.updatePret}>
+            <Image style={nav.addIcone} source={ require('../../img/edit-details.png')}
               />
           </TouchableOpacity>
         </View>
@@ -270,12 +270,12 @@ let Details = React.createClass ({
       {this._renderHead()}
       <View style={styles.container}>
         <View style={details.quickLinkContainerCustom}>
-          <TouchableOpacity style={styles.quickLink}>
+          <TouchableOpacity style={styles.quickLink} onPress={this.goEpargne}>
             <View style={styles.quickLinkContentRight}>
               <Text style={styles.quickLinkText}>Épargne</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.quickLink} onPress={this.goEpargne}>
+          <TouchableOpacity style={styles.quickLink} onPress={this.goPret}>
             <View style={styles.quickLinkContentActiveLeft}>
               <Text style={styles.quickLinkTextActive}>Prêt</Text>
             </View>
