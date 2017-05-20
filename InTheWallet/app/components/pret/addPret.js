@@ -307,6 +307,7 @@ let addPret = React.createClass ({
                     dateInput: {
                       borderWidth:0,
                       width:'100%',
+                      marginRight:10,
                     },
                     placeholderText:{
                       fontSize:16,
@@ -319,7 +320,6 @@ let addPret = React.createClass ({
                       fontSize:16,
                       paddingBottom:15,
                       fontFamily:'lato-regular',
-                      textAlign:'center',
                     }
                   }}
                   onDateChange={(text) => {this.setState({debut: text})}}
