@@ -168,5 +168,8 @@ module.exports = EStyleSheet.create({
       width:35,
       height:35,
     },
+    cancelLink:{
+      left:-40,
+    }
   }
 });
