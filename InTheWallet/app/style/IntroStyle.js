@@ -29,6 +29,18 @@ module.exports = EStyleSheet.create({
     marginBottom:20,
     fontFamily:'droidsans',
   },
+  link:{
+    fontFamily:'lato-regular',
+    fontSize:14,
+    color:'#34586B',
+    alignSelf:'center',
+  },
+  linkContainer:{
+    alignSelf:'center',
+    marginTop:15,
+    marginBottom:15,
+    borderBottomWidth:1,
+  },
   introText:{
     fontSize:18,
     textAlign:'center',
@@ -37,12 +49,12 @@ module.exports = EStyleSheet.create({
     color:'$Blue',
     paddingLeft:30,
     paddingRight:30,
-    paddingBottom:40,
+    paddingBottom:30,
     fontFamily:'lato-light',
   },
   switchContainer:{
     flexDirection:'row',
-    marginBottom:60,
+    marginBottom:40,
     marginRight:21,
   },
   switcher:{
@@ -111,10 +123,10 @@ module.exports = EStyleSheet.create({
       marginBottom:20,
     },
     introText:{
-      paddingBottom:25,
+      paddingBottom:20,
     },
     switchContainer:{
-      marginBottom:30,
+      marginBottom:20,
     },
     titleIntro:{
       marginBottom:10,
@@ -122,19 +134,28 @@ module.exports = EStyleSheet.create({
     button:{
       width:'80%',
       alignSelf:'center',
+      marginTop:0,
+      marginBottom:10,
     },
     buttonCustom:{
       width:'80%',
       alignSelf:'center',
-      marginTop:20,
+      marginTop:10,
       marginLeft:0,
+      marginBottom:10,
       marginRight:0,
+    },
+    linkContainer:{
+      alignSelf:'center',
+      marginBottom:15,
+      borderBottomWidth:1,
     },
     buttonCustom2:{
       width:'80%',
       alignSelf:'center',
       marginLeft:0,
       marginTop:5,
+      marginBottom:10,
       marginRight:0,
     },
   },
@@ -186,6 +207,18 @@ module.exports = EStyleSheet.create({
       color:'#FFFFFF',
       fontFamily:'droidsans',
       fontSize:24,
+    },
+    link:{
+      fontFamily:'lato-regular',
+      fontSize:18,
+      color:'#34586B',
+      alignSelf:'center',
+    },
+    linkContainer:{
+      alignSelf:'center',
+      marginTop:20,
+      marginBottom:15,
+      borderBottomWidth:1,
     },
   }
 });

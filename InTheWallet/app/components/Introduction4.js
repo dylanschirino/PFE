@@ -31,6 +31,13 @@ let Introduction4 = React.createClass( {
       navigationBarHidden:true,
     });
   },
+  goIntroduction5() {
+    this.props.navigator.push({
+      component: Introduction5,
+      title:'Introduction5',
+      navigationBarHidden:true,
+    });
+  },
   goSubscribe() {
     this.props.navigator.push({
       component: Subscribe,
@@ -98,11 +105,14 @@ let Introduction4 = React.createClass( {
       Dans combien de temps pourrez-vous vous offrir la voiture de vos rêves en mettant 10€ / mois ?
       </Text>
       {this._renderSwitcher()}
-      <TouchableOpacity style={styles.buttonCustom2} onPress={this.goSubscribe}>
-      <Text style={styles.buttonText}>
-      Passer les introductions !
-      </Text>
-    </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonCustom2} onPress={this.goIntroduction5}>
+        <Text style={styles.buttonText}>
+        Suivant
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.linkContainer} onPress={this.goSubscribe}>
+      <Text style={styles.link}>Passer les introductions</Text>
+      </TouchableOpacity>
       </View>
     </GestureRecognizer>
     )

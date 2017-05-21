@@ -96,10 +96,13 @@ let Introduction = React.createClass ({
           In The Wallet vous permets de mieux gérer vos dépenses au quotidien.
           </Text>
           {this._renderSwitcher()}
-          <TouchableOpacity style={styles.button} onPress={this.goSubscribe}>
+          <TouchableOpacity style={styles.button} onPress={this.goIntroduction2}>
             <Text style={styles.buttonText}>
-            Passer les introductions !
+            Suivant
             </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.linkContainer} onPress={this.goSubscribe}>
+          <Text style={styles.link}>Passer les introductions</Text>
           </TouchableOpacity>
       </View>
       </GestureRecognizer>

@@ -102,11 +102,14 @@ let Introduction3 = React.createClass( {
       </Text>
 
       {this._renderSwitcher()}
-      <TouchableOpacity style={styles.buttonCustom} onPress={this.goSubscribe}>
-      <Text style={styles.buttonText}>
-      Passer les introductions !
-      </Text>
-    </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonCustom} onPress={this.goIntroduction3}>
+        <Text style={styles.buttonText}>
+        Suivant
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.linkContainer} onPress={this.goSubscribe}>
+      <Text style={styles.link}>Passer les introductions</Text>
+      </TouchableOpacity>
       </View>
     </GestureRecognizer>
     )

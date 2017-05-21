@@ -220,7 +220,6 @@ let Home = React.createClass ({
     this.setTimeout( () => { this.toggleDisplayInfo()} ,5000);
 
     this.refs.Load.setTimeClose(1500);
-
     PushNotification.configure({
       onNotification: function(notification) {
           console.log( 'NOTIFICATION:', notification );
@@ -345,10 +344,6 @@ let Home = React.createClass ({
       )
     }
     else if( pourcentage >= 0 && pourcentage <= 50 ){
-        PushNotification.localNotificationSchedule({
-          message: "Oh hey l'ami ! Continuez comme cela, votre compte en banque vous remercie",
-          date: new Date(Date.now() + (1296000)) // in 15 days
-        });
       return(
         <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainer}>
           <Image source={require('../img/sun.png')} style={styles.infoIcone}
