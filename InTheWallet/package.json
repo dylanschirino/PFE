@@ -25,7 +25,6 @@
     "react-native-push-notification": "^3.0.0",
     "react-native-search-bar": "^3.0.0",
     "react-native-simple-picker": "^1.2.1",
-    "react-native-simple-stepper": "^1.10.0",
     "react-native-swipe-gestures": "^1.0.2",
     "react-native-swipeout": "^2.0.13",
     "sha256": "^0.2.0",
