@@ -94,7 +94,7 @@ module.exports = EStyleSheet.create({
       marginRight:150,
     },
     navTitleCustom:{
-      marginRight:70,
+      marginRight:130,
     },
     navTitleCustomPret:{
       marginRight:100,

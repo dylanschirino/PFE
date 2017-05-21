@@ -139,7 +139,15 @@ module.exports = EStyleSheet.create({
         paddingBottom:9.4,
     },
   },
-  '@media (min-width:380px) and (max-width:768px)':{
+  '@media (min-width:414px) and (max-width:765px)':{
+    quickLinkContainer:{
+      backgroundColor:'#F8FCFF',
+      flex:0,
+      paddingTop:20.8,
+      paddingBottom:20.8,
+    },
+  },
+  '@media (min-width:768px)':{
     quickLinkContainer:{
       backgroundColor:'#F8FCFF',
       flex:0,
