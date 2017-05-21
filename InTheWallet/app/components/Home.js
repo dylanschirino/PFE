@@ -545,7 +545,7 @@ let Home = React.createClass ({
           <TouchableOpacity style={menu.menuLink}>
             <Image
               style={menu.icone}
-              source={ require('../img/home.png')}
+              source={ require('../img/home-active.png')}
             />
           <Text style={menu.menuLabel}>Accueil</Text>
           </TouchableOpacity>

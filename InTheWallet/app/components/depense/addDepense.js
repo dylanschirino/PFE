@@ -187,7 +187,7 @@ let addDepense = React.createClass ({
         <TouchableOpacity style={menu.menuLink} onPress={this.goDepense}>
           <Image
             style={menu.icone}
-            source={ require('../../img/depense.png')}
+            source={ require('../../img/depense-active.png')}
           />
         <Text style={menu.menuLabel}>Dépenses</Text>
         </TouchableOpacity>
