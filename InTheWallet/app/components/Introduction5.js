@@ -7,9 +7,9 @@ let styles = require('../style/IntroStyle');
 import Introduction from './Introduction';
 import Introduction2 from './Introduction2';
 import Introduction3 from './Introduction3';
-import Introduction5 from "./Introduction5";
+import Introduction4 from './Introduction4';
 import Subscribe from './login/Subscription';
-let Introduction4 = React.createClass( {
+let Introduction5 = React.createClass( {
 
   goIntroduction() {
     this.props.navigator.push({
@@ -32,10 +32,10 @@ let Introduction4 = React.createClass( {
       navigationBarHidden:true,
     });
   },
-  goIntroduction5() {
+  goIntroduction4() {
     this.props.navigator.push({
-      component: Introduction5,
-      title:'Introduction5',
+      component: Introduction4,
+      title:'Introduction4',
       navigationBarHidden:true,
     });
   },
@@ -48,8 +48,8 @@ let Introduction4 = React.createClass( {
   },
   onSwipeLeft() {
     this.props.navigator.push({
-      component: Introduction5,
-      title:'Introduction5',
+      component: Subscribe,
+      title:'Subscribe',
       navigationBarHidden:true,
     });
   },
@@ -75,11 +75,11 @@ let Introduction4 = React.createClass( {
       <View></View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.active}>
+      <TouchableOpacity onPress={this.goIntroduction4} style={styles.switcher}>
       <View></View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction5}>
+      <TouchableOpacity style={styles.active}>
       <View></View>
       </TouchableOpacity>
       </View>
@@ -100,23 +100,20 @@ let Introduction4 = React.createClass( {
         />
       <View style={styles.container}>
       <Image
-        style={intro4.img}
-        source={ require('../img/gif/intro4.gif')}
+        style={intro5.img}
+        source={ require('../img/gif/intro5.gif')}
       />
       <Text style={styles.titleIntro}>
-      Épargner pour mieux rebondir.
+      Modifier ou supprimer
       </Text>
       <Text style={styles.introText}>
-      Dans combien de temps pourrez-vous vous offrir la voiture de vos rêves en mettant 10€ / mois ?
+      Glisser votre doigt vers la gauche sur l’éléments de la liste des dépenses, épargnes ou prêts.
       </Text>
       {this._renderSwitcher()}
-      <TouchableOpacity style={styles.buttonCustom2} onPress={this.goIntroduction5}>
+      <TouchableOpacity style={styles.buttonCustom2} onPress={this.goSubscribe}>
         <Text style={styles.buttonText}>
-        Suivant
+        Vers la page d'inscription!
         </Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.linkContainer} onPress={this.goSubscribe}>
-      <Text style={styles.link}>Passer les introductions</Text>
       </TouchableOpacity>
       </View>
     </GestureRecognizer>
@@ -125,10 +122,10 @@ let Introduction4 = React.createClass( {
 
 });
 
-const intro4 = EStyleSheet.create({
+const intro5 = EStyleSheet.create({
   img:{
-    width:216,
-    height:225,
+    width:278,
+    height:230,
     marginTop:25,
     marginBottom:35,
     '@media (max-width: 320px)': {
@@ -142,4 +139,4 @@ const intro4 = EStyleSheet.create({
   },
 });
 
-export default Introduction4;
+export default Introduction5;

@@ -8,6 +8,7 @@ let styles = require('../style/IntroStyle');
 import Introduction from './Introduction';
 import Introduction2 from './Introduction2';
 import Introduction4 from './Introduction4';
+import Introduction5 from "./Introduction5";
 import Subscribe from './login/Subscription';
 
 let Introduction3 = React.createClass( {
@@ -30,6 +31,13 @@ let Introduction3 = React.createClass( {
     this.props.navigator.push({
       component: Introduction4,
       title:'Introduction4',
+      navigationBarHidden:true,
+    });
+  },
+  goIntroduction5(){
+    this.props.navigator.push({
+      component: Introduction5,
+      title:'Introduction5',
       navigationBarHidden:true,
     });
   },
@@ -73,6 +81,9 @@ let Introduction3 = React.createClass( {
       <View></View>
       </TouchableOpacity>
 
+      <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction5}>
+      <View></View>
+      </TouchableOpacity>
       </View>
     )
   },
@@ -102,7 +113,7 @@ let Introduction3 = React.createClass( {
       </Text>
 
       {this._renderSwitcher()}
-      <TouchableOpacity style={styles.buttonCustom} onPress={this.goIntroduction3}>
+      <TouchableOpacity style={styles.buttonCustom} onPress={this.goIntroduction4}>
         <Text style={styles.buttonText}>
         Suivant
         </Text>

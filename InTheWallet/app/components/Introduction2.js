@@ -8,6 +8,7 @@ let styles = require('../style/IntroStyle');
 import Introduction from './Introduction';
 import Introduction3 from './Introduction3';
 import Introduction4 from './Introduction4';
+import Introduction5 from "./Introduction5";
 import Subscribe from './login/Subscription';
 var Introduction2 = React.createClass ( {
 
@@ -29,6 +30,13 @@ var Introduction2 = React.createClass ( {
     this.props.navigator.push({
       component: Introduction4,
       title:'Introduction4',
+      navigationBarHidden:true,
+    });
+  },
+  goIntroduction5(){
+    this.props.navigator.push({
+      component: Introduction5,
+      title:'Introduction5',
       navigationBarHidden:true,
     });
   },
@@ -70,6 +78,10 @@ var Introduction2 = React.createClass ( {
       </TouchableOpacity>
 
       <TouchableOpacity onPress={this.goIntroduction4} style={styles.switcher}>
+      <View></View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.switcher} onPress={this.goIntroduction5}>
       <View></View>
       </TouchableOpacity>
 
