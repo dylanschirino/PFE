@@ -292,7 +292,14 @@ module.exports = EStyleSheet.create({
       paddingTop:50
     },
   },
-  '@media (min-width:380px) and (max-width:768px)':{
+  '@media (min-width:414px) and (max-width:765px)':{
+    categorie:{
+      height:37,
+      alignItems:'center',
+      justifyContent:'center',
+    },
+  },
+  '@media (min-width:768px)':{
     categorie:{
       height:27,
       alignItems:'center',
