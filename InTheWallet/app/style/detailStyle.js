@@ -107,7 +107,22 @@ module.exports = EStyleSheet.create({
       height:100,
     },
   },
-  '@media (min-width:580px) and (max-width:768px)':{
+  '@media (min-width:414px) and (max-width:765px)':{
+    headContent:{
+      position:'relative',
+      height:180,
+    },
+    photo:{
+      width:'100%',
+      height:180,
+      position:'absolute',
+    },
+    contentInfo:{
+      marginLeft:32,
+      marginTop:35,
+    },
+  },
+  '@media (min-width:768px)':{
     headContent:{
       height:300,
     },

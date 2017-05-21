@@ -115,10 +115,25 @@ module.exports = EStyleSheet.create({
       width:0,
       height:0,
     },
-    cancelLink:{
-    }
   },
-  '@media (min-width:380px) and (max-width:768px)':{
+  '@media (min-width:414px) and (max-width:765px)':{
+    clockContainer:{
+      width:180,
+      height:180,
+      marginTop:40,
+      marginBottom:40,
+    },
+    clockBorder:{
+      width:172,
+      height:172,
+      justifyContent:'center',
+      alignItems:'center',
+      borderColor:'#FFFFFF',
+      borderWidth:1,
+      borderRadius:140,
+    },
+  },
+  '@media (min-width:768px)':{
     head:{
       flexDirection:'row',
       paddingTop:45,
