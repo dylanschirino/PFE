@@ -197,7 +197,7 @@ let updateEpargne = React.createClass ({
           <TouchableOpacity style={menu.menuLink} onPress={this.goEpargne}>
             <Image
               style={menu.iconeEpargne}
-              source={ require('../../img/epargne.png')}
+              source={ require('../../img/epargne-active.png')}
             />
           <Text style={menu.menuLabel}>Épargne</Text>
           </TouchableOpacity>
