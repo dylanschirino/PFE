@@ -3,8 +3,6 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image
 import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
-import SimpleStepper from 'react-native-simple-stepper';
-import UIStepper from 'react-native-ui-stepper';
 var ImagePicker = require('react-native-image-picker');
 
 let styles = require('../../style/addStyle'),
