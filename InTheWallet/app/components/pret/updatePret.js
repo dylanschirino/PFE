@@ -222,7 +222,7 @@ let updatePret = React.createClass ({
           <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
             <Image
               style={menu.iconePret}
-              source={ require('../../img/pret.png')}
+              source={ require('../../img/pret-active.png')}
             />
           <Text style={menu.menuLabel}>Prêt</Text>
           </TouchableOpacity>
