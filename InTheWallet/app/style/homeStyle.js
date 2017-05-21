@@ -289,7 +289,17 @@ module.exports = EStyleSheet.create({
       paddingTop:45,
     },
   },
-  '@media (min-width:380px) and (max-width:768px)':{
+  '@media (min-width:414px) and (max-width:765px)':{
+    depenseContent:{
+      paddingTop:30,
+      paddingBottom:30,
+    },
+    noContentTitle:{
+      paddingTop:90,
+      paddingBottom:20,
+    },
+  },
+  '@media (min-width:768px)':{
     header:{
       height:150,
     },
