@@ -133,8 +133,8 @@ const intro5 = EStyleSheet.create({
       marginBottom:20,
     },
     '@media (min-width:380px) and (max-width:768px)':{
-      width:316,
-      height:325,
+      width:378,
+      height:330,
     },
   },
 });
