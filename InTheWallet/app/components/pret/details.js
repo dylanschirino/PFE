@@ -139,6 +139,10 @@ let Details = React.createClass ({
           <View style={details.contentInfo}>
             <View style={details.container}>
               <View style={details.head}>
+                <TouchableOpacity onPress={this.goPret} style={details.cancelLink}>
+                   <Image style={details.imgAnnuler} source={ require('../../img/annuler.png')}
+                     />
+                 </TouchableOpacity>
                 <Text style={details.title}>{this.props.name}</Text>
               </View>
               <View style={details.clockContainer}>

@@ -138,6 +138,10 @@ let Details = React.createClass ({
         return (
           <View style={details.contentInfo}>
             <View style={details.container}>
+              <TouchableOpacity onPress={this.goEpargne} style={details.cancelLink}>
+                 <Image style={details.imgAnnuler} source={ require('../../img/annuler.png')}
+                   />
+               </TouchableOpacity>
               <View style={details.head}>
                 <Text style={details.title}>{this.props.name}</Text>
               </View>

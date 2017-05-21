@@ -28,8 +28,11 @@ module.exports = EStyleSheet.create({
   },
   head:{
     flexDirection:'row',
-    paddingTop:40,
+    paddingTop:50,
     justifyContent:'center',
+    width:'90%',
+    position:'relative',
+    alignSelf:'center',
     alignItems:'center',
   },
   title:{
@@ -89,6 +92,11 @@ module.exports = EStyleSheet.create({
     fontFamily:'lato-regular',
     lineHeight:26,
   },
+  cancelLink:{
+    position:'absolute',
+    top:20,
+    left:0,
+  },
   '@media (max-width: 320px)':{
     head:{
       flexDirection:'row',
@@ -102,6 +110,12 @@ module.exports = EStyleSheet.create({
     },
     title:{
       fontSize:16,
+    },
+    imgAnnuler:{
+      width:0,
+      height:0,
+    },
+    cancelLink:{
     }
   },
   '@media (min-width:380px) and (max-width:768px)':{
