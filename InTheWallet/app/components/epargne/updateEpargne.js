@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image
 import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
-import SimpleStepper from 'react-native-simple-stepper';
 import DatePicker from 'react-native-datepicker'
 
 let styles = require('../../style/addStyle'),
@@ -133,17 +132,21 @@ let updateEpargne = React.createClass ({
       depart:'',
     }
   },
-  valueChanged(montant){
-    montant = Math.round(montant * 100) / 100;
-    this.setState({
-      montant:montant,
-    })
+  decrement(montant){
+    montant--;
+    this.setState({montant:montant});
   },
-  mensualiteChanged(mensualite){
-    mensualite = Math.round(mensualite * 100) / 100;
-    this.setState({
-      mensualite:mensualite,
-    })
+  increment(montant){
+    montant++;
+    this.setState({montant:montant});
+  },
+  Mensualiteincrement(mensualite){
+    mensualite++;
+    this.setState({mensualite:mensualite});
+  },
+  Mensualitedecrement(mensualite){
+    mensualite--;
+    this.setState({mensualite:mensualite});
   },
   _renderHead(){
     return(
@@ -252,14 +255,20 @@ let updateEpargne = React.createClass ({
                   value={this.state.montant.toString()}
                 />
               <View style={styles.buttonMontant}>
-                <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={Number(this.state.montant)}
-                minimumValue={0}
-                maximumValue={100.000}
-                stepValue={1}
-                tintColor={'#5999CE'}
-                padding={9}
-                backgroundColor={'#FFFFFF'}
-                />
+                <TouchableOpacity onPress={() => {
+                      this.decrement(this.state.montant)
+                    }} style={styles.buttonLess}>
+                    <Image
+                      style={styles.decrement}
+                      source={ require('../../img/decrement.png')}
+                    />
+                  </TouchableOpacity>
+                <TouchableOpacity onPress={() => {this.increment(this.state.montant)}} style={styles.buttonMore}>
+                  <Image
+                    style={styles.increment}
+                    source={ require('../../img/increment.png')}
+                  />
+                </TouchableOpacity>
               </View>
               </View>
           </View>
@@ -279,13 +288,20 @@ let updateEpargne = React.createClass ({
                   value={this.state.mensualite.toString()}
                 />
               <View style={styles.buttonMontant}>
-                <SimpleStepper valueChanged={(mensualite) => this.mensualiteChanged(mensualite)} initialValue={Number(this.state.mensualite)}
-                minimumValue={0}
-                maximumValue={100.000}
-                stepValue={1}
-                tintColor={'#FFFFFF'}
-                padding={4}
-                />
+                <TouchableOpacity onPress={() => {
+                      this.Mensualitedecrement(this.state.mensualite)
+                    }} style={styles.buttonLessMensualite}>
+                    <Image
+                      style={styles.decrement}
+                      source={ require('../../img/decrement-white.png')}
+                    />
+                  </TouchableOpacity>
+                <TouchableOpacity onPress={() => {this.Mensualiteincrement(this.state.mensualite)}} style={styles.buttonMoreMensualite}>
+                  <Image
+                    style={styles.increment}
+                    source={ require('../../img/increment-white.png')}
+                  />
+                </TouchableOpacity>
               </View>
               </View>
           </View>
