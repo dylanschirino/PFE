@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image
 import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
-import SimpleStepper from 'react-native-simple-stepper';
 var ImagePicker = require('react-native-image-picker');
 
 let styles = require('../../style/addStyle'),
@@ -176,11 +175,13 @@ let updateDepense = React.createClass ({
       uri:''
     }
   },
-  valueChanged(montant){
-    montant = Math.round(montant * 100) / 100;
-    this.setState({
-      montant:montant,
-    })
+  decrement(montant){
+    montant--;
+    this.setState({montant:montant});
+  },
+  increment(montant){
+    montant++;
+    this.setState({montant:montant});
   },
   _renderUpdate(){
     let depenseResult = this.state.depenseArray;
@@ -219,14 +220,20 @@ let updateDepense = React.createClass ({
               value={this.state.montant.toString()}
             />
           <View style={styles.buttonMontant}>
-            <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={Number(this.state.montant)}
-            minimumValue={0}
-            maximumValue={100.000}
-            stepValue={1}
-            tintColor={'#5999CE'}
-            padding={9}
-            backgroundColor={'#FFFFFF'}
-            />
+            <TouchableOpacity onPress={() => {
+                  this.decrement(this.state.montant)
+                }} style={styles.buttonLess}>
+                <Image
+                  style={styles.decrement}
+                  source={ require('../../img/decrement.png')}
+                />
+              </TouchableOpacity>
+            <TouchableOpacity onPress={() => {this.increment(this.state.montant)}} style={styles.buttonMore}>
+              <Image
+                style={styles.increment}
+                source={ require('../../img/increment.png')}
+              />
+            </TouchableOpacity>
           </View>
           </View>
       </View>

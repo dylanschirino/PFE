@@ -147,9 +147,9 @@ let addDepense = React.createClass ({
       uri:''
     }
   },
-  decrement(){
-    var montant = this.state.montant;
-    this.setState({montant:montant -1});
+  decrement(montant){
+    montant--;
+    this.setState({montant:montant});
   },
   increment(montant){
     montant++;
@@ -247,17 +247,20 @@ let addDepense = React.createClass ({
                 value={this.state.montant.toString()}
               />
             <View style={styles.buttonMontant}>
-              <UIStepper
-                onIncrement={(montant) => { this.increment(Number(this.state.montant)) }}
-                onDecrement={(montant) => { this.decrement() }}
-                initialValue={Number(this.state.montant)}
-                minimumValue={0}
-                maximumValue={100.000}
-                steps={1}
-                tintColor={'#5999CE'}
-                height={40}
-                backgroundColor={'#FFFFFF'}
+            <TouchableOpacity onPress={() => {
+                  this.decrement(this.state.montant)
+                }} style={styles.buttonLess}>
+                <Image
+                  style={styles.decrement}
+                  source={ require('../../img/decrement.png')}
+                />
+              </TouchableOpacity>
+            <TouchableOpacity onPress={() => {this.increment(this.state.montant)}} style={styles.buttonMore}>
+              <Image
+                style={styles.increment}
+                source={ require('../../img/increment.png')}
               />
+            </TouchableOpacity>
             </View>
             </View>
         </View>
