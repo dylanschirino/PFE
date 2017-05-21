@@ -4,6 +4,7 @@ import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
 import SimpleStepper from 'react-native-simple-stepper';
+import UIStepper from 'react-native-ui-stepper';
 var ImagePicker = require('react-native-image-picker');
 
 let styles = require('../../style/addStyle'),
@@ -146,11 +147,13 @@ let addDepense = React.createClass ({
       uri:''
     }
   },
-  valueChanged(montant){
-    montant = Math.round(montant * 100) / 100;
-    this.setState({
-      montant:montant,
-    })
+  decrement(){
+    var montant = this.state.montant;
+    this.setState({montant:montant -1});
+  },
+  increment(montant){
+    montant++;
+    this.setState({montant:montant});
   },
   _renderImage(){
     if( this.state.uri === ''){
@@ -244,13 +247,16 @@ let addDepense = React.createClass ({
                 value={this.state.montant.toString()}
               />
             <View style={styles.buttonMontant}>
-              <SimpleStepper valueChanged={(montant) => this.valueChanged(montant)} initialValue={Number(this.state.montant)}
-              minimumValue={0}
-              maximumValue={100.000}
-              stepValue={1}
-              tintColor={'#5999CE'}
-              padding={9}
-              backgroundColor={'#FFFFFF'}
+              <UIStepper
+                onIncrement={(montant) => { this.increment(Number(this.state.montant)) }}
+                onDecrement={(montant) => { this.decrement() }}
+                initialValue={Number(this.state.montant)}
+                minimumValue={0}
+                maximumValue={100.000}
+                steps={1}
+                tintColor={'#5999CE'}
+                height={40}
+                backgroundColor={'#FFFFFF'}
               />
             </View>
             </View>
