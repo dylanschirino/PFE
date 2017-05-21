@@ -334,6 +334,7 @@ let addPret = React.createClass ({
                           fontFamily:'lato-regular',
                           color:'#B6CBE1',
                           textAlign:'center',
+                          width:'100%',
                         },
                         dateText:{
                           fontSize:16,

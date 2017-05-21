@@ -107,7 +107,9 @@ module.exports = EStyleSheet.create({
   },
   inputOptionDate:{
     height:20,
-    marginBottom:2
+    marginBottom:2,
+    alignItems:'center',
+    width:'42%',
   },
   percent:{
     position:'absolute',
