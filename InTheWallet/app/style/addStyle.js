@@ -438,7 +438,46 @@ module.exports = EStyleSheet.create({
       zIndex:11,
     },
   },
-  '@media (min-width:380px) and (max-width:768px)':{
+  '@media (min-width:414px) and (max-width:765px)':{
+    montantContainerDepense:{
+      paddingTop:35,
+      paddingBottom:35,
+    },
+    montantContainer:{
+      paddingTop:30,
+      paddingBottom:30,
+      alignItems:'center',
+      backgroundColor:'$montantBckg',
+    },
+    mensualiteContainer:{
+      paddingTop:15,
+      paddingBottom:15,
+      backgroundColor:'$mensualiteBckg',
+      alignItems:'center',
+    },
+    optionContainer:{
+      paddingTop:25,
+      paddingBottom:20,
+    },
+    nameContainer:{
+      marginTop:22,
+      paddingTop:25,
+      paddingBottom:25,
+    },
+    chooseContainer:{
+      paddingTop:10
+    },
+    pictureContainerTwo:{
+      paddingTop:10,
+      paddingBottom:18.9,
+    },
+    chooseContainer:{
+      flexDirection:'row',
+      marginBottom:25,
+      paddingTop:18,
+    },
+  },
+  '@media (min-width:768px)':{
     nameContainer:{
       marginTop:22,
       paddingTop:30,
