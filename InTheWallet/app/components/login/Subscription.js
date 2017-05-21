@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, TextInput, Image} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, TextInput, Image,StatusBar} from 'react-native';
 import Form from 'react-native-form';
 import axios from 'axios';
 import sha256 from 'sha256';
@@ -71,6 +71,8 @@ let Subscribe = React.createClass ({
 
     return (
         <View style={styles.body}>
+          <StatusBar barStyle="dark-content"
+          />
           <View style={styles.titleContainer}>
           <Text style={styles.title}>
           { 'Inscription'.toUpperCase() }

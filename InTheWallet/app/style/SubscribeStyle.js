@@ -131,7 +131,30 @@ module.exports = EStyleSheet.create({
       marginBottom:30,
     },
   },
-  '@media (min-width:380px) and (max-width:768px)':{
+  '@media (min-width:414px) and (max-width:765px)':{
+    linkContainer:{
+      borderBottomWidth:1,
+      borderColor:'#34586B',
+      alignSelf:'center',
+      marginBottom:20,
+    },
+    inputBox:{
+      borderBottomWidth:1,
+      borderColor:'$input',
+      marginBottom:35,
+    },
+    button:{
+      marginBottom:82,
+    },
+    buttonConnexion:{
+      marginBottom:74,
+    },
+    cercle:{
+      width:'100%',
+      height:100,
+    },
+  },
+  '@media (min-width:768px)':{
     title:{
       fontSize:40,
       marginTop:80,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, AlertIOS, TextInput, Image,AsyncStorage} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, AlertIOS, TextInput, Image,AsyncStorage,StatusBar} from 'react-native';
 import Form from 'react-native-form';
 import axios from 'axios';
 import sha256 from 'sha256';
@@ -59,6 +59,8 @@ let Login = React.createClass ({
   render() {
     return (
         <View style={styles.body}>
+          <StatusBar barStyle="dark-content"
+          />
           <View style={styles.titleLoginContainer}>
           <Text style={styles.title}>
           { 'Connexion'.toUpperCase() }
