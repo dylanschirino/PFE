@@ -159,7 +159,23 @@ module.exports = EStyleSheet.create({
       marginRight:0,
     },
   },
-  '@media (min-width:380px) and (max-width:768px)':{
+  '@media (min-width:414px) and (max-width:765px)':{
+    introText:{
+      paddingBottom:50,
+    },
+    switchContainer:{
+      marginBottom:50,
+    },
+    button:{
+      marginTop:40,
+      marginBottom:10,
+    },
+    buttonCustom2:{
+      marginTop:50,
+      marginBottom:10,
+    },
+  },
+  '@media (min-width:768px)':{
     img:{
       width:357,
       height:350,
