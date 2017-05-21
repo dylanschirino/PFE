@@ -89,7 +89,18 @@ module.exports = EStyleSheet.create({
       marginRight:100,
     },
   },
-  '@media (min-width:380px) and (max-width:768px)':{
+  '@media (min-width:414px) and (max-width:765px)':{
+    navTitleCustomLimit:{
+      marginRight:150,
+    },
+    navTitleCustom:{
+      marginRight:70,
+    },
+    navTitleCustomPret:{
+      marginRight:100,
+    },
+  },
+  '@media (min-width:768px)':{
     navBar:{
       marginTop:45,
       paddingBottom:15,
