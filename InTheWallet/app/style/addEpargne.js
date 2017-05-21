@@ -146,6 +146,12 @@ module.exports = EStyleSheet.create({
       paddingTop:20.8,
       paddingBottom:20.8,
     },
+    pretContainer:{
+      alignItems:'center',
+      paddingTop:35.5,
+      paddingBottom:35.5,
+      flexDirection:'row',
+    },
   },
   '@media (min-width:768px)':{
     quickLinkContainer:{

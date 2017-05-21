@@ -450,8 +450,8 @@ module.exports = EStyleSheet.create({
       backgroundColor:'$montantBckg',
     },
     mensualiteContainer:{
-      paddingTop:15,
-      paddingBottom:15,
+      paddingTop:35,
+      paddingBottom:35,
       backgroundColor:'$mensualiteBckg',
       alignItems:'center',
     },
