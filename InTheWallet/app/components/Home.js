@@ -8,7 +8,7 @@ import Display from 'react-native-display';
 import TimerMixin from 'react-timer-mixin';
 import Load from "react-native-loading-gif";
 import DeviceInfo from 'react-native-device-info';
-import PushNotification from 'react-native-push-notification';
+import RNLocalNotifications from 'react-native-local-notifications';
 
 let styles = require('../style/homeStyle'),
     menu = require('../style/menuStyle');
@@ -220,11 +220,7 @@ let Home = React.createClass ({
     this.setTimeout( () => { this.toggleDisplayInfo()} ,5000);
 
     this.refs.Load.setTimeClose(1500);
-    PushNotification.configure({
-      onNotification: function(notification) {
-          console.log( 'NOTIFICATION:', notification );
-      },
-    });
+    RNLocalNotifications.createNotification(1, 'Vous avez dépasser la limite du mois !', '2017-05-23 11:07', 'default');
   },
   getInitialState: function() {
     return {

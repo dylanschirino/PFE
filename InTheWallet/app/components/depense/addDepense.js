@@ -180,10 +180,9 @@ let addDepense = React.createClass ({
     ];
 
     let opts = {
-      url: 'https://schirino.be',
+      url: `http://104.131.74.22/api`,
       files: files,
       method: 'POST',
-      headers:{'Authorization': 'Bearer ' + this.props.token }
     };
       RNUploader.upload( opts, (err, response) => {
         if( err ){
