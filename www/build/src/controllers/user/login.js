@@ -23,8 +23,13 @@ export default function( oRequest, oResponse ) {
                 return error( oRequest, oResponse, "Wrong password", 404 );
             }
         }
-        // let cert = fs.readFileSync( "private.key" ),
+
+
         let tToken = jwt.sign( { email: oUser.email }, "shhhhh" );
+
+
+
+        
 
         return send( oRequest, oResponse, { "token": tToken }, 200 );
     } )

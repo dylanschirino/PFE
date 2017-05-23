@@ -33,11 +33,9 @@ fCheckDepense = function( sDepenseID ) {
               return Promise.resolve( true );
           }
 
-          return Promise.reject( new Error( "Unknow epargne" ) );
+          return Promise.reject( new Error( "Unknow dépense" ) );
       } );
 };
-
-
 export default function() {
     return db.collection( "depense" );
 }
