@@ -9,12 +9,18 @@ import getDepenses, { checkDepense } from "../../models/depense";
 import { checkUser } from "../../models/user";
 import { send, error } from "../../core/utils/api";
 import fs from "fs";
+import fileUrl from "file-url";
 import Mongo from "mongodb";
 
 const PAYEMENT = [ "cash", "carte" ];
 
 export default function( oRequest, oResponse ) {
     const POST = oRequest.body;
+
+    // Petit test d'upload d'une image
+    let path = POST.picture;
+    let oData = fs.readFileSync(path);
+        console.log( oData );
 
     let sDepenseID = new ObjectID(),
         sName = ( POST.name || "Depense sans nom" ).trim(),
@@ -74,7 +80,7 @@ export default function( oRequest, oResponse ) {
               "categorie": oDepense.categorie,
               "repeater": oDepense.repeater,
               "user": oDepense.user,
-              "picture": oDepense.picture,
+              "picture": oData,
               "month":month,
               "created_at":days +' '+month+' '+year,
           }, 201 );

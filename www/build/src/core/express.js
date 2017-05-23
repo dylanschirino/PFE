@@ -37,7 +37,7 @@ fInit = function( iAppPort = APP_PORT ) {
     } ) );
 
 
-    oApp.use( express.static( `${ __dirname }/../../static` ) );
+    oApp.use( express.static( `${ __dirname }/static` ) );
 
     // configure templates
     oApp.set( "views", `${ __dirname }/../views` );

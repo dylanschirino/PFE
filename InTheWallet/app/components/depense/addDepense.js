@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,CameraRoll } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,CameraRoll,DeviceEventEmitter,NativeModules,ActivityIndicator } from 'react-native';
 import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
 var ImagePicker = require('react-native-image-picker');
+var RNUploader = NativeModules.RNUploader;
 
 let styles = require('../../style/addStyle'),
     menu = require('../../style/menuStyle');
@@ -38,8 +39,9 @@ let addDepense = React.createClass ({
         });
       }
       else{
+        console.log(response.origURL);
         this.setState({
-          uri: response.origURL
+          uri: response.uri, fileName:response.fileName,
         });
       }
     })
@@ -132,6 +134,7 @@ let addDepense = React.createClass ({
           alert('Le nom ne peut pas être vide');
         }
 
+
   },
   getInitialState: function() {
     return {
@@ -142,7 +145,11 @@ let addDepense = React.createClass ({
       selectedOption:'Jamais',
       montant:0,
       imageSource:null,
-      uri:''
+      uri:'',
+      uploadProgress: 0,
+      uploadTotal: 0,
+      uploadWritten: 0,
+      uploadStatus: undefined,
     }
   },
   decrement(montant){
@@ -163,6 +170,32 @@ let addDepense = React.createClass ({
       )
     }
     else if(this.state.uri){
+      let files = [
+      {
+        name: 'file[]',
+        filename: this.state.fileName,
+        filepath: this.state.uri,
+        filetype: 'image/png',
+      }
+    ];
+
+    let opts = {
+      url: 'https://schirino.be',
+      files: files,
+      method: 'POST',
+      headers:{'Authorization': 'Bearer ' + this.props.token }
+    };
+      RNUploader.upload( opts, (err, response) => {
+        if( err ){
+          console.log(err);
+          return;
+        }
+
+        let status = response.status;
+        let responseString = response.data;
+
+        alert('upload complete with status ' + status);
+      });
         return(
           <Image
             style={styles.iconPhotoValid}
@@ -325,6 +358,9 @@ let addDepense = React.createClass ({
             <View style={styles.chooseContainerPhoto}>
               <TouchableOpacity style={styles.pictureChoose} onPress={() => {this.pickImage()}}>
                 {this._renderImage()}
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.doUpload}>
+              <Text>Upload!</Text>
             </TouchableOpacity>
             </View>
           </View>

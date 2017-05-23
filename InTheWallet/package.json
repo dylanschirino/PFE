@@ -18,6 +18,7 @@
     "react-native-datepicker": "^1.5.1",
     "react-native-display": "^1.0.8",
     "react-native-extended-stylesheet": "^0.3.2",
+    "react-native-fetch-blob": "^0.10.5",
     "react-native-form": "^2.1.2",
     "react-native-image-picker": "^0.26.3",
     "react-native-keyboard-aware-scroll-view": "^0.2.9",
@@ -27,6 +28,7 @@
     "react-native-simple-picker": "^1.2.1",
     "react-native-swipe-gestures": "^1.0.2",
     "react-native-swipeout": "^2.0.13",
+    "react-native-uploader": "0.0.10",
     "sha256": "^0.2.0",
     "unique-concat": "^0.2.2"
   },
