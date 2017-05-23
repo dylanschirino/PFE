@@ -95,6 +95,7 @@ module.exports = EStyleSheet.create({
   cancelLink:{
     position:'absolute',
     top:20,
+    zIndex:111,
     left:0,
   },
   '@media (max-width: 320px)':{
