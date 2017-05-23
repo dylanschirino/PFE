@@ -15,6 +15,7 @@ let nav = require('../../style/navStyle'),
     import Epargne from '../epargne/epargne';
     import updateDepense from './updateDepense';
     import addPret from "../pret/addPret";
+    import addDepense from "../depense/addDepense";
     import addEpargne from "../epargne/addEpargne";
 
 let Details = React.createClass ({
@@ -56,6 +57,14 @@ let Details = React.createClass ({
       title:'updateDepense',
       navigationBarHidden:true,
       passProps:{username:this.props.username,token:this.props.token,depense_id:this.props.depense_id},
+    })
+  },
+  addDepense(){
+    this.props.navigator.push({
+      component: addDepense,
+      title:'Ajouter dépense',
+      navigationBarHidden:true,
+      passProps:{username:this.state.user,token:this.props.token},
     })
   },
   addPret(){
