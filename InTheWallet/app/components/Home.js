@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image,ProgressViewIOS,Alert,TextInput,AsyncStorage} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image,ProgressViewIOS,Alert,TextInput,AsyncStorage,PushNotificationIOS} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Form from 'react-native-form';
 import axios from 'axios';
@@ -8,6 +8,7 @@ import Display from 'react-native-display';
 import TimerMixin from 'react-timer-mixin';
 import Load from "react-native-loading-gif";
 import DeviceInfo from 'react-native-device-info';
+var PushNotification = require('react-native-push-notification');
 import RNLocalNotifications from 'react-native-local-notifications';
 
 let styles = require('../style/homeStyle'),
@@ -220,7 +221,31 @@ let Home = React.createClass ({
     this.setTimeout( () => { this.toggleDisplayInfo()} ,5000);
 
     this.refs.Load.setTimeClose(1500);
-    RNLocalNotifications.createNotification(1, 'Vous avez dépasser la limite du mois !', '2017-05-23 11:07', 'default');
+    var pourcentage = (Math.floor(this.state.total)/Math.floor(this.state.limit))*100;
+    if( pourcentage == 'NaN' || pourcentage == 'Infinity'){
+      PushNotification.localNotificationSchedule({
+        message: "Vous n'avez pas encodé de limite du mois",
+        date: new Date(Date.now() + ( 86400 ))
+      });
+    }
+    else if( pourcentage >= 0 && pourcentage <= 50 ){
+      PushNotification.localNotificationSchedule({
+        message: "Oh hey l'ami ! Felicitation continuez comme ça!",
+        date: new Date(Date.now() + ( 86400 ))
+      });
+    }
+    else if( pourcentage >= 81 && pourcentage <= 99 ){
+      PushNotification.localNotificationSchedule({
+        message: "Oh hey l'ami ! Attention vous n'êtes pas sur la bonne voie",
+        date: new Date(Date.now() + ( 86400 ))
+      });
+    }
+    else if( pourcentage >= 100){
+      PushNotification.localNotificationSchedule({
+        message: "Faites attention ! Vous avez dépasser la limite du mois",
+        date: new Date(Date.now() + ( 86400 ))
+      });
+    }
   },
   getInitialState: function() {
     return {

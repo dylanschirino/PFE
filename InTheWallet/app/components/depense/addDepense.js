@@ -41,7 +41,7 @@ let addDepense = React.createClass ({
       else{
         console.log(response.origURL);
         this.setState({
-          uri: response.uri, fileName:response.fileName,
+          uri: response.uri, fileName:response.fileName,data:response.data
         });
       }
     })
@@ -150,6 +150,7 @@ let addDepense = React.createClass ({
       uploadTotal: 0,
       uploadWritten: 0,
       uploadStatus: undefined,
+      data:'',
     }
   },
   decrement(montant){
@@ -174,13 +175,13 @@ let addDepense = React.createClass ({
       {
         name: 'file[]',
         filename: this.state.fileName,
-        filepath: this.state.uri,
+        filepath: this.state.data,
         filetype: 'image/png',
       }
     ];
 
     let opts = {
-      url: `http://104.131.74.22/api`,
+      url: "https://schirino.be",
       files: files,
       method: 'POST',
     };
@@ -192,8 +193,6 @@ let addDepense = React.createClass ({
 
         let status = response.status;
         let responseString = response.data;
-
-        alert('upload complete with status ' + status);
       });
         return(
           <Image
@@ -357,9 +356,6 @@ let addDepense = React.createClass ({
             <View style={styles.chooseContainerPhoto}>
               <TouchableOpacity style={styles.pictureChoose} onPress={() => {this.pickImage()}}>
                 {this._renderImage()}
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this.doUpload}>
-              <Text>Upload!</Text>
             </TouchableOpacity>
             </View>
           </View>

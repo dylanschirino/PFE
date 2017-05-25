@@ -8,10 +8,8 @@
  */
 
 #import "AppDelegate.h"
-
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-#import "RCTPushNotificationManager.h"
 
 @implementation AppDelegate
 
@@ -20,8 +18,8 @@
   NSURL *jsCodeLocation;
 
 
-  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
-  //jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+  //jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"InTheWallet"
@@ -36,15 +34,4 @@
   [self.window makeKeyAndVisible];
   return YES;
 }
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-  [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0]; //Allways reset number of notifications shown at the icon
-  for (UILocalNotification * notification in [[UIApplication sharedApplication] scheduledLocalNotifications]) { //Also remove all shown notifications
-    if ([notification.fireDate compare:[NSDate date]] == NSOrderedAscending) {
-      [[UIApplication sharedApplication] cancelLocalNotification:notification];
-    }
-  }
-}
-
 @end
