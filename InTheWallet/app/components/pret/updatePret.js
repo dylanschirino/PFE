@@ -185,15 +185,11 @@ let updatePret = React.createClass ({
   _renderSwitch(){
     return(
       <View style={custom.quickLinkContainer}>
-         <TouchableOpacity style={custom.quickLink}>
-           <View style={custom.quickLinkContentActiveLeft}>
+        <TouchableOpacity style={custom.quickLinkContentRight} onPress={this.goEpargne}>
+            <Text style={custom.quickLinkText}>Épargne</Text>
+        </TouchableOpacity>
+         <TouchableOpacity style={custom.quickLinkContentActiveLeft} onPress={this.addPret}>
              <Text style={custom.quickLinkTextActive}>Prêt</Text>
-           </View>
-         </TouchableOpacity>
-         <TouchableOpacity style={custom.quickLink} onPress={this.addEpargne}>
-           <View style={custom.quickLinkContentRight}>
-             <Text style={custom.quickLinkText}>Épargne</Text>
-           </View>
          </TouchableOpacity>
        </View>
     )
