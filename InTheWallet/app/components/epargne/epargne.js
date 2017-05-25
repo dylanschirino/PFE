@@ -8,7 +8,6 @@ import Display from 'react-native-display';
 import moment from 'moment';
 import DeviceInfo from 'react-native-device-info';
 let concat = require('unique-concat');
-import Load from "react-native-loading-gif";
 
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
@@ -95,7 +94,6 @@ let Epargne = React.createClass ({
     });
   },
   componentDidMount(){
-    this.refs.Load.setTimeClose();
   },
   _handleEdit(id){
     this.props.navigator.push({
@@ -125,7 +123,6 @@ let Epargne = React.createClass ({
     .catch(function (error) {
       alert('Erreur:'+ error);
     });
-    this.refs.Load.setTimeClose(1500);
   },
   goDetails(id,name,end){
     this.props.navigator.push({
@@ -428,7 +425,6 @@ let Epargne = React.createClass ({
   render() {
     return (
       <View style={{flex:1,}}>
-        <Load ref="Load"></Load>
       {this._renderHeader()}
       <View style={styles.container}>
         <SearchBar

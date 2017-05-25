@@ -7,7 +7,6 @@ import Swipeout from 'react-native-swipeout';
 import Display from 'react-native-display';
 import moment from 'moment';
 import DeviceInfo from 'react-native-device-info';
-import Load from "react-native-loading-gif";
 
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
@@ -86,7 +85,6 @@ let Pret = React.createClass ({
     });
   },
   componentDidMount(){
-    this.refs.Load.setTimeClose(1500);
   },
   _handleEdit(id){
     this.props.navigator.push({
@@ -425,7 +423,6 @@ let Pret = React.createClass ({
   render() {
     return (
       <View style={{flex:1,}}>
-        <Load ref="Load"></Load>
       {this._renderHead()}
       <View style={styles.container}>
         <SearchBar

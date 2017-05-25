@@ -6,7 +6,6 @@ import axios from 'axios';
 import Chart from 'react-native-chart';
 import Display from 'react-native-display';
 import TimerMixin from 'react-timer-mixin';
-import Load from "react-native-loading-gif";
 import DeviceInfo from 'react-native-device-info';
 var PushNotification = require('react-native-push-notification');
 import RNLocalNotifications from 'react-native-local-notifications';
@@ -220,7 +219,6 @@ let Home = React.createClass ({
 
     this.setTimeout( () => { this.toggleDisplayInfo()} ,5000);
 
-    this.refs.Load.setTimeClose(1500);
     var pourcentage = (Math.floor(this.state.total)/Math.floor(this.state.limit))*100;
     if( pourcentage == 'NaN' || pourcentage == 'Infinity'){
       PushNotification.localNotificationSchedule({
@@ -605,7 +603,6 @@ let Home = React.createClass ({
   render() {
     return (
       <View style={menu.containerBase}>
-      <Load ref="Load"></Load>
       {this._renderHeader()}
       {this._renderProgress()}
       {this._renderChart()}

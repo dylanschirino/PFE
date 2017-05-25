@@ -5,7 +5,6 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import axios from 'axios';
 import Swipeout from 'react-native-swipeout';
 import Display from 'react-native-display';
-import Load from "react-native-loading-gif";
 import DeviceInfo from 'react-native-device-info';
 
 let concat = require('unique-concat');
@@ -38,8 +37,6 @@ let Depense = React.createClass ({
       alert('Erreur:'+ error);
     });
 
-
-    this.refs.Load.setTimeClose(1500);
   },
   getInitialState: function() {
     return {
@@ -512,7 +509,6 @@ let Depense = React.createClass ({
   render() {
     return (
       <View style={{flex:1,}}>
-       <Load ref="Load"></Load>
       {this._renderHeader()}
       <View style={styles.container}>
         <ScrollView horizontal={true} scrollEnabled={true} contentContainerStyle={styles.categorie}>

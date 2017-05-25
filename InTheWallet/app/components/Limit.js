@@ -149,7 +149,7 @@ let Limit = React.createClass ({
               onChangeText={(text) => {
                 this.setState( {limit:text} );
               }}
-              keyboardType={'numeric'}
+              keyboardType={'numbers-and-punctuation'}
               value={this.state.limit.toString()}
               color='#333333'
               placeholderTextColor='#ACACAC'/>
