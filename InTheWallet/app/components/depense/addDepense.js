@@ -306,7 +306,7 @@ let addDepense = React.createClass ({
                 onChangeText={(text) => {
                   this.setState( {categorie:text} );
                 }}
-                placeholder='Ex : Alimentation'
+                placeholder='Ex : Alimentation,Loisirs'
                 placeholderTextColor='#B6CBE1'
               />
             </View>

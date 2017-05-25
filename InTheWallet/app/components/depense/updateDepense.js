@@ -250,7 +250,7 @@ let updateDepense = React.createClass ({
                 this.setState( {categorie:text} );
               }}
               value={this.state.categorie.toString()}
-              placeholder='Ex : Alimentation'
+              placeholder='Ex : Alimentation,Loisirs'
               placeholderTextColor='#B6CBE1'
             />
           </View>

@@ -28,8 +28,8 @@ fCheckDepense = function( sDepenseID ) {
       .findOne( {
           "_id": oDepenseID,
       } )
-      .then( ( oEpargneID ) => {
-          if ( oEpargneID ) {
+      .then( ( oDepenseID ) => {
+          if ( oDepenseID ) {
               return Promise.resolve( true );
           }
 

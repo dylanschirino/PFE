@@ -24,11 +24,10 @@ let Subscribe = React.createClass ({
       email:'',
       password:'',
       password2:'',
-      firstLaunch:this.props.firstLaunch
     }
   },
   _handlePress(event) {
-  let email = ( this.state.email || "" ).toLowerCase(),
+    let email = ( this.state.email || "" ).toLowerCase(),
       password = this.state.password || "",
       password2 = this.state.password2;
 
@@ -74,17 +73,17 @@ let Subscribe = React.createClass ({
           <StatusBar barStyle="dark-content"
           />
           <View style={styles.titleContainer}>
-          <Text style={styles.title}>
-          { 'Inscription'.toUpperCase() }
-          </Text>
-        </View>
+            <Text style={styles.title}>
+            { 'Inscription'.toUpperCase() }
+            </Text>
+          </View>
         <Form style={styles.inputContainer} ref="subscribe">
 
           <Text style={styles.label}>
             <Image style={styles.icon}
               source={ require('../../img/email.png')}
             />
-          { 'Email :'.toUpperCase() }
+            { 'Email :'.toUpperCase() }
           </Text>
 
           <View style={styles.inputBox}>
