@@ -144,11 +144,11 @@ let addEpargne = React.createClass ({
   _renderSwitch(){
     return(
       <View style={custom.quickLinkContainer}>
-        <TouchableOpacity style={custom.quickLinkContentActive} onPress={this.goEpargne}>
-            <Text style={custom.quickLinkTextActive}>Épargne</Text>
+        <TouchableOpacity style={custom.quickLinkContentRight} onPress={this.goEpargne}>
+            <Text style={custom.quickLinkText}>Épargne</Text>
         </TouchableOpacity>
-         <TouchableOpacity style={custom.quickLinkContent} onPress={this.addPret}>
-             <Text style={custom.quickLinkText}>Prêt</Text>
+         <TouchableOpacity style={custom.quickLinkContentActiveLeft} onPress={this.addPret}>
+             <Text style={custom.quickLinkTextActive}>Prêt</Text>
          </TouchableOpacity>
        </View>
     )
@@ -235,6 +235,7 @@ let addEpargne = React.createClass ({
                     source={ require('../../img/decrement.png')}
                   />
                 </TouchableOpacity>
+                <View style={styles.bar}></View>
               <TouchableOpacity onPress={() => {this.increment(this.state.montant)}} style={styles.buttonMore}>
                 <Image
                   style={styles.increment}

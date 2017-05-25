@@ -25,8 +25,8 @@ module.exports = EStyleSheet.create({
     alignItems:'center',
   },
   dateContainer:{
-    paddingTop:25,
-    paddingBottom:25,
+    paddingTop:15,
+    paddingBottom:15,
     alignItems:'center',
   },
   nameContainerCustom:{
@@ -160,7 +160,9 @@ module.exports = EStyleSheet.create({
   buttonMontant:{
     flexDirection:'row',
     alignItems:'center',
-    borderRadius:8,
+    borderRadius:5,
+    borderWidth:1,
+    borderColor:'#5999CE'
   },
   bigContainer:{
     flexDirection:'row',
@@ -206,24 +208,22 @@ module.exports = EStyleSheet.create({
   },
   buttonMore:{
     backgroundColor:'#FFFFFF',
-    borderColor:'#5999CE',
     alignItems:'center',
-    padding:13,
-    borderTopWidth:1,
-    borderBottomWidth:1,
-    borderRightWidth:1,
+    padding:15.4,
     borderTopRightRadius:5,
     borderBottomRightRadius:5,
   },
+  bar:{
+    width:2,
+    backgroundColor:'#5999CE',
+  },
   buttonLess:{
     backgroundColor:'#FFFFFF',
-    borderColor:'#5999CE',
     alignItems:'center',
-    paddingTop:20,
-    paddingBottom:20,
+    paddingTop:22.5,
+    paddingBottom:22.5,
     paddingRight:15,
     paddingLeft:15,
-    borderWidth:1,
     borderTopLeftRadius:5,
     borderBottomLeftRadius:5,
   },

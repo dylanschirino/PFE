@@ -248,6 +248,7 @@ let addPret = React.createClass ({
                         source={ require('../../img/decrement.png')}
                       />
                     </TouchableOpacity>
+                    <View style={styles.bar}></View>
                   <TouchableOpacity onPress={() => {this.increment(this.state.montant)}} style={styles.buttonMore}>
                     <Image
                       style={styles.increment}
