@@ -334,15 +334,11 @@ let Pret = React.createClass ({
   _renderSwitch(){
     return(
       <View style={styles.quickLinkContainer}>
-          <TouchableOpacity style={styles.quickLink} onPress={this.goEpargne}>
-            <View style={styles.quickLinkContentRight}>
+          <TouchableOpacity style={styles.quickLinkContentRight} onPress={this.goEpargne}>
               <Text style={styles.quickLinkText}>Épargne</Text>
-            </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.quickLink}>
-            <View style={styles.quickLinkContentActiveLeft}>
+          <TouchableOpacity style={styles.quickLinkContentActiveLeft}>
               <Text style={styles.quickLinkTextActive}>Prêt</Text>
-            </View>
           </TouchableOpacity>
         </View>
     )

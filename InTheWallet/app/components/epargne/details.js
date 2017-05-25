@@ -271,15 +271,11 @@ let Details = React.createClass ({
       {this._renderHead()}
       <View style={styles.container}>
         <View style={details.quickLinkContainerCustom}>
-          <TouchableOpacity style={styles.quickLink} onPress={this.goEpargne}>
-            <View style={styles.quickLinkContentActive}>
+          <TouchableOpacity style={styles.quickLinkContentActive} onPress={this.goEpargne}>
               <Text style={styles.quickLinkTextActive}>Épargne</Text>
-            </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.quickLink} onPress={this.goPret}>
-            <View style={styles.quickLinkContent}>
+          <TouchableOpacity style={styles.quickLinkContent} onPress={this.goPret}>
               <Text style={styles.quickLinkText}>Prêt</Text>
-            </View>
           </TouchableOpacity>
         </View>
       </View>

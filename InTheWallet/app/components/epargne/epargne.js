@@ -93,8 +93,6 @@ let Epargne = React.createClass ({
       alert('Erreur:'+ error);
     });
   },
-  componentDidMount(){
-  },
   _handleEdit(id){
     this.props.navigator.push({
       component: updateEpargne,
@@ -336,15 +334,11 @@ let Epargne = React.createClass ({
   _renderSwitch(){
     return(
       <View style={styles.quickLinkContainer}>
-          <TouchableOpacity style={styles.quickLink}>
-            <View style={styles.quickLinkContentActive}>
+              <TouchableOpacity style={styles.quickLinkContentActive}>
               <Text style={styles.quickLinkTextActive}>Épargne</Text>
-            </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.quickLink} onPress={this.goPret}>
-            <View style={styles.quickLinkContent}>
+          <TouchableOpacity style={styles.quickLinkContent} onPress={this.goPret}>
               <Text style={styles.quickLinkText}>Prêt</Text>
-            </View>
           </TouchableOpacity>
         </View>
     )
