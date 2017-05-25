@@ -7,7 +7,6 @@ import TimerMixin from 'react-timer-mixin';
 import moment from 'moment';
 import Display from 'react-native-display';
 let duration = require("moment-duration-format");
-import Load from "react-native-loading-gif";
 
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
@@ -62,7 +61,6 @@ let Details = React.createClass ({
       }
       this.setState({time:timeS});
       } ,1000);
-      this.refs.Load.setTimeClose();
   },
   getInitialState: function() {
     return {
@@ -270,7 +268,6 @@ let Details = React.createClass ({
   render() {
     return (
       <View style={{flex:1,}}>
-        <Load ref="Load"></Load>
       {this._renderHead()}
       <View style={styles.container}>
         <View style={details.quickLinkContainerCustom}>
