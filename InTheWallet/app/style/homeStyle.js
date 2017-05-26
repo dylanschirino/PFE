@@ -306,8 +306,11 @@ module.exports = EStyleSheet.create({
       paddingTop:30,
       paddingBottom:30,
     },
+    noContentIconHome:{
+      marginTop:40,
+    },
     noContentTitle:{
-      paddingTop:90,
+      paddingTop:25,
       paddingBottom:20,
     },
   },
