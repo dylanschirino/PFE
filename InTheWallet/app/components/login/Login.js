@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, AlertIOS, TextInput, Image,AsyncStorage,StatusBar} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, AlertIOS, TextInput, Image,AsyncStorage,StatusBar,Alert} from 'react-native';
 import Form from 'react-native-form';
 import axios from 'axios';
 import sha256 from 'sha256';
@@ -31,7 +31,10 @@ let Login = React.createClass ({
         that = this;
 
       if( password =="" || email==""){
-        alert("Un ou plusieurs champs est vide");
+        Alert.alert(
+        'Champs obligatoire',
+        'Un ou plusieurs champs est vide',
+        )
       }
       else{
         axios.post('http://104.131.74.22:8080/login', {
@@ -52,7 +55,10 @@ let Login = React.createClass ({
           });
         })
         .catch(function (error) {
-           alert(`Nom d'utilisateur ou mot de passe incorrect`);
+          Alert.alert(
+          'Email',
+          `Nom d'utilisateur ou mot de passe incorrect`,
+          )
         });
       }
   },

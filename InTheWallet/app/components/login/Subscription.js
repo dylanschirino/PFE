@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, TextInput, Image,StatusBar} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, TextInput, Image,StatusBar,Alert} from 'react-native';
 import Form from 'react-native-form';
 import axios from 'axios';
 import sha256 from 'sha256';
@@ -32,7 +32,10 @@ let Subscribe = React.createClass ({
       password2 = this.state.password2;
 
       if( password =="" || email=="" || password2=="" ){
-        alert("Un ou plusieurs champs est vide");
+        Alert.alert(
+        'Champs obligatoire',
+        'Un ou plusieurs champs est vide',
+        )
       }
       else {
 
@@ -43,10 +46,16 @@ let Subscribe = React.createClass ({
 
         }
         if (!validateEmail(email)) {
-            alert('Votre adresse email est invalide');
+            Alert.alert(
+            'Email',
+            'Votre adresse email est invalide',
+            )
         }
         if( password!=password2 ){
-          alert('Vous avez encodez 2 mot de passe différent');
+          Alert.alert(
+          'Mot de passe',
+          'Vous avez encodé 2 mot de passe différents',
+          )
         }
 
           axios.post('http://104.131.74.22:8080/user', {
