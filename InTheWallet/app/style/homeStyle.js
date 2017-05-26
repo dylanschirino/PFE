@@ -379,8 +379,13 @@ module.exports = EStyleSheet.create({
     },
     noContentTitle:{
       fontSize:24,
-      paddingTop:120,
+      paddingTop:50,
       paddingBottom:20,
+    },
+    noContentIconHome:{
+      width:152,
+      height:95,
+      marginTop:40,
     },
     noContentButton:{
       paddingLeft:15,
