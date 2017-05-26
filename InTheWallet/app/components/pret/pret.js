@@ -100,7 +100,10 @@ let Pret = React.createClass ({
     };
     axios.delete('http://104.131.74.22:8080/pret/'+id,config)
     .then( response => {
-      alert('Le prêt à bien été supprimé');
+      Alert.alert(
+      `Félicitation`,
+      `Le prêt à bien été suprimé`,
+      )
     })
     .catch(function (error) {
       alert('Erreur:'+ error);

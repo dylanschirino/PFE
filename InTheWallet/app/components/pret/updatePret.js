@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,CameraRoll,KeyboardAvoidingView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,CameraRoll,KeyboardAvoidingView,Alert } from 'react-native';
 import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
@@ -126,16 +126,23 @@ let updatePret = React.createClass ({
                 });
               }
             }
-            else{
-              alert(`Taux d'interêt incorrect`);
-            }
+            Alert.alert(
+            `Taux d'interêt`,
+            `Le taux d'interêt doit être un nombre (Ex:2.5)`,
+            )
           }
           else{
-            alert('Les montants doivent être des nombres !')
+            Alert.alert(
+            `Montant`,
+            `Les montants doivent être des nombres !`,
+            )
           }
         }
         else{
-          alert(`Le nom du prêt est vide`);
+          Alert.alert(
+          `Nom du prêt`,
+          `Le nom du prêt ne peut pas être vide`,
+          )
         }
   },
   getInitialState: function() {
