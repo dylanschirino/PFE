@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,CameraRoll,KeyboardAvoidingView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,CameraRoll,KeyboardAvoidingView,Alert } from 'react-native';
 import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
@@ -94,11 +94,17 @@ let addEpargne = React.createClass ({
             }
           }
           else{
-            alert('Les montants doivent être des nombres !')
+            Alert.alert(
+            'Montant',
+            'Le montant doit être un nombre',
+            )
           }
         }
         else{
-          alert(`Le nom de l'épargne est vide`);
+          Alert.alert(
+          `Nom de l'épargne`,
+          `Le nom de l'épargne ne peut pas être vide`,
+          )
         }
 
   },

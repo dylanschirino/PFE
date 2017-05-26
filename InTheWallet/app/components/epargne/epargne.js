@@ -107,7 +107,10 @@ let Epargne = React.createClass ({
     };
     axios.delete('http://104.131.74.22:8080/epargne/'+id,config)
     .then( response => {
-      alert(`L'épargne à bien été supprimée`);
+      Alert.alert(
+      'Félicitation!',
+      `L'épargne à bien été supprimée`,
+      )
     })
     .catch(function (error) {
       alert('Erreur:'+ error);
