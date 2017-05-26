@@ -38,9 +38,16 @@ let updateDepense = React.createClass ({
         });
       }
       else{
-        this.setState({
-          uri: response.origURL
-        });
+        if( !response.origURL ){
+          this.setState({
+            uri: response.uri
+          });
+        }
+        else{
+          this.setState({
+            uri: response.origURL
+          })
+        }
       }
     })
   },

@@ -39,10 +39,16 @@ let addDepense = React.createClass ({
         });
       }
       else{
-        console.log(response.origURL);
-        this.setState({
-          uri: response.uri, fileName:response.fileName,data:response.data
-        });
+        if( !response.origURL ){
+          this.setState({
+            uri: response.uri
+          });
+        }
+        else{
+          this.setState({
+            uri: response.origURL
+          })
+        }
       }
     })
   },
@@ -171,29 +177,6 @@ let addDepense = React.createClass ({
       )
     }
     else if(this.state.uri){
-      let files = [
-      {
-        name: 'file[]',
-        filename: this.state.fileName,
-        filepath: this.state.data,
-        filetype: 'image/png',
-      }
-    ];
-
-    let opts = {
-      url: "https://schirino.be",
-      files: files,
-      method: 'POST',
-    };
-      RNUploader.upload( opts, (err, response) => {
-        if( err ){
-          console.log(err);
-          return;
-        }
-
-        let status = response.status;
-        let responseString = response.data;
-      });
         return(
           <Image
             style={styles.iconPhotoValid}
