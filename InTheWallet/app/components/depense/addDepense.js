@@ -24,7 +24,8 @@ let addDepense = React.createClass ({
     chooseFromLibraryButtonTitle:'Choisir une photo existante',
       storageOptions: {
         skipBackup:false,
-        path: 'image'
+        path: 'image',
+        cameraRoll:true,
       }
     };
     ImagePicker.showImagePicker( options, (response) => {

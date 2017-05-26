@@ -216,8 +216,8 @@ let Home = React.createClass ({
         alert('Erreur:'+ error);
       });
 
-
     this.setTimeout( () => { this.toggleDisplayInfo()} ,5000);
+
 
     var pourcentage = (Math.floor(this.state.total)/Math.floor(this.state.limit))*100;
     if( pourcentage == 'NaN' || pourcentage == 'Infinity'){
