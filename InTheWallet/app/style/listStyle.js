@@ -167,6 +167,12 @@ module.exports = EStyleSheet.create({
     justifyContent:'center',
     flexDirection:'row',
   },
+  quickLinkBorder:{
+    flexDirection:'row',
+    borderWidth:1,
+    borderRadius:10,
+    borderColor:'$mainColor',
+  },
   quickLink:{
     width:95,
   },
@@ -174,6 +180,7 @@ module.exports = EStyleSheet.create({
     fontSize:12,
     fontFamily:'droidsans',
     textAlign:'center',
+    color:'$mainColor',
   },
   quickLinkTextActive:{
     fontSize:12,
@@ -190,8 +197,6 @@ module.exports = EStyleSheet.create({
     paddingBottom:8,
     paddingLeft:40,
     paddingRight:40,
-    backgroundColor:'#E5F3FF',
-
   },
   quickLinkContentActive:{
     borderTopLeftRadius:8,
@@ -214,7 +219,6 @@ module.exports = EStyleSheet.create({
     paddingBottom:8,
     paddingLeft:30,
     paddingRight:30,
-    backgroundColor:'#E5F3FF',
   },
   quickLinkContentActiveLeft:{
     borderTopRightRadius:8,

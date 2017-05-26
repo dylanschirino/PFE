@@ -339,12 +339,14 @@ let Epargne = React.createClass ({
   _renderSwitch(){
     return(
       <View style={styles.quickLinkContainer}>
-              <TouchableOpacity style={styles.quickLinkContentActive}>
-              <Text style={styles.quickLinkTextActive}>Épargne</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.quickLinkContent} onPress={this.goPret}>
-              <Text style={styles.quickLinkText}>Prêt</Text>
-          </TouchableOpacity>
+      <View style={styles.quickLinkBorder}>
+        <TouchableOpacity style={styles.quickLinkContentActive}>
+        <Text style={styles.quickLinkTextActive}>Épargne</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.quickLinkContent} onPress={this.goPret}>
+            <Text style={styles.quickLinkText}>Prêt</Text>
+        </TouchableOpacity>
+      </View>
         </View>
     )
   },

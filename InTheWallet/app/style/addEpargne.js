@@ -47,7 +47,12 @@ module.exports = EStyleSheet.create({
     borderBottomLeftRadius:0,
     paddingLeft:40,
     paddingRight:40,
-    backgroundColor:'#E5F3FF',
+  },
+  quickLinkBorder:{
+    flexDirection:'row',
+    borderWidth:1,
+    borderRadius:10,
+    borderColor:'$mainColor',
   },
   quickLinkContentActive:{
     borderTopLeftRadius:8,
@@ -67,7 +72,6 @@ module.exports = EStyleSheet.create({
     paddingBottom:4,
     paddingLeft:30,
     paddingRight:30,
-    backgroundColor:'#E5F3FF',
   },
   quickLinkContentActiveLeft:{
     borderTopRightRadius:8,
