@@ -254,13 +254,22 @@ module.exports = EStyleSheet.create({
     marginRight:10,
   },
   noContent:{
-    paddingTop:100
+    paddingTop:100,
+    alignItems:'center',
+  },
+  noContentIcon:{
+    width:152,
+    height:95
+  },
+  noContentIconHome:{
+    width:152,
+    height:95
   },
   noContentTitle:{
     fontSize:18,
     fontFamily:'lato-regular',
     color:'#333333',
-    paddingTop:70,
+    paddingTop:30,
     paddingBottom:10,
     textAlign:'center',
   },

@@ -157,6 +157,8 @@ let Epargne = React.createClass ({
       return (
         <View>
           <View style={styles.noContent}>
+            <Image style={styles.noContentIcon} source={ require('../../img/island.png')}
+              />
             <Text style={styles.noContentTitle}>Aucune épargne trouvée</Text>
           </View>
           <View style={styles.noContentButton}>

@@ -159,6 +159,8 @@ let Pret = React.createClass ({
       return (
         <View>
           <View style={styles.noContent}>
+            <Image style={styles.noContentIcon} source={ require('../../img/island.png')}
+              />
             <Text style={styles.noContentTitle}>Aucun prêt trouvé</Text>
           </View>
           <View style={styles.noContentButton}>

@@ -401,6 +401,8 @@ let Home = React.createClass ({
       return(
             <View>
               <View style={styles.noContent}>
+                <Image style={styles.noContentIconHome} source={ require('../img/island.png')}
+                  />
                 <Text style={styles.noContentTitle}>Aucune dépense trouvée</Text>
               </View>
               <View style={styles.noContentButton}>

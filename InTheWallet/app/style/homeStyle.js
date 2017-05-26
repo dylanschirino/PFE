@@ -256,13 +256,21 @@ module.exports = EStyleSheet.create({
   depenseContainerCustom:{
     flex:1,
   },
+  noContent:{
+    alignItems:'center'
+  },
   noContentTitle:{
     fontSize:18,
     fontFamily:'lato-regular',
     color:'#333333',
-    paddingTop:70,
+    paddingTop:20,
     paddingBottom:10,
     textAlign:'center',
+  },
+  noContentIconHome:{
+    width:104,
+    height:65,
+    marginTop:20,
   },
   noContentButton:{
     backgroundColor:'#518DB6',
