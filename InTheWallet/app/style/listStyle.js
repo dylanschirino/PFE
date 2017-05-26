@@ -261,10 +261,6 @@ module.exports = EStyleSheet.create({
     width:152,
     height:95
   },
-  noContentIconHome:{
-    width:152,
-    height:95
-  },
   noContentTitle:{
     fontSize:18,
     fontFamily:'lato-regular',

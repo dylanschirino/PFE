@@ -293,8 +293,12 @@ module.exports = EStyleSheet.create({
       paddingTop:15,
       paddingBottom:15,
     },
+    noContentIconHome:{
+      width:60,
+      height:37,
+    },
     noContentTitle:{
-      paddingTop:45,
+      paddingTop:15,
     },
   },
   '@media (min-width:414px) and (max-width:765px)':{
