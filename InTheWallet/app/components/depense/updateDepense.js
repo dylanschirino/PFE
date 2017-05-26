@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,Alert} from 'react-native';
 import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
@@ -151,10 +151,16 @@ let updateDepense = React.createClass ({
                   });
                 }
                 else{
-                  alert(`Le moyen de payement n'a pas été choisi`);
+                  Alert.alert(
+                  'Payement',
+                  `Le moyen de payement n'a pas été choisi`,
+                  )
                 }
               }else {
-                alert('La repeteur ne peut pas être vide');
+                Alert.alert(
+                'Montant',
+                'Le repeteur ne peut pas être vide',
+                )
               }
             }
             else{
@@ -162,11 +168,17 @@ let updateDepense = React.createClass ({
             }
           }
           else{
-            alert('Le montant doit être un nombre');
+            Alert.alert(
+            'Montant',
+            'Le montant doit être un nombre',
+            )
           }
         }
         else{
-          alert('Le nom ne peut pas être vide');
+          Alert.alert(
+          'Nom de la dépense',
+          'Le nom ne peut pas être vide',
+          )
         }
 
   },

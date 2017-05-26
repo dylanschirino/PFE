@@ -125,7 +125,10 @@ let Depense = React.createClass ({
     var that = this;
     axios.delete('http://104.131.74.22:8080/depense/'+id,config)
     .then( response => {
-      alert('La dépense à bien été supprimée');
+      Alert.alert(
+      'Confirmation',
+      'La dépense à bien été supprimée',
+      )
       axios.get('http://104.131.74.22:8080/depense?user='+this.props.username,config)
       .then( response => {
         const depenseObject = response.data['data'];

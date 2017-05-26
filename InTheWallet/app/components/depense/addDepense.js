@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,CameraRoll,DeviceEventEmitter,NativeModules,ActivityIndicator } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,CameraRoll,DeviceEventEmitter,NativeModules,ActivityIndicator,Alert } from 'react-native';
 import axios from 'axios';
 import Form from 'react-native-form';
 import SimplePicker from 'react-native-simple-picker';
@@ -125,7 +125,10 @@ let addDepense = React.createClass ({
                   });
                 }
                 else{
-                  alert(`Le moyen de payement n'a pas été choisi`);
+                  Alert.alert(
+                  'Payement',
+                  `Le moyen de payement n'a pas été choisi`,
+                  )
                 }
               }
             }
@@ -134,11 +137,17 @@ let addDepense = React.createClass ({
             }
           }
           else{
-            alert('Le montant doit être un nombre');
+            Alert.alert(
+            'Montant',
+            'Le montant doit être un nombre',
+            )
           }
         }
         else{
-          alert('Le nom ne peut pas être vide');
+          Alert.alert(
+          'Nom de la dépense',
+          'Le nom ne peut pas être vide',
+          )
         }
 
 
