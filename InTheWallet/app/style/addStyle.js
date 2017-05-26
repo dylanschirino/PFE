@@ -164,6 +164,13 @@ module.exports = EStyleSheet.create({
     borderWidth:1,
     borderColor:'#5999CE'
   },
+  buttonMontantMensualite:{
+    flexDirection:'row',
+    alignItems:'center',
+    borderRadius:5,
+    borderWidth:1,
+    borderColor:'#FFFFFF'
+  },
   bigContainer:{
     flexDirection:'row',
     alignItems:'center',
@@ -217,6 +224,12 @@ module.exports = EStyleSheet.create({
     width:2,
     backgroundColor:'#5999CE',
   },
+  barMensualite:{
+    width:1,
+    height:36,
+    backgroundColor:'#FFFFFF',
+    zIndex:10,
+  },
   buttonLess:{
     backgroundColor:'#FFFFFF',
     alignItems:'center',
@@ -228,27 +241,15 @@ module.exports = EStyleSheet.create({
     borderBottomLeftRadius:5,
   },
   buttonLessMensualite:{
-    backgroundColor:'transparent',
-    borderColor:'#FFFFFF',
     alignItems:'center',
     paddingTop:17,
     paddingBottom:17,
     paddingRight:10,
     paddingLeft:10,
-    borderWidth:1,
-    borderTopLeftRadius:5,
-    borderBottomLeftRadius:5,
   },
   buttonMoreMensualite:{
-    backgroundColor:'transparent',
-    borderColor:'#FFFFFF',
     alignItems:'center',
     padding:10,
-    borderTopWidth:1,
-    borderBottomWidth:1,
-    borderRightWidth:1,
-    borderTopRightRadius:5,
-    borderBottomRightRadius:5,
   },
   increment:{
     width:16,

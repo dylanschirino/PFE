@@ -302,7 +302,7 @@ let updatePret = React.createClass ({
                   }}
                   value={this.state.mensualite.toString()}
                 />
-              <View style={styles.buttonMontant}>
+              <View style={styles.buttonMontantMensualite}>
                 <TouchableOpacity onPress={() => {
                       this.Mensualitedecrement(this.state.mensualite)
                     }} style={styles.buttonLessMensualite}>
@@ -311,6 +311,7 @@ let updatePret = React.createClass ({
                       source={ require('../../img/decrement-white.png')}
                     />
                   </TouchableOpacity>
+                  <View style={styles.barMensualite}></View>
                 <TouchableOpacity onPress={() => {this.Mensualiteincrement(this.state.mensualite)}} style={styles.buttonMoreMensualite}>
                   <Image
                     style={styles.increment}
