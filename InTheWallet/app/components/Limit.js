@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,TextInput,Alert } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Form from 'react-native-form';
 import axios from 'axios';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 let nav = require('../style/navStyle'),
     menu = require('../style/menuStyle'),
@@ -75,7 +76,10 @@ let Limit = React.createClass ({
     let limit=this.state.limit;
 
     if(limit ==""){
-      alert("La limite ne peut pas être vide");
+      Alert.alert(
+      'Attention!',
+      'La limite ne peut pas être vide',
+      )
     }
     else {
       if( !isNaN(limit) ){
@@ -99,7 +103,10 @@ let Limit = React.createClass ({
         }
       }
       else{
-        alert('La limite doit être un nombre');
+        Alert.alert(
+        'Attention!',
+        'La limite doit être un nombre',
+        )
       }
     }
   },
@@ -211,8 +218,10 @@ let Limit = React.createClass ({
     return (
       <View style={{flex:1,}}>
         {this._renderHeader()}
+        <KeyboardAwareScrollView automaticallyAdjustContentInsets={false}>
         {this._renderInfo()}
         {this._renderForm()}
+        </KeyboardAwareScrollView>
         {this._renderAction()}
         {this._renderMenu()}
       </View>
