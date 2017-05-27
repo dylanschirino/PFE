@@ -10,7 +10,7 @@ let noConnection = React.createClass ({
   render() {
     return (
         <View style={styles.body}>
-        <StatusBar barStyle="dark-content"
+        <StatusBar barStyle="light-content"
         />
         <View style={styles.mainContent}>
           <Text style={styles.title}>Hey l’ami ! Tu ferais mieux</Text>

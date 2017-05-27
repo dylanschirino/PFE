@@ -1,7 +1,7 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 EStyleSheet.build({
-  $Bckg: '#F8FDFF'
+  $Bckg: '#295174'
 });
 
 
@@ -24,6 +24,7 @@ module.exports = EStyleSheet.create({
   title:{
     fontFamily:'droidsans',
     fontSize:20,
-    color:'#295174',
+    color:'#FFFFFF',
+    textAlign:'center',
   }
 });
