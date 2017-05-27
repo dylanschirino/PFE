@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,Alert,ProgressViewIOS } from 'react-native';
-import SearchBar from 'react-native-search-bar';
+import Search from 'react-native-search-box';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import axios from 'axios';
 import Swipeout from 'react-native-swipeout';
@@ -93,6 +93,9 @@ let Pret = React.createClass ({
       navigationBarHidden:true,
       passProps:{username:this.state.user,pret_id:id,token:this.props.token},
     })
+  },
+  reload(){
+    this.setState({search:null});
   },
   _handleDelete(id){
     var config = {
@@ -428,11 +431,19 @@ let Pret = React.createClass ({
       <View style={{flex:1,}}>
       {this._renderHead()}
       <View style={styles.container}>
-        <SearchBar
-          ref='searchBar'
-          placeholder='Recherche'
-          onChangeText={(text) => {this._renderSearch(text)}}
-          />
+        <Search
+              ref="search_bar"
+              titleSearch="Recherche"
+              onSearch={this.onSearch}
+              onCancel={()=>{this.reload()}}
+              onChangeText={(text) => {this._renderSearch(text)}}
+              beforeFocus={this.beforeFocus}
+              onFocus={this.onFocus}
+              afterFocus={this.afterFocus}
+              backgroundColor="#E2E2E2"
+              placeholder='Recherche'
+              searchIconCollapsedMargin={35}
+        />
         {this._renderSwitch()}
         <ScrollView scrollEnabled={true} automaticallyAdjustContentInsets={false} contentContainerStyle={styles.listCustom}>
           {this._renderPret()}

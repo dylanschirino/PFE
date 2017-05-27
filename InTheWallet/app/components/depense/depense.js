@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,Alert,TouchableWithoutFeedback,Keyboard } from 'react-native';
-import SearchBar from 'react-native-search-bar';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import axios from 'axios';
 import Swipeout from 'react-native-swipeout';
@@ -39,10 +38,6 @@ let Depense = React.createClass ({
     });
 
 
-  },
-  unFocusCancel(){
-    alert('Pressed');
-    this.search.unFocus();
   },
   getInitialState: function() {
     return {
@@ -541,9 +536,9 @@ let Depense = React.createClass ({
                 beforeFocus={this.beforeFocus}
                 onFocus={this.onFocus}
                 afterFocus={this.afterFocus}
-                backgroundColor="#CCCCCC"
+                backgroundColor="#E2E2E2"
                 placeholder='Recherche'
-                searchIconCollapsedMargin={30}
+                searchIconCollapsedMargin={35}
           />
       </View>
       <ScrollView scrollEnabled={true}      contentContainerStyle={styles.listCustom}>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,Alert,ProgressViewIOS } from 'react-native';
-import SearchBar from 'react-native-search-bar';
+import Search from 'react-native-search-box';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import axios from 'axios';
 import Swipeout from 'react-native-swipeout';
@@ -79,6 +79,9 @@ let Epargne = React.createClass ({
       enable:false,
       result:[],
     }
+  },
+  reload(){
+    this.setState({search:null});
   },
   componentWillMount(){
     var config = {
@@ -432,16 +435,19 @@ let Epargne = React.createClass ({
       <View style={{flex:1,}}>
       {this._renderHeader()}
       <View style={styles.container}>
-        <SearchBar
-          ref='searchBar'
-          placeholder='Recherche'
-          barTintColor={'#E2E6EB'}
-          onCancelButtonPress={
-            () => {this.cancel()}
-          }
-          onSearchButtonPress={() => {this.refs.searchBar.unFocus()}}
-          onChangeText={(text) => {this._renderSearch(text)}}
-          />
+        <Search
+              ref="search_bar"
+              titleSearch="Recherche"
+              onSearch={this.onSearch}
+              onCancel={()=>{this.reload()}}
+              onChangeText={(text) => {this._renderSearch(text)}}
+              beforeFocus={this.beforeFocus}
+              onFocus={this.onFocus}
+              afterFocus={this.afterFocus}
+              backgroundColor="#E2E2E2"
+              placeholder='Recherche'
+              searchIconCollapsedMargin={35}
+        />
       {this._renderSwitch()}
       </View>
       <ScrollView scrollEnabled={true} automaticallyAdjustContentInsets={false} contentContainerStyle={styles.listCustom}>
