@@ -25,6 +25,9 @@ let Login = React.createClass ({
       password:'',
     }
   },
+  componentDidMount(){
+    AsyncStorage.multiRemove(['tokenID','username']);
+  },
   _handlePress(event) {
     let email=this.state.email.toLowerCase(),
         password=this.state.password,

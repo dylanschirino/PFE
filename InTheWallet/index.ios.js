@@ -22,16 +22,9 @@ export default class InTheWallet extends Component {
   }
   componentWillMount(){
       var that = this;
-      AsyncStorage.getAllKeys((err, keys) => {
-        AsyncStorage.multiGet(keys, (err, stores) => {
-         stores.map((result, i, store) => {
-           // get at each store's key/value so you can work with it
-           let key = store[i][0];
-           let value = store[i][1];
-           this.setState({tokenID:store[0][1],username:store[1][1]})
-          });
-        });
-      });
+      AsyncStorage.multiGet(['tokenID','username']).then((userSession) => {
+      this.setState({tokenID:userSession[0][1],username:userSession[1][1]})
+    })
       firstTime(DeviceInfo.getUniqueID())
       .then(function(response) {
       that.setState({firstLaunch:response});
