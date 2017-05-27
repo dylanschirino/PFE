@@ -7,6 +7,7 @@ import {
   View,
   Text,
   TouchableOpacity,
+  NetInfo,
   StyleSheet,
 } from 'react-native';
 var firstTime = require('react-native-catch-first-time');
@@ -15,10 +16,11 @@ var DeviceInfo = require('react-native-device-info');
 import Introduction from "./app/components/Introduction";
 import Login from "./app/components/login/Login";
 import Home from './app/components/Home';
+import noConnection from './app/components/noConnection';
 export default class InTheWallet extends Component {
   constructor(){
     super();
-    this.state = {firstLaunch:null};
+    this.state = {firstLaunch:null,isConnected:null};
   }
   componentWillMount(){
       var that = this;
@@ -34,8 +36,39 @@ export default class InTheWallet extends Component {
         that.setState({firstLaunch:response});
       })
   }
+  componentDidMount(){
+    NetInfo.isConnected.addEventListener(
+        'change',
+        this._handleConnectivityChange
+    );
+    NetInfo.isConnected.fetch().done(
+        (isConnected) => { this.setState({isConnected}); }
+    );
+  }
+  _handleConnectivityChange = (isConnected) => {
+    this.setState({
+      isConnected,
+    });
+  };
+  componentWillUnmount() {
+   NetInfo.isConnected.removeEventListener(
+       'change',
+       this._handleConnectivityChange
+   );
+ }
   render() {
-    if (this.state.firstLaunch === 'Running first time') {
+    if (this.state.firstLaunch === 'Running first time' ) {
+      if(this.state.isConnected == null || this.state.isConnected == false){
+        return (
+          <NavigatorIOS
+          initialRoute = {{
+            component: noConnection,
+            title:'noConnection',
+            navigationBarHidden:true,
+          }}
+         style={{ flex:1,}}/>
+        )
+      }
       return(
         <NavigatorIOS
         initialRoute = {{
@@ -48,6 +81,17 @@ export default class InTheWallet extends Component {
     }
     else if( this.state.firstLaunch ==='Not running first time')
     {
+      if(this.state.isConnected == null || this.state.isConnected == false){
+        return (
+          <NavigatorIOS
+          initialRoute = {{
+            component: noConnection,
+            title:'noConnection',
+            navigationBarHidden:true,
+          }}
+         style={{ flex:1,}}/>
+        )
+      }
       return(
         <NavigatorIOS
         initialRoute = {{
