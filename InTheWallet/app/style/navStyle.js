@@ -37,7 +37,7 @@ module.exports = EStyleSheet.create({
     fontSize:15,
     position:'relative',
     bottom:2,
-    marginRight:20,
+    marginRight:40,
     width:'45%',
     textAlign:'center',
   },
