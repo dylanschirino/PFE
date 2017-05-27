@@ -17,7 +17,7 @@ module.exports = EStyleSheet.create({
   container:{
     flexDirection:'column',
     height:57,
-    flex:0.25,
+    flex:0.23,
   },
   catText:{
     borderWidth:1,

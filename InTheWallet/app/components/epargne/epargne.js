@@ -8,6 +8,7 @@ import Display from 'react-native-display';
 import moment from 'moment';
 import DeviceInfo from 'react-native-device-info';
 let concat = require('unique-concat');
+import dismissKeyboard from 'react-native-dismiss-keyboard';
 
 let nav = require('../../style/navStyle'),
     menu = require('../../style/menuStyle'),
@@ -136,6 +137,9 @@ let Epargne = React.createClass ({
   toggleDisplay() {
     let toggle = !this.state.enable;
     this.setState({enable: toggle});
+  },
+  cancel(){
+    dismissKeyboard()
   },
   _renderSearch(text){
     let spendArray = (this.state.epargneArray);
@@ -431,6 +435,11 @@ let Epargne = React.createClass ({
         <SearchBar
           ref='searchBar'
           placeholder='Recherche'
+          barTintColor={'#E2E6EB'}
+          onCancelButtonPress={
+            () => {this.cancel()}
+          }
+          onSearchButtonPress={() => {this.refs.searchBar.unFocus()}}
           onChangeText={(text) => {this._renderSearch(text)}}
           />
       {this._renderSwitch()}
