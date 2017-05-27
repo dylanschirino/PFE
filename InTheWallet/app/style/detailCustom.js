@@ -98,6 +98,12 @@ module.exports = EStyleSheet.create({
     zIndex:111,
     left:0,
   },
+  cancelLinkEpargne:{
+    position:'absolute',
+    top:20,
+    zIndex:111,
+    left:-20,
+  },
   '@media (max-width: 320px)':{
     head:{
       flexDirection:'row',
