@@ -110,6 +110,9 @@ let Depense = React.createClass ({
       passProps:{username:this.state.user,token:this.props.token},
     })
   },
+  reload(){
+    this.setState({search:null});
+  },
   _handleEdit(id){
     this.props.navigator.push({
       component: updateDepense,
@@ -517,6 +520,9 @@ let Depense = React.createClass ({
       {this._renderHeader()}
       <View style={styles.container}>
         <ScrollView horizontal={true} scrollEnabled={true} contentContainerStyle={styles.categorie}>
+          <TouchableOpacity onPress={() => {this.reload()}}>
+            <Text style={styles.catText}>Toute les dépenses</Text>
+            </TouchableOpacity>
           {this._renderCategorie()}
         </ScrollView>
         <SearchBar
