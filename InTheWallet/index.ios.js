@@ -8,8 +8,11 @@ import {
   Text,
   TouchableOpacity,
   NetInfo,
+  PushNotificationIOS,
   StyleSheet,
 } from 'react-native';
+
+var PushNotification = require('react-native-push-notification');
 var firstTime = require('react-native-catch-first-time');
 var DeviceInfo = require('react-native-device-info');
 
@@ -17,6 +20,8 @@ import Introduction from "./app/components/Introduction";
 import Login from "./app/components/login/Login";
 import Home from './app/components/Home';
 import noConnection from './app/components/noConnection';
+
+
 export default class InTheWallet extends Component {
   constructor(){
     super();
@@ -35,6 +40,7 @@ export default class InTheWallet extends Component {
       .catch(function(response){
         that.setState({firstLaunch:response});
       })
+
   }
   componentDidMount(){
     NetInfo.isConnected.addEventListener(
@@ -92,16 +98,18 @@ export default class InTheWallet extends Component {
          style={{ flex:1,}}/>
         )
       }
-      return(
-        <NavigatorIOS
-        initialRoute = {{
-          component: Home,
-          title:'Home',
-          navigationBarHidden:true,
-          passProps:{username:this.state.username,token:this.state.tokenID}
-        }}
-       style={{ flex:1,}}/>
-      )
+      else{
+        return(
+          <NavigatorIOS
+          initialRoute = {{
+            component: Home,
+            title:'Home',
+            navigationBarHidden:true,
+            passProps:{username:this.state.username,token:this.state.tokenID}
+          }}
+         style={{ flex:1,}}/>
+        )
+      }
     }
       else{
         return null;
