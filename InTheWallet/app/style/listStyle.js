@@ -32,7 +32,7 @@ module.exports = EStyleSheet.create({
   },
   noCatText:{
     paddingTop:5,
-    textAlign:'center',
+    paddingLeft:10,
     color:'$borderColor',
     fontFamily:'lato-regular',
     fontSize:15,
