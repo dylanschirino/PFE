@@ -311,7 +311,7 @@ let Epargne = React.createClass ({
                   progress={Math.abs(percent)}/>
                 {
                 }
-                <Text style={styles.percent}>{Math.abs(percent*100).toFixed(1)}%</Text>
+                <Text style={styles.percent}>{Math.abs(percent*100).toFixed(1)>=100?100:Math.abs(percent*100).toFixed(1)}%</Text>
                 </View>
               </View>
             </View>

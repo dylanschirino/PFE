@@ -236,7 +236,7 @@ let Pret = React.createClass ({
                       <View style={styles.progressView}>
                         <ProgressViewIOS style={styles.progressBar} trackTintColor={'white'} progressTintColor='#538EB6'
                         progress={Math.abs(percent)}/>
-                      <Text style={styles.percent}>{Math.abs(percent*100).toFixed(1)}%</Text>
+                      <Text style={styles.percent}>{Math.abs(percent*100).toFixed(1)>=100?100:Math.abs(percent*100).toFixed(1)}%</Text>
                       </View>
                     </View>
                   </View>
