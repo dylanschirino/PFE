@@ -152,7 +152,7 @@ let Details = React.createClass ({
             <Text style={styles.info}>{this.state.depenseDetails.montant}€</Text>
             <Text style={styles.label}>Jour de la dépense</Text>
             <Text style={styles.info}>{this.state.depenseDetails.created_at}</Text>
-            <Text style={styles.label}>La dépense est répété</Text>
+            <Text style={styles.label}>La dépense est répéter</Text>
             <Text style={styles.info}>{this.state.depenseDetails.repeater}</Text>
             <Text style={styles.label}>Catégories</Text>
             <Text style={styles.info}>{this.state.categorie.toString()}</Text>
@@ -256,14 +256,14 @@ let Details = React.createClass ({
               style={menu.iconeEpargne}
               source={ require('../../img/epargne.png')}
             />
-          <Text style={menu.menuLabel}>Épargne</Text>
+          <Text style={menu.menuLabel}>Épargnes</Text>
           </TouchableOpacity>
           <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
             <Image
               style={menu.iconePret}
               source={ require('../../img/pret.png')}
             />
-          <Text style={menu.menuLabel}>Prêt</Text>
+          <Text style={menu.menuLabel}>Prêts</Text>
           </TouchableOpacity>
       </View>
     )
