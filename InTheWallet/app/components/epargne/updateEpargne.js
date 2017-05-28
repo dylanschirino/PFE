@@ -163,7 +163,7 @@ let updateEpargne = React.createClass ({
           <TouchableOpacity style={nav.backLink} onPress={this.goEpargne}>
             <Image style={nav.backIcone} source={ require('../../img/back.png')}
               />
-            <Text style={nav.backText}>Épargne</Text>
+            <Text style={nav.backText}>Épargnes</Text>
           </TouchableOpacity>
           <Text style={nav.navTitleCustom}>Modifier une épargne</Text>
         </View>
@@ -175,10 +175,10 @@ let updateEpargne = React.createClass ({
       <View style={custom.quickLinkContainer}>
         <View style={custom.quickLinkBorder}>
         <TouchableOpacity style={custom.quickLinkContentActive}>
-            <Text style={custom.quickLinkTextActive}>Épargne</Text>
+            <Text style={custom.quickLinkTextActive}>Épargnes</Text>
         </TouchableOpacity>
          <TouchableOpacity style={custom.quickLinkContent} onPress={this.goPret}>
-             <Text style={custom.quickLinkText}>Prêt</Text>
+             <Text style={custom.quickLinkText}>Prêts</Text>
          </TouchableOpacity>
        </View>
        </View>
@@ -206,14 +206,14 @@ let updateEpargne = React.createClass ({
               style={menu.iconeEpargne}
               source={ require('../../img/epargne-active.png')}
             />
-          <Text style={menu.menuLabel}>Épargne</Text>
+          <Text style={menu.menuLabel}>Épargnes</Text>
           </TouchableOpacity>
           <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
             <Image
               style={menu.iconePret}
               source={ require('../../img/pret.png')}
             />
-          <Text style={menu.menuLabel}>Prêt</Text>
+          <Text style={menu.menuLabel}>Prêts</Text>
           </TouchableOpacity>
       </View>
     )
