@@ -361,7 +361,7 @@ let Home = React.createClass ({
         <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainerCloud}>
           <Image source={require('../img/clouds.png')} style={styles.infoIconeCloud}
            />
-         <Text style={styles.infoTitleCloud}>Aucune limite du mois fixé!</Text>
+         <Text style={styles.infoTitleCloud}>Aucune limite du mois fixée !</Text>
         </Display>
       )
     }
@@ -380,7 +380,7 @@ let Home = React.createClass ({
         <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainerStorm}>
           <Image source={require('../img/storm.png')} style={styles.infoIconeStorm}
            />
-         <Text style={styles.infoTitleStorm}>Ressaisissez vous!</Text>
+         <Text style={styles.infoTitleStorm}>Ressaisissez vous !</Text>
         </Display>
       )
     }
@@ -389,7 +389,7 @@ let Home = React.createClass ({
         <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainerStorm}>
           <Image source={require('../img/storm.png')} style={styles.infoIconeStorm}
            />
-         <Text style={styles.infoTitleStorm}>Vous avez dépassez la limite!</Text>
+         <Text style={styles.infoTitleStorm}>Vous avez dépassé la limite !</Text>
         </Display>
       )
     }
@@ -590,14 +590,14 @@ let Home = React.createClass ({
               style={menu.iconeEpargne}
               source={ require('../img/epargne.png')}
             />
-          <Text style={menu.menuLabel}>Épargne</Text>
+          <Text style={menu.menuLabel}>Épargnes</Text>
           </TouchableOpacity>
           <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
             <Image
               style={menu.iconePret}
               source={ require('../img/pret.png')}
             />
-          <Text style={menu.menuLabel}>Prêt</Text>
+          <Text style={menu.menuLabel}>Prêts</Text>
           </TouchableOpacity>
       </View>
     )

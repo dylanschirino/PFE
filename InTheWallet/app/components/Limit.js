@@ -136,7 +136,7 @@ let Limit = React.createClass ({
         </View>
         <View style={limit.contentInfo}>
           <Text style={limit.text}>La limite du mois est un montant  que vous vous fixez comme objectif à ne pas dépasser.</Text>
-          <Text style={limit.text}>Il est important de vous fixer une limite qui vous corresponds, ne soyez pas trop audacieux tout en essayant de vous mettre au défi.</Text>
+          <Text style={limit.text}>Il est important de vous fixer une limite qui vous correspond, ne soyez pas trop audacieux tout en essayant de vous mettre au défi.</Text>
         </View>
       </View>
     )
@@ -202,14 +202,14 @@ let Limit = React.createClass ({
               style={menu.iconeEpargne}
               source={ require('../img/epargne.png')}
             />
-          <Text style={menu.menuLabel}>Épargne</Text>
+          <Text style={menu.menuLabel}>Épargnes</Text>
           </TouchableOpacity>
           <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
             <Image
               style={menu.iconePret}
               source={ require('../img/pret.png')}
             />
-          <Text style={menu.menuLabel}>Prêt</Text>
+          <Text style={menu.menuLabel}>Prêts</Text>
           </TouchableOpacity>
       </View>
     )
