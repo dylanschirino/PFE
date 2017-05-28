@@ -106,10 +106,10 @@ let Introduction3 = React.createClass( {
         source={ require('../img/gif/intro3.gif')}
       />
       <Text style={styles.titleIntro}>
-      Vos prêt à porter de mains.
+      Vos prêts à porter de mains
       </Text>
       <Text style={styles.introText}>
-      Ajouter vos prêts avec vos taux d’intêret et voir le remboursement en temps réels.
+      Ajouter vos prêts avec vos taux d’intêret et voir le remboursement en temps réel.
       </Text>
 
       {this._renderSwitcher()}

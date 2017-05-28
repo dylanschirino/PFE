@@ -104,7 +104,7 @@ let Introduction4 = React.createClass( {
         source={ require('../img/gif/intro4.gif')}
       />
       <Text style={styles.titleIntro}>
-      Épargner pour mieux rebondir.
+      Épargner pour mieux rebondir
       </Text>
       <Text style={styles.introText}>
       Dans combien de temps pourrez-vous vous offrir la voiture de vos rêves en mettant 10€ / mois ?

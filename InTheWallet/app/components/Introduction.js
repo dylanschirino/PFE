@@ -104,7 +104,7 @@ let Introduction = React.createClass ({
           Votre nouveau meilleur ami.
           </Text>
           <Text style={styles.introText}>
-          In The Wallet vous permets de mieux gérer vos dépenses au quotidien.
+          In The Wallet vous permet de mieux gérer vos dépenses au quotidien
           </Text>
           {this._renderSwitcher()}
           <TouchableOpacity style={styles.button} onPress={this.goIntroduction2}>

@@ -75,15 +75,17 @@ export default class InTheWallet extends Component {
          style={{ flex:1,}}/>
         )
       }
-      return(
-        <NavigatorIOS
-        initialRoute = {{
-          component: Introduction,
-          title:'Introduction',
-          navigationBarHidden:true,
-        }}
-       style={{ flex:1,}}/>
-      )
+      else{
+        return(
+          <NavigatorIOS
+          initialRoute = {{
+            component: Introduction,
+            title:'Introduction',
+            navigationBarHidden:true,
+          }}
+         style={{ flex:1,}}/>
+        )
+      }
     }
     else if( this.state.firstLaunch ==='Not running first time')
     {

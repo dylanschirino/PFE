@@ -107,10 +107,10 @@ var Introduction2 = React.createClass ( {
           source={ require('../img/gif/intro2.gif')}
         />
         <Text style={styles.titleIntro}>
-        Gérer vos dépenses facilement.
+        Gérer vos dépenses facilement
         </Text>
         <Text style={styles.introText}>
-        Vous pouvez ajouter une dépense en un rien de temps ou que vous soyez.
+        Vous pouvez ajouter une dépense en un rien de temps où que vous soyez.
         </Text>
         {this._renderSwitcher()}
         <TouchableOpacity style={styles.button} onPress={this.goIntroduction3}>
