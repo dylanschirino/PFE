@@ -375,11 +375,7 @@ let Home = React.createClass ({
       )
     }
     else if( pourcentage >= 51 && pourcentage <= 99 ){
-      var date = new Date();
-      PushNotification.localNotificationSchedule({
-        message: "Attention, vous devenez encore tenir la moitié du mois avec ce qu'il vous reste!",
-        date: new Date(Date.now() + (1296000)) // in 15 days
-      });
+
       return(
         <Display enable={this.state.enableInfo} enterDuration={500} exitDuration={250} exit="fadeOutDown" enter="fadeInUp" style={styles.infoContainerStorm}>
           <Image source={require('../img/storm.png')} style={styles.infoIconeStorm}
@@ -515,11 +511,12 @@ let Home = React.createClass ({
     )
   },
   _renderProgress(){
+    var pourcentage = ((Math.floor(this.state.total)/Math.floor(this.state.limit))*100) | 0;
     return(
       <View style={styles.progressContainer}>
         <View style={styles.progressView}>
           <ProgressViewIOS style={styles.progressBar} trackTintColor={'#124D73'} progressTintColor='white' progress={this.state.total/this.state.limit}/>
-          <Text style={styles.percent}>{((Math.floor(this.state.total)/Math.floor(this.state.limit))*100) | 0}%</Text>
+          <Text style={styles.percent}>{pourcentage>=100?100:pourcentage}%</Text>
         </View>
       </View>
     )
