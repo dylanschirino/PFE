@@ -127,8 +127,8 @@ let updatePret = React.createClass ({
               }
             }
             Alert.alert(
-            `Taux d'interêt`,
-            `Le taux d'interêt doit être un nombre (Ex:2.5)`,
+            `Taux d'intérêt`,
+            `Le taux d'intérêt doit être un nombre (Ex:2.5)`,
             )
           }
           else{
@@ -178,7 +178,7 @@ let updatePret = React.createClass ({
           <TouchableOpacity style={nav.backLink} onPress={this.goPret}>
             <Image style={nav.backIcone} source={ require('../../img/back.png')}
               />
-            <Text style={nav.backText}>Prêt</Text>
+            <Text style={nav.backText}>Prêts</Text>
           </TouchableOpacity>
           <Text style={nav.navTitle}>Modifier un prêt</Text>
           <TouchableOpacity style={nav.add} onPress={this.addPret}>
@@ -194,10 +194,10 @@ let updatePret = React.createClass ({
       <View style={custom.quickLinkContainer}>
         <View style={custom.quickLinkBorder}>
         <TouchableOpacity style={custom.quickLinkContentRight} onPress={this.goEpargne}>
-            <Text style={custom.quickLinkText}>Épargne</Text>
+            <Text style={custom.quickLinkText}>Épargnes</Text>
         </TouchableOpacity>
          <TouchableOpacity style={custom.quickLinkContentActiveLeft} onPress={this.addPret}>
-             <Text style={custom.quickLinkTextActive}>Prêt</Text>
+             <Text style={custom.quickLinkTextActive}>Prêts</Text>
          </TouchableOpacity>
        </View>
        </View>
@@ -225,14 +225,14 @@ let updatePret = React.createClass ({
               style={menu.iconeEpargne}
               source={ require('../../img/epargne.png')}
             />
-          <Text style={menu.menuLabel}>Épargne</Text>
+          <Text style={menu.menuLabel}>Épargnes</Text>
           </TouchableOpacity>
           <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
             <Image
               style={menu.iconePret}
               source={ require('../../img/pret-active.png')}
             />
-          <Text style={menu.menuLabel}>Prêt</Text>
+          <Text style={menu.menuLabel}>Prêts</Text>
           </TouchableOpacity>
       </View>
     )
@@ -332,7 +332,7 @@ let updatePret = React.createClass ({
           </View>
           <View style={custom.pretContainer}>
             <View style={custom.pretOption}>
-              <Text style={custom.labelBlue}>{ `Taux d'interêt`.toUpperCase() }</Text>
+              <Text style={custom.labelBlue}>{ `Taux d'intérêt`.toUpperCase() }</Text>
                 <View style={custom.inputBoxPret}>
                   <TextInput style={custom.inputOption}
                     ref="interet"

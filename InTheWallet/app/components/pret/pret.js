@@ -344,10 +344,10 @@ let Pret = React.createClass ({
       <View style={styles.quickLinkContainer}>
         <View style={styles.quickLinkBorder}>
           <TouchableOpacity style={styles.quickLinkContentRight} onPress={this.goEpargne}>
-              <Text style={styles.quickLinkText}>Épargne</Text>
+              <Text style={styles.quickLinkText}>Épargnes</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.quickLinkContentActiveLeft}>
-              <Text style={styles.quickLinkTextActive}>Prêt</Text>
+              <Text style={styles.quickLinkTextActive}>Prêts</Text>
           </TouchableOpacity>
         </View>
         </View>
@@ -414,14 +414,14 @@ let Pret = React.createClass ({
               style={menu.iconeEpargne}
               source={ require('../../img/epargne.png')}
             />
-          <Text style={menu.menuLabel}>Épargne</Text>
+          <Text style={menu.menuLabel}>Épargnes</Text>
           </TouchableOpacity>
           <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
             <Image
               style={menu.iconePret}
               source={ require('../../img/pret-active.png')}
             />
-          <Text style={menu.menuLabel}>Prêt</Text>
+          <Text style={menu.menuLabel}>Prêts</Text>
           </TouchableOpacity>
       </View>
     )

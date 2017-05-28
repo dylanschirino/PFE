@@ -154,7 +154,7 @@ let Details = React.createClass ({
                     <Text style={details.response}>{this.state.pretDetails.montant} €</Text>
                   </View>
                   <View style={details.content}>
-                    <Text style={details.label}>Taux d'interêt</Text>
+                    <Text style={details.label}>Taux d'intérêt</Text>
                     <Text style={details.response}>{this.state.pretDetails.interet*100} % </Text>
                   </View>
                 </View>
@@ -181,7 +181,7 @@ let Details = React.createClass ({
           <TouchableOpacity style={nav.backLink} onPress={this.goPret}>
             <Image style={nav.backIcone} source={ require('../../img/back.png')}
               />
-            <Text style={nav.backText}>Prêt</Text>
+            <Text style={nav.backText}>Prêts</Text>
           </TouchableOpacity>
           <Text style={nav.navTitle}>{this.state.name}</Text>
           <TouchableOpacity style={nav.add} onPress={this.updatePret}>
@@ -253,14 +253,14 @@ let Details = React.createClass ({
               style={menu.iconeEpargne}
               source={ require('../../img/epargne.png')}
             />
-          <Text style={menu.menuLabel}>Épargne</Text>
+          <Text style={menu.menuLabel}>Épargnes</Text>
           </TouchableOpacity>
           <TouchableOpacity style={menu.menuLink} onPress={this.goPret}>
             <Image
               style={menu.iconePret}
               source={ require('../../img/pret-active.png')}
             />
-          <Text style={menu.menuLabel}>Prêt</Text>
+          <Text style={menu.menuLabel}>Prêts</Text>
           </TouchableOpacity>
       </View>
     )
@@ -273,10 +273,10 @@ let Details = React.createClass ({
         <View style={details.quickLinkContainerCustom}>
           <View style={styles.quickLinkBorder}>
           <TouchableOpacity style={styles.quickLinkContentRight} onPress={this.goEpargne}>
-              <Text style={styles.quickLinkText}>Épargne</Text>
+              <Text style={styles.quickLinkText}>Épargnes</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.quickLinkContentActiveLeft} onPress={this.goPret}>
-              <Text style={styles.quickLinkTextActive}>Prêt</Text>
+              <Text style={styles.quickLinkTextActive}>Prêts</Text>
           </TouchableOpacity>
         </View>
         </View>
