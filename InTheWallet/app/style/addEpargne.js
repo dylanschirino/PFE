@@ -216,8 +216,14 @@ module.exports = EStyleSheet.create({
     },
     pretContainer:{
       alignItems:'center',
-      paddingTop:51,
-      paddingBottom:51,
+      paddingTop:59,
+      paddingBottom:59,
+      flexDirection:'row',
+    },
+    pretContainer2:{
+      alignItems:'center',
+      paddingTop:46.7,
+      paddingBottom:46.7,
       flexDirection:'row',
     },
     inputOption:{

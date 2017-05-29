@@ -323,7 +323,7 @@ module.exports = EStyleSheet.create({
   },
   '@media (min-width:768px)':{
     categorie:{
-      height:27,
+      height:47,
       alignItems:'center',
       justifyContent:'center',
     },
