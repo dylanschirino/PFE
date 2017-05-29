@@ -126,6 +126,20 @@ module.exports = EStyleSheet.create({
     top:30,
     right:30,
   },
+  '@media (max-width:320px)':{
+    buttonContainerDepense:{
+      bottom:80,
+      left:'38%',
+    },
+    buttonContainerPret:{
+      bottom:160,
+      left:'14%',
+    },
+    buttonContainerEpargne:{
+      bottom:160,
+      right:'14%',
+    },
+  },
   '@media (min-width:414px) and (max-width:765px)':{
     buttonContainerDepense:{
       bottom:100,
