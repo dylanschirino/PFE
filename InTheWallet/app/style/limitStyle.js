@@ -140,6 +140,20 @@ module.exports = EStyleSheet.create({
       marginTop:10,
     },
   },
+  '@media (min-width:414px) and (max-width:765px)':{
+    content:{
+      marginTop:40,
+      marginBottom:60,
+      flex:2,
+    },
+    formContainer:{
+      paddingBottom:120,
+    },
+    formContent:{
+      width:'80%',
+      marginTop:50,
+    },
+  },
   '@media (min-width:768px)':{
     iconTitle:{
       width:50,
