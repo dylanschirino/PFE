@@ -104,8 +104,8 @@ export default class InTheWallet extends Component {
         return(
           <NavigatorIOS
           initialRoute = {{
-            component: Home,
-            title:'Home',
+            component: Introduction,
+            title:'Introduction',
             navigationBarHidden:true,
             passProps:{username:this.state.username,token:this.state.tokenID}
           }}
