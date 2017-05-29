@@ -68,8 +68,6 @@ module.exports = EStyleSheet.create({
     borderBottomLeftRadius:8,
     borderTopRightRadius:0,
     borderBottomRightRadius:0,
-    paddingTop:4,
-    paddingBottom:4,
     paddingLeft:30,
     paddingRight:30,
   },
@@ -78,8 +76,6 @@ module.exports = EStyleSheet.create({
     borderBottomRightRadius:8,
     borderTopLeftRadius:0,
     borderBottomLeftRadius:0,
-    paddingTop:4,
-    paddingBottom:4,
     paddingLeft:40,
     paddingRight:40,
     borderColor:'$mainColor',
@@ -136,8 +132,8 @@ module.exports = EStyleSheet.create({
   '@media (max-width: 320px)':{
     quickLinkContainer:{
       flex:0,
-      paddingTop:7,
-      paddingBottom:7,
+      paddingTop:11.2,
+      paddingBottom:11.2,
     },
     pretContainer:{
       paddingTop:13.9,

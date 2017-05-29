@@ -84,8 +84,6 @@ let Pret = React.createClass ({
       alert('Erreur:'+ error);
     });
   },
-  componentDidMount(){
-  },
   _handleEdit(id){
     this.props.navigator.push({
       component: updatePret,

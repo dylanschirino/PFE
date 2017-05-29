@@ -331,6 +331,10 @@ module.exports = EStyleSheet.create({
       paddingTop:15,
       paddingBottom:15,
     },
+    nameContainerCustom:{
+      paddingTop:15.6,
+      paddingBottom:15.6,
+    },
     montantContainer:{
       paddingTop:10,
       paddingBottom:10,
@@ -362,6 +366,13 @@ module.exports = EStyleSheet.create({
       borderRadius:61,
       marginRight:5,
       marginLeft:5,
+    },
+    buttonMore:{
+      padding:12.9,
+    },
+    buttonLess:{
+      paddingTop:19.5,
+      paddingBottom:19.5,
     },
     buttonChooseActived:{
       width:61,

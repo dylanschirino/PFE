@@ -122,6 +122,12 @@ module.exports = EStyleSheet.create({
       width:0,
       height:0,
     },
+    cancelLinkEpargne:{
+      position:'absolute',
+      top:0,
+      zIndex:111,
+      left:0,
+    },
   },
   '@media (min-width:414px) and (max-width:765px)':{
     clockContainer:{

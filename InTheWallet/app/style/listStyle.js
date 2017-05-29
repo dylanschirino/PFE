@@ -310,6 +310,9 @@ module.exports = EStyleSheet.create({
     noContent:{
       paddingTop:50
     },
+    noCatText:{
+      paddingTop:0,
+    },
   },
   '@media (min-width:414px) and (max-width:765px)':{
     categorie:{
