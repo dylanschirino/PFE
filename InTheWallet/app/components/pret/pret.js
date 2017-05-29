@@ -445,10 +445,10 @@ let Pret = React.createClass ({
               searchIconCollapsedMargin={35}
         />
         {this._renderSwitch()}
+        </View>
         <ScrollView scrollEnabled={true} automaticallyAdjustContentInsets={false} contentContainerStyle={styles.listCustom}>
           {this._renderPret()}
         </ScrollView>
-      </View>
       {this._renderDisplay()}
       {this._renderMenu()}
       </View>

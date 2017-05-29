@@ -9,7 +9,7 @@ module.exports = EStyleSheet.create({
   quickLinkContainerCustom:{
     backgroundColor:'#FFFFFF',
     flex:0,
-    height:60,
+    height:70,
     alignItems:'center',
     justifyContent:'center',
     flexDirection:'row',
@@ -191,7 +191,10 @@ module.exports = EStyleSheet.create({
       height:35,
     },
     cancelLink:{
+      left:-20,
+    },
+    cancelLinkEpargne:{
       left:-40,
-    }
+    },
   }
 });

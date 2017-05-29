@@ -327,7 +327,7 @@ module.exports = EStyleSheet.create({
     container:{
       flexDirection:'column',
       height:57,
-      flex:0.15,
+      flex:0.17,
     },
     listCustom:{
       flexGrow:1,
@@ -415,13 +415,9 @@ module.exports = EStyleSheet.create({
     },
     quickLinkText:{
       fontSize:16,
-      paddingTop:10,
-      paddingBottom:10,
     },
     quickLinkTextActive:{
       fontSize:16,
-      paddingTop:10,
-      paddingBottom:10,
     },
   }
 });
