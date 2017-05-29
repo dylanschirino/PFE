@@ -652,5 +652,15 @@ module.exports = EStyleSheet.create({
       width:44,
       height:31,
     },
+    buttonMore:{
+      paddingTop:21,
+      paddingBottom:21,
+      paddingLeft:13.9,
+      paddingRight:13.9
+    },
+    buttonLess:{
+      paddingTop:27.4,
+      paddingBottom:27.4,
+    },
   }
 });
