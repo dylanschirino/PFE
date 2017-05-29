@@ -99,6 +99,12 @@ module.exports = EStyleSheet.create({
     paddingBottom:20,
     flexDirection:'row',
   },
+  pretContainer2:{
+    alignItems:'center',
+    paddingTop:20,
+    paddingBottom:20,
+    flexDirection:'row',
+  },
   pretOption:{
     width:'50%',
     alignItems:'center',
@@ -139,6 +145,10 @@ module.exports = EStyleSheet.create({
       paddingTop:13.9,
       paddingBottom:13.9,
     },
+    pretContainer2:{
+      paddingTop:13.9,
+      paddingBottom:13.9,
+    },
     labelBlue:{
         fontFamily:'droidsans',
         fontSize:14,
@@ -156,15 +166,19 @@ module.exports = EStyleSheet.create({
     quickLinkContainer:{
       backgroundColor:'#F8FCFF',
       flex:0,
-      paddingTop:20.8,
-      paddingBottom:20.8,
+      paddingTop:16.4,
+      paddingBottom:16.4,
     },
     pretContainer:{
       alignItems:'center',
-      paddingTop:35.5,
-      paddingBottom:35.5,
+      paddingTop:40,
+      paddingBottom:40,
       flexDirection:'row',
     },
+    pretContainer2:{
+      paddingTop:36.4,
+      paddingBottom:36.4,
+    }
   },
   '@media (min-width:768px)':{
     quickLinkContainer:{

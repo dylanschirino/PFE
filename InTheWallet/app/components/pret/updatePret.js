@@ -330,7 +330,7 @@ let updatePret = React.createClass ({
               </View>
               </View>
           </View>
-          <View style={custom.pretContainer}>
+          <View style={custom.pretContainer2}>
             <View style={custom.pretOption}>
               <Text style={custom.labelBlue}>{ `Taux d'intérêt`.toUpperCase() }</Text>
                 <View style={custom.inputBoxPret}>

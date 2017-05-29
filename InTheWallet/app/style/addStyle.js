@@ -476,6 +476,10 @@ module.exports = EStyleSheet.create({
       paddingTop:25,
       paddingBottom:25,
     },
+    dateContainer:{
+      marginTop:17.4,
+      marginBottom:17.4
+    },
     chooseContainer:{
       paddingTop:10
     },

@@ -170,6 +170,10 @@ module.exports = EStyleSheet.create({
       marginTop:40,
       marginBottom:10,
     },
+    buttonCustom:{
+      marginTop:90,
+      marginBottom:10,
+    },
     buttonCustom2:{
       marginTop:50,
       marginBottom:10,
