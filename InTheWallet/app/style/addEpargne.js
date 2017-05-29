@@ -216,22 +216,22 @@ module.exports = EStyleSheet.create({
     },
     pretContainer:{
       alignItems:'center',
-      paddingTop:59,
-      paddingBottom:59,
+      paddingTop:65.9,
+      paddingBottom:65.9,
       flexDirection:'row',
     },
     pretContainer2:{
       alignItems:'center',
-      paddingTop:46.7,
-      paddingBottom:46.7,
+      paddingTop:53.7,
+      paddingBottom:53.7,
       flexDirection:'row',
     },
     inputOption:{
       textAlign:'center',
       color:'#333333',
-      fontSize:24,
+      fontSize:18,
       fontFamily:'lato-light',
-      height:40,
+      height:26,
     },
   }
 });
