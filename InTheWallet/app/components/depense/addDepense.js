@@ -22,8 +22,9 @@ let addDepense = React.createClass ({
     title:'Choisir une photo',
     takePhotoButtonTitle:'Prendre une photo',
     chooseFromLibraryButtonTitle:'Choisir une photo existante',
+    allowsEditing: true,
       storageOptions: {
-        skipBackup:false,
+        skipBackup:true,
         path: 'image',
         cameraRoll:true,
       }
