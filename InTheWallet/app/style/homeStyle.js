@@ -274,10 +274,7 @@ module.exports = EStyleSheet.create({
   },
   noContentButton:{
     backgroundColor:'#518DB6',
-    borderRadius:8,
     marginTop:10,
-    paddingLeft:10,
-    paddingRight:10,
   },
   noContentButtonTitle:{
     fontSize:16,
@@ -286,6 +283,8 @@ module.exports = EStyleSheet.create({
     borderRadius:8,
     paddingTop:12,
     paddingBottom:12,
+    paddingLeft:15,
+    paddingRight:15,
     textAlign:'center',
   },
   '@media (max-width: 320px)':{
@@ -388,8 +387,6 @@ module.exports = EStyleSheet.create({
       marginTop:40,
     },
     noContentButton:{
-      paddingLeft:15,
-      paddingRight:15,
     },
     noContentButtonTitle:{
       fontSize:18,

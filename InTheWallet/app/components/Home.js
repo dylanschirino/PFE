@@ -404,11 +404,9 @@ let Home = React.createClass ({
                   />
                 <Text style={styles.noContentTitle}>Aucune dépense trouvée</Text>
               </View>
-              <View style={styles.noContentButton}>
-                <TouchableOpacity onPress={this.addDepense}>
+                <TouchableOpacity onPress={this.addDepense} style={styles.noContentButton}>
                   <Text style={styles.noContentButtonTitle}>Ajouter votre première dépense</Text>
                 </TouchableOpacity>
-              </View>
             </View>
       )
     }
