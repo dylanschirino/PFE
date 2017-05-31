@@ -30,7 +30,12 @@ let Subscribe = React.createClass ({
     let email = ( this.state.email || "" ).toLowerCase(),
       password = this.state.password || "",
       password2 = this.state.password2;
+      // Étape de vérifications
+      function validateEmail(email) {
+        let re = /(.+)@(.+){2,}\.(.+){2,}/;
+        return re.test(email);
 
+      }
       if( password =="" || email=="" || password2=="" ){
         Alert.alert(
         'Champs obligatoire',
@@ -43,20 +48,13 @@ let Subscribe = React.createClass ({
         'Vous avez encodé 2 mot de passe différents',
         )
       }
+      else if(!validateEmail(email)){
+        Alert.alert(
+        'Email',
+        'Votre adresse email est invalide',
+        )
+      }
       else {
-
-        // Étape de vérifications
-        function validateEmail(email) {
-          let re = /(.+)@(.+){2,}\.(.+){2,}/;
-          return re.test(email);
-
-        }
-        if (!validateEmail(email)) {
-            Alert.alert(
-            'Email',
-            'Votre adresse email est invalide',
-            )
-        }
 
           axios.post('http://104.131.74.22:8080/user', {
             email:email,
