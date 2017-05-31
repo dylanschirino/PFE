@@ -344,13 +344,13 @@ let Home = React.createClass ({
       passProps:{username:this.state.user,token:this.props.token},
     })
   },
-  goDetails(id,name,payement){
+  goDetails(id,name,payement,repeater){
     let spendArray = this.state.depenseArray;
 
         this.props.navigator.push({
           component: Details,
           title:name,
-          passProps:{depense_id:id,name:name,username:this.state.user,token:this.props.token,payement:payement},
+          passProps:{depense_id:id,name:name,username:this.state.user,token:this.props.token,payement:payement,repeater:repeater},
           navigationBarHidden:true,
         });
   },
@@ -428,7 +428,7 @@ let Home = React.createClass ({
             }
           }
             return (
-              <TouchableOpacity style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name,oDepense.payement)}}>
+              <TouchableOpacity style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name,oDepense.payement,oDepense.repeater)}}>
                 <View style={styles.depenseContent}>
                   <Text style={styles.price}>{oDepense.montant}€</Text>
                   <Text style={styles.title}>{generateName()}</Text>
@@ -459,7 +459,7 @@ let Home = React.createClass ({
             }
           }
             return (
-              <TouchableOpacity style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name,oDepense.payement)}}>
+              <TouchableOpacity style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer} key={i} onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name,oDepense.payement,oDepense.repeater)}}>
                 <View style={styles.depenseContent}>
                   <Text style={styles.price}>{oDepense.montant}€</Text>
                   <Text style={styles.title}>{generateName()}</Text>

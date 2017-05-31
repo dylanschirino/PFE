@@ -56,11 +56,11 @@ let Depense = React.createClass ({
     let toggle = !this.state.enable;
     this.setState({enable: toggle});
   },
-  goDetails(id,name,payement){
+  goDetails(id,name,payement,repeater){
         this.props.navigator.push({
           component: Details,
           title:name,
-          passProps:{depense_id:id,name:name,username:this.state.user,token:this.props.token,payement:payement},
+          passProps:{depense_id:id,name:name,username:this.state.user,token:this.props.token,payement:payement,repeater:repeater},
           navigationBarHidden:true,
         });
   },
@@ -243,7 +243,7 @@ let Depense = React.createClass ({
                   backgroundColor:'#FE3F35'
                 }
               ]} backgroundColor={'#FFFFFF'}>
-                <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name,oDepense.payement)}}>
+                <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name,oDepense.payement,oDepense.repeater)}}>
                 <View style={styles.depenseContainer}>
                   <View style={styles.smallInfo}>
                     <Image style={styles.imgRepeat} source={generateRepeatSearch()}
@@ -343,7 +343,7 @@ let Depense = React.createClass ({
                 backgroundColor:'#FE3F35'
               }
             ]} backgroundColor={'#FFFFFF'}>
-              <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name,oDepense.payement)}}>
+              <TouchableOpacity onPress={ ()=>{this.goDetails(oDepense.id, oDepense.name,oDepense.payement,oDepense.repeater)}}>
               <View style={i % 2 ? styles.depenseContainerOdd:styles.depenseContainer}>
                 <View style={styles.smallInfo}>
                   <Image style={styles.imgRepeat} source={generateRepeat()}

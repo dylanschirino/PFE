@@ -118,8 +118,7 @@ let Details = React.createClass ({
     let currentDate = new Date(),
     day = currentDate.getDate(),
     monthUpdated = monthArray[currentDate.getMonth()];
-
-    if( day == 1 ){
+    if( this.props.repeater == "Chaque mois" && day == 1 ){
       axios.patch('http://104.131.74.22:8080/depense/'+this.props.depense_id, {
         payement:this.props.payement,
         month:monthUpdated,
