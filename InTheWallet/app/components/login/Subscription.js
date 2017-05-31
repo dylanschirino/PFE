@@ -37,6 +37,12 @@ let Subscribe = React.createClass ({
         'Un ou plusieurs champs est vide',
         )
       }
+      else if( password !=password2 ){
+        Alert.alert(
+        'Mot de passe',
+        'Vous avez encodé 2 mot de passe différents',
+        )
+      }
       else {
 
         // Étape de vérifications
@@ -50,12 +56,6 @@ let Subscribe = React.createClass ({
             'Email',
             'Votre adresse email est invalide',
             )
-        }
-        if( password!=password2 ){
-          Alert.alert(
-          'Mot de passe',
-          'Vous avez encodé 2 mot de passe différents',
-          )
         }
 
           axios.post('http://104.131.74.22:8080/user', {
