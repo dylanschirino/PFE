@@ -99,7 +99,7 @@ let updatePret = React.createClass ({
           if ( !isNaN(this.state.montant) && !isNaN(this.state.mensualite)&& this.state.montant >0 && this.state.mensualite >0){
             var montant = ( this.state.montant || "" );
             var mensualite = (this.state.mensualite || "" );
-            if( this.state.interet !=null || !isNaN(this.state.interet) && this.state.interet >= 0 && this.state.interet <=100 ){
+            if( !isNaN(this.state.interet) && this.state.interet >= 0 && this.state.interet <=100 ){
               var interet = this.state.interet;
               if ( test === true){
                 var that = this;
