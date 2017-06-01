@@ -68,7 +68,7 @@ let addPret = React.createClass ({
 
         if( this.state.name !='' ){
           var name = this.state.name;
-          if ( !isNaN(this.state.montant) && !isNaN(this.state.mensualite)){
+          if ( !isNaN(this.state.montant) && !isNaN(this.state.mensualite) && this.state.montant >0 && this.state.mensualite >0){
             var montant = ( this.state.montant || "" );
             var mensualite = (this.state.mensualite || "" );
             if( !isNaN(this.state.interet) && this.state.interet >= 0 && this.state.interet <=100 ){
@@ -100,21 +100,21 @@ let addPret = React.createClass ({
               else{
                 Alert.alert(
                 `Date incorrect`,
-                `Le format doit être : 12-1-2017`,
+                `Veuillez séléctionner une date`,
                 )
               }
             }
             else{
               Alert.alert(
               `Taux d'intérêt`,
-              `Le taux d'intérêt doit être un nombre (Ex:2.5)`,
+              `Le taux d'intérêt doit être un nombre séparé par un point (Ex:2.5)`,
               )
             }
           }
           else{
             Alert.alert(
-            `Montant`,
-            `Les montants doivent être des nombres !`,
+            `Montant / Mensualité`,
+            `Les montants doivent être des nombres supérieurs ou différents de zéro`,
             )
           }
         }

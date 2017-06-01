@@ -86,7 +86,7 @@ let updateEpargne = React.createClass ({
 
         if( this.state.name !='' ){
           var name = this.state.name;
-          if ( !isNaN(this.state.montant) && !isNaN(this.state.mensualite)){
+          if ( !isNaN(this.state.montant) && !isNaN(this.state.mensualite) && this.state.montant >0 && this.state.mensualite >0){
             var montant = ( this.state.montant || "" );
             var mensualite = (this.state.mensualite || "" );
             if ( test === true){
@@ -117,8 +117,8 @@ let updateEpargne = React.createClass ({
           }
           else{
             Alert.alert(
-            'Montant',
-            'Le montant doit être un nombre',
+            'Montant / Mensualité',
+            'Le montant doit être un nombre supérieur ou différent de zéro',
             )
           }
         }

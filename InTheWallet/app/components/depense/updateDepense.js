@@ -117,8 +117,8 @@ let updateDepense = React.createClass ({
         var test = patt.test(this.state.categorie);
         if( this.state.name !='' ){
           var name = this.state.name;
-          if( !isNaN(this.state.montant) ){
-            var montant = this.state.montant;
+          if( !isNaN(this.state.montant) && this.state.montant >0 ){
+              var montant = this.state.montant;
             if(categorieString != null){
               if( test === true ){
                 categorieArray = categorieString.split(',');
@@ -170,7 +170,7 @@ let updateDepense = React.createClass ({
           else{
             Alert.alert(
             'Montant',
-            'Le montant doit être un nombre',
+            'Le montant doit être un nombre supérieur ou différent de 0',
             )
           }
         }

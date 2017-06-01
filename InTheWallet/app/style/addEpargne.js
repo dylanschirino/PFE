@@ -24,7 +24,6 @@ module.exports = EStyleSheet.create({
   },
   quickLinkText:{
     fontSize:12,
-    borderRadius:8,
     fontFamily:'droidsans',
     color:'$mainColor',
     paddingTop:5,
@@ -33,7 +32,6 @@ module.exports = EStyleSheet.create({
   },
   quickLinkTextActive:{
     fontSize:12,
-    borderRadius:8,
     fontFamily:'droidsans',
     color:'#FFFFFF',
     paddingTop:5,
@@ -192,7 +190,6 @@ module.exports = EStyleSheet.create({
     },
     quickLinkText:{
       fontSize:16,
-      borderRadius:10,
       fontFamily:'droidsans',
       color:'$mainColor',
       paddingTop:10,
@@ -201,7 +198,6 @@ module.exports = EStyleSheet.create({
     },
     quickLinkTextActive:{
       fontSize:16,
-      borderRadius:10,
       fontFamily:'droidsans',
       color:'#FFFFFF',
       paddingTop:10,

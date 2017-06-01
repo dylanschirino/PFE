@@ -97,8 +97,8 @@ let addDepense = React.createClass ({
         picture;
         if( this.state.name !='' ){
           var name = this.state.name;
-          if( !isNaN(this.state.montant) ){
-            var montant = this.state.montant;
+          if( !isNaN(this.state.montant) && this.state.montant >0){
+              var montant = this.state.montant;
             if( categorieString != null){
               categorieArray = categorieString.split(',');
               if ( this.state.selectedOption !='' ){
@@ -140,7 +140,7 @@ let addDepense = React.createClass ({
           else{
             Alert.alert(
             'Montant',
-            'Le montant doit être un nombre',
+            'Le montant doit être un nombre supérieur ou différent de zéro',
             )
           }
         }
