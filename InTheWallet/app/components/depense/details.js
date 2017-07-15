@@ -283,6 +283,8 @@ let Details = React.createClass ({
             <Text style={styles.title}>{this.props.name}</Text>
           </View>
           {this._renderDetails()}
+          <Image source={require('../../img/money-bag.png')} style={styles.money}
+          />
         </View>
         {this._renderDisplay()}
         {this._renderMenu()}
