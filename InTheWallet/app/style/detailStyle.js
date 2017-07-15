@@ -25,7 +25,7 @@ module.exports = EStyleSheet.create({
   arrow:{
     width:25.5,
     height:18,
-    marginTop:1,
+    marginTop:-2,
     marginLeft:3,
   },
   title:{
@@ -40,6 +40,7 @@ module.exports = EStyleSheet.create({
   content:{
     backgroundColor:'$contentBckg',
     flex:1,
+    position:'relative'
   },
   contentHead:{
     flexDirection:'row',
@@ -47,8 +48,15 @@ module.exports = EStyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
     position:'relative',
-    paddingTop:15,
-    paddingBottom:15,
+    paddingTop:12,
+    paddingBottom:12,
+  },
+  money:{
+    width:44,
+    height:90,
+    position:'absolute',
+    bottom:0,
+    right:30,
   },
   contentInfo:{
     marginLeft:32,
