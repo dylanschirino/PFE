@@ -7,6 +7,7 @@ import Swipeout from 'react-native-swipeout';
 import Display from 'react-native-display';
 import moment from 'moment';
 import DeviceInfo from 'react-native-device-info';
+import LinearGradient from 'react-native-linear-gradient';
 let concat = require('unique-concat');
 import dismissKeyboard from 'react-native-dismiss-keyboard';
 
@@ -345,16 +346,13 @@ let Epargne = React.createClass ({
   },
   _renderSwitch(){
     return(
-      <View style={styles.quickLinkContainer}>
-      <View style={styles.quickLinkBorder}>
-        <TouchableOpacity style={styles.quickLinkContentActive}>
-        <Text style={styles.quickLinkTextActive}>Épargnes</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.quickLinkContent} onPress={this.goPret}>
-            <Text style={styles.quickLinkText}>Prêts</Text>
-        </TouchableOpacity>
-      </View>
+      <LinearGradient colors={['#4C85AF', '#0396FF']} start={{x: 0.0, y: 0.0}} end={{x: 1.0, y: 1.0}} style={styles.accrocheContainer}>
+        <View style={styles.accrocheTextBorder}>
+          <Text style={styles.accrocheText}>Bientôt tout ceci sera à vous</Text>
+            <Image style={styles.imgCoffre} source={ require('../../img/coffre.png')}
+              />
         </View>
+    </LinearGradient>
     )
   },
   _renderDisplay(){

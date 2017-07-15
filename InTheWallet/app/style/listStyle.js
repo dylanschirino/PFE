@@ -167,6 +167,35 @@ module.exports = EStyleSheet.create({
     justifyContent:'center',
     flexDirection:'row',
   },
+  accrocheContainer:{
+    backgroundColor:'#86B7DC',
+    flexGrow:0.1,
+    height:20,
+    paddingLeft:35,
+    flexDirection:'row',
+    position:'relative'
+  },
+  accrocheTextBorder:{
+    borderBottomWidth:1,
+    borderColor:'#FFFFFF',
+    alignSelf:'center',
+    marginTop:5,
+  },
+  accrocheText:{
+    color:'#FFFFFF',
+    backgroundColor:'transparent',
+    fontFamily:'lato-bold',
+    fontSize:16,
+    paddingBottom:5,
+    letterSpacing:0.6,
+  },
+  imgCoffre:{
+    width:56,
+    height:54,
+    position:'absolute',
+    bottom:-22,
+    right:-85,
+  },
   quickLinkBorder:{
     flexDirection:'row',
     borderWidth:1,

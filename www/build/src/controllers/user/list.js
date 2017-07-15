@@ -9,6 +9,12 @@ import { send, error } from "../../core/utils/api";
 
 export default function( oRequest, oResponse ) {
 
+  let sUserID = oRequest.query.user || "";
+
+  if ( sUserID !="dylan.schirino@hotmail.fr" ) {
+      error( oRequest, oResponse, "Vous n'avez pas le droit d'être ici!", 400 );
+  }
+  else{
     getUsers()
     .find()
     .toArray()
@@ -31,4 +37,5 @@ export default function( oRequest, oResponse ) {
     .catch( ( oError ) => {
         error( oRequest, oResponse, oError );
     } );
+  }
 }
