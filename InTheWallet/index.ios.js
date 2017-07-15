@@ -64,7 +64,7 @@ export default class InTheWallet extends Component {
  }
   render() {
     if (this.state.firstLaunch === 'Running first time' ) {
-      if(this.state.isConnected == null || this.state.isConnected == false){
+      if(this.state.isConnected == false){
         return (
           <NavigatorIOS
           initialRoute = {{
@@ -89,7 +89,7 @@ export default class InTheWallet extends Component {
     }
     else if( this.state.firstLaunch ==='Not running first time')
     {
-      if(this.state.isConnected == null || this.state.isConnected == false){
+      if(this.state.isConnected == false){
         return (
           <NavigatorIOS
           initialRoute = {{
