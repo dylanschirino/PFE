@@ -173,7 +173,6 @@ module.exports = EStyleSheet.create({
     flexDirection:'row',
   },
   accrocheContainer:{
-    backgroundColor:'#86B7DC',
     flexGrow:0.1,
     height:20,
     paddingLeft:35,
@@ -415,7 +414,24 @@ module.exports = EStyleSheet.create({
     containerCustom:{
       flexDirection:'column',
       height:57,
-      flex:0.35,
+      flex:0.22,
+    },
+    accrocheText:{
+      fontSize:22,
+    },
+    imgCoffre:{
+      width:66,
+      height:64,
+      position:'absolute',
+      bottom:-27,
+      right:-400,
+    },
+    imgCoffreCustom:{
+      width:66,
+      height:64,
+      position:'absolute',
+      bottom:-27,
+      right:-400,
     },
     listCustom:{
       flexGrow:1,
