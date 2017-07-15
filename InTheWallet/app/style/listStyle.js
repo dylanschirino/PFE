@@ -386,6 +386,20 @@ module.exports = EStyleSheet.create({
       alignItems:'center',
       justifyContent:'center',
     },
+    imgCoffre:{
+      width:56,
+      height:54,
+      position:'absolute',
+      bottom:-29,
+      right:-120,
+    },
+    imgCoffreCustom:{
+      width:56,
+      height:54,
+      position:'absolute',
+      bottom:-27,
+      right:-170,
+    },
   },
   '@media (min-width:768px)':{
     categorie:{
