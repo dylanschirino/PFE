@@ -19,6 +19,11 @@ module.exports = EStyleSheet.create({
     height:57,
     flex:0.25,
   },
+  containerCustom:{
+    flexDirection:'column',
+    height:57,
+    flex:0.30,
+  },
   catText:{
     borderWidth:1,
     borderColor:'$borderColor',
@@ -196,6 +201,13 @@ module.exports = EStyleSheet.create({
     bottom:-22,
     right:-85,
   },
+  imgCoffreCustom:{
+    width:56,
+    height:54,
+    position:'absolute',
+    bottom:-22,
+    right:-145,
+  },
   quickLinkBorder:{
     flexDirection:'row',
     borderWidth:1,
@@ -326,6 +338,31 @@ module.exports = EStyleSheet.create({
       height:50,
       flex:0.3,
     },
+    containerCustom:{
+      flexDirection:'column',
+      height:50,
+      flex:0.35,
+    },
+    accrocheContainer:{
+      paddingLeft:33,
+    },
+    accrocheText:{
+      fontSize:14,
+    },
+    imgCoffre:{
+      width:46,
+      height:44,
+      position:'absolute',
+      bottom:-18,
+      right:-70,
+    },
+    imgCoffreCustom:{
+      width:46,
+      height:44,
+      position:'absolute',
+      bottom:-21,
+      right:-110,
+    },
     name:{
       fontSize:16,
       letterSpacing:0.75,
@@ -360,6 +397,11 @@ module.exports = EStyleSheet.create({
       flexDirection:'column',
       height:57,
       flex:0.17,
+    },
+    containerCustom:{
+      flexDirection:'column',
+      height:57,
+      flex:0.35,
     },
     listCustom:{
       flexGrow:1,

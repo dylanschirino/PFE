@@ -6,6 +6,7 @@ import axios from 'axios';
 import TimerMixin from 'react-timer-mixin';
 import moment from 'moment';
 import Display from 'react-native-display';
+import LinearGradient from 'react-native-linear-gradient';
 let duration = require("moment-duration-format");
 
 let nav = require('../../style/navStyle'),
@@ -136,10 +137,6 @@ let Details = React.createClass ({
         return (
           <View style={details.contentInfo}>
             <View style={details.container}>
-              <TouchableOpacity onPress={this.goEpargne} style={details.cancelLinkEpargne}>
-                 <Image style={details.imgAnnuler} source={ require('../../img/annuler.png')}
-                   />
-               </TouchableOpacity>
               <View style={details.head}>
                 <Text style={details.title}>{this.props.name}</Text>
               </View>
@@ -269,17 +266,14 @@ let Details = React.createClass ({
     return (
       <View style={{flex:1,}}>
       {this._renderHead()}
-      <View style={styles.container}>
-        <View style={details.quickLinkContainerCustom}>
-          <View style={styles.quickLinkBorder}>
-          <TouchableOpacity style={styles.quickLinkContentActive} onPress={this.goEpargne}>
-              <Text style={styles.quickLinkTextActive}>Épargnes</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.quickLinkContent} onPress={this.goPret}>
-              <Text style={styles.quickLinkText}>Prêts</Text>
-          </TouchableOpacity>
-        </View>
-        </View>
+      <View style={styles.containerCustom}>
+        <LinearGradient colors={['#4C85AF', '#0396FF']} start={{x: 0.0, y: 0.0}} end={{x: 1.0, y: 1.0}} style={styles.accrocheContainer}>
+          <View style={styles.accrocheTextBorder}>
+            <Text style={styles.accrocheText}>Un peu de patience ...</Text>
+              <Image style={styles.imgCoffreCustom} source={ require('../../img/coffre.png')}
+                />
+          </View>
+      </LinearGradient>
       </View>
       {this._renderDetails()}
       {this._renderDisplay()}

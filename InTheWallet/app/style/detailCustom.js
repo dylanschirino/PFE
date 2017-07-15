@@ -28,7 +28,7 @@ module.exports = EStyleSheet.create({
   },
   head:{
     flexDirection:'row',
-    paddingTop:50,
+    paddingTop:40,
     justifyContent:'center',
     width:'90%',
     position:'relative',
