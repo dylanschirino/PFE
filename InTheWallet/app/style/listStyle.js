@@ -200,6 +200,13 @@ module.exports = EStyleSheet.create({
     bottom:-22,
     right:-85,
   },
+  imgCar:{
+    width:70,
+    height:42,
+    position:'absolute',
+    bottom:-22,
+    right:-85,
+  },
   imgCoffreCustom:{
     width:56,
     height:54,

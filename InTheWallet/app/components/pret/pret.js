@@ -6,6 +6,7 @@ import axios from 'axios';
 import Swipeout from 'react-native-swipeout';
 import Display from 'react-native-display';
 import moment from 'moment';
+import LinearGradient from 'react-native-linear-gradient';
 import DeviceInfo from 'react-native-device-info';
 
 let nav = require('../../style/navStyle'),
@@ -339,16 +340,13 @@ let Pret = React.createClass ({
   },
   _renderSwitch(){
     return(
-      <View style={styles.quickLinkContainer}>
-        <View style={styles.quickLinkBorder}>
-          <TouchableOpacity style={styles.quickLinkContentRight} onPress={this.goEpargne}>
-              <Text style={styles.quickLinkText}>Épargnes</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.quickLinkContentActiveLeft}>
-              <Text style={styles.quickLinkTextActive}>Prêts</Text>
-          </TouchableOpacity>
-        </View>
-        </View>
+        <LinearGradient colors={['#4C85AF', '#0396FF']} start={{x: 0.0, y: 0.0}} end={{x: 1.0, y: 1.0}} style={styles.accrocheContainer}>
+          <View style={styles.accrocheTextBorder}>
+            <Text style={styles.accrocheText}>La vie sera bientôt plus facile</Text>
+            <Image style={styles.imgCar} source={ require('../../img/car.png')}
+            />
+          </View>
+        </LinearGradient>
     )
   },
   _renderDisplay(){
