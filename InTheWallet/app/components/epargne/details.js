@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image, Dimensions,Alert } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import SearchBar from 'react-native-search-bar';
 import axios from 'axios';
@@ -93,6 +93,24 @@ let Details = React.createClass ({
       passProps:{username:this.state.user,token:this.props.token},
     })
   },
+  _handleDelete(){
+    var config = {
+      'headers': { 'Authorization': 'Bearer ' + this.props.token }
+    };
+    var that = this;
+    axios.delete('http://104.131.74.22:8080/epargne/'+this.props.epargne_id,config)
+    .then( response => {
+      this.props.navigator.push({
+        component: Epargne,
+        title:'Epargne',
+        navigationBarHidden:true,
+        passProps:{username:this.state.user,token:this.props.token},
+      })
+    })
+    .catch(function (error) {
+      alert('Erreur:'+ error);
+    });
+  },
   goHome(){
     this.props.navigator.push({
       component: Home,
@@ -183,6 +201,19 @@ let Details = React.createClass ({
           <Text style={nav.navTitle}>{this.state.name}</Text>
           <TouchableOpacity style={nav.add} onPress={this.updateEpargne}>
             <Image style={nav.addIcone} source={ require('../../img/edit-details.png')}
+              />
+          </TouchableOpacity>
+          <TouchableOpacity style={nav.addCustom} onPress={
+            () => Alert.alert(
+            'Supprimer',
+            'Souhaitez-vous vraiment supprimer cette épargne ?',
+            [
+              {text: 'Supprimer', onPress: () => {this._handleDelete()}},
+              {text: 'Annuler', onPress: () => null},
+            ]
+            )
+            }>
+            <Image style={nav.addIcone} source={ require('../../img/button-delete.png')}
               />
           </TouchableOpacity>
         </View>
