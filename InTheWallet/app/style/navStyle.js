@@ -72,7 +72,11 @@ module.exports = EStyleSheet.create({
     textAlign:'center',
   },
   add:{
-    width:'12%',
+    marginLeft:-30,
+    marginRight:20,
+  },
+  addCustom:{
+    marginRight:25,
   },
   addIcone:{
     width:25,
