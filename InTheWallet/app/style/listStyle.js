@@ -447,6 +447,13 @@ module.exports = EStyleSheet.create({
       bottom:-27,
       right:-400,
     },
+    imgCar:{
+      width:102,
+      height:62,
+      position:'absolute',
+      bottom:-28,
+      right:-290,
+    },
     listCustom:{
       flexGrow:1,
       width:'100%',
