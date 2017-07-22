@@ -92,6 +92,16 @@ module.exports = EStyleSheet.create({
     navTitleCustomPret:{
       marginRight:100,
     },
+    navTitle:{
+      marginLeft:15,
+    },
+    add:{
+      marginLeft:-30,
+      marginRight:15,
+    },
+    addCustom:{
+      marginRight:20,
+    },
   },
   '@media (min-width:414px) and (max-width:765px)':{
     navTitleCustomLimit:{
@@ -102,6 +112,13 @@ module.exports = EStyleSheet.create({
     },
     navTitleCustomPret:{
       marginRight:150,
+    },
+    add:{
+      marginLeft:-20,
+      marginRight:20,
+    },
+    addCustom:{
+      marginRight:10,
     },
   },
   '@media (min-width:768px)':{
@@ -139,7 +156,11 @@ module.exports = EStyleSheet.create({
       marginRight:320,
     },
     add:{
-      marginRight:31,
+      marginLeft:0,
+      marginRight:10,
+    },
+    addCustom:{
+      marginRight:15,
     },
     addIcone:{
       width:30,
