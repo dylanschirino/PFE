@@ -406,6 +406,13 @@ module.exports = EStyleSheet.create({
       bottom:-27,
       right:-170,
     },
+    imgCar:{
+      width:70,
+      height:42,
+      position:'absolute',
+      bottom:-28,
+      right:-105,
+    },
   },
   '@media (min-width:768px)':{
     categorie:{
