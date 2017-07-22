@@ -6,6 +6,7 @@ import axios from 'axios';
 import TimerMixin from 'react-timer-mixin';
 import moment from 'moment';
 import Display from 'react-native-display';
+import LinearGradient from 'react-native-linear-gradient';
 let duration = require("moment-duration-format");
 
 let nav = require('../../style/navStyle'),
@@ -269,17 +270,14 @@ let Details = React.createClass ({
     return (
       <View style={{flex:1,}}>
       {this._renderHead()}
-      <View style={styles.container}>
-        <View style={details.quickLinkContainerCustom}>
-          <View style={styles.quickLinkBorder}>
-          <TouchableOpacity style={styles.quickLinkContentRight} onPress={this.goEpargne}>
-              <Text style={styles.quickLinkText}>Épargnes</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.quickLinkContentActiveLeft} onPress={this.goPret}>
-              <Text style={styles.quickLinkTextActive}>Prêts</Text>
-          </TouchableOpacity>
-        </View>
-        </View>
+      <View style={styles.containerCustom}>
+        <LinearGradient colors={['#0396FF','#4C85AF']} start={{x: 0.0, y: 0.0}} end={{x: 1.0, y: 1.0}} style={styles.accrocheContainer}>
+          <View style={styles.accrocheTextBorder}>
+            <Text style={styles.accrocheText}>La vie sera bientôt plus facile</Text>
+              <Image style={styles.imgCar} source={ require('../../img/car.png')}
+                />
+          </View>
+      </LinearGradient>
       </View>
       {this._renderDetails()}
       {this._renderDisplay()}

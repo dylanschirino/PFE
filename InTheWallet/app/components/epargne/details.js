@@ -267,7 +267,7 @@ let Details = React.createClass ({
       <View style={{flex:1,}}>
       {this._renderHead()}
       <View style={styles.containerCustom}>
-        <LinearGradient colors={['#4C85AF', '#0396FF']} start={{x: 0.0, y: 0.0}} end={{x: 1.0, y: 1.0}} style={styles.accrocheContainer}>
+        <LinearGradient colors={['#0396FF','#4C85AF']} start={{x: 0.0, y: 0.0}} end={{x: 1.0, y: 1.0}} style={styles.accrocheContainer}>
           <View style={styles.accrocheTextBorder}>
             <Text style={styles.accrocheText}>Un peu de patience ...</Text>
               <Image style={styles.imgCoffreCustom} source={ require('../../img/coffre.png')}

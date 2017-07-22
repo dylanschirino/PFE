@@ -342,7 +342,7 @@ let Pret = React.createClass ({
     return(
         <LinearGradient colors={['#4C85AF', '#0396FF']} start={{x: 0.0, y: 0.0}} end={{x: 1.0, y: 1.0}} style={styles.accrocheContainer}>
           <View style={styles.accrocheTextBorder}>
-            <Text style={styles.accrocheText}>La vie sera bientôt plus facile</Text>
+            <Text style={styles.accrocheText}>Êtes-vous prêt pour le futur?</Text>
             <Image style={styles.imgCar} source={ require('../../img/car.png')}
             />
           </View>
