@@ -108,13 +108,6 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = BVLinearGradient;
 		};
-		113621F11ED42F93004A2DEF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 113621CD1ED42F93004A2DEF /* RNLocalNotifications.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 15209BEF1D250F63000D0F44;
-			remoteInfo = RNLocalNotifications;
-		};
 		11457B1B1ED41B61003A1C26 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6C3968BC65804E4BBB8C2C1E /* RNUploader.xcodeproj */;
@@ -128,20 +121,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
 			remoteInfo = RNImagePicker;
-		};
-		115EED671ECDEF2B00E8547D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 115EED561ECDEF2B00E8547D /* RCTPushNotification.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RCTPushNotification;
-		};
-		115EED691ECDEF2B00E8547D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 115EED561ECDEF2B00E8547D /* RCTPushNotification.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D05745F1DE6004600184BB4;
-			remoteInfo = "RCTPushNotification-tvOS";
 		};
 		116D86991E9548B800E58025 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -331,9 +310,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* InTheWalletTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InTheWalletTests.m; sourceTree = "<group>"; };
 		03B5463DB8D94DFA8B44C2B3 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
-		113621CD1ED42F93004A2DEF /* RNLocalNotifications.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNLocalNotifications.xcodeproj; path = "../node_modules/react-native-local-notifications/ios/RNLocalNotifications.xcodeproj"; sourceTree = "<group>"; };
 		1143CB4A1E7D97E100EFF132 /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
-		115EED561ECDEF2B00E8547D /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		116612D71ED6D5A300710DAA /* InTheWallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = InTheWallet.entitlements; path = InTheWallet/InTheWallet.entitlements; sourceTree = "<group>"; };
 		1166DAA31E75AFB500F7BC57 /* lato-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lato-regular.ttf"; sourceTree = "<group>"; };
 		1166DAA81E75B0B200F7BC57 /* droidsans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = droidsans.ttf; sourceTree = "<group>"; };
@@ -503,14 +480,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		113621CE1ED42F93004A2DEF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				113621F21ED42F93004A2DEF /* libRNLocalNotifications.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		11457AF81ED41B61003A1C26 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,15 +492,6 @@
 			isa = PBXGroup;
 			children = (
 				115A1AAD1EC0D14300E8444B /* libRNImagePicker.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		115EED571ECDEF2B00E8547D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				115EED681ECDEF2B00E8547D /* libRCTPushNotification.a */,
-				115EED6A1ECDEF2B00E8547D /* libRCTPushNotification-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -637,8 +597,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				113621CD1ED42F93004A2DEF /* RNLocalNotifications.xcodeproj */,
-				115EED561ECDEF2B00E8547D /* RCTPushNotification.xcodeproj */,
 				11B91B181EB4C430007A232A /* RCTCameraRoll.xcodeproj */,
 				11DEA2F41EA39AFB00D0BFE5 /* RNSearchBar.xcodeproj */,
 				116D86951E9548B800E58025 /* ART.xcodeproj */,
@@ -793,7 +751,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -857,10 +815,6 @@
 					ProjectRef = 00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */;
 				},
 				{
-					ProductGroup = 115EED571ECDEF2B00E8547D /* Products */;
-					ProjectRef = 115EED561ECDEF2B00E8547D /* RCTPushNotification.xcodeproj */;
-				},
-				{
 					ProductGroup = 139105B71AF99BAD00B5F7CC /* Products */;
 					ProjectRef = 139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */;
 				},
@@ -891,10 +845,6 @@
 				{
 					ProductGroup = 115A1A8E1EC0D14300E8444B /* Products */;
 					ProjectRef = 4D1A40DB0BAD45A9AD2728A3 /* RNImagePicker.xcodeproj */;
-				},
-				{
-					ProductGroup = 113621CE1ED42F93004A2DEF /* Products */;
-					ProjectRef = 113621CD1ED42F93004A2DEF /* RNLocalNotifications.xcodeproj */;
 				},
 				{
 					ProductGroup = 11DEA2F51EA39AFB00D0BFE5 /* Products */;
@@ -965,13 +915,6 @@
 			remoteRef = 11292B3C1F1A6BD000F51688 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		113621F21ED42F93004A2DEF /* libRNLocalNotifications.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNLocalNotifications.a;
-			remoteRef = 113621F11ED42F93004A2DEF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		11457B1C1ED41B61003A1C26 /* libRNUploader.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -984,20 +927,6 @@
 			fileType = archive.ar;
 			path = libRNImagePicker.a;
 			remoteRef = 115A1AAC1EC0D14300E8444B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		115EED681ECDEF2B00E8547D /* libRCTPushNotification.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTPushNotification.a;
-			remoteRef = 115EED671ECDEF2B00E8547D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		115EED6A1ECDEF2B00E8547D /* libRCTPushNotification-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libRCTPushNotification-tvOS.a";
-			remoteRef = 115EED691ECDEF2B00E8547D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		116D869A1E9548B800E58025 /* libART.a */ = {
@@ -1405,7 +1334,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_ENTITLEMENTS = InTheWallet/InTheWallet.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
@@ -1446,7 +1374,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_ENTITLEMENTS = InTheWallet/InTheWallet.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = USQNK9959D;

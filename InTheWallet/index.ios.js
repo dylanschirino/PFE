@@ -8,11 +8,9 @@ import {
   Text,
   TouchableOpacity,
   NetInfo,
-  PushNotificationIOS,
   StyleSheet,
 } from 'react-native';
 
-var PushNotification = require('react-native-push-notification');
 var firstTime = require('react-native-catch-first-time');
 var DeviceInfo = require('react-native-device-info');
 

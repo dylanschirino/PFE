@@ -3361,10 +3361,6 @@ react-native-loading-gif@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/react-native-loading-gif/-/react-native-loading-gif-1.1.3.tgz#f1c89c8d2a2d9ca8e0915596de51f8418ed0f98d"
 
-react-native-push-notification@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-3.0.0.tgz#00282ea656443e89df6057f14b10500e7b89551f"
-
 react-native-search-bar:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-native-search-bar/-/react-native-search-bar-3.0.0.tgz#973b38276d06e1731ed52121e94f54b9aed2bfab"
