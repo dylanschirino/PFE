@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image,ProgressViewIOS,Alert,TextInput,AsyncStorage,PushNotificationIOS} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,  StatusBar, Image,ProgressViewIOS,Alert,TextInput,AsyncStorage} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Form from 'react-native-form';
 import axios from 'axios';
@@ -7,7 +7,6 @@ import Chart from 'react-native-chart';
 import Display from 'react-native-display';
 import TimerMixin from 'react-timer-mixin';
 import DeviceInfo from 'react-native-device-info';
-var PushNotification = require('react-native-push-notification');
 
 let styles = require('../style/homeStyle'),
     menu = require('../style/menuStyle');
@@ -217,31 +216,6 @@ let Home = React.createClass ({
 
     this.setTimeout( () => { this.toggleDisplayInfo()} ,5000);
 
-    var pourcentage = (Math.floor(this.state.total)/Math.floor(this.state.limit))*100;
-    if( pourcentage == 'NaN' || pourcentage == 'Infinity'){
-      PushNotification.localNotificationSchedule({
-        message: "Vous n'avez pas encodé de limite du mois",
-        date: new Date(Date.now() + ( 6 ))
-      });
-    }
-    else if( pourcentage >= 0 && pourcentage <= 50 ){
-      PushNotification.localNotificationSchedule({
-        message: "Oh hey l'ami ! Felicitation continuez comme ça!",
-        date: new Date(Date.now() + ( 6 ))
-      });
-    }
-    else if( pourcentage >= 81 && pourcentage <= 99 ){
-      PushNotification.localNotificationSchedule({
-        message: "Oh hey l'ami ! Attention vous n'êtes pas sur la bonne voie",
-        date: new Date(Date.now() + ( 6 ))
-      });
-    }
-    else if( pourcentage >= 100){
-      PushNotification.localNotificationSchedule({
-        message: "Faites attention ! Vous avez dépasser la limite du mois",
-        date: new Date(Date.now() + ( 6  ))
-      });
-    }
   },
   getInitialState: function() {
     return {
@@ -274,11 +248,6 @@ let Home = React.createClass ({
   },
   toggleDisplayInfo(){
     this.setState({enableInfo:false});
-  },
-  sendNotif(){
-    PushNotification.localNotification({
-      message: "My Notification Message",
-    });
   },
   logOut(){
     AsyncStorage.multiRemove(['tokenID','username']);

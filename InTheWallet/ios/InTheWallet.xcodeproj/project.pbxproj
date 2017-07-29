@@ -14,9 +14,7 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* InTheWalletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* InTheWalletTests.m */; };
 		06D75871FCC14356A5A8BEF0 /* libRNUploader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BED70E28BC1949268A3F6733 /* libRNUploader.a */; };
-		113621F51ED42FAC004A2DEF /* libRNLocalNotifications.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 113621F21ED42F93004A2DEF /* libRNLocalNotifications.a */; };
 		1143CB4B1E7D97E100EFF132 /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1143CB4A1E7D97E100EFF132 /* icomoon.ttf */; };
-		115EED7D1ECDEF3600E8547D /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 115EED681ECDEF2B00E8547D /* libRCTPushNotification.a */; };
 		1166DAA71E75AFB500F7BC57 /* lato-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1166DAA31E75AFB500F7BC57 /* lato-regular.ttf */; };
 		1166DAAB1E75B0B200F7BC57 /* droidsans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1166DAA81E75B0B200F7BC57 /* droidsans.ttf */; };
 		1166DAAC1E75B0B200F7BC57 /* lato-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1166DAA91E75B0B200F7BC57 /* lato-bold.ttf */; };
@@ -383,8 +381,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				113621F51ED42FAC004A2DEF /* libRNLocalNotifications.a in Frameworks */,
-				115EED7D1ECDEF3600E8547D /* libRCTPushNotification.a in Frameworks */,
 				11B91B391EB4C45F007A232A /* libRCTCameraRoll.a in Frameworks */,
 				11DEA3141EA39BD100D0BFE5 /* libRNSearchBar.a in Frameworks */,
 				116D86B41E9548C300E58025 /* libART.a in Frameworks */,
@@ -1414,6 +1410,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = USQNK9959D;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1453,6 +1450,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = USQNK9959D;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
