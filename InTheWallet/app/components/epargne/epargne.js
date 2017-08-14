@@ -188,6 +188,9 @@ let Epargne = React.createClass ({
             var final = new Date(end).getTime()/1000;
             var now = Date.now()/1000;
             var percent = (now-depart)/(final-depart);
+            if( percent >=100 ){
+              percent = 100;
+            }
           }
           var name = oEpargne.name;
           var generateName = function(){
@@ -259,6 +262,9 @@ let Epargne = React.createClass ({
             var final = new Date(end).getTime()/1000;
             var now = Date.now()/1000;
             var percent = (now-depart)/(final-depart);
+            if( percent >=100 ){
+              percent = 100;
+            }
           }
           var name = oEpargne.name;
           var generateName = function(){
