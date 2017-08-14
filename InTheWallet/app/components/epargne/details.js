@@ -55,7 +55,7 @@ let Details = React.createClass ({
       var distance = (timeStampFinal - timeStamp);
       var month = Math.floor( distance / (1000 * 60 * 60 * 24 * 31));
       var days = Math.floor((distance / (1000 * 60 * 60 * 24)));
-      if( days == 0 ){
+      if( days <= 0 ){
         var timeS = 'ÉPARGNE CLOTURÉ'
       }
       else{
