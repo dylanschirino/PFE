@@ -63,7 +63,7 @@ let addPret = React.createClass ({
       'headers': { 'Authorization': 'Bearer ' + this.props.token }
     };
     let duree = (this.state.duree || "" );
-    let regex = /^[0-9]{2}\-[0-9]{1}\-[0-9]{4}$/,
+    let regex = /^[0-9]{2}\-[0-9]{2}\-[0-9]{4}$/,
         test = regex.test(this.state.debut);
 
         if( this.state.name !='' ){
@@ -329,9 +329,9 @@ let addPret = React.createClass ({
                       date={this.state.debut}
                       mode="date"
                       placeholder="Choisir une date"
-                      format="DD-M-YYYY"
-                      minDate="01-1-1940"
-                      maxDate="01-1-2040"
+                      format="DD-MM-YYYY"
+                      minDate="01-01-1940"
+                      maxDate="01-01-2040"
                       confirmBtnText="Confirmer"
                       cancelBtnText="Annuler"
                       showIcon={false}
